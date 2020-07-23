@@ -57,6 +57,8 @@
       - [요구사항 정의서 예1 출처 - 시간속의 창업자](https://brunch.co.kr/@firstevan/6)
       - [단위업무정의서 예1 출처 - 세컨드스페이스](https://brunch.co.kr/@second-space/24)
       - [단위업무정의서 예2 출처 - 갓대희의 작은공간](https://goddaehee.tistory.com/122)
+      - [요구사항 기술서 및 요구사항 정의서 작성방법 - 모그니](https://m.blog.naver.com/PostView.nhn?blogId=mogni&logNo=220670564871&proxyReferer=https:%2F%2Fwww.google.com%2F)
+      - [요구사항 정의서 문서화방법 - wishket](http://blog.wishket.com/%EC%99%B8%EC%A3%BC%EB%A5%BC-%EB%A7%A1%EA%B8%B0%EB%A0%A4%EB%A9%B4-%EB%AD%90%EB%B6%80%ED%84%B0-%ED%95%B4%EC%95%BC%ED%95%98%EC%A3%A0-3-%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD%EC%A0%95%EC%9D%98%EC%84%9C/)
 
 <br>
 
