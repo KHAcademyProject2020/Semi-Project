@@ -1,40 +1,96 @@
 @charset "UTF-8";
-*{margin: 0px; padding: 0px;}
-ul {list-style: none;}
-a{text-decoration: none;}
+*{
+	color: rgb(52,73,96);
+}
 
-header{
-	width: 100%;	/*  */
-	height: 100px;
+/* HEAD & FOOT */
+header, footer{
+	width: 100%;
 	background-color: #4ce3da;
-	
-	position: relative;
+	height: 100px;
+	position:fixed;
 }
 
-#logo{
+
+/* 헤더 */
+header{
+	position:fixed;
+}
+
+/* 홈페이지 로고이미지 */
+#home-logo img{
 	position: absolute;
-	top: 30px;
-	left: 30px;
+	width:100px;
+	height:100px;
+	margin-left: 50px;
 }
 
-#top_menu{
-	position: absolute;
-	top: 20px;
-	right: 10px;
-	color: pink;
+/* 헤더 내 nav바 */
+.header-nav{
+	float:right;
+	margin-top:10px;
+	margin-right: 50px;
 }
 
-#top_menu a{
-	color: darkorange;
-	font-weight: bolder;
+.header-nav> a{
+	text-decoration-line:none;
 }
 
+.nav-tabs,.alarm-container{
+	margin-left: 10px;
+}
+
+.nav-tabs{
+	display:inline-block;
+	font-size: 1.5em;
+	border-style: none;
+	padding:20px;
+}
+
+.nav-tabs:hover{
+	font-weight:bold;
+	color: white;
+	border-bottom-style: solid;
+	border-bottom-color: white;
+	border-bottom-width: 5px;
+}
+
+.alarm-container{
+	display: inline-block;
+}
+
+#alarm-cnt{
+	border-radius: 20px;
+}
+
+.active{
+	color: white;
+	font-weight: bold;
+}
+
+
+/* BODY */
+#content{
+	padding-top: 200px;
+	width:100%;
+}
+
+
+
+
+
+/* FOOT */
 footer{
 	position:absolute;
-	bottom: 0;
-	width: 100%;
-	height: 100px;
+	bottom:0;
+}
+
+footer > div{
 	margin-top: 20px;
-	text-align: right;
-	background-color: #4ce3da;
+	text-align: center;
+}
+
+
+footer a, footer a:hover{
+	text-decoration-line: none;
 }
