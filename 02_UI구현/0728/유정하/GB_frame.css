@@ -1,0 +1,40 @@
+@charset "UTF-8";
+*{margin: 0px; padding: 0px;}
+ul {list-style: none;}
+a{text-decoration: none;}
+
+header{
+	width: 100%;	/*  */
+	height: 100px;
+	background-color: #4ce3da;
+	
+	position: relative;
+}
+
+#logo{
+	position: absolute;
+	top: 30px;
+	left: 30px;
+}
+
+#top_menu{
+	position: absolute;
+	top: 20px;
+	right: 10px;
+	color: pink;
+}
+
+#top_menu a{
+	color: darkorange;
+	font-weight: bolder;
+}
+
+footer{
+	position:absolute;
+	bottom: 0;
+	width: 100%;
+	height: 100px;
+	margin-top: 20px;
+	text-align: right;
+	background-color: #4ce3da;
+}
