@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Good Ball (로그인 상태)</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	
+	<link rel="stylesheet" href="./GB_frame.css">
+	
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+		crossorigin="anonymous"></script>
+
+<style>
+.team-nav{
+	width: 100%;
+}
+
+.team-nav> a{
+	text-decoration-line:none;
+}
+
+.team-tabs{
+	display:inline-block;
+	font-size: 4em;
+	border-style: none;
+	padding:20px;
+	border: 1px solid black; color: white;
+	margin: 20px;
+	color: black;
+	
+}
+.team-tabs:hover{
+	font-weight:bold;
+	color: yellow;
+	border-bottom-style: solid;
+	border-bottom-color: black;
+	border-bottom-width: 5px;
+}
+
+/* BODY */
+#content{
+	padding-top: 200px;
+	text-align:center;
+	
+	
+}
+
+.wrap1 {
+	display:inline-block;
+	padding:50px;
+ 	border: 1px solid black; color: white;
+}
+
+.wrap2 {
+	display:inline-block;
+	position: absolute;
+	bottom: 200px;
+ 	border: 1px solid black; color: white;
+}
+
+.wrap3 {
+	
+ 	display:inline;
+ 	
+}
+</style>
+</head>
+
+<body>
+	<div id="page">
+		<!-- HEAD(고정) -->
+		<header>
+			<div id="home-logo">
+				<a href="#">
+					<img src="./main_logo.png" alt="logo">
+				</a>
+
+				<nav class="header-nav">
+					
+					<a href="./GB_notice.html">
+						<div class="nav-tabs">공지사항</div>
+					</a>
+
+					<a href="./GB_mypage.html">
+						<div class="nav-tabs">마이페이지</div> 
+					</a>
+
+					<a href="./GB_logoutted.html">
+						<div class="nav-tabs">로그아웃</div>
+					</a>
+
+					<div class="alarm-container">
+						<svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-bell-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+							<path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+						</svg>
+						<span id="alarm-cnt" class="badge badge-pill badge-danger">0</span>
+					</div>
+					
+				</nav>
+				<br clear="all">
+			</div>
+		</header>
+
+		<!-- BODY -->
+		<section id="content">
+		<div class="container-content">
+			<!-- container안에 들어있는 내용이 바뀜. -->
+			
+			<div class="wrap">
+			
+				<h1>팀이름</h1>
+				
+				<div class="wrap1">	
+					<img src= "팀마크.png" width="200px" height="150px">
+				</div>
+				<div class="wrap2">	
+					<table border="2">
+			
+						<tr>	
+							<td width="100px"><h5>지역</h5></td>
+							<td width="150px">강남구</td>
+						
+						</tr>
+						
+						<tr>
+							<td><h5>성별</h5></td>
+							<td>남녀혼합</td>
+						</tr>
+						
+						<tr>
+							<td><h5>연령대</h5></td>
+							<td> 10대 ~20대</td>
+						</tr>
+						
+						<tr>
+							<td><h5>별점</h5></td>
+							<td>★★★★☆</td>
+						</tr>
+							
+					</table>
+				</div>
+					
+			</div>
+					
+			
+			<hr>
+				<h1>팀 최근 전적</h1>
+				<hr>
+			<div>
+				<img src= "팀전적.png" width="1000px" height="300px"> 
+			
+			</div>
+			
+			<hr>
+			
+			<br>
+			<br>
+			<div class="wrap3">
+			
+				<nav class="team-nav">
+			
+					<a href="#">
+						<div class="team-tabs">팀 정보</div>
+					</a>
+
+					<a href="#">
+						<div class="team-tabs">용병 지원 현황</div> 
+					</a>
+
+					<a href="#">
+						<div class="team-tabs">매칭신청 현황</div>
+					</a>
+					
+				</nav>
+				
+				<br>
+				<br>
+				<br>
+			
+				
+				<hr>
+				<h1>매칭 신청 현황</h1>
+				<hr>
+				<table border="1">
+		
+					<tr>
+						<td width="1000px">no</td>
+						<td width="1000px">팀명</td>
+						<td width="1000px">지역</td>
+					
+					</tr>
+					
+					<tr>
+						<td height=" 50"></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td height=" 50"></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td height=" 50"></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td height=" 50"></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td height=" 50"></td>
+						<td></td>
+						<td></td>
+					</tr>
+					
+					
+				</table>	
+				<br>
+				<br>
+			<div>
+					<img src= "페이지.png" width="500px" height="100px"> 
+				
+			</div>
+			</div>
+			
+			
+		</div>
+				
+		</section>
+
+		<br><br><br><br><br><br><br><br><br><br>
+		
+		
+		
+		<!-- FOOT(고정) -->
+		<footer>
+			<div>
+				<a href="https://github.com/KHAcademyProject2020/Semi-Project" target="_blank"><h5>Good Ball</h5></a>
+				<p>KH Academy</p>
+			</div>
+		</footer>
+
+	</div>
+</body>
+
+</html>
