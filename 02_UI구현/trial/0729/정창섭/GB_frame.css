@@ -1,0 +1,88 @@
+@charset "UTF-8";
+*{
+	color: rgb(52,73,96);
+}
+
+/* 헤더 */
+header{
+   position:fixed;
+   left:0px;
+   top:0px;
+   height:100px;
+   width:100%;
+   background:#4ce3da;
+   color: white;
+   border: 1px solid black; color: white;
+}
+
+/* 홈페이지 로고이미지 */
+#home-logo img{
+	position: absolute;
+	width:100px;
+	height:100px;
+	margin-left: 50px;
+	border: 1px solid black; color: white;
+}
+
+/* 헤더 내 nav바 */
+.header-nav{
+	float:right;
+	margin-top:10px;
+	margin-right: 50px;
+}
+
+.header-nav> a{
+	text-decoration-line:none;
+}
+
+.nav-tabs,.alarm-container{
+	margin-left: 10px;
+}
+
+.nav-tabs{
+	display:inline-block;
+	font-size: 1.5em;
+	border-style: none;
+	padding:20px;
+}
+
+.nav-tabs:hover{
+	font-weight:bold;
+	color: white;
+	border-bottom-style: solid;
+	border-bottom-color: white;
+	border-bottom-width: 5px;
+}
+	
+.alarm-container{
+	display: inline-block;
+	border: 1px solid black; color: white;
+}
+
+#alarm-cnt{
+	border-radius: 20px;
+	
+}
+
+.active{
+	color: white;
+	font-weight: bold;
+}
+
+/* FOOT */
+footer{
+	
+	left:0px;
+	bottom:0px;
+	background:#4ce3da;
+	color: white;
+	padding-bottom: 50px;
+}
+
+footer > div{
+	text-align: center;
+}
+
+footer a, footer a:hover{
+	text-decoration-line: none;
+}
