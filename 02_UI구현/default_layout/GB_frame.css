@@ -1,79 +1,72 @@
+/*기본틀 레이아웃 css*/
 @charset "UTF-8";
 *{
 	color: rgb(52,73,96);
 }
 
-/* HEAD & FOOT */
-header, footer{
-	width: 100%;
-	background-color: #4ce3da;
-	height: 100px;
-	position:fixed;
+/*header*/
+#home-logo, #home-logo img{
+	position:relative;
+	width: 80px;
+	height: 80px;
 }
 
-
-/* 헤더 */
-header{
-	position:fixed;
+#home-logo{
+	/* margin-left: 30px; */
+	margin-bottom:10px;
+	margin: auto;
 }
 
-/* 홈페이지 로고이미지 */
-#home-logo img{
-	position: absolute;
-	width:100px;
-	height:100px;
-	margin-left: 50px;
+#home-log> img{
+	position: relative;
+	width:75px;
+	height:75px;
 }
 
-/* 헤더 내 nav바 */
-.header-nav{
-	float:right;
-	margin-top:10px;
-	margin-right: 50px;
+/*header-nav-bar*/
+.bg-light{
+	background-color: #4ce3da!important;
 }
 
-.header-nav> a{
-	text-decoration-line:none;
+.nav-item{
+	margin-right: 10px;
 }
 
-.nav-tabs,.alarm-container{
-	margin-left: 10px;
+.nav-item > a{
+	font-size: 1.2em;
+	font-weight: bolder;
+	margin-left: 20px;
+	margin-right: 20px;
 }
 
-.nav-tabs{
-	display:inline-block;
-	font-size: 1.5em;
-	border-style: none;
-	padding:20px;
-}
-
-.nav-tabs:hover{
-	font-weight:bold;
+/* 목록을 호버시 효과를 준다. */
+.nav-item:hover{
 	color: white;
-	border-bottom-style: solid;
+	/* border-bottom-style: solid;
 	border-bottom-color: white;
-	border-bottom-width: 5px;
+	border-bottom-width: 5px; */
 }
 
-.alarm-container{
-	display: inline-block;
-}
 
-#alarm-cnt{
-	border-radius: 20px;
-}
-
-.active{
-	color: white;
-	font-weight: bold;
-}
 
 
 /* BODY */
 #content{
-	padding-top: 200px;
 	width:100%;
+	margin: 0 auto;
+	text-align: center;
 }
+
+.container-content{
+	padding-top: 10%;
+	margin-left: 10%;
+	margin-right: 10%;
+
+	/*내용 컴포넌트를 넣는 곳*/
+	background-color: rgb(223,232,225); 
+}
+
+
 
 
 
@@ -81,12 +74,14 @@ header{
 
 /* FOOT */
 footer{
-	position:absolute;
+	width: 100%;
+	background-color: #4ce3da;
+	height: 100px;
+	position:sticky;
 	bottom:0;
 }
 
 footer > div{
-	margin-top: 20px;
 	text-align: center;
 }
 
@@ -94,3 +89,4 @@ footer > div{
 footer a, footer a:hover{
 	text-decoration-line: none;
 }
+
