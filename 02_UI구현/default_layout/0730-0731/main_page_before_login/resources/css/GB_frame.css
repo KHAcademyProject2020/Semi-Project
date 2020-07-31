@@ -4,6 +4,10 @@
 	color: #344960;
 }
 
+body{
+	background-color:rgba(223,232,225,0.1);
+}
+
 
 /*header*/
 #home-logo, #home-logo img{
@@ -74,7 +78,7 @@
 		padding-bottom: 5%;
 	
 		/*내용 컴포넌트를 넣는 곳*/
-		background-color: rgb(223,232,225); 
+		background-color: rgba(223,232,225,0.1); 
 }
 
 
