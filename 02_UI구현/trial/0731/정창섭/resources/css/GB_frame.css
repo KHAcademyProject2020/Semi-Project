@@ -1,0 +1,103 @@
+/*기본틀 레이아웃 css*/
+@charset "UTF-8";
+*{
+	color: #344960;
+}
+
+body{
+	background-color:rgba(223,232,225,0.1);
+}
+
+
+/*header*/
+#home-logo, #home-logo img{
+	position:relative;
+	width: 80px;
+	height: 80px;
+}
+
+#home-logo{
+	/* margin-left: 30px; */
+	margin-bottom:10px;
+	margin: auto;
+}
+
+#home-log> img{
+	position: relative;
+	width:75px;
+	height:75px;
+}
+
+/*header-nav-bar*/
+.bg-light{
+	background-color: #4ce3da!important;
+}
+
+.nav-item{
+	margin-right: 10px;
+}
+
+.nav-item > a{
+	font-size: 1.2em;
+	font-weight: bolder;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+/* 목록을 호버시 효과를 준다. */
+.nav-item:hover{
+	color: white;
+	/* border-bottom-style: solid;
+	border-bottom-color: white;
+	border-bottom-width: 5px; */
+}
+
+
+
+
+/* BODY */
+#content{
+	width:100%;
+	margin: 0 auto;
+	text-align: center;
+	/* font-size: 1.2vw; */
+}
+
+.container-for-carousel{
+	width:100%;
+}
+
+.container-for-content{
+		padding-top: 3%;
+		margin-left: 10%;
+		margin-right: 10%;
+	
+		padding-left: 10%;
+		padding-right: 10%;	
+
+		padding-bottom: 5%;
+	
+		/*내용 컴포넌트를 넣는 곳*/
+		background-color: rgba(223,232,225,0.1); 
+}
+
+
+
+/* FOOT */
+footer{
+	width: 100%;
+	background-color: #4ce3da;
+	height: 100px;
+	position:relative;
+	padding-top:25px;
+	bottom:0;
+}
+
+footer > div{
+	text-align: center;
+}
+
+
+footer a, footer a:hover{
+	text-decoration-line: none;
+}
