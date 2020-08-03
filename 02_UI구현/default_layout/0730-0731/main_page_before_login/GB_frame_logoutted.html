@@ -24,12 +24,15 @@
 
 	<style>
 		.carousel-inner, .carousel-item > img, .carousel-item:active>img{
-			height:1000px;
+			height:800px;
+			position: sticky;
 		}
 
 		.container-for-content{
 			display:none;
+			min-width: 500px;
 		}
+
 	</style>
 </head>
 
@@ -37,59 +40,62 @@
 	<div id="page">
 		<!-- HEAD(고정) : 내용변경하지 마세요~ -->
 		<header>
-			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-				<div id="home-logo">
-					<a class="navbar-brand" href="#">
-						<img src="./resources/images/main_logo.png" alt="logo">
-					</a>
-				</div>
-
-				<!-- 햄버거 버튼 -->
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-					aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-
-				<div class="collapse navbar-collapse" id="navbarText">
-					<ul class="navbar-nav mr-auto">
-						<br>
-
-						<li class="nav-item active">
-							<a class="nav-link" href="#">공지사항 <span class="sr-only">(current)</span></a>
-						</li>
-
-						<li class="nav-item">
-							<a class="nav-link" href="#">FAQ</a>
-						</li>
-
-						<li class="nav-item">
-							<a class="nav-link" href="#">매치</a>
-						</li>
-
-						<li class="nav-item">
-							<a class="nav-link" href="#">구장</a>
-						</li>
-
-						<li class="nav-item">
-							<a class="nav-link" href="#">용병</a>
-						</li>
-
-						<li class="nav-item">
-							<a class="nav-link" href="#">팀</a>
-						</li>
-
-						<li class="nav-item">
-							<a class="nav-link" href="#">커뮤니티</a>
-						</li>
-					</ul>
-
-					<!--로그인 페이지로 이동한다.-->
-					<button style="margin-left: 15px;" 
-						class="nav-link btn btn-outline-success my-2 my-sm-0" type="submit">로그인</button>
-					
-				</div>
-			</nav>
+			<div class="header-nav-box">
+				<nav class="navbar navbar-expand-lg navbar-light bg-light">
+					<div id="home-logo">
+						<a class="navbar-brand" href="#">
+							<img src="./resources/images/main_logo.png" alt="logo">
+						</a>
+					</div>
+	
+					<!-- 햄버거 버튼 -->
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+						aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+	
+	
+					<div class="collapse navbar-collapse" id="navbarText">
+						<ul class="navbar-nav mr-auto">
+							<br>
+	
+							<li class="nav-item active">
+								<a class="nav-link" href="#">공지사항 <span class="sr-only">(current)</span></a>
+							</li>
+	
+							<li class="nav-item">
+								<a class="nav-link" href="#">FAQ</a>
+							</li>
+	
+							<li class="nav-item">
+								<a class="nav-link" href="#">매치</a>
+							</li>
+	
+							<li class="nav-item">
+								<a class="nav-link" href="#">구장</a>
+							</li>
+	
+							<li class="nav-item">
+								<a class="nav-link" href="#">용병</a>
+							</li>
+	
+							<li class="nav-item">
+								<a class="nav-link" href="#">팀</a>
+							</li>
+	
+							<li class="nav-item">
+								<a class="nav-link" href="#">커뮤니티</a>
+							</li>
+						</ul>
+	
+						<!--로그인 페이지로 이동한다.-->
+						<button style="margin-left: 15px;" 
+							class="nav-link btn btn-outline-secondary"   my-2 my-sm-0" type="submit">로그인</button>
+						
+					</div>
+				</nav>
+			</div>
+			
 		</header>
 		<!-- HEADER 끝-->
 
