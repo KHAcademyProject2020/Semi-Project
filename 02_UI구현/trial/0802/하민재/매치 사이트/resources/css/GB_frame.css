@@ -92,25 +92,42 @@ body{
 
 #match-up{
 	background: #00FF80;
+	text-decoration: none;
 }
 
 #match-table{
 	text-align: center;
-	width: 80%
+	width: 80%;
 	
 }
 
-.pagelink{
-	color: black;
+#match_up_body{
+	margin-left: 25%;
+	width: 50%
+	
 }
 
+#up_text{
+	text-align: center;
+	font-size: 20px;
+	color: red;
+}
 
+.right_ch{
+	
+}
 
+#right{
+	padding-left:20px;
+}
 
+#left{
+	padding-right:30px;
+}
 
-
-
-
+#td1{
+	text-decoration: none;
+}
 
 
 /* FOOT */
