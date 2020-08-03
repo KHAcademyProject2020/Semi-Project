@@ -175,7 +175,7 @@ label {
 							</div>
 						</div>
 						<input type="text" style="border: 0; background-color: #fbfcfb;"
-							id="pwdCheck" size=40 readonly="readonly" disabled; > <br>
+							id="pwdCheck" size=40 readonly="readonly"disabled; > <br>
 
 						<div class="last_button">
 							<button class="last_btn">확인</button>
@@ -206,6 +206,21 @@ label {
 		function duplicationCheckPw() {
 			var pw1 = document.getElementById("pwd1");
 			var pw2 = document.getElementById("pwd2");
+			var pw1_min = $("#pwd1").val();
+			var pw2_min = $("#pwd2").val();
+
+			if (pw1_min.length < 5) {
+				document.getElementById("pwdCheck").value = "비밀번호란을 5자 이상 입력해주세요."
+				document.getElementById("pwdCheck").style.color = "red";
+				return false;
+			}
+
+			if (pw2_min.length < 5) {
+				document.getElementById("pwdCheck").value = "비밀번호 확인란을 5자 이상 입력해주세요."
+				document.getElementById("pwdCheck").style.color = "red";
+				return false;
+			}
+
 			if (pw1.value != pw2.value) {
 				document.getElementById("pwdCheck").value = "비밀번호가 일치하지 않습니다."
 				document.getElementById("pwdCheck").style.color = "red";
@@ -214,6 +229,7 @@ label {
 				document.getElementById("pwdCheck").value = "비밀번호가 일치합니다."
 				document.getElementById("pwdCheck").style.color = "#4ce3da";
 			}
+
 		}
 	</script>
 </body>
