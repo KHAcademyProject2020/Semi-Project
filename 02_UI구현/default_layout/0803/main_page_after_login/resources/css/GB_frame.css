@@ -1,0 +1,124 @@
+/*기본틀 레이아웃 css*/
+@charset "UTF-8";
+*{
+	color: #344960;
+}
+
+
+@media all and (min-width: 500px) and (device-height:480px){
+	/*모바일에 사용될 스타일 시트를 여기에 작성한다.*/
+	*{
+		display: flex;
+		flex-direction:column;
+		flex-direction:row;
+	}
+}
+
+
+/*header*/
+#home-logo, #home-logo img{
+	position:sticky;
+	width: 80px;
+	height: 80px;
+}
+
+#home-logo{
+	/* margin-left: 30px; */
+	margin-bottom:10px;
+	margin: auto;
+}
+
+#home-log> img{
+	position: relative;
+	width:75px;
+	height:75px;
+}
+
+/*header-nav-bar*/
+
+
+.header-nav-box{
+	position:relative;
+	height: 10%;
+}
+
+.bg-light{
+	background-color: #4ce3da!important;
+	position:inherit;
+}
+
+.nav-item{
+	margin-right: 10px;
+}
+
+.nav-item > a{
+	font-size: 1.2em;
+	font-weight: bolder;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+/* 목록을 호버시 효과를 준다. */
+/* .nav-item:hover{
+	color: white;
+	border-bottom-style: solid;
+	border-bottom-color: white;
+	border-bottom-width: 5px;
+} */
+
+
+
+
+/* BODY */
+#content{
+	width:auto;
+	height: auto;
+	position:inherit;
+	text-align: center;
+	/* font-size: 1.2vw; */
+}
+
+.container-for-carousel{
+	position:inherit;
+	width:auto;
+	background-repeat:none;
+	background-size: contain;
+}
+
+.container-for-content{
+	background-size:auto;
+	padding-top: 3%;
+	margin-left: 10%;
+	margin-right: 10%;
+
+	padding-left: 10%;
+	padding-right: 10%;	
+
+	padding-bottom: 5%;
+
+	/*내용 컴포넌트를 넣는 곳*/
+	/* background-color: rgba(223,232,225,0.1);  */
+}
+
+
+
+/* FOOT */
+footer{
+	width: 100%;
+	background-color: #4ce3da;
+	height: 10%;
+	/* position:sticky; */
+	padding-top:25px;
+	overflow: hidden;
+	bottom:0;
+}
+
+footer > div{
+	text-align: center;
+}
+
+
+footer a, footer a:hover{
+	text-decoration-line: none;
+}
+
