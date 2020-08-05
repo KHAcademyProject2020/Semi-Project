@@ -6,7 +6,7 @@
 	<title>Good Ball (로그아웃 상태)</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	
+
 
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -18,18 +18,21 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
 		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
 		crossorigin="anonymous"></script>
-	
-	<link rel="stylesheet" href="./resources/css/GB_frame.css">		
+
+	<link rel="stylesheet" href="./resources/css/GB_frame.css">
 
 
 	<style>
-		.carousel-inner, .carousel-item > img, .carousel-item:active>img{
-			height:1000px;
+		.carousel-inner,
+		.carousel-item>img,
+		.carousel-item:active>img {
+			height: 1000px;
 		}
 
-		.container-for-content{
-/* 			display:none;
- */		}
+		.container-for-content {
+			/* 			display:none;
+ */
+		}
 	</style>
 </head>
 
@@ -85,9 +88,9 @@
 					</ul>
 
 					<!--로그인 페이지로 이동한다.-->
-					<button style="margin-left: 15px;" 
-						class="nav-link btn btn-outline-success my-2 my-sm-0" type="submit">로그인</button>
-					
+					<button style="margin-left: 15px;" class="nav-link btn btn-outline-success my-2 my-sm-0"
+						type="submit">로그인</button>
+
 				</div>
 			</nav>
 		</header>
@@ -162,91 +165,91 @@
 			<!--본내용-->
 			<!--container-for-content 시작-->
 			<div class="container-for-content">
-			
-			<h3 class="match-main"> 매치 </h3>
-			
+
+				<h3 class="match-main"> 매치 </h3>
+
+
+
+				<br>
+
+				<div align="right">
+
+					<button id="match-search"> 매치 검색 </button>
+
+
+					<button id="match-up"> 매치 등록 </button>
+
+
+
+					<br><br>
+
+				</div>
+
+				<div align="center">
+
+					<table border=1 id="match-table">
+
+						<thead>
+							<tr>
+								<th>지역</th>
+								<th>연령</th>
+								<th>성별</th>
+								<th>팀명</th>
+								<th>신청 여부</th>
+							</tr>
+						</thead>
+						<tr>
+							<td>서울</td>
+							<td>20대</td>
+							<td>남자</td>
+							<td>옆동네 M시</td>
+							<td>가능</td>
+						</tr>
+						<tr>
+							<td>인천</td>
+							<td>10대</td>
+							<td>혼성</td>
+							<td>인천 고등학교</td>
+							<td>불가능</td>
+						</tr>
+						<tr>
+							<td>대구</td>
+							<td>40대</td>
+							<td>남자</td>
+							<td>조기 풋살회</td>
+							<td>불가능</td>
+						</tr>
+						<tr>
+							<td>서울시</td>
+							<td>20대</td>
+							<td>여자</td>
+							<td>우리동네 대표</td>
+							<td>가능</td>
+						</tr>
+
+					</table>
+				</div>
+
+				<br><br>
+
+				<div>
+
+					<nav aria-label="Page navigation example">
+						<ul class="pagination justify-content-center">
+							<li class="page-item disabled">
+								<a class="page-link" href="#" tabindex="-1" aria-disabled="true">이전</a>
+							</li>
+							<li class="page-item"><a class="page-link" href="#">1</a></li>
+							<li class="page-item"><a class="page-link" href="#">2</a></li>
+							<li class="page-item"><a class="page-link" href="#">3</a></li>
+							<li class="page-item">
+								<a class="page-link" href="#">다음</a>
+							</li>
+						</ul>
+					</nav>
+
+				</div>
 			</div>
-
-			<br>
-			
-			<div align="right">
-			
-			<button id="match-search"> 매치 검색 </button>
-			
-			
-			<button id="match-up" > 매치 등록 </button>
-				
-			
-			
-			<br><br>
-			
-			</div>
-			
-			<div align="center">
-			
-			<table border = 1 id="match-table">
-						
-				<thead>
-				<tr>
-					<th>지역</th>
-					<th>연령</th>
-					<th>성별</th>
-					<th>팀명</th>
-					<th>신청 여부</th>
-				</tr>
-				</thead>
-				<tr>
-					<td>서울</td>
-					<td>20대</td>
-					<td>남자</td>
-					<td>옆동네 M시</td>
-					<td>가능</td>
-				</tr>
-				<tr>
-					<td>인천</td>
-					<td>10대</td>
-					<td>혼성</td>
-					<td>인천 고등학교</td>
-					<td>불가능</td>
-				</tr>
-				<tr>
-					<td>대구</td>
-					<td>40대</td>
-					<td>남자</td>
-					<td>조기 풋살회</td>
-					<td>불가능</td>
-				</tr>
-				<tr>
-					<td>서울시</td>
-					<td>20대</td>
-					<td>여자</td>
-					<td>우리동네 대표</td>
-					<td>가능</td>
-				</tr>
-							
-			</table>	
-			</div>
-
-			<br><br>
-
-			<div>
-
-				<nav aria-label="Page navigation example">
-					<ul class="pagination justify-content-center">
-					  <li class="page-item disabled">
-						<a class="page-link" href="#" tabindex="-1" aria-disabled="true">이전</a>
-					  </li>
-					  <li class="page-item"><a class="page-link" href="#">1</a></li>
-					  <li class="page-item"><a class="page-link" href="#">2</a></li>
-					  <li class="page-item"><a class="page-link" href="#">3</a></li>
-					  <li class="page-item">
-						<a class="page-link" href="#">다음</a>
-					  </li>
-					</ul>
-				  </nav>
-
-			</div>
-
 
 			<!--container-for-content 끝-->
 
@@ -260,7 +263,7 @@
 			<div class>
 				<a href="https://github.com/KHAcademyProject2020/Semi-Project" target="_blank">
 					<h5>Good Ball</h5>
-				</a>	
+				</a>
 				<p>KH Academy</p>
 			</div>
 		</footer>
@@ -268,4 +271,4 @@
 	</div>
 </body>
 
-</html> 
+</html>
