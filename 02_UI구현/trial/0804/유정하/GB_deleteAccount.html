@@ -2,97 +2,88 @@
 <html>
 
 <head>
-<meta charset="UTF-8">
-<title>Good Ball (로그인 상태) 회원 탈퇴</title>
-<link rel="stylesheet" href='./resources/GB_frames.css'>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-	crossorigin="anonymous">
+	<meta charset="UTF-8">
+	<title>Good Ball (로그인 상태) 회원 탈퇴</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+		crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="./resources/css/GB_frame.css">
 
 
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-	crossorigin="anonymous"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-	integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-	crossorigin="anonymous"></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-	integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-	crossorigin="anonymous"></script>
-
-<link rel="stylesheet" href="./resources/css/GB_frame.css">
+	<style>
 
 
-<style>
-/* .carousel-inner, .carousel-item>img, .carousel-item:active>img {
-	height: 1000px;
-}
- */
+		/*메인페이지를 제외한 나머지는 display: block으로 한다.*/
+		.container-for-content {
+			padding-top: 3%;
+			display: block;
+		}
 
-/*메인페이지를 제외한 나머지는 display: block으로 한다.*/
-.container-for-content {
-	padding-top: 1%;
-	display: block;
-}
+		/*멤버회원가입 페이지/ 회원탈퇴/ 멤버(일반회원, 풋살장매니저회원) 회원정보수정/ 비밀번호찾기/ 아이디 찾기/  공통스타일리스트 */
+		/*멤버회원가입 페이지 , 멤버회원정보수정 페이지 공통 바깥 컨테이너*/
+		.membership-update {
+			margin: 0 auto;
+			width: 400px;
+		}
 
-/*멤버회원가입 페이지/ 회원탈퇴/ 멤버(일반회원, 풋살장매니저회원) 회원정보수정/ 비밀번호찾기/ 아이디 찾기/  공통스타일리스트 */
-/*멤버회원가입 페이지 , 멤버회원정보수정 페이지 공통 바깥 컨테이너*/
-.membership-update {
-	margin: 0 auto;
-	width: 400px;
-}
+		/*멤버십 회원가입, 회원정보 수정 페이지 공통스타일리스트  */
+		button.btn.btn-primary.btn-lg.btn-block.login-button {
+			background-color: #4ce3da;
+			border: 0;
+			outline: 0;
+		}
 
-/*멤버십 회원가입, 회원정보 수정 페이지 공통스타일리스트  */
-button.btn.btn-primary.btn-lg.btn-block.login-button {
-	background-color: #4ce3da;
-	border: 0;
-	outline: 0;
-}
+		footer {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 100px;
+		}
 
-footer {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 100px;
-}
+		.input-group-text {
+			width: 130px;
+		}
 
-.input-group-text {
-	width: 130px;
-}
+		.last_btn {
+			background-color: #4ce3da;
+			padding: 7px;
+			margin: 10px;
+			border: 0;
+			outline: 0;
+			border-radius: 6px;
+			color: white;
+			width: 100px;
+			border: 0;
+		}
 
-.last_btn {
-	background-color: #4ce3da;
-	padding: 7px;
-	margin: 10px;
-	border: 0;
-	outline: 0;
-	border-radius: 6px;
-	color: white;
-	width: 100px;
-	border: 0;
-}
+		.last_button {
+			padding-top: 15px;
+		}
 
-.last_button {
-	padding-top: 15px;
-}
+		.form-horizontal {
+			padding-top: 30px;
+		}
 
-.form-horizontal {
-	padding-top: 30px;
-}
+		label {
+			display: inline-block;
+			font-size: 30px;
+		}
 
-label {
-	display: inline-block;
-	font-size: 30px;
-}
-
-#pwdCheck {
-	padding-bottom: 25px;
-}
-</style>
+		#pwdCheck {
+			padding-bottom: 25px;
+		}
+	</style>
 </head>
 
 <body>
@@ -101,15 +92,13 @@ label {
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				<div id="home-logo">
-					<a class="navbar-brand" href="#"> <img
-						src="./resources/images/main_logo.png" alt="logo">
+					<a class="navbar-brand" href="#"> <img src="./resources/images/main_logo.png" alt="logo">
 					</a>
 				</div>
 
 				<!-- 햄버거 버튼 -->
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarText" aria-controls="navbarText"
-					aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+					aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
@@ -120,7 +109,7 @@ label {
 
 						<li class="nav-item active"><a class="nav-link" href="#">공지사항
 								<span class="sr-only">(current)</span>
-						</a></li>
+							</a></li>
 
 						<li class="nav-item"><a class="nav-link" href="#">FAQ</a></li>
 
@@ -136,8 +125,7 @@ label {
 					</ul>
 
 					<!--로그인 페이지로 이동한다.-->
-					<button style="margin-left: 15px;"
-						class="nav-link btn btn-outline-success my-2 my-sm-0"
+					<button style="margin-left: 15px;" class="nav-link btn btn-outline-success my-2 my-sm-0"
 						type="submit">로그인</button>
 
 				</div>
@@ -153,12 +141,7 @@ label {
 				<!-- 회원정보 수정 컨테이너 시작 -->
 
 				<label>회원 탈퇴</label>
-
-
 				<form class="form-horizontal" method="post" action="#">
-
-
-
 					<div class="membership-update">
 
 						<div class="form-group">
@@ -167,8 +150,7 @@ label {
 								<div class="input-group-prepend">
 									<span class="input-group-text" id="inputGroup-sizing-default">아이디</span>
 								</div>
-								<input type="text" class="form-control"
-									aria-label="Sizing example input"
+								<input type="text" class="form-control" aria-label="Sizing example input"
 									aria-describedby="inputGroup-sizing-default">
 							</div>
 						</div>
@@ -177,8 +159,7 @@ label {
 								<div class="input-group-prepend">
 									<span class="input-group-text" id="inputGroup-sizing-default">이름</span>
 								</div>
-								<input type="text" class="form-control"
-									aria-label="Sizing example input"
+								<input type="text" class="form-control" aria-label="Sizing example input"
 									aria-describedby="inputGroup-sizing-default">
 							</div>
 
@@ -190,13 +171,10 @@ label {
 								<div class="input-group-prepend">
 									<span class="input-group-text">비밀번호</span>
 								</div>
-								<input type="password" class="form-control"
-									aria-label="Sizing example input"
+								<input type="password" class="form-control" aria-label="Sizing example input"
 									aria-describedby="inputGroup-sizing-default" id="pwd1">
 							</div>
 						</div>
-
-
 
 
 						<div class="form-group">
@@ -205,26 +183,15 @@ label {
 									<span class="input-group-text" id="inputGroup-sizing-default">이메일
 										인증</span>
 								</div>
-								<input type="email" class="form-control"
-									aria-label="Sizing example input"
+								<input type="email" class="form-control" aria-label="Sizing example input"
 									aria-describedby="inputGroup-sizing-default">
 							</div>
-
-
-
-
-
 						</div>
-
-
-
-
 
 
 						<br>
 						<div class="form-group ">
-							<button type="button"
-								class="btn btn-primary btn-lg btn-block login-button">인증번호
+							<button type="button" class="btn btn-primary btn-lg btn-block login-button">인증번호
 								전송</button>
 						</div>
 
@@ -234,8 +201,7 @@ label {
 									<span class="input-group-text" id="inputGroup-sizing-default">인증번호
 										확인</span>
 								</div>
-								<input type="text" class="form-control"
-									aria-label="Sizing example input"
+								<input type="text" class="form-control" aria-label="Sizing example input"
 									aria-describedby="inputGroup-sizing-default">
 							</div>
 
@@ -257,8 +223,7 @@ label {
 	<!-- FOOT(고정) : 내용 변경하지마세요~ -->
 	<footer>
 		<div class>
-			<a href="https://github.com/KHAcademyProject2020/Semi-Project"
-				target="_blank">
+			<a href="https://github.com/KHAcademyProject2020/Semi-Project" target="_blank">
 				<h5>Good Ball</h5>
 			</a>
 			<p>KH Academy</p>
