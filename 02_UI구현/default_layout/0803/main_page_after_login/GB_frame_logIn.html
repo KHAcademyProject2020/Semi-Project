@@ -29,29 +29,33 @@
 		}
 
 		/*알람 버튼*/
-		.alarm-container-box {
+		.nav-item {
 			display: flex;
 			flex-wrap: wrap;
-			position:relative;
-		}
-
-		.alarm-bell-for-container{
-			position:relative;
-			display:inline-block;
-			height:100%;
-			padding-top: 5px;
-		}
-
-		#alarm-bell {
-			background-position: center center;
 			position: relative;
-			left: 50%;
-			top: 50%;
 		}
 
+		span.alarm-bell-for-container{
+			vertical-align: top;
+		}
 
-		.alarm-item:nth-child(2) {
-			margin-left: 50px;
+		/* navbar */
+		.navbar {
+			padding: 1.5rem 1rem;
+		}
+
+		/*alarm버튼 badge*/
+		.badge {
+			display:inline-block;
+			position:relative;
+			background-position: right top;
+			top: -5px;
+			right: 20px;
+		}
+
+		/*페이지 틀안에있는 목록을 마우스호버하면 링크밑줄 안나오게함*/
+		.nav-item > a:hover{
+			text-decoration: none;
 		}
 	</style>
 </head>
@@ -78,9 +82,15 @@
 					<div class="collapse navbar-collapse" id="navbarText">
 						<ul class="navbar-nav mr-auto">
 							<br>
+							<li class="nav-item">
+								<!-- <span class="sr-only">(current)</span> : (현재 메뉴 표시)색깔이 굵어짐. 
+									현재 들어간페이지 (굵은글씨): class속성에 active 추가
+								-->
+								<a class="nav-link" href="#">마이 페이지</a>
+							</li>
 
-							<li class="nav-item active">
-								<a class="nav-link" href="#">공지사항 <span class="sr-only">(current)</span></a>
+							<li class="nav-item">
+								<a class="nav-link" href="#">공지사항</a>
 							</li>
 
 							<li class="nav-item">
@@ -111,23 +121,32 @@
 
 						<!--회원 버튼 (알림 버튼 / 로그아웃 버튼)-->
 						<ul class="navbar-nav px-3">
-							<li class="nav-item text-nowrap alarm-item">
-								<div class="alarm-container-box">
-									<!-- 알림 버튼=> 누르면 modal로 알림을 띄운다.-->
-									<div class="alarm-bell-for-container">
-										<svg id="alarm-bell" width="2em" height="2em" viewBox="0 0 16 16"
-											class="bi bi-bell-fill alarm-item" fill="currentColor"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
-										</svg>
-									</div>
+							<li class="nav-item text-nowrap">
+								<a href="#">
+									<div class="alarm-container-box">
+										<!-- 알림 버튼=> 누르면 modal로 알림을 띄운다.-->
+										<span class="alarm-bell-for-container">
+											<!-- 종모양 알림 버튼 -->
+											<svg id="alarm-bell" width="2em" height="2em" viewBox="0 0 16 16"
+												class="bi bi-bell-fill" fill="currentColor"
+												xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
+											</svg>
 
-									<!--로그아웃 상태의 메인 페이지로 이동한다.-->
-									<button class="alarm-item nav-link btn btn-outline-secondary my-2 my-sm-0"
-										type="submit">로그아웃
-									</button>
-								</div>
+											
+										</span>
+										<!-- badge -->
+										<span class="badge badge-pill badge-danger" id="my-alarm-cnt">10</span>
+									</div>
+								</a>
+							</li>
+
+							<br>
+
+							<li class="nav-item text-nowrap">
+								<!--로그아웃 상태의 메인 페이지로 이동한다.-->
+								<button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">로그아웃</button>
 							</li>
 						</ul>
 

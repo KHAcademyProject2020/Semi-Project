@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+        integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"
+        integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J"
+        crossorigin="anonymous"></script>
+
+    <title>samples</title>
+    <style>
+        .alarm-bell-for-container {
+            background-position: right top;
+            position: relative;
+        }
+
+        #alarm-badge{
+            position: relative;
+            top: -10px;
+            right: 15px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 알림 버튼=> 누르면 modal로 알림을 띄운다.-->
+    <span class="alarm-bell-for-container">
+        <!-- 종모양 알림 버튼 -->
+        <svg id="alarm-bell" width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-bell-fill alarm-item"
+            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
+        </svg>
+
+
+        <!-- badge -->
+        <span id="alarm-badge" class="badge badge-pill badge-danger">10</span>
+    </span>
+</body>
+
+</html>
