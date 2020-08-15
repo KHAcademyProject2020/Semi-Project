@@ -18,8 +18,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
     <!--정적파일(css/ javascript) 불러오기-->
-    <link rel="stylesheet" href="../../resources/navbar/css/before_login_navbar.css">
-    <script src="../../resources/navbar/js/before_login_navbar.js"></script>
+    <link rel="stylesheet" href="../../resources/navbar/css/after_login_navbar.css">
+    <script src="../../resources/navbar/js/after_login_navbar.js"></script>
 
     <title>Good Ball</title>
 
@@ -32,6 +32,7 @@
         </div>
 
         <ul class="navbar_menu">
+            <li><a href="">마이페이지</a></li>
             <li><a href="">공지사항</a></li>
             <li><a href="">구장</a></li>
             <li><a href="">매치</a></li>
@@ -40,8 +41,19 @@
         </ul>
 
         <ul class="navbar_menu2">
-            <li><button type="button" class="btn btn-primary go-in">회원가입</button></li>
-            <li><button type="button" class="btn btn-primary go-in">로그인</button></li>
+            <li>
+                <a href="#">  
+                    <div class="alarm-box">
+                        
+                        <!-- 알람 버튼-->
+                        <i class="far fa-bell"></i>
+                        
+                        <!--badge(알람개수)-->
+                        <span class="badge badge-pill badge-danger">10</span>
+                    </div>
+                </a>
+            </li>
+            <li><button type="button" class="btn btn-primary go-out">로그아웃</button></li>
         </ul>
 
         <!--navbar toggle버튼: 햄버거-->

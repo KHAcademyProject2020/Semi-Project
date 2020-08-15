@@ -13,8 +13,11 @@ body{
     margin: 0;
 }
 
+a, a:hover{
+    text-decoration: none;
+}
+
 a{
-    text-decoration:none;
     color: var(--default-text-color);
 }
 
@@ -54,7 +57,7 @@ a{
     text-decoration:none;
 }
 
-/*맨 우측 메뉴*/
+/*맨 우측 메뉴(알람/ 로그아웃버튼)*/
 .navbar_menu2{
     display:flex;
     list-style:none;
@@ -63,26 +66,54 @@ a{
 
 .navbar_menu2 li{
     padding: 8px 12px;
+    margin: 10px;
+    color:var(--default-text-color);
 }
 
-/*회원가입/로그인 메뉴 공통*/
-.go-in{
+/* 알람 박스 */
+.alarm-box{
+    position:relative;
+    text-align: center;
+    padding:5px;
+    margin:10px;
+}
+
+.fa-bell{
+    font-size: 25px; 
+}
+
+.badge{
+    position:relative;
+    top:-13px;
+    right: 13px;
+}
+
+
+/*로그아웃메뉴*/
+.go-out{
     background:var(--background-color);
     color:var(--default-text-color);
     border-style:none;
 }
 
-.go-in:hover{
+.go-out:hover{
     background:var(--btn-background);
     color:var(--btn-color);
+    border-radius: 4px;
 }
 
+.alarm-box:hover{
+    color: var(--btn-background);
+}
+
+
+/*햄버거 버튼*/
 .navbar_toggle{
+    display: none; /*화면이 작을 때만 나타난다.*/
     position: absolute;
     right: 32px;
     font-size: 24px;
-    color: var(--default-text-color);
-    display: none; /*화면이 작을 때만 나타난다.*/
+    color: var(--default-text-color); 
 }
 
 .navbar_toggle:hover{
@@ -113,22 +144,35 @@ a{
         width: 100%;
     }
 
+    .alarm-box{
+        /* padding-left: 30px; */
+        text-align:center;
+        width: 100%;
+    }
+
+    .alarm-box:hover{
+        background:var(--btn-background);
+        color:var(--btn-color);
+        border-radius: 4px;
+    }
+
     .navbar_menu li{
         width: 100%;
         text-align: center;
     }
 
-    
     .navbar_menu2 li
-    ,.navbar_menu2 button:hover{
+    ,.navbar_menu2 button{
         width: 100%;
         text-align:center;
     }
 
-    .navbar_menu, .navbar_menu2{
+    .navbar_menu, 
+    .navbar_menu2{
         /*햄버거 버튼에의해 가려지므로 none으로 설정*/
         display:none;
     }
+
 
     /*햄버거버튼이 나타남*/
     .navbar_toggle{
@@ -139,5 +183,4 @@ a{
     .navbar_menu2.active{
         display:flex;
     }
-
 }
