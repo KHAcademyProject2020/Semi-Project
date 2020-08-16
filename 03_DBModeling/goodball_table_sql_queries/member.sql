@@ -1,7 +1,7 @@
 CREATE TABLE MEMBER(
     email VARCHAR2(40) PRIMARY KEY,
     pwd VARCHAR2(20) NOT NULL,
-    name VARCHAR2(5) NOT NULL,
+    name VARCHAR2(10) NOT NULL,
     birthday DATE NOT NULL,
     gender VARCHAR2(2) NOT NULL CONSTRAINT CK_GENDER CHECK(gender IN ('³²', '¿©')),
     phone VARCHAR2(20) NOT NULL,
