@@ -1,0 +1,8 @@
+CREATE TABLE BOARD(
+    board_num NUMBER PRIMARY KEY,
+    writer_email VARCHAR2(40) NOT NULL,
+    board_title VARCHAR2(50) NOT NULL,
+    board_content VARCHAR2(200) NOT NULL,
+    board_img VARCHAR2(50),
+    CONSTRAINT FK_BOARD_WRITER_EMAIL FOREIGN KEY(writer_email) REFERENCES MEMBER(email) ON DELETE SET NULL
+);

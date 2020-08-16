@@ -1,0 +1,13 @@
+CREATE TABLE TEAM(
+    team_code VARCHAR2(10) PRIMARY KEY,
+    team_leader VARCHAR2(40) NOT NULL,
+    team_name VARCHAR2(10) NOT NULL,
+    team_gender VARCHAR2(10) NOT NULL,
+    team_age VARCHAR2(10) NOT NULL,
+    team_region VARCHAR2(20) NOT NULL,
+    team_point NUMBER DEFAULT 0 NOT NULL CONSTRAINT CK_TEAM_POINT CHECK(team_point BETWEEN 0 AND 5),
+    team_mark_img VARCHAR2(50) NOT NULL,
+    team_active_lastday DATE NOT NULL,
+    team_delete_status VARCHAR2(1) DEFAULT 'N' NOT NULL CONSTRAINT CK_TEAM_DELETE_STATUS CHECK(team_delete_status IN ('Y', 'N')),
+    CONSTRAINT FK_TEAM_LEADER FOREIGN KEY(team_leader) REFERENCES MEMBER(email) ON DELETE SET NULL
+);
