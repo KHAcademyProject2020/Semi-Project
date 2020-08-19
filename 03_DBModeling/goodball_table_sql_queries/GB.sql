@@ -1,3 +1,4 @@
+============================TABLE========================================
 CREATE TABLE MEMBER(
     email VARCHAR2(40) PRIMARY KEY,
     pwd VARCHAR2(20) NOT NULL,
@@ -75,6 +76,7 @@ CREATE TABLE BOARD(
 
 CREATE TABLE TEAM(
     team_code VARCHAR2(10) PRIMARY KEY,
+    team_num NUMBER NOT NULL,
     team_leader VARCHAR2(40) NOT NULL,
     team_name VARCHAR2(10) NOT NULL,
     team_gender VARCHAR2(10) NOT NULL,
@@ -86,7 +88,6 @@ CREATE TABLE TEAM(
     team_delete_status VARCHAR2(1) DEFAULT 'N' NOT NULL CONSTRAINT CK_TEAM_DELETE_STATUS CHECK(team_delete_status IN ('Y', 'N')),
     CONSTRAINT FK_TEAM_LEADER FOREIGN KEY(team_leader) REFERENCES MEMBER(email) ON DELETE SET NULL
 );
-
 CREATE TABLE NOTICE(
     notice_email VARCHAR2(40) NOT NULL,
     notice_type VARCHAR2(10) NOT NULL,
@@ -132,7 +133,15 @@ CREATE TABLE MATCH(
     CONSTRAINT FK_MATCH_BRANCH_NUM FOREIGN KEY(branch_num) REFERENCES BRANCH(branch_num) ON DELETE SET NULL
 );
 
+============================SEQUENCE========================================
 CREATE SEQUENCE SEQ_REVIEW_NUM
+START WITH 1
+INCREMENT BY 1
+MAXVALUE 1000
+NOCYCLE
+NOCACHE;
+
+CREATE SEQUENCE SEQ_TEAM_NUM
 START WITH 1
 INCREMENT BY 1
 MAXVALUE 1000
@@ -152,6 +161,18 @@ INCREMENT BY 1
 MAXVALUE 1000
 NOCYCLE
 NOCACHE;
+============================VIEW========================================
+GRANT CREATE VIEW TO GB;
+
+CREATE OR REPLACE VIEW TEAMLIST
+AS
+SELECT ROWNUM RNUM, DESCTEAM.*
+FROM (SELECT *
+        FROM TEAM
+        WHERE TEAM_DELETE_STATUS = 'N'
+        ORDER BY TEAM_NUM DESC) DESCTEAM;
+
+
 
 commit;
 
@@ -168,34 +189,6 @@ DROP TABLE TEAMMEMBER;
 DROP TABLE MATCHREGIST;
 DROP TABLE MATCH;
 
-
-SELECT * FROM MEMBER;
-DESC MEMBER;
-INSERT INTO MEMBER VALUES('werty12@daum.net', '12', 'w', '20/06/12', '남', '010-1111-2222', '강남구', 'N', '일반', 'N');
-INSERT INTO MEMBER VALUES('werty23@daum.net', '23', 'we', '97/06/12', '남', '010-1111-1212', '강남구', 'N', '일반', 'N');
-INSERT INTO MEMBER VALUES('werty45@daum.net', '45', 'wew', '94/11/12', '남', '010-1111-4545', '강남구', 'N', '일반', 'N');
-INSERT INTO MEMBER VALUES('werty67@daum.net', '67', 'wew', '97/12/12', '남', '010-1111-5656', '강남구', 'N', '일반', 'N');
-INSERT INTO MEMBER VALUES('werty89@daum.net', '89', 'wew', '89/07/12', '남', '010-1111-7878', '강남구', 'N', '일반', 'N');
-INSERT INTO MEMBER VALUES('werty1212@daum.net', '1212', 'ww', '92/08/22', '남', '010-2222-3333', '강남구', 'N', '매니저', 'N');
-INSERT INTO MEMBER VALUES('werty12123@daum.net', '12123', 'www', '92/04/10', '남', '010-3333-4444', '서초구', 'N', '관리자', 'N');
-
-SELECT * FROM TEAM;
-DESC TEAM;
-INSERT INTO TEAM VALUES('432045', 'werty12@daum.net', '백두산', '남녀그룹', '20대', '강남구', 5, '팀마크.png', '20/08/15', 'N');
-INSERT INTO TEAM VALUES('234532', 'werty45@daum.net', '설악산', '남자그룹', '10대', '강남구', 4, '팀마크2.png', '20/08/10', 'N');
-
-
-SELECT * FROM TEAMMEMBER;
-DESC TEAMEMMEBER;
-INSERT INTO TEAMMEMBER VALUES('werty23@daum.net', '432045', '공격수', '대기중', 'N');
-INSERT INTO TEAMMEMBER VALUES('werty45@daum.net', '432045', '골키퍼', '수락', 'N');
-INSERT INTO TEAMMEMBER VALUES('werty67@daum.net', '234532', '수비수', '수락', 'N');
-INSERT INTO TEAMMEMBER VALUES('werty89@daum.net', '234532', '수비수', '수락', 'N');
-
-
-<-- 팀페이지로 이동할때 -->
-SELECT * FROM TEAM WHERE team_code = '432045'; <-- 팀정보 -->
-SELECT * FROM TEAMMEMBER WHERE support_team = '432045' AND application_status = '수락'; <-- 팀원 -->
 
 
 
