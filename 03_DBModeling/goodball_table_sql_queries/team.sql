@@ -1,8 +1,8 @@
 CREATE TABLE TEAM(
     team_code VARCHAR2(10) PRIMARY KEY,
-    team_num NUMBER NOT NULL,
     team_leader VARCHAR2(40) NOT NULL,
-    team_name VARCHAR2(10) NOT NULL,
+    team_num NUMBER NOT NULL,
+    team_name VARCHAR2(20) NOT NULL,
     team_gender VARCHAR2(10) NOT NULL,
     team_age VARCHAR2(10) NOT NULL,
     team_region VARCHAR2(20) NOT NULL,
