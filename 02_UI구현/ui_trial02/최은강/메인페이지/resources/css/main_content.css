@@ -1,0 +1,21 @@
+:root{
+    --navigation-menu-font: 'Do Hyeon', sans-serif;
+
+}
+
+ul.main-navigation{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end, space-between;
+}
+
+ul.main-navigation li{
+    list-style:none;
+    font-family: var(--navigation-menu-font);
+}
+
+/*
+미디어쿼리를 이용하여, 화면이 작아지면
+- main-navigation을 없앤다.
+- flex-direction: column으로 설정
+*/

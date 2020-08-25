@@ -43,7 +43,12 @@ a{
     padding-left:0;
 }
 
+.navbar_menu> a{
+    position: relative;
+}
+
 .navbar_menu li{
+    position: relative;
     padding: 8px 12px;
     margin: 10px;
 }
