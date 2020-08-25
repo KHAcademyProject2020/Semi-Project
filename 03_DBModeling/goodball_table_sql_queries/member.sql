@@ -7,6 +7,6 @@ CREATE TABLE MEMBER(
     phone VARCHAR2(20) NOT NULL,
     address VARCHAR2(100),
     member_kakao VARCHAR2(1) DEFAULT 'N' NOT NULL CONSTRAINT CK_MEMBER_KAKAO CHECK(member_kakao IN ('Y', 'N')),
-    member_type VARCHAR2(10) DEFAULT '老馆' NOT NULL CONSTRAINT CK_MEMBER_TYPE CHECK(member_type IN ('老馆', '概聪历', '包府磊')),
+    member_type VARCHAR2(1) DEFAULT 'G' NOT NULL CONSTRAINT CK_MEMBER_TYPE CHECK(member_type IN ('G', 'M', 'R')),
     member_delete_status VARCHAR2(1) DEFAULT 'N' NOT NULL CONSTRAINT CK_MEMBER_DELETE_STATUS CHECK(member_delete_status IN ('Y', 'N'))
 );
