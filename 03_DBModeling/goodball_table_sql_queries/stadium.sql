@@ -1,5 +1,5 @@
 CREATE TABLE STADIUM(
-    stadium_num VARCHAR2(10) PRIMARY KEY,
+    stadium_num NUMBER PRIMARY KEY,
     branch_num VARCHAR2(10) NOT NULL,
     stadium_name VARCHAR2(10) NOT NULL,
     stadium_match_member VARCHAR2(10),
