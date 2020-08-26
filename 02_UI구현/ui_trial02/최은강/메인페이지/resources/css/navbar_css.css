@@ -124,6 +124,14 @@ button.login-logout:hover{
     background: var(--content-background-color);
     width: 100%;
     height: 100vh;
+    padding-left:130px;
+    padding-right: 130px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    
 }
 
 
@@ -176,6 +184,7 @@ button.login-logout:hover{
     .navbar_menu.active,
     .navbar_menu2.active{
         display: flex;
+        
 
     }    
 }
