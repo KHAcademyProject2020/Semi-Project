@@ -12,5 +12,6 @@ CREATE TABLE BRANCH(
     branch_option_shoes VARCHAR2(1) DEFAULT 'N' NOT NULL CONSTRAINT CK_BRANCH_OPTION_SHOES CHECK(branch_option_shoes IN ('Y', 'N')),
     branch_option_ball VARCHAR2(1) DEFAULT 'N' NOT NULL CONSTRAINT CK_BRANCH_OPTION_BALL CHECK(branch_option_ball IN ('Y', 'N')),
     branch_option_inout VARCHAR2(1) DEFAULT 'O' NOT NULL CONSTRAINT CK_BRANCH_OPTION_INOUT CHECK(branch_option_inout IN ('I', 'O')),
+    branch_delete_status VARCHAR(1) DEFAULT 'N' NOT NULL CONSTRAINT CK_BRANCH_DELETE_STATUS CHECK(branch_delete_status IN ('Y', 'N')),
     CONSTRAINT FK_BRANCH_MANAGER_EMAIL FOREIGN KEY(branch_manager_email) REFERENCES MEMBER(email) ON DELETE SET NULL
 );
