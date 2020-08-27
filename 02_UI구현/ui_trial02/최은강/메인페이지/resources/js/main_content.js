@@ -11,7 +11,7 @@ $(function () {
 
   let top_btn = $('#on-top');
   $(window).scroll(function () {
-    console.log('위치: ' + $(window).scrollTop());
+    // console.log('위치: ' + $(window).scrollTop());
     if ($(window).scrollTop() > 300) {
       top_btn.addClass('show');
     } else {
