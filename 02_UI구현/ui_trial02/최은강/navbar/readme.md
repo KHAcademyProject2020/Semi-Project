@@ -15,10 +15,12 @@
 
 <hr>
 
+> # navbar.jsp가 잘 불러왔는지 확인하는 방법
+
 - ## index.jsp 에서 navbar.jsp 불러오기
 
 - ### index.jsp 파일
-```html
+```jsp
 <%-- index.jsp --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -33,4 +35,17 @@
 
 </body>
 </html>
+```
+
+# 정상적으로 확인이 됐다면, 현재 작업한 페이지(\*.jsp)에서 navbar.jsp을 불러오기
+
+
+<br>
+
+> ## 현재 작업중인 페이지(확장자) 에서 navbar 불러오기
+```jsp
+
+<body>
+	<%@ include file="WEB-INF/views/common/navbar.jsp"%>
+</body>
 ```
