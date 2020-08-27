@@ -28,23 +28,25 @@ $(function () {
 
   const images = $('.images');
   const colors = $('.colored-backgrounds');
-
   let index = 0;
 
   function transform(idx) {
     console.log('moved!');
-    images.css('translateX', `-${idx * 100}%`);
-    colors.css('translateX', `-${idx * 100}%`);
+    images.css('transform', `translateX(-${idx * 100}%)`);
+    colors.css('transform', `translateX(-${idx * 100}%)`);
+
+    // images.css('translateX', `-${idx * 100}%`);
+    // colors.css('translateX', `-${idx * 100}%`);
   }
 
   navLeft.click(function () {
-    index = index < 3 ? ++index : 0;
+    index = index > 0 ? --index : 3;
     console.log('left clicked! now index is... =>', index);
     transform(index);
   });
 
   navRight.click(function () {
-    index = index > 0 ? --index : 3;
+    index = index < 3 ? ++index : 0;
     console.log('right clicked! now index is... =>', index);
     transform(index);
   });
