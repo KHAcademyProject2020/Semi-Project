@@ -5,9 +5,10 @@
 
   --main-container-background-color: #e5f8f7;
   --info-box-background-color: transparent;
-  --info-btn-background-color: rgba(76, 227, 218, 0.815);
-  --info-btn-hover-background-color: #272929;
-  --info-btn-hover-text-color: rgb(76, 227, 218);
+
+  --up-btn-background-color: rgb(76, 227, 218);
+  --up-btn-hover-background-color: #272929;
+  --up-btn-hover-text-color: rgb(76, 227, 218);
 
   --footer-background: #272929;
   --footer-text-color: #e9faec;
@@ -75,6 +76,14 @@ ul.scrollspy-navigation li:hover {
   align-content: center;
   flex-wrap: wrap;
   box-sizing: border-box;
+}
+
+.info-title {
+  font-size: 5.1em;
+}
+
+.info-title:nth-child(1) {
+  font-family: var(--navigation-menu-font);
 }
 
 /*Good Ball?  => 디테일 설명*/
@@ -167,6 +176,37 @@ footer ul.company-info {
 
 footer ul.company-info > li {
   padding: 12px 30px;
+}
+
+/*맨 위로 버튼*/
+#on-top {
+  display: inline-block;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+
+  font-size: 2em;
+  background: var(--up-btn-background-color);
+  text-align: center;
+  border-radius: 100%;
+
+  transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#on-top:hover {
+  cursor: pointer;
+  background: var(--up-btn-hover-background-color);
+  color: var(--up-btn-hover-text-color);
+}
+
+#on-top.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 /*
