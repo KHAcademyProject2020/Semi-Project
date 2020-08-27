@@ -1,54 +1,108 @@
-:root{
-    --navigation-menu-font: 'Do Hyeon', sans-serif;
-    
-    --footer-background:#272929;
-    --footer-text-color: #e9faec;
+:root {
+  --navigation-menu-font: 'Do Hyeon', sans-serif;
+  --navigation-text-default-color: #272929;
+  --navigation-text-hover-color: rgb(76, 227, 218);
+
+  --main-container-background-color: #e5f8f7;
+
+  --footer-background: #272929;
+  --footer-text-color: #e9faec;
 }
 
-ul.main-navigation{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end, space-between;
+/*body*/
+body {
+  overflow-x: hidden;
 }
 
-ul.main-navigation li{
-    list-style:none;
-    font-family: var(--navigation-menu-font);
+/*header - carousel*/
+.carousel-item img {
+  width: 100%;
+  height: 75vh;
+}
+
+/* scroll-spy navigation*/
+ul.scrollspy-navigation {
+  display: none;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+ul.scrollspy-navigation li {
+  list-style: none;
+  font-family: var(--navigation-menu-font);
+  color: var(--navigation-text-default-color);
+
+  padding: 30px 50px;
+  font-size: 1.5em;
+}
+
+ul.scrollspy-navigation a:hover,
+ul.scrollspy-navigation li:hover {
+  color: var(--navigation-text-hover-color);
+}
+
+ul.scrollspy-navigation li:hover {
+  border-bottom: var(--navigation-text-hover-color) solid 3px;
 }
 
 /*메인화면*/
-
-/*메인화면 - 카로우셀*/
-.carousel-item img{
-    width: 100%;
-    height: 50vh;
+.main-content-container {
+  background: var(--main-container-background-color);
 }
 
+/*section- Good Ball? 영역*/
+.info-wrapper {
+  display: flex;
+
+  background-color: red;
+
+  margin: 24px;
+}
+
+.info-wrapper-detail {
+  margin: 24px;
+  background: powderblue;
+}
+
+/*section- 기술스택 영역*/
+#skill-stack {
+  background: pink;
+}
+
+/*section- 공지사항게시판 (가장최근 공지사항 10개)*/
 
 /*footer*/
-footer{
-    bottom:0;
-    background: var(--footer-background);
-    color: var(--footer-text-color);
-    text-align: center;
-    height: 10vh;    
+footer {
+  position: absolute;
+
+  min-height: calc(100vh -245px);
+
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-around;
+
+  /* bottom: 0; */
+  width: 100%;
+  background: var(--footer-background);
+  color: var(--footer-text-color);
+  text-align: center;
 }
 
-footer ul.company-info{
-    list-style:none;
-    font-size: 1.5em;
-    
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-around;
+footer ul.company-info {
+  list-style: none;
+  font-size: 1.5em;
+
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-around;
 }
 
-footer ul.company-info> li{
-    padding: 12px 30px;
+footer ul.company-info > li {
+  padding: 12px 30px;
 }
-
-
 
 /*
 미디어쿼리를 이용하여, 화면이 작아지면
@@ -56,25 +110,23 @@ footer ul.company-info> li{
 - flex-direction: column으로 설정
 */
 
-@media screen and (min-width: 768 px){
-    
+@media screen and (max-width: 768 px) {
+  footer,
+  footer ul.company-info {
+    box-sizing: content-box;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
 
-    footer ul.company-info{
-        align-items: flex-start;
-        justify-content: center;
-        flex-direction: column;
-        flex-wrap: wrap;
-    }
-
-    ul.companty-info li{
-
-    }
-    
-
-    
+  ul.company-info li {
+    font-size: 1.2em;
+    align-items: flex-start;
+    justify-content: center;
+  }
 }
 
-
-@media screen and (min-width: 1024px){
-    
+@media screen and (min-width: 867px) {
+  ul.scrollspy-navigation {
+    display: flex;
+  }
 }
