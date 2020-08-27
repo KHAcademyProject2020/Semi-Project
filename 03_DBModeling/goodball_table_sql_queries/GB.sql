@@ -57,6 +57,7 @@ CREATE TABLE RESERVATION(
     reservation_code VARCHAR2(10) PRIMARY KEY,
     reservation_email VARCHAR2(40) NOT NULL, 
     reservation_stadium_num NUMBER NOT NULL,
+    reservation_num NUMBER NOT NULL,
     reservation_price NUMBER NOT NULL,
     reservation_usage_start_time NUMBER NOT NULL,
     reservation_usage_time NUMBER NOT NULL,
