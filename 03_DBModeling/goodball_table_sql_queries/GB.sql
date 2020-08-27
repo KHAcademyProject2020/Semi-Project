@@ -4,7 +4,7 @@ CREATE TABLE MEMBER(
     pwd VARCHAR2(20) NOT NULL,
     name VARCHAR2(10) NOT NULL,
     birthday DATE NOT NULL,
-    gender VARCHAR2(2) NOT NULL CONSTRAINT CK_GENDER CHECK(gender IN ('남', '여')),
+    gender VARCHAR2(3) NOT NULL CONSTRAINT CK_GENDER CHECK(gender IN ('남', '여')),
     phone VARCHAR2(20) NOT NULL,
     address VARCHAR2(100),
     member_kakao VARCHAR2(1) DEFAULT 'N' NOT NULL CONSTRAINT CK_MEMBER_KAKAO CHECK(member_kakao IN ('Y', 'N')),
