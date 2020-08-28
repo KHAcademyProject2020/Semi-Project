@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"
-	import ="member.model.vo.*"	
-%>
-	
+	pageEncoding="UTF-8" import="member.model.vo.*"%>
+
 <%
 	//로그인 유저가 있는지 확인한다.
-	Member loginUser= (Member)session.getAttribute("loginUser");
-	
+	Member loginUser = (Member) session.getAttribute("loginUser");
+
 	//System.out.println(request.getContextPath()); // /SEMI_GoodBall_CEK
 %>
 
@@ -18,7 +16,8 @@
 <title>navbar</title>
 
 <!--파비콘아이콘-->
-<link rel="shortcut icon" href="/resources/common/favicon/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/resources/common/favicon/favicon.ico"
+	type="image/x-icon">
 
 <link rel="icon" href="/resources/common/favicon/favicon.ico"
 	type="image/x-icon">
@@ -55,104 +54,134 @@
 <!--정적파일(css/ javascript) 불러오기-->
 
 <!-- ./resources/css/navbar_css.css  -->
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/navbar_css.css">
-<script src="<%=request.getContextPath() %>/resources/js/navbar_js.js"></script>
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/navbar_css.css">
+<script src="<%=request.getContextPath()%>/resources/js/navbar_js.js"></script>
 </head>
 
 
 <body>
 	<nav class="navbar">
 		<div class="navbar_logo">
-			<a href="<%=request.getContextPath() %>"> <img src="./resources/common/images/logo.png"
-				style="width: 60px; height: 60px;">
-			</a>
+			 <img src="./resources/common/images/logo.png"  
+			 	style="width:65px; height:65px;"
+			 	onclick="goHome();">	
 		</div>
 
 		<!-- 로그인 상태 전체 메뉴바-->
-		<%if(loginUser!=null){ %>
-			<!--navbar_menu: 로그인 상태-->
-			<ul class="navbar_menu status-log-in">
-				<a href="">
-					<li>마이페이지</li>
-				</a>
-	
-				<a href="">
-					<li>공지사항</li>
-				</a>
-				<a href="">
-					<li>구장예약</li>
-				</a>
-				<a href="">
-					<li>매치 찾기</li>
-				</a>
-				<a href="">
-					<li>팀 찾기</li>
-				</a>
-				<a href="">
-					<li>커뮤니티</li>
-				</a>
-			</ul>
-	
-			<!--navbar_menu2:  로그인 상태-->
-			<ul class="navbar_menu2 status-log-in">
-	
-				<li>
-					<ul class="navbar_menu3">
-						<li>
-							<!-- 알람박스-->
-							<div class="alarm-box">
-								<i class="fas fa-bell"></i> <span
-									class="badge badge-pill badge-danger">10</span>
-							</div>
-	
-						</li>
-	
-						<li>
-							<button type="button" class="btn btn-primary login-logout">로그아웃</button>
-						</li>
-					</ul>
-				</li>
-			</ul>
-		<%}else{ %>
-			<!-- 로그아웃 상태 메뉴바 전체-->
-			<!--navbar_menu: 로그아웃 상태-->
-			<ul class="navbar_menu status-log-out">
-				<a href="">
-					<li>공지사항</li>
-				</a>
-				<a href="">
-					<li>구장예약</li>
-				</a>
-				<a href="">
-					<li>매치 찾기</li>
-				</a>
-				<a href="">
-					<li>팀 찾기</li>
-				</a>
-				<a href="">
-					<li>커뮤니티</li>
-				</a>
-			</ul>
-	
-			<!--navbar_menu2:  로그아웃 상태-->
-			<ul class="navbar_menu2 status-log-out">
-				<li>
-					<ul class="navbar_menu3">
-						<li>
-							<button type="button" class="btn btn-primary login-logout">로그인</button>
-						</li>
-	
-						<li>
-							<button type="button" class="btn btn-primary login-logout">회원가입</button>
-						</li>
-					</ul>
-				</li>
-			</ul>
-		<%} %>
+		<%
+			if (loginUser != null) {
+		%>
+		<!--navbar_menu: 로그인 상태-->
+		<ul class="navbar_menu status-log-in">
+			<li onclick="goMyPage();">마이페이지</li>
+			<li onclick="goNotice();">공지사항</li>
+			<li onclick="goReservation();">구장예약</li>
+			<li onclick="goMatch();">매치 찾기</li>
+			<li onclick="goTeam();">팀 찾기</li>
+		</ul>
+
+		<!--navbar_menu2:  로그인 상태-->
+		<ul class="navbar_menu2 status-log-in">
+			<li>
+				<ul class="navbar_menu3">
+					<li>
+						<!-- 알람박스-->
+						<div class="alarm-box">
+							<i class="fas fa-bell"></i> <span
+								class="badge badge-pill badge-danger">10</span>
+						</div>
+
+					</li>
+
+					<li>
+						<button type="button" class="btn btn-primary login-logout"
+							onclick="logout();">로그아웃</button>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<%
+			} else {
+		%>
+		<!-- 로그아웃 상태 메뉴바 전체-->
+		<!--navbar_menu: 로그아웃 상태-->
+		<ul class="navbar_menu status-log-out">
+			<li onclick="goNotice();">공지사항</li>
+			<li onclick="goReservation();">구장 예약</li>
+			<li onclick="goMatch();">매치 찾기</li>
+			<li onclick="goTeam();">팀 찾기</li>
+
+		</ul>
+
+		<!--navbar_menu2:  로그아웃 상태-->
+		<ul class="navbar_menu2 status-log-out">
+			<li>
+				<ul class="navbar_menu3">
+					<li>
+						<button type="button" class="btn btn-primary login-logout"
+							onclick="signIn();">로그인</button>
+					</li>
+
+					<li>
+						<button type="button" class="btn btn-primary login-logout"
+							onclick="signUp();">회원가입</button>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<%
+			}
+		%>
 
 		<!--navbar toggle버튼: 햄버거-->
 		<a href="#" class="navbar_toggle"> <i class="fas fa-bars"></i>
 		</a>
 	</nav>
 </body>
+<script>
+	function goHome(){
+		//홈으로 이동
+		location.href="<%=request.getContextPath()%>";
+	}
+	
+
+	
+	function goNotice(){
+		//공지사항 게시판
+		location.href="<%=request.getContextPath()%>/list.no";
+	}
+	
+	function goReservation(){
+		//구장게시판
+	}
+	
+	function goMatch(){
+		//매치
+	}
+	
+	function goTeam(){
+		//팀게시판
+	}
+	
+	function goMyPage(){
+		//마이페이지로 이동 (로그인한 유저만)
+	}
+	
+	function signIn(){
+		//로그인-> 로그인 입력폼 서블릿 호출
+		location.href="<%=request.getContextPath()%>/logInForm.me";
+		
+	}
+	
+	function signUp(){
+		//회원가입 -> 회원가입 입력폼 서블릿 호출
+		location.href="<%=request.getContextPath()%>/signUpForm.me";
+	}
+	
+	function logout(){
+		//로그아웃
+		location.href="<%=request.getContextPath()%>/logout.me";
+	}
+</script>
 </html>

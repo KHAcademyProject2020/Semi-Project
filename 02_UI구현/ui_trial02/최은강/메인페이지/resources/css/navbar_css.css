@@ -53,6 +53,10 @@ a:hover {
   padding-left: 0;
 }
 
+.navbar_logo > img {
+  cursor: pointer;
+}
+
 /*navbar_menu*/
 .navbar_menu li {
   position: relative;
@@ -67,6 +71,7 @@ a:hover {
   background-color: var(--hover-background-color);
   color: var(--hover-text-color);
   border-radius: 23px;
+  cursor: pointer;
 }
 
 .navbar_menu2 {
