@@ -51,6 +51,8 @@ ul.scrollspy-navigation li:hover {
 /*메인화면*/
 .main-content-container {
   background: var(--main-container-background-color);
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 .section {
