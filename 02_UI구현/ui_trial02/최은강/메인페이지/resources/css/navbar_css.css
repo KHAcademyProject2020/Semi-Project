@@ -9,6 +9,7 @@
 
   /*메뉴 폰트*/
   --menu-font-family: 'Do Hyeon', sans-serif;
+  --menu-font-size: 1.5em;
 
   /*벨모양 아이콘*/
   --fa-bell-font-size: 28px;
@@ -59,6 +60,7 @@ a:hover {
   margin: 10px;
   color: var(--nav-text-color);
   font-family: var(--menu-font-family);
+  font-size: var(--menu-font-size);
 }
 
 .navbar_menu li:hover {
@@ -70,6 +72,7 @@ a:hover {
 .navbar_menu2 {
   padding-top: 20px;
   padding-left: 0;
+  font-size: var(--menu-font-size);
 }
 
 .navbar_menu2 li {

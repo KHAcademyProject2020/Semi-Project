@@ -4,6 +4,11 @@
   --navigation-text-hover-color: rgb(76, 227, 218);
 
   --main-container-background-color: #e5f8f7;
+  --info-box-background-color: transparent;
+
+  --up-btn-background-color: rgb(76, 227, 218);
+  --up-btn-hover-background-color: #272929;
+  --up-btn-hover-text-color: rgb(76, 227, 218);
 
   --footer-background: #272929;
   --footer-text-color: #e9faec;
@@ -25,7 +30,7 @@ ul.scrollspy-navigation {
   display: none;
   flex-direction: row;
   align-items: flex-end;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 ul.scrollspy-navigation li {
@@ -34,7 +39,7 @@ ul.scrollspy-navigation li {
   color: var(--navigation-text-default-color);
 
   padding: 30px 50px;
-  font-size: 1.5em;
+  font-size: 1.8em;
 }
 
 ul.scrollspy-navigation a:hover,
@@ -51,23 +56,92 @@ ul.scrollspy-navigation li:hover {
   background: var(--main-container-background-color);
 }
 
+.section {
+  margin: 10px 20px;
+  padding: 30px 50px;
+  background: var(--info-box-background-color);
+  border-radius: 10px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
 /*section- Good Ball? 영역*/
-.info-wrapper {
+.goodball-info-box {
+  padding: 22px 32px;
+  margin: 10px;
+
   display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
 
-  background-color: red;
+.info-title {
+  font-size: 5.1em;
+}
 
-  margin: 24px;
+.info-title:nth-child(1) {
+  font-family: var(--navigation-menu-font);
+}
+
+/*Good Ball?  => 디테일 설명*/
+.info-box {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .info-wrapper-detail {
   margin: 24px;
+  padding: 13px 20px;
+  border-radius: 10px;
+}
+
+.info-wrapper-detail:nth-child(1) {
+  background: palegoldenrod;
+}
+
+.info-wrapper-detail:nth-child(2) {
   background: powderblue;
 }
 
-/*section- 기술스택 영역*/
-#skill-stack {
-  background: pink;
+.info-wrapper-detail:nth-child(3) {
+  background: lightcoral;
+}
+
+.info-wrapper-detail:nth-child(4) {
+  background: rgb(188, 252, 122);
+}
+
+/* .info-detail-content-box {
+  padding: 30px 10px;
+  height: 450px;
+  width: 100%;
+} */
+
+.info-detail-content-box {
+  height: 500x;
+  padding: 30px 10px;
+
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.info-detail-content-box > h1 {
+  padding: 12px 5px;
+  font-family: var(--navigation-menu-font);
+}
+
+.info-detail-img-box > .info-img {
+  position: relative;
+  box-sizing: border-box;
+  width: 500px;
+  height: 300px;
 }
 
 /*section- 공지사항게시판 (가장최근 공지사항 10개)*/
@@ -104,6 +178,37 @@ footer ul.company-info > li {
   padding: 12px 30px;
 }
 
+/*맨 위로 버튼*/
+#on-top {
+  display: inline-block;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+
+  font-size: 2em;
+  background: var(--up-btn-background-color);
+  text-align: center;
+  border-radius: 100%;
+
+  transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#on-top:hover {
+  cursor: pointer;
+  background: var(--up-btn-hover-background-color);
+  color: var(--up-btn-hover-text-color);
+}
+
+#on-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
 /*
 미디어쿼리를 이용하여, 화면이 작아지면
 - main-navigation을 없앤다.
@@ -111,6 +216,7 @@ footer ul.company-info > li {
 */
 
 @media screen and (max-width: 768 px) {
+  /*화면의 폭길이가 768px 이하이면 */
   footer,
   footer ul.company-info {
     box-sizing: content-box;
@@ -123,9 +229,37 @@ footer ul.company-info > li {
     align-items: flex-start;
     justify-content: center;
   }
+
+  .info-wrapper-detail {
+    text-align: center;
+    width: 100%;
+  }
+
+  .info-detail-content-box {
+    width: 100%;
+    display: inline-block;
+    /* display: flex;
+    flex-direction: column;
+    align-content: center;
+    box-sizing: border-box; */
+  }
+
+  .info-wrapper-detail {
+    border-radius: 0px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  /*Good Ball?*/
+  .info-wrapper-detail {
+    text-align: center;
+    border-radius: 0px;
+    width: 100%;
+  }
 }
 
 @media screen and (min-width: 867px) {
+  /*화면의 폭길이가 867px이상이면 none->flex로 변경*/
   ul.scrollspy-navigation {
     display: flex;
   }
