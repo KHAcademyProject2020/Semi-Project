@@ -129,8 +129,7 @@ object {
    		$(function(){
    			setInsideVisible1();
    			select(modifyBtn);
-            //setContent('<object type="text/jsp" data="./Manager_ManagerPage.jsp"></object>');
-   			setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/manager_sample.me"></object>');
+   			setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/managerPage.mp"></object>');
    		});
    
       const managerBtn = document.querySelector('#managerBtn');
@@ -208,29 +207,28 @@ object {
          setInsideHidden1();
          setInsideHidden2();
          select(reserveStatusBtn);
-         //setContent('<object type="text/jsp" data="./Manager_Reserve.jsp"></object>');
-         setContent('<object type="text/jsp" data="./WEB-INF/Manager_Reserve.jsp"></object>');
+         setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/managerReserve.mp"></object>');
          
       };
       
       modifyBtn.onclick = e => {
     	 select(modifyBtn);
-         setContent('<object type="text/jsp" data="./WEB-INF/Manager_ManagerPage.jsp"></object>');
+         setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/managerPage.mp"></object>');
       };
       
       withdrawBtn.onclick = e => {
          select(withdrawBtn);
-         setContent('<object type="text/jsp" data="./WEB-INF/Manager_PwdPage.jsp"></object>');
+         setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/managerPwd.mp"></object>');
       };
       
       branchListBtn.onclick = e => {
           select(branchListBtn);
-          setContent('<object type="text/jsp" data="./WEB-INF/Manager_BranchConPage.jsp"></object>');
+          setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/managerConPage.mp"></object>');
        };
       
       registBtn.onclick = e => {
           select(registBtn);
-          setContent('<object type="text/jsp" data="./WEB-INF/Manager_BranchRegPage.jsp"></object>');
+          setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/managerRegPage.mp"></object>');
        };
    </script>
 </body>

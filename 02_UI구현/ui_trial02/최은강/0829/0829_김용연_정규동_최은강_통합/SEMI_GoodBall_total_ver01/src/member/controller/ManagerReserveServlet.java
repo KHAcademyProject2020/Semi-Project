@@ -7,19 +7,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/manager_sample.me")
-public class ManagerManager extends HttpServlet {
+/**
+ * Servlet implementation class ManagerReserveServlet
+ */
+@WebServlet("/managerReserve.mp")
+public class ManagerReserveServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ManagerManager() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ManagerReserveServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("WEB-INF/views/member/manager/Manager_ManagerPage.jsp").forward(request, response);
+		request.setCharacterEncoding("UTF-8");
+		
+		request.getRequestDispatcher("WEB-INF/views/member/manager/Manager_Reserve.jsp").forward(request, response);
 	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
