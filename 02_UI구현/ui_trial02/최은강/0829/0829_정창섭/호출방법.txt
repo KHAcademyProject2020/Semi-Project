@@ -1,0 +1,7 @@
+
+<!--navbar호출 -->
+<%@include file="/WEB-INF/views/common/navbar.jsp"%>
+
+
+<!--footer호출 -->
+<%@include file="WEB-INF/views/common/footer.jsp"%>
