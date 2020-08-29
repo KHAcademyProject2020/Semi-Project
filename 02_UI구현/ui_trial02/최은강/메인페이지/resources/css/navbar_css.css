@@ -30,7 +30,6 @@ a:hover {
 }
 
 .navbar,
-.navbar_logo,
 .navbar_menu,
 .navbar_menu2,
 .navbar_menu3 {
@@ -42,6 +41,7 @@ a:hover {
   color: var(--nav-text-color);
 
   justify-content: space-around;
+  align-content: space-around;
   align-items: baseline;
   padding: 8px 12px;
 }

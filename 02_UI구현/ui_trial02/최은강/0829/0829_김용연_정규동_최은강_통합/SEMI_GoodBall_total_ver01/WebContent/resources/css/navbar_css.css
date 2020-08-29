@@ -1,22 +1,24 @@
-:root {
-  /*기본*/
-  --nav-background-color: #272929;
-  --nav-text-color: #96e0e0;
+/*navbar.jsp 의 <style>태그에 넣으세요!*/
 
-  /*mouse hover*/
-  --hover-background-color: rgb(76, 227, 218);
-  --hover-text-color: #272929;
 
-  /*메뉴 폰트*/
-  --menu-font-family: 'Do Hyeon', sans-serif;
-  --menu-font-size: 1.7em;
+/*기본*/
+--nav-background-color: #272929;
+--nav-text-color: #96e0e0;
 
-  /*벨모양 아이콘*/
-  --fa-bell-font-size: 28px;
-  --fa-bell-default-color: #e9faec;
-  --hamburgur-default-color: #e9faec;
-  --hamburgur-hover-color: rgb(76, 227, 218);
-  --content-background-color: #e5f8f7;
+/*mouse hover*/
+--hover-background-color: rgb(76, 227, 218);
+--hover-text-color: #272929;
+
+/*메뉴 폰트*/
+--menu-font-family: 'Do Hyeon', sans-serif;
+--menu-font-size: 1.7em;
+
+/*벨모양 아이콘*/
+--fa-bell-font-size: 28px;
+--fa-bell-default-color: #e9faec;
+--hamburgur-default-color: #e9faec;
+--hamburgur-hover-color: rgb(76, 227, 218);
+--content-background-color: #e5f8f7;
 }
 
 body {
@@ -30,7 +32,6 @@ a:hover {
 }
 
 .navbar,
-.navbar_logo,
 .navbar_menu,
 .navbar_menu2,
 .navbar_menu3 {
@@ -42,6 +43,7 @@ a:hover {
   color: var(--nav-text-color);
 
   justify-content: space-around;
+  align-content:space-around;
   align-items: baseline;
   padding: 8px 12px;
 }
@@ -187,6 +189,4 @@ button.login-logout:hover {
   .navbar_menu2.active {
     display: flex;
   }
-
-
 }
