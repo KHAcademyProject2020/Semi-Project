@@ -1,0 +1,170 @@
+:root{
+    --default-text-color: #96e0e0;
+    --background-color: #272929;
+    
+    --hover-effect-background: #d3e8e8;
+    --hover-effect-color: #505757;
+
+    --btn-background:rgb(76,227,218);
+    --btn-color: #272929;
+}
+
+body{
+    margin: 0;
+}
+
+a{
+    text-decoration:none;
+    color: var(--default-text-color);
+}
+
+.navbar{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    background: var(--background-color);
+    padding: 8px 12px;
+}
+
+.navbar_logo{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+/* 메뉴바 */
+.navbar_menu{
+    display:flex;
+    list-style:none;
+    padding-left:0;
+}
+
+.navbar_menu li{
+    padding: 8px 12px;
+    margin: 10px;
+}
+
+.navbar_menu li:hover{
+    background: var(--default-text-color);
+    border-radius:4px;
+}
+.navbar_menu li:hover > a{
+    color: var(--hover-effect-color);
+    text-decoration:none;
+}
+
+/*맨 우측 메뉴*/
+.navbar_menu2{
+    display:flex;
+    list-style:none;
+    padding-left:0;
+}
+
+.navbar_menu2 li{
+    padding: 8px 12px;
+}
+
+/*회원가입/로그인 메뉴 공통*/
+.go-in{
+    background:var(--background-color);
+    color:var(--default-text-color);
+    border-style:none;
+}
+
+.go-in:hover{
+    background:var(--btn-background);
+    color:var(--btn-color);
+}
+
+.navbar_toggle{
+    position: absolute;
+    right: 32px;
+    font-size: 24px;
+    color: var(--default-text-color);
+    display: none; /*화면이 작을 때만 나타난다.*/
+}
+
+.navbar_toggle:hover{
+    color:var(--btn-background);
+}
+
+
+/*media query를 이용한 반응형 웹: 최대폭이 768px이하이면 적용.*/
+@media screen and (max-width: 768px){
+    
+    .navbar{
+        /*세로축 중심으로 나열.*/
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
+    }
+
+    .navbar_menu, .navbar_logo{
+        /*navbar안에있는 menu들도 세로축을 중심으로 나열*/
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar_menu2{
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar_menu li{
+        width: 100%;
+        text-align: center;
+    }
+
+    
+    .navbar_menu2 li
+    ,.navbar_menu2 button{
+        width: 100%;
+        text-align:center;
+    }
+
+    .navbar_menu, .navbar_menu2{
+        /*햄버거 버튼에의해 가려지므로 none으로 설정*/
+        display:none;
+    }
+
+    /*햄버거버튼이 나타남*/
+    .navbar_toggle{
+        display:block;
+    }
+
+    .navbar_menu.active,
+    .navbar_menu2.active{
+        display:flex;
+    }
+
+    #section-container{
+        background: var(--content-background-color);
+        width: 100%;
+        height: 100vh;
+    }
+    
+    .container-for-content{
+        padding-top: 3%;
+        margin-left: 10%;
+        margin-right: 10%;
+    
+        padding-left: 10%;
+        padding-right: 10%;	
+    
+        padding-bottom: 5%;
+    
+        background-color: rgba(223,232,225,0.1); 
+    }
+    
+    .sbutton{
+    width:50%;
+    border: none;
+    border-radius: 15%;
+    }
+    
+    #Y{ background-color: skyblue;}
+    #N{ background-color: orangered;}
+}

@@ -15,9 +15,6 @@
     --fa-bell-default-color: #e9faec;
     --hamburgur-default-color: #e9faec;
     --hamburgur-hover-color: rgb(76,227,218);
-
-    /*본론 영역 background*/
-    --content-background-color: #e5f8f7;
 }
 
 body{
@@ -120,36 +117,6 @@ button.login-logout:hover{
     font-size: 30px;
     color: var(--hamburgur-default-color);
 }
-
-/*본론 내용 프레임*/
-#section-container{
-    background: var(--content-background-color);
-    width: 100%;
-    height: 100vh;
-}
-
-.container-for-content{
-    padding-top: 3%;
-    margin-left: 10%;
-    margin-right: 10%;
-
-    padding-left: 10%;
-    padding-right: 10%;	
-
-    padding-bottom: 5%;
-
-    /*내용 컴포넌트를 넣는 곳*/
-    background-color: rgba(223,232,225,0.1); 
-}
-
-.sbutton{
-width:50%;
-border: none;
-border-radius: 15%;
-}
-
-#Y{ background-color: skyblue;}
-#N{ background-color: orangered;}
 
 
 
