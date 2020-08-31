@@ -1,7 +1,6 @@
 /*navbar.jsp 의 <style>태그에 넣으세요!*/
-
-
 /*기본*/
+:root{
 --nav-background-color: #272929;
 --nav-text-color: #96e0e0;
 
@@ -145,6 +144,10 @@ button.login-logout:hover {
     /*세로축 중심으로 나열한다.*/
     flex-direction: column;
     align-items: flex-start;
+  }
+  
+  .navbar_logo{
+  	display: flex;
   }
 
   .navbar_menu,

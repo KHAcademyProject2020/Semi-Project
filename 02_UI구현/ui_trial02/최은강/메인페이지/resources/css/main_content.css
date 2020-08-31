@@ -54,6 +54,20 @@ ul.scrollspy-navigation li:hover {
 /*메인화면*/
 .main-content-container {
   background: var(--main-container-background-color);
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+/*본론 내용 프레임*/
+#main-container {
+  background: var(--content-background-color);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  /* align-items: center; */
+  justify-content: space-between;
 }
 
 .section {
@@ -79,7 +93,7 @@ ul.scrollspy-navigation li:hover {
 }
 
 .info-title {
-  font-size: 5.1em;
+  font-size: 3em;
 }
 
 .info-title:nth-child(1) {
@@ -145,37 +159,13 @@ ul.scrollspy-navigation li:hover {
 }
 
 /*section- 공지사항게시판 (가장최근 공지사항 10개)*/
-
-/*footer*/
-footer {
-  position: absolute;
-
-  min-height: calc(100vh -245px);
-
+.latest-boardlist-box {
   display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  justify-content: space-around;
-
-  /* bottom: 0; */
-  width: 100%;
-  background: var(--footer-background);
-  color: var(--footer-text-color);
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
   text-align: center;
-}
-
-footer ul.company-info {
-  list-style: none;
-  font-size: 1.5em;
-
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  justify-content: space-around;
-}
-
-footer ul.company-info > li {
-  padding: 12px 30px;
 }
 
 /*맨 위로 버튼*/
@@ -217,18 +207,6 @@ footer ul.company-info > li {
 
 @media screen and (max-width: 768 px) {
   /*화면의 폭길이가 768px 이하이면 */
-  footer,
-  footer ul.company-info {
-    box-sizing: content-box;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-
-  ul.company-info li {
-    font-size: 1.2em;
-    align-items: flex-start;
-    justify-content: center;
-  }
 
   .info-wrapper-detail {
     text-align: center;
@@ -247,6 +225,24 @@ footer ul.company-info > li {
   .info-wrapper-detail {
     border-radius: 0px;
   }
+
+  /* 반응형웹: 화면의 크기에 맞춰서 글자를 가운데로 정렬*/
+  #main-container {
+    padding-top: 30px;
+    padding-bottom: 100px;
+    background-position: center;
+  }
+
+  .latest-notices {
+    width: 100%;
+  }
+  .latest-boardlist-box {
+    width: 100%;
+  }
+
+  .latest-board-table-box {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -256,6 +252,15 @@ footer ul.company-info > li {
     border-radius: 0px;
     width: 100%;
   }
+
+  .latest-boardlist-box {
+    width: 100%;
+    text-align: center;
+  }
+
+  .latest-boardlist-box > h1 {
+    font-size: 8vw;
+  }
 }
 
 @media screen and (min-width: 867px) {
@@ -263,4 +268,44 @@ footer ul.company-info > li {
   ul.scrollspy-navigation {
     display: flex;
   }
+
+  .info-title {
+    font-size: 10vw;
+  }
+
+  .info-title:nth-child(1) {
+    padding-bottom: 15px;
+  }
+}
+
+/*footer*/
+footer {
+  position: absolute;
+
+  min-height: calc(100vh -245px);
+
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-around;
+
+  /* bottom: 0; */
+  width: 100%;
+  background: var(--footer-background);
+  color: var(--footer-text-color);
+  text-align: center;
+}
+
+footer ul.company-info {
+  list-style: none;
+  font-size: 1.5em;
+
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-around;
+}
+
+footer ul.company-info > li {
+  padding: 12px 30px;
 }

@@ -35,7 +35,7 @@ public class CommonFilter implements Filter {
 		// TODO Auto-generated method stub
 		// place your code here
 		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
+		//response.setContentType("text/html; charset=UTF-8");
 
 		// pass the request along the filter chain
 		chain.doFilter(request, response);
