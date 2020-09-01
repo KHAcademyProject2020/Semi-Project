@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="member.model.vo.*, board.model.vo.Board,java.util.ArrayList"%>
+	import="member.model.vo.*, board.model.vo.* , java.util.ArrayList"%>
 
 <%
 	System.out.println("공지사항게시판 입장");
@@ -11,6 +11,18 @@
 
 	//로그인 회원 유형과 관계없이 공지사항을 모두 갖고온다.
 	ArrayList<Board> boardLists = (ArrayList<Board>) request.getAttribute("boardLists");
+	
+	//페이지 정보//
+	//서블릿 ShowBoardList.java (url : showBoardList.bo)로부터 이름에 대응되는 PageInfo 객체를 갖고온다.
+	PageInfo pi=(PageInfo) request.getAttribute("pi");
+	int listCount=pi.getListCount(); //페이지 길이
+	int currentPage=pi.getCurrentPage(); //현재페이지
+	int maxPage=pi.getMaxPage();
+	int startPage= pi.getStartPage();
+	int endPage= pi.getEndPage();
+	
+	System.out.println(pi);
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -87,13 +99,13 @@
 
 				<!-- 테이블 형식으로 구성되어있다. -->
 				<div class="notice_table_container">
-					<table class="table table-hover">
+					<table class="table table-hover" id="listArea">
 						<thead class="thead-dark">
 							<!-- table attributes -->
 							<tr>
 								<th scope="col">No</th>
 								<th scope="col">작성날짜</th>
-								<th scope="col" colspan=2>공지내용</th>
+								<th scope="col" colspan=3>공지내용</th>
 								<th scope="col">작성자</th>
 							</tr>
 						</thead>
@@ -105,22 +117,29 @@
 									//noticeLists가 비어있다면
 							%>
 							<tr>
-								<td colspan="5">공지사항이 없습니다!</td>
+								<td colspan="6">공지사항이 없습니다!</td>
 							</tr>
 							<%
 								} else {
 							%>
 							<%
-								for (Board board : boardLists) {
+								int i=0;
+								while(i<boardLists.size()) {
+									Board board= boardLists.get(i);
 							%>
 							<tr>
-								<th scope="row"><%=board.getBoardNum()%></th>
+								<th scope="row"><%=i+1%>
+									<input type="hidden" value="<%=board.getBoardNum()%>"/>
+								</th>
+								
 								<!--번호-->
+								
+								
 
 								<td><%=board.getBoardDate()%></td>
 								<!--작성날짜 -->
 
-								<td colspan=2><%=board.getBoardTitle()%></td>
+								<td colspan=3><%=board.getBoardTitle()%></td>
 								<!-- 제목 -->
 
 								<td><%=board.getBoardWriter()%></td>
@@ -128,15 +147,13 @@
 
 							</tr>
 							<%
+									i++;
 								}
-							%>
-							<%
-								}
+							}
 							%>
 
 						</tbody>
 					</table>
-
 				</div>
 
 				<!-- pagenation을 담는 컨테이너이다. -->
@@ -144,27 +161,77 @@
 					<nav aria-label="Page navigation example">
 						<ul class="pagination">
 
-							<%-- 가장처음버튼 --%>
+							<%-- 가장처음버튼: 현재페이지를 1로 한다. --%>
 							<li class="page-item"><a id="initial_previous"
-								class="page-link" href="#"> &lt;&lt;</i>
+								class="page-link" 
+								onclick="location.href='<%=request.getContextPath()%>/showBoardList.bo?currentPage=1'"> &lt;&lt;
 							</a></li>
 
 							<%-- 이전버튼 --%>
-							<li class="page-item"><a id="previous" class="page-link"
-								href="#"> &lt;</i>
-							</a></li>
-
-							<li class="page-item"><a class="page-link" href="#">1</a></li>
-							<li class="page-item"><a class="page-link" href="#">2</a></li>
-							<li class="page-item"><a class="page-link" href="#">3</a></li>
+							<li class="page-item">
+								<a id="previous" class="page-link"
+									onclick="location.href='<%=request.getContextPath()%>/showBoardList.bo?currentPage<%=currentPage-1%>'"> &lt;</a>
+									</li>
+							<script>
+							// 현재페이지가 1일때, 이전페이지를 클릭하지 못하도록한다.
+							if(<%=currentPage%><=1){
+								let previous=$('#previous');
+								previous.attr('disabled', 'true');
+							}
+							</script>
+							
+							<%--현재페이지에서 10개를 불러온다. --%>
+							<%for(int p=startPage; p<=endPage; p++){ 
+								if(p==currentPage){
+									//p가 현재페이지(currentPage)와 같다면
+									//현재페이지에 해당하는 페이지는 선택하지 못하게 한다.
+							%>
+									<li class="page-item active">
+										<a class="page-link" disabled><%=p %></a>
+									</li>
+							<%	}else{ %>
+									<li class="page-item">
+										<a class="page-link" onclick="location.href='<%=request.getContextPath()%>/showBoardList.bo?currentPage=<%=p%>'"><%=p %></a>
+									</li>
+							<%	} %>
+							<%} %>
+	
 
 							<%-- 다음버튼 --%>
-							<li class="page-item"><a id="next" class="page-link"
-								href="#">&gt; </a></li>
+							<li class="page-item">
+								<a id="next" class="page-link"	onclick="location.href='<%=request.getContextPath()%>/showBoardList.bo?currentPage=<%=currentPage+1%>'">&gt; </a>
+							</li>
+							<script>
+							
+							
+							//첫페이지와 끝페이지가 같다면...
+							if(<%=startPage%>==<%=endPage%>){
+								let next=$('#next');
+								let previous=$('#previous');
+								let iprevious=$('#initial_previous');
+								let lnext=$('#last_next');
+								
+								
+								next.attr('disabled', 'true');
+								previous.attr('disabled', 'true');
+								iprevious.attr('disabled', 'true');
+								lnext.attr('disabled', 'true');
+							}
+							
+							if(<%=currentPage%> >= <%=maxPage%>){
+								let next=$('#next');
+								let lnext=$('#last_next');
+								
+								//현재페이지가 맨 마지막 페이지에있다면..
+								next.attr('disabled', 'true');
+								lnext.attr('disabled', 'true');
+							}
+							</script>
 
 							<%-- 가장마지막 버튼 --%>
-							<li class="page-item"><a id="last_next" class="page-link"
-								href="#">&gt;&gt; </a></li>
+							<li class="page-item">
+								<a id="last_next" class="page-link"	onclick="location.href='<%=request.getContextPath()%>/showBoardList.bo?currentPage=<%=maxPage%>'">&gt;&gt; </a>
+							</li>
 						</ul>
 					</nav>
 				</div>
@@ -179,6 +246,19 @@
 
 </body>
 <script>
-	
+	$(function(){
+		//페이지 상세보기
+		$('#listArea td, #listArea th').mouseenter(function(){
+			// console.log($(this).parent());
+			// 공지사항 테이블의 행을 마우스호버(mouseenter)시키면 cursor가 pointer로 변환
+			$(this).parent().css('cursor','pointer');
+		}).click(function(){
+			let bId= $(this).parent().children().children('input').val();
+			// console.log(bId);
+			
+			//클릭하면,  bId에 해당하는 상세페이지로 이동.
+			location.href='<%=request.getContextPath()%>/detailBoard.bo?bId='+bId;
+		});
+	});
 </script>
 </html>

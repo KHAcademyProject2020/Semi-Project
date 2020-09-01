@@ -15,6 +15,7 @@ import java.util.Properties;
 
 import board.model.vo.Board;
 import board.model.vo.BoardAttachment;
+import board.model.vo.PageInfo;
 
 public class BoardDAO {
 
@@ -33,16 +34,20 @@ public class BoardDAO {
 
 	}
 
-	public ArrayList<Board> selectBoardList(Connection conn) {
-		Statement stmt = null;
+	public ArrayList<Board> selectBoardList(Connection conn, PageInfo pi) {
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Board> boardList = null;
 		
 		String query= prop.getProperty("selectBoardList");
-		
+		int startPage= (pi.getCurrentPage()-1)*pi.getBoardLimit()+1;//시작페이지
+		int endPage=startPage +pi.getBoardLimit()-1;//끝페이지
+		System.out.println("시작페이지: "+startPage+"/ 끝페이지: "+endPage);
 		try {
-			stmt=conn.createStatement();
-			rset=stmt.executeQuery(query);
+			pstmt=conn.prepareStatement(query);
+			pstmt.setInt(1, startPage);
+			pstmt.setInt(2, endPage);
+			rset=pstmt.executeQuery();
 			
 			boardList= new ArrayList<Board>();
 			while(rset.next()) {
@@ -61,7 +66,7 @@ public class BoardDAO {
 			e.printStackTrace();
 		} finally {
 			close(rset);
-			close(stmt);
+			close(pstmt);
 		}
 		return boardList;
 	}
@@ -110,6 +115,27 @@ public class BoardDAO {
 		} finally {
 			close(pstmt);
 			System.out.println("result=> "+ result);
+		}
+		return result;
+	}
+
+	public int getBoardListCount(Connection conn) {
+		int result=0;
+		Statement stmt= null;
+		ResultSet rset=null;
+		
+		String query=prop.getProperty("getBoardListCount");
+		try {
+			stmt=conn.prepareStatement(query);
+			rset=stmt.executeQuery(query);
+			if(rset.next()) {
+				result=rset.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(stmt);
 		}
 		return result;
 	}

@@ -1,9 +1,9 @@
 package board.model.service;
 
-import static common.JDBCTemplate.commit;
-import static common.JDBCTemplate.rollback;
-import static common.JDBCTemplate.getConnection;
 import static common.JDBCTemplate.close;
+import static common.JDBCTemplate.commit;
+import static common.JDBCTemplate.getConnection;
+import static common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -11,12 +11,18 @@ import java.util.ArrayList;
 import board.model.dao.BoardDAO;
 import board.model.vo.Board;
 import board.model.vo.BoardAttachment;
+import board.model.vo.PageInfo;
 
 public class BoardService {
 
-	public ArrayList<Board> selectBoardList() {
+	public ArrayList<Board> selectBoardList(PageInfo pi) {
 		Connection conn= getConnection();
-		ArrayList<Board> boardList= new BoardDAO().selectBoardList(conn);
+		ArrayList<Board> boardList= new BoardDAO().selectBoardList(conn, pi);
+		if(boardList!=null) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
 		close(conn);
 		return boardList;
 	
@@ -52,6 +58,14 @@ public class BoardService {
 			}
 		}
 		return result2;
+	}
+
+	public int getBoardListCount() {
+		Connection conn=getConnection();
+		int result=new BoardDAO().getBoardListCount(conn);
+		
+		close(conn);
+		return result;
 	}
 
 }

@@ -1,6 +1,7 @@
-/sql/
-/notice/
-/member/
 /board/
-/filter/
 /common/
+/filter/
+/member/
+/reservation/
+/wrapper/
+/sql/
