@@ -1,0 +1,21 @@
+.box-file-input label {
+  display: inline-block;
+  background: #23a3a7;
+  color: #fff;
+  padding: 0px 15px;
+  line-height: 35px;
+  cursor: pointer;
+}
+
+.box-file-input label:after {
+  content: '파일등록';
+}
+
+.box-file-input .file-input {
+  display: none;
+}
+
+.box-file-input .filename {
+  display: inline-block;
+  padding-left: 10px;
+}
