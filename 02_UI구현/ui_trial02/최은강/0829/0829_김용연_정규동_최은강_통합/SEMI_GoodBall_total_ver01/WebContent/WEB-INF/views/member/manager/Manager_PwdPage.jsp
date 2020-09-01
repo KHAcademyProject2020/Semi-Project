@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>my_page</title>
+<title>Good ball 마이페이지 (매니저)</title>
 <style>
 	body{
 		text-align:center;
@@ -74,13 +74,13 @@
 		</div>
 		<div class="form-group">
 			<label for="password">비밀번호</label>
-			<input type="password" name="password" id="password" placeholder="비밀번호 확인"/ onclick="deleteMember();">
+			<input type="password" name="password" id="password" placeholder="비밀번호 확인" >
 		</div>
 		<hr>
 		<!--버튼그룹  -->
 		<div class="btn-groups">
 			<button type="button" class=""
-				onclick="location.href = '#'">회원 탈퇴</button>
+				onclick="deleteMember();">회원 탈퇴</button>
 		</div>
 		<!--버튼그룹끝  -->
 	</form>
@@ -89,7 +89,7 @@
 			var result = confirm("정말 삭제 하시겠습니까?");
 			
 			if(result === true){
-				location.href="<%= request.getContextPath() %>/deleteMember.me"
+				location.href="<%= request.getContextPath() %>/deleteMember.me";
 				alert("정상적으로 삭제되었습니다^^");
 			}
 		}

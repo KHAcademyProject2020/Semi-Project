@@ -78,7 +78,7 @@
     color:var(--button-text-color);
     border-style: none;
     
-    font-size: 1.7em;
+    font-size: 2em; 
 }
 
 #insertBtn:hover{
@@ -103,12 +103,12 @@
 		font-size: 5vw;
 	}
 	
-	#insertBtn{
-		font-size: 0.8vw;
-	}
+/* 	#insertBtn{
+		font-size: 1.8vw;
+	} */
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 768px){
 	/*화면 폭이 600px 이하라면*/
 	.notice_button_box{
 		padding:10px 1px;

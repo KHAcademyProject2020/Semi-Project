@@ -128,15 +128,86 @@ hr {
 	justify-content: space-between;
 }
 
-.kakao-group>input:not (.addressBtn ) {
-	width: 45%;
-	height: 100%;
-	border: none;
-	border: 2px solid #03D392;
-	font-size: 18px;
-	margin-bottom: 5px;
-}
+.kakao-group
+>
+input
 
+
+:not
+
+ 
+
+(
+.addressBtn
+
+ 
+
+)
+{
+width
+
+
+:
+
+
+45%;
+height
+
+
+:
+
+
+100%;
+border
+
+
+:
+
+
+none
+;
+
+
+border
+
+
+:
+
+
+2
+px
+
+
+solid
+
+
+#03D392
+;
+
+
+font-size
+
+
+:
+
+
+18
+px
+;
+
+
+margin-bottom
+
+
+:
+
+
+5
+px
+;
+
+
+}
 .kakao-group>.addressBtn {
 	width: 45%;
 	height: 100%;
@@ -168,8 +239,13 @@ hr {
 		</div>
 
 
-		<div class="success1" id="success">비밀번호 일치하잖아 잘했잖아 .</div>
-		<div class="danger1" id="danger">비밀번호 틀렸잖아! 미쳤잖아! 다시해!.</div>
+		<div class="success1" id="success">비밀번호 일치합니다 .</div>
+		<div class="danger1" id="danger">비밀번호가 틀렸습니다.</div>
+		<!--  리뷰결과: 올바른 형식이 아닌 비밀번호 입력했을때 , "올바르지 않은 비밀번호 형식입니다" 출력.
+			비밀번호 확인부분 넣을것 
+			// 비밀번혼 정규 표현식 
+			// 10자~12자리의 영문(대소문자)+숫자+특수문자 중 2종류 이상을 조합하여 사용할 수 있습니다.
+		-->
 
 		<div class="form-group">
 			<label for="name">이름</label> <input type="text" name="name" id="name">
@@ -222,13 +298,18 @@ hr {
 		<hr>
 		<!-- 버튼 그룹 -->
 		<div class="btns" id="signUpBtns">
-			<input id="signUpBtn" type="submit" value="가입하기"
-				onclick="chekPassword();"> <input type="button" id="goMain"
-				onclick="goMain();" value="메인으로">
+			<input id="signUpBtn" type="submit" value="가입하기" onclick="chekPassword();">
+			 <input type="button" value="메인으로" onclick="goMain();">
+
 		</div>
 		<!-- 버튼 그룹 끝  -->
 	</form>
 	<script>
+		function goMain(){
+			/*홈으로 돌아가기*/
+			location.href="<%=request.getContextPath()%>";
+		}
+
 		function checkEmail() {
 			window.open("checkEmailForm.me", "checkEmailForm",
 					"width=300, height=200");

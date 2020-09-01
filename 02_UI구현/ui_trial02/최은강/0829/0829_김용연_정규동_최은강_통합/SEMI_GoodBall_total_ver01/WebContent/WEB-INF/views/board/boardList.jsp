@@ -72,7 +72,7 @@
 					<div></div>
 					<button type="button" class="btn btn-primary" id="insertBtn"
 						onclick="location.href='insertBoardForm.bo'">등록하기</button>
-						<%-- 
+					<%-- 
 							insertBoardForm.bo와 url매핑된 서블릿
 							board.controller.InsertBoardFormServlet.java 를 호출한다.
 							연결된 서블릿은 게시판 보드를 등록하는 페이지 boardWriter.jsp를 불러온다.
@@ -158,7 +158,6 @@
 							<li class="page-item"><a class="page-link" href="#">2</a></li>
 							<li class="page-item"><a class="page-link" href="#">3</a></li>
 
-
 							<%-- 다음버튼 --%>
 							<li class="page-item"><a id="next" class="page-link"
 								href="#">&gt; </a></li>
@@ -166,17 +165,17 @@
 							<%-- 가장마지막 버튼 --%>
 							<li class="page-item"><a id="last_next" class="page-link"
 								href="#">&gt;&gt; </a></li>
-
 						</ul>
 					</nav>
 				</div>
 
 			</div>
 		</div>
+		
 		<%-- footer을 호출 --%>
 		<%@include file="/WEB-INF/views/common/footer.jsp"%>
-
 	</div>
+	
 
 </body>
 <script>
