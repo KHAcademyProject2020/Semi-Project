@@ -30,7 +30,8 @@ public class BoardService {
 		int result1=dao.insertThread(conn, board);
 		int result2=0;
 		
-		if(fileList==null && board.getBoardImgPath()==null) {
+		if(board.getBoardImgPath()==null) {
+			System.out.println("BoardService(이미지없음) => "+ board);
 			//이미지 등록안한 상태
 			if(result1>0) {
 				commit(conn);
@@ -41,6 +42,8 @@ public class BoardService {
 			
 		}else{
 			//이미지 등록상태- board.getBoardImgPath()!=null
+			System.out.println("BoardService(이미지있음) => "+ board);
+			System.out.println("fileList=> "+ fileList);
 			result2=dao.insertBoardAttachment(conn, fileList);
 			if(result1>0 && result2>0) {
 				commit(conn);

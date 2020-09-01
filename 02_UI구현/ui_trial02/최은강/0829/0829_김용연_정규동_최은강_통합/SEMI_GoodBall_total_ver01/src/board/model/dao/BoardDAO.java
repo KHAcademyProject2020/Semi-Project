@@ -109,6 +109,7 @@ public class BoardDAO {
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
+			System.out.println("result=> "+ result);
 		}
 		return result;
 	}

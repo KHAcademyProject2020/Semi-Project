@@ -51,7 +51,7 @@
 					<hr>
 				</div>
 
-				<form action="<%=request.getContextPath()%>/insertBoard.bo" id="write_board_form" method="post">
+				<form action="<%=request.getContextPath()%>/insertBoard.bo" id="write_board_form" method="post" encType="multipart/form-data">
 					<!-- 타이틀 영역박스-->
 					<div class="title-container">
 						<input id="board-write-title" type="text" name="title"

@@ -92,7 +92,7 @@ public class InsertBoardServlet extends HttpServlet {
 				fileList.add(bat);
 			}
 			
-			System.out.println(board);
+			System.out.println("/insertBoard.bo=> "+board); //board출력
 			
 			int result= new BoardService().insertBoard(board, fileList);
 			if(result>0) {
