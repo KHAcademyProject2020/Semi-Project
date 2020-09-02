@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"
+	import="board.model.vo.*, java.util.ArrayList"%>
+	
+<%--
+<%
+	System.out.println("게시판 확인");
+	ArrayList<Board> latestBoards= (ArrayList<Board>) request.getAttribute("latestBoards");
+	for(Board board : latestBoards){
+		System.out.println(board);	
+	}
+%>	
+--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -203,14 +214,16 @@
                                         
                                     </tr>
                                 </thead>
-                                <tbody>
+                                
+                                
+                                <tbody id="latestBoard">
+                                	
                                     <tr>
                                         <th scope="row">1</th>
                                         <td>Mark</td>
                                         <td colspan=3>Otto</td>
-                                        
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <th scope="row">2</th>
                                         <td>Jacob</td>
                                         <td colspan=3>Thornton</td>
@@ -221,7 +234,7 @@
                                         <td>Larry</td>
                                         <td colspan=3>the Bird</td>
                                         
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
                             </table>
 					</div>
@@ -237,6 +250,30 @@
 			<i class="fas fa-arrow-up"></i>
 		</div>
 	</div>
+	
+	<script>
+	$(function(){
+		//랜더링 되자마자 ajax호출
+		$.ajax({
+			url:'list.bo',
+			success: function(response){
+				console.log(response);
+				let boardTbody =$('#latestBoard');
+				boardTbody.empty();
+				
+				for(let i=0; i<response.length; i++){
+					let now=response[i];
+					
+					let board=$('<tr>');
+					board.append( $('<th scope="row">').text(i+1) );
+					board.append($('<td>').text(now['boardDate']));
+					board.append($('<td colspan=3>').text(now['boardTitle']));
+					boardTbody.append(board);
+				}
+			}
+		});
+	});
+	</script>
 
 </body>
 </html>

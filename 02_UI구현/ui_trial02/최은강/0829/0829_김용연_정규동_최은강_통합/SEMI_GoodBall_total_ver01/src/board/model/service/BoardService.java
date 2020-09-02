@@ -89,6 +89,14 @@ public class BoardService {
 		return boardImgAttach; 
 	}
 
+
+	public ArrayList<Board> selectList() {
+		Connection conn= getConnection();
+		ArrayList<Board> list= new BoardDAO().selectList(conn);
+		close(conn);
+		return list;
+	}
+
 	
 
 }
