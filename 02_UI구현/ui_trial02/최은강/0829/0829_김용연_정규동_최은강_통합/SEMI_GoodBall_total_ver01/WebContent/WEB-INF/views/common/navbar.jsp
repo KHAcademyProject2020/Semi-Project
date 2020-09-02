@@ -17,10 +17,10 @@
 
 
 <!--파비콘아이콘-->
-<link rel="shortcut icon" href="/resources/common/favicon/favicon.ico"
+<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/common/favicon/favicon.ico"
 	type="image/x-icon">
 
-<link rel="icon" href="/resources/common/favicon/favicon.ico"
+<link rel="icon" href="<%=request.getContextPath()%>/resources/common/favicon/favicon.ico"
 	type="image/x-icon">
 
 <!--웹API불러오기-->
@@ -50,200 +50,7 @@
 	rel="stylesheet">
 
 <!--정적파일(css/ javascript) 불러오기-->
-<style>
-:root {
-/*기본*/
---nav-background-color: #272929;
---nav-text-color: #96e0e0;
-
-/*mouse hover*/
---hover-background-color: rgb(76, 227, 218);
---hover-text-color: #272929;
-
-/*메뉴 폰트*/
---menu-font-family: 'Do Hyeon', sans-serif;
---menu-font-size: 1.7em;
-
-/*벨모양 아이콘*/
---fa-bell-font-size: 28px;
---fa-bell-default-color: #e9faec;
---hamburgur-default-color: #e9faec;
---hamburgur-hover-color: rgb(76, 227, 218);
---content-background-color: #e5f8f7;
-}
-
-body {
-  margin: 0;
-  height: 100vh;
-}
-
-a,
-a:hover {
-  text-decoration: none;
-}
-
-.navbar,
-.navbar_menu,
-.navbar_menu2,
-.navbar_menu3 {
-  display: flex;
-}
-
-.navbar {
-  background: var(--nav-background-color);
-  color: var(--nav-text-color);
-
-  justify-content: space-around;
-  align-content:space-around;
-  align-items: baseline;
-  padding: 8px 12px;
-}
-
-.navbar_menu,
-.navbar_menu2,
-.navbar_menu3 {
-  list-style: none;
-  padding-left: 0;
-}
-
-.navbar_logo > img {
-  cursor: pointer;
-}
-
-/*navbar_menu*/
-.navbar_menu li {
-  position: relative;
-  padding: 8px 12px;
-  margin: 10px;
-  color: var(--nav-text-color);
-  font-family: var(--menu-font-family);
-  font-size: var(--menu-font-size);
-}
-
-.navbar_menu li:hover {
-  background-color: var(--hover-background-color);
-  color: var(--hover-text-color);
-  border-radius: 23px;
-  cursor: pointer;
-}
-
-.navbar_menu2 {
-  padding-top: 20px;
-  padding-left: 0;
-  font-size: var(--menu-font-size);
-}
-
-.navbar_menu2 li {
-  padding: 8px 12px;
-}
-
-/*알람 박스(벨버튼+벳지)*/
-.alarm-box {
-  position: relative;
-  padding-top: 3px;
-}
-
-.fa-bell {
-  font-size: var(--fa-bell-font-size);
-}
-
-.badge {
-  position: relative;
-  top: -10px;
-  right: 10px;
-}
-
-button.login-logout {
-  background: var(--nav-background-color);
-  color: var(--nav-text-color);
-  border-color: transparent;
-  font-family: var(--menu-font-family);
-}
-
-.alarm-box {
-  color: var(--fa-bell-default-color);
-}
-
-/*알람박스 호버*/
-.alarm-box:hover {
-  cursor: pointer;
-  color: var(--hover-background-color);
-}
-
-/*버튼 호버*/
-button.login-logout:hover {
-  cursor: pointer;
-  background: var(--hover-background-color);
-  color: var(--hover-text-color);
-  border-color: transparent;
-}
-
-/*햄버거버튼*/
-.navbar_toggle {
-  display: none;
-  position: absolute;
-  right: 32px;
-  top: 10px;
-  font-size: 30px;
-  color: var(--hamburgur-default-color);
-}
-
-
-
-/*media query를 이용하여 반응형 웹 만들기*/
-@media screen and (max-width: 768px) {
-  .navbar {
-    /*세로축 중심으로 나열한다.*/
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .navbar_menu,
-  .navbar_logo,
-  .navbar_menu2 {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-
-  .navbar_logo {
-    padding-left: 20px;
-  }
-
-  .navbar_menu a,
-  .navbar_menu li {
-    width: 100%;
-    text-align: center;
-  }
-
-  .navbar_menu li:hover {
-    border-radius: 5px;
-  }
-
-  /*햄버거 버튼이 나타난다.*/
-  .navbar_toggle {
-    display: block;
-  }
-
-  .navbar_toggle:hover {
-    color: var(--hover-background-color);
-  }
-
-  /*햄버거버튼을 누르기전*/
-  .navbar_menu,
-  .navbar_menu2 {
-    display: none;
-  }
-
-  /*햄버거 버튼을 누른 후*/
-  .navbar_menu.active,
-  .navbar_menu2.active {
-    display: flex;
-  }
-}
-</style>
-
-
+<link href="<%=request.getContextPath()%>/resources/css/navbar_css.css" type="text/css" rel="stylesheet">
 <script src="./resources/js/navbar_js.js"></script>
 </head>
 
@@ -334,8 +141,10 @@ button.login-logout:hover {
 	}
 	
 	function goNotice(){
-		//공지사항 게시판
-		location.href="<%=request.getContextPath()%>/list.no";
+		//(유정하) / (최은강)
+		//공지사항 게시판 - 리스트를 불러온다.
+		//(url: /showBoardList.bo) board.controller.ShowBoardList.java
+		location.href="<%=request.getContextPath()%>/showBoardList.bo";
 	}
 	
 	function goReservation(){
@@ -356,23 +165,34 @@ button.login-logout:hover {
 	function goMyPage(){
 		//마이페이지로 이동 (로그인한 유저만)
 		// 정규동
-		
-		location.href="<%=request.getContextPath()%>/myPageForm.me";
-		
+		<%if(loginUser!=null){%>
+			<%
+			//멤버의 유형에 따라 마이페이지이동이 달라진다.
+			if(loginUser.getMember_type().equals("M")){
+				//로그인한 회원 유형이 매니저회원이라면
+			%>
+				// 매니저회원 서블릿: member.controller.Manager_GoMyPageStartServlet.java 연결
+				location.href="<%=request.getContextPath()%>/myPage_Manager_Form.me";
+			<%}else{%>
+				// 일반회원& 관리자 서블릿: member.controller.GoMyPageStartServlet.java
+				location.href="<%=request.getContextPath()%>/myPage_General_Form.me";
+			<%}%>
+		<%}%>
 		
 	}
 	
 	function signIn(){
 		//로그인-> 로그인 입력폼 서블릿 호출
-		// 김용연
+		// 김용연(OK)
 		location.href="<%=request.getContextPath()%>/login";
 		
 	}
 	
 	function signUp(){
 		//회원가입 -> 회원가입 입력폼 서블릿 호출
-		// 김용연
-		location.href="<%=request.getContextPath()%>/signUpForm.me";
+		// 김용연(OK)
+		/* 회원가입페이지 url매핑: /memberShip - MemberShipServlet.java */
+		location.href="<%=request.getContextPath()%>/memberShip";
 	}
 	
 	function logout(){

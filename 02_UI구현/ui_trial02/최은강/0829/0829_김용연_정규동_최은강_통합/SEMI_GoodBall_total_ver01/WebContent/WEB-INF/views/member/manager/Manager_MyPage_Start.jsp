@@ -207,6 +207,7 @@ object {
          setInsideHidden1();
          setInsideHidden2();
          select(reserveStatusBtn);
+         //예약 버튼 누르면 -> 서블릿호출해서 예약페이지를 나옵니다.
          setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/managerReserve.mp"></object>');
          
       };
