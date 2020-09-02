@@ -145,7 +145,8 @@
 					<!--버튼 등록-->
 					<div class="button-container">
 						<div class="cancel_write_board-box">
-							<button class="btn btn-secondary ">취소</button>
+							<button class="btn btn-secondary" 
+									onclick="location.href='<%=request.getContextPath()%>/showBoardList.bo'">취소</button>
 						</div>
 						<div></div>
 						<div class="insert_write_board-box">
@@ -155,7 +156,9 @@
 					</div>
 				</form>
 			</div>
+			
 		</div>
+		
 	</div>
 	<!--footer삽입 -->
 	<%@include file="/WEB-INF/views/common/footer.jsp"%>

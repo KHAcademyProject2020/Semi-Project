@@ -139,5 +139,29 @@ public class BoardDAO {
 		}
 		return result;
 	}
+	
+	public Board selectBoard(Connection conn, int bId) {
+		// bId에 해당하는 게시글을 갖고온다.
+		Board board=null;
+		PreparedStatement pstmt=null;
+		ResultSet rset=null;
+		
+		String query= prop.getProperty("selectBoardBid");
+		
+		try {
+			pstmt=conn.prepareStatement(query);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return board;
+	}
 
+
+	public BoardAttachment selectBoardAttachment(Connection conn, int bId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }

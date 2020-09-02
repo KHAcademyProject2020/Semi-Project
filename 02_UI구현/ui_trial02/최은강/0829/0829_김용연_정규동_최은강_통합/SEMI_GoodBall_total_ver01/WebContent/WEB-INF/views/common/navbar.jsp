@@ -6,6 +6,13 @@
 	Member loginUser = (Member) session.getAttribute("loginUser");
 
 	System.out.println(request.getContextPath()); // /SEMI_GoodBall_CEK
+
+	String userId = null;
+   	if ((Member)session.getAttribute("loginUser") != null) {
+
+      userId = ((Member)session.getAttribute("loginUser")).getEmail();
+   }
+	
 %>
 
 <!DOCTYPE html>
@@ -149,21 +156,23 @@
 	
 	function goReservation(){
 		//구장게시판
+		location.href="<%=request.getContextPath()%>/stadium.me";
 	}
 	
 	function goMatch(){
 		//매치 - (하민재 ) 매치 등록 / 매치 신청
 		// (정창섭) 신청과정 (backend)
+		location.href="<%=request.getContextPath()%>/match.me";
 	}
 	
 	function goTeam(){
 		//팀게시판
 		//정창섭
-		location.href="<%=request.getContextPath()%>/teamList.me";
+		location.href="<%=request.getContextPath()%>/team.me";
 	}
 	
 	function goMyPage(){
-		//마이페이지로 이동 (로그인한 유저만)
+		// 마이페이지로 이동 ( 로그인한 유저만 )
 		// 정규동
 		<%if(loginUser!=null){%>
 			<%

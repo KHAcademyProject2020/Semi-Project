@@ -96,7 +96,6 @@
 				</div>
 
 
-
 				<!-- 테이블 형식으로 구성되어있다. -->
 				<div class="notice_table_container">
 					<table class="table table-hover" id="listArea">
@@ -131,10 +130,7 @@
 								<th scope="row"><%=i+1%>
 									<input type="hidden" value="<%=board.getBoardNum()%>"/>
 								</th>
-								
 								<!--번호-->
-								
-								
 
 								<td><%=board.getBoardDate()%></td>
 								<!--작성날짜 -->
@@ -144,7 +140,6 @@
 
 								<td><%=board.getBoardWriter()%></td>
 								<!-- 작성자 -->
-
 							</tr>
 							<%
 									i++;

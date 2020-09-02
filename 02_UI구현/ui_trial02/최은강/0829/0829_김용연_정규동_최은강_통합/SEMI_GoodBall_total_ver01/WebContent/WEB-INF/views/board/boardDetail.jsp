@@ -1,0 +1,100 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
+    import="board.model.vo.*, java.util.ArrayList"
+%>
+
+<%
+	Board board= (Board)request.getAttribute("board");
+	BoardAttachment img= (BoardAttachment)request.getAttribute("img");
+	
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>공지 게시판 상세보기</title>
+
+	<!--favicon-->
+    <link rel="shortcut icon" href="<%=request.getContextPath() %>/resources/common/favicon/favicon.ico" type="image/x-icon">
+
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Do+Hyeon&display=swap" rel="stylesheet">
+
+    <!-- jquery api-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+        
+    <%--정적 파일 불러오기 css/js --%>
+    <link type="text/css" rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/boardDetail.css">
+    <script src="<%=request.getContextPath()%>/resources/js/boardDetail.js"></script>
+</head>
+<body>
+	<%--navbar추가 --%>
+	<%@include file="/WEB-INF/views/common/navbar.jsp"%>
+	
+	<%--본내용 --%>
+	<!-- navbar 추가 -->
+    <div class="main-content-container" id="main-container">
+        <div class="board-detail-main-container">
+            <form action="<%=request.getContextPath() %>/updateBoardForm.bo" method="post">
+                <!-- 타이틀-->
+                <div class="board-title-box">
+                    <h1 id="title"><%=board.getBoardTitle() %></h1>
+                </div>
+
+                <!-- 이미지와 내용 -->
+                <div class="board-main-content-box">
+
+                    <!-- 이미지 -->
+                    <div class="board-img-box">
+                    	<%if(board.getBoardImgPath()!=null){ 
+                    		//등록한 이미지가 존재한다면..
+                    	%>
+                        	<img id="image" src="<%=request.getContextPath() %>/resources/storage/board_img/<%=img.getChangeName() %>" alt="게시판 이미지">
+                        <%} %>
+                    </div>
+
+                    <!-- 내용 -->
+                    <div class="board-content-box">
+                        <textarea name="content" id="content" cols=30 style="resize:none;" readonly><%=board.getBoardContent() %></textarea>
+                    </div>
+                </div>
+
+                <!-- 버튼박스 -->
+                <div class="board-btn-box">
+                    <button id="goListBoard" type="button" class="btn btn-secondary btn-lg"
+                    	onclick="location.href='<%=request.getContextPath()%>/showBoardList.bo'">목록</button>
+                    <button id="editBoard" type="button" class="btn btn-primary btn-lg">수정</button>
+                    <button id="removeBoard" type="button" class="btn btn-danger btn-lg" 
+                    	onclick="deleteBoard();">삭제</button>
+                	<script>
+                		function deleteBoard(){
+                			let result=confirm('삭제 하시겠습니까?');
+                			if(result==true){
+                				alert('공지사항 삭제가 완료되었습니다.');
+                				location.href='<%=request.getContextPath()%>/deleteBoard.bo';
+                				
+                			}else{
+                				alert('공지사항 삭제를 취소합니다.');
+                			}
+                		}
+                	</script>
+                </div>
+            </form>
+        </div>
+    </div>
+	
+	<%--footer추가 --%>
+	<%@include file="/WEB-INF/views/common/footer.jsp" %>
+
+</body>
+</html>

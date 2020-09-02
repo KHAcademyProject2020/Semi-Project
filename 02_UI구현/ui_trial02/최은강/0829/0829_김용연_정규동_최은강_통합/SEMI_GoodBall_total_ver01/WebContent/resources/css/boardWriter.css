@@ -18,8 +18,9 @@
   background: var(--main-container-background-color);
   padding-left: 100px;
   padding-right: 100px;
-  overflow: hidden;
+  overflow-x: hidden;
   text-align: center;
+  height: 100vh;
 }
 
 /*본론 내용 프레임*/

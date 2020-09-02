@@ -67,5 +67,28 @@ public class BoardService {
 		close(conn);
 		return result;
 	}
+	
+	public Board selectBoard(int bId) {
+		// bId에 해당하는 공지사항 게시글정보를 갖고온다.
+		Connection conn=getConnection();
+		
+		Board board=null;
+		board=new BoardDAO().selectBoard(conn, bId);
+		close(conn);
+		return board;
+	}
+	
+
+	public BoardAttachment selectBoardAttachment(int bId) {
+		// bId에 해당하는 공지사항 게시글 이미지 정보를 갖고온다.
+		Connection conn=getConnection();
+		BoardAttachment boardImgAttach=null;
+		
+		boardImgAttach=new BoardDAO().selectBoardAttachment(conn, bId);
+		close(conn);
+		return boardImgAttach; 
+	}
+
+	
 
 }
