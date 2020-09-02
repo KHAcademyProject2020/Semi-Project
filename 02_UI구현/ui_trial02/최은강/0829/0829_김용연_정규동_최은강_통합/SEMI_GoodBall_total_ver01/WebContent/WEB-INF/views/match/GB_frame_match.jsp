@@ -13,6 +13,8 @@
 	int maxPage = pi.getMaxPage();
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();
+	
+	System.out.println("매치페이지 입장");
 %>
 <!DOCTYPE html>
 <html>
@@ -312,7 +314,9 @@ td{
 	   console.log(branchnum);
 	   console.log(stadiumnum);
 	   console.log(reservationcode);
-	   var userId = '<%= loginUser%>';
+	   var userId = '<%= userId%>';
+	  
+	   
 	   if(userId != null) {
 		   if (confirm("신청하시겠습니까?") == true){
 			   $.ajax({
@@ -345,7 +349,9 @@ td{
 	$('#matchRegist').on('show.bs.modal', function(event){});
 	
 	$('#matchRegistBtn').click(function() {
-		var userId = '<%= loginUser.getEmail()%>';
+		
+		var userId = '<%= userId%>';
+		
 		if(userId != null) {
 			var reservation_code = $('#reservation_code').val();
 

@@ -4,6 +4,7 @@
    import="java.util.ArrayList, team.model.vo.*, reservation.model.vo.*"%>
 
 <%
+
    ArrayList<Stadium> stadiumArr = (ArrayList<Stadium>) request.getAttribute("stadiumArr");
 
    team.model.vo.PageInfo pi = (team.model.vo.PageInfo) request.getAttribute("pi");
@@ -13,6 +14,8 @@
    int maxPage = pi.getMaxPage();
    int startPage = pi.getStartPage();
    int endPage = pi.getEndPage();
+   
+   System.out.println("구장 예약 페이지 입장");
 %>
 <!DOCTYPE html>
 <html>
