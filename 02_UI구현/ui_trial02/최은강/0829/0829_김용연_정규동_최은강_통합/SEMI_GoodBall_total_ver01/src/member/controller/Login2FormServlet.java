@@ -45,7 +45,9 @@ public class Login2FormServlet extends HttpServlet {
 			
 			Member member = new Member(userEmail, userPwd);
 			Member loginUser = new MemberService().loginMember(member);
-				
+			
+			System.out.println(loginUser);//원인: null 
+			
 			if(loginUser != null) {
 				HttpSession session = request.getSession();
 				session.setMaxInactiveInterval(600); // 
