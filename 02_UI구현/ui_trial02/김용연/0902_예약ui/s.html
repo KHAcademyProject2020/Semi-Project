@@ -1,186 +1,290 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>navbar</title>
-<style>
-#navbar {
-	text-align: center;
-	width: 100%;
-	height: 60px;
-}
+	<meta charset="UTF-8">
+	<title>navbar</title>
+	<style>
+		#navbar {
+			text-align: center;
+			width: 100%;
+			height: 60px;
+		}
 
-#main_1 {
-	width: 500px;
-	height: 200px;
-}
+		#main_1 {
+			width: 500px;
+			height: 200px;
+		}
 
-#main_2{
-	width: 150px;
-	height: 150px;
-	display: inline;
-}
-#main_3{
-	width: 150px;
-	height: 150px;
-	display: inline;
-}
-#main_4{
-	width: 150px;
-	height: 150px;
-	display: inline;
-}
 
-#div_root {
-	margin: 0 auto;
-	padding: 0 100px;
-	width: 500px;
-}
+		#div_root {
+			margin: 0 auto;
+			padding: 0 100px;
+			width: 500px;
+		}
 
-#title {
-	width: 100%;
-	height: 50px;
-}
+		#title {
+			width: 100%;
+			height: 50px;
+		}
 
-.menu {
-	border: 2px solid #03D392;
-}
+		.menu {
+			border: 2px solid #03D392;
+		}
 
-.menu_1 {
-	color: #03D392;
-}
 
-#div_bottom {
-	width: 100%;
-	height: 100px;
-	clear: both;
-	background-color: #X8FE2E;
-	text-align: center;
-}
+		.menu_1 {
+			color: #03D392;
+		}
 
-.p1 {
-	font-size: 15px;
-}
+		#div_bottom {
+			width: 100%;
+			height: 100px;
+			clear: both;
+			background-color: #88FE2E;
+		}
 
-.p2 {
-	font-size: 10px;
-	color: #OB6121
-}
+		.p1 {
+			font-size: 15px;
+		}
 
-.p3 {
-	font-size: 20px;
-}
+		.p2 {
+			font-size: 10px;
+			color: #0B6121;
+		}
 
-.p4 {
-	font-size: 15px;
-}
-.p5 {
-	 font-size: 15px;
-}
-#last{
-text-align: right;
-}
-#btn1{
-	margin:20px;
-	background-color: #4ce3da;
-	width: 150px;
-	height: 40px;
-	font: 
-	
-}
-</style>
+		.p3 {
+			font-size: 20px;
+		}
+
+		.p4 {
+			font-size: 15px;
+		}
+
+		.p5 {
+			font-size: 15px;
+		}
+
+		#last {
+			text-align: right;
+		}
+
+		#btn1 {
+			margin: 20px;
+			background-color: #4ce3da;
+			width: 150px;
+			height: 40px;
+			/* font: */
+
+		}
+		/*  이용 안내 */
+		
+		.info_ul{
+			list-style: none;
+			font-size: 25px;
+			color:red;
+			padding-left: 0px;
+			font-weight: bold;
+		}
+		.info_li{
+			font-size: 15px;
+			color:black;
+			font-weight: normal;
+			ma
+		}
+
+	</style>
+	<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 	<nav id="navbar">네브바</nav>
-	
+
 	<hr>
 	<div id="div_root">
-	<hr>
-	<h4 id=''>구장 상세 정보를 확인하세요.</h4>
-	<hr>
-		<div id="img_title">
-			<img src="../img/gb.PNG" class="img_group" id="main_1">
-		</div>
-		<div class="img_side">
-			<img src="../img/gb.PNG" id="main_2"> 
-			<img src="../img/gb.PNG" id="main_3">
-			<img src="../img/gb.PNG" id="main_4"> 
-		</div>
-		
-		<br>
-		
-		<div id="title">
-			<font class="p1">지점 이름: </font>
-		</div>
-		
 		<hr>
-		
-		<div id="title_address">
-			<font class="p1">지점 주소:</font>
-		</div>
-		
-		<br>
+		<h4 id=''>구장 상세 정보를 확인하세요.</h4>
 		<hr>
-		
-		<div id="title_phone">
-			<font class="p4">전화 번호:</font>
+		<div class='img_group'>
+			<div id="img_title">
+				<img src="./img/fb.PNG" class="img_group" id="main_1">
+			</div>
+		</div>
+
+		<br>
+		<div class="title_group">
+			<div id="title_name">
+				<font class="p1">지점 이름: </font>
+			</div>
+			<hr>
+			<div id="title_address">
+				<font class="p1">지점 주소:</font>
+			</div>
+			<br>
+			<hr>
+			<div id="title_phone">
+				<font class="p4">전화 번호:</font>
+			</div>
 		</div>
 		<br>
-		
-		<fieldset class="menu">
-			<legend class="menu_1">지점 옵션 정보</legend>
-			<div id="menu_group">
-				<font class="p2"></font>
-			</div>
-			<label for="shower_room">샤워실 유무</label><br>
-			<label for="parking">주차장유무</label><br>
-			<label for="uniform">유니폼 대여 가능여부</label><br> 
-			<label for="Futsal shoes">풋살화 대여 가능 여부</label><br> 
-			<label for="ball">볼대여가능 여부</label><br> <label for="in_out">실내 실외</label><br>
-		</fieldset>
-		
-		<fieldset class="menu">
-			<legend class="menu_1">캘린더</legend>
-			<div id="calender">
-				<font class="p3">예약 날짜 선택</font> <input type='date'>
-			</div>
-		</fieldset>
-		
-		<fieldset class="menu">
-			<legend class="menu_1">예약 시간</legend>
-		<div id="available_time">
-			<font class="p3">시간</font>
+		<div class="menu_group">
+
+			<div id="menu_option">
+				<fieldset class="menu" id="menu_option1">
+					<legend class="menu_1 ">지점 옵션 정보</legend>
+					<div class="icon-boxes">
+
+						<div class="info-box" id="ball">
+							<img id="img_icon1" src="./img_option/ball.PNG" width="80px;" height="80px;">
+							<label for="Futsal shoes">풋살화 대여 가능 여부</label><br>
+						</div>
+
+						<div class="info-box">
+							<img id="img_icon1" src="./img_option/shower.PNG" width="80px;" height="80px;">
+							<label for="shower_room">샤워실 유무</label><br>
+						</div>
+						
+						<div class="info-box">
+							<img id="img_icon1" src="./img_option/parking.PNG" width="80px;" height="80px;">
+							<label for="parking">주차장유무</label><br>
+						</div>
+					</div>
+					<div class="icon-boxes">
+
+						<div class="info-box">
+							<img id="img_icon1" src="./img_option/uniform.PNG" width="80px;" height="80px;">
+							<label for="uniform">유니폼 대여 가능여부</label><br>
+						</div>
+						<div class="info-box">
+							<img id="img_icon1" src="./img_option/ball.PNG" width="80px;" height="80px;">
+							<label for="ball">볼대여가능 여부</label><br>
+						</div>
+						<div class="info-box">
+							<img id="img_icon1" src="./img_option/stadium.PNG" width="80px;" height="80px;">
+							<label for="in_out">실내 실외</label><br>
+						</div>
+					</div>
+					</fieldset>
+				</div>
+
+			<fieldset class="menu" id="menu_calender">
+				<legend class="menu_1">캘린더</legend>
+				<div id="calender">
+					<font class="p3">예약 날짜 선택</font> <input type='date'>
+				</div>
+			</fieldset>
+
+			<fieldset class="menu" id="menu_time">
+				<legend class="menu_1">예약 시간</legend>
+				<div id="available_time">
+					<font class="p3">시간</font>
+					<div>
+						<ul>
+							<li><a>00:00</a></li>
+							<li><a>02:00</a></li>
+							<li><a>04:00</a></li>
+							<li><a>06:00</a></li>
+							<li><a>08:00</a></li>
+							<li><a>10:00</a></li>
+							<li><a>12:00</a></li>
+							<li><a>14:00</a></li>
+							<li><a>16:00</a></li>
+							<li><a>18:00</a></li>
+							<li><a>20:00</a></li>
+							<li><a>22:00</a></li>
+							<li><a>24:00</a></li>
+						</ul>
+					</div>
+				</div>
+			</fieldset>
 			<div>
-			<ul>
-				<li><a>00:00</a></li>
-				<li><a>02:00</a></li>
-				<li><a>04:00</a></li>
-				<li><a>06:00</a></li>
-				<li><a>08:00</a></li>
-				<li><a>10:00</a></li>
-				<li><a>12:00</a></li>
-				<li><a>14:00</a></li>
-				<li><a>16:00</a></li>
-				<li><a>18:00</a></li>
-				<li><a>20:00</a></li>
-				<li><a>22:00</a></li>
-				<li><a>24:00</a></li>
+				<fieldset class="menu" id="menu_price">
+					<legend class="menu_1">결제</legend>
+					<font class="p1">총 결제 금액: </font>
+					<div id="last">
+						<font class="p5">원</font>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+		<div>
+			<button id="btn1">예약하기</button>
+		</div>
+		<hr>
+		<div class="Notice_group">
+			<div class="information">
+				<ul class= "info_ul"> 이용안내<br><br>
+					<li class="info_li">  
+						o 무인풋살장<br>
+						  -대관 및 기타문의 시간 엄수:오전9시-20시<br>
+						  *이외 시간에는 문자주시면 순차적으로 답변드리겠습니다. 
+					</li>
+					<br>
+					<li class="info_li">
+						o 주차가능.무료.구장당 7대
+					</li>
+					<br>
+					<li class="info_li">
+						o 물품대여 신청:대관일 전일 오전까지 문자로 신청<br>
+						  *공 2천원,조끼 3천원, 보증금 1만원 별도<br>
+						  *풋살화:켤레당 3천원
+					</li>
+					<li class="info_li">
+						ㅇ 흡연은 지정된 장소에서만 가능.
+					</li>
+					<br>
+					<li class="info_li">
+						ㅇ 축구화 착용 불가.
+					</li>
+					<br>
+					<li class="info_li">
+						ㅇ 라이트 on/off:자동 타이머
+					</li>
+					<br>
+					<li class="info_li">
+						ㅇ 20시 이후 이용자는 민원의 소지가 되는 소음금지.민원발생시 이용불가.
+					</li>
+					<br>
+					<li class="info_li">
+						-각종 행사는 따로 문의바람.<br>
+						*사전 상의 없이 행사 진행할 경우, 환불없이 현장에서 취소될수있습니다. 사전에 꼭 연락주세요!
+					</li>
+				</div>
+				<hr>
+				<div>
+				</ul>
+				<ul class= "info_ul">이용규칙<br>
+					<li class="info_li">
+						■ 풋살장 예약시간 준수<br>
+					</li>
+				<li class="info_li">
+					■ 풋살장 내 취사, 흡연 및 음주행위, 지나친 소음행위 금지(적발 시 이용불가)<br>
+				</li>
+				<li class="info_li">
+					■ 시설 사용 후 정리정돈 ( 쓰레기 반드시 처리 )<br>
+				</li>
+				<li class="info_li">
+					■ 고의 및 과실로 인한 시설물 훼손 및 파손시 사용자가 배상하며 경기중 부상은 본인이 책임집니다.<br>
+				</li>
+				<li class="info_li">
+					■ 잔디보호와 부상방지를 위하여 스터드가 있는 축구화(SG, FG, HG, AG)는 착용이 금지되며 풋살화(TF)만 착용 가능 합니다.<br>
+				</li>
+				<li class="info_li">
+					■ 사회적 거리두기 2단계 동안에는 다음내용이 적용됩니다.<br>
+					ㅇ 운동시에는 마스크를 꼭 착용해주셔야합니다. 호흡이 어려운 경우 운동템포와 휴식시간을 조정해주세요.<br>
+					ㅇ 실내구장의 경우에는 휴식시에도 마스크를 착용해주셔야합니다.<br>
+					ㅇ 야외구장의 경우에는 휴식시 2M 이상 거리를 유지해주세요.<br>
+				</li>
+				<li class="info_li">
+					■ 위 내용이 지켜지지 않을 경우 퇴장조치 될 수 있으니 예약시 꼭 참고부탁드립니다.<br>
+				</li>	
 			</ul>
+			※ 규정 외 요청은 적용이 불가합니다. 예약 전 반드시 확인해 주시기 바랍니다.
+			
+		</div>
+			<hr>
 		</div>
 	</div>
-	</fieldset>
-	<div>
-		<fieldset class="menu">
-			<legend class="menu_1">결제</legend>
-			<font class="p1">총 결제 금액: </font>
-			<div id="last">
-			<font class="p5">원</font>
-			</div>
-		</fieldset>
-	</div>
-		<button id="btn1">예약하기</button>
-</div>
 </body>
 
 </html>

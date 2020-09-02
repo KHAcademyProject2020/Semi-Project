@@ -1,0 +1,19 @@
+#menu_option .icon-boxes{
+    display: flex;
+    flex-direction: row;
+
+}
+
+
+.info-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    text-align: center;
+    align-items: center;
+}
+
+.info-box label{
+    margin: 10px;
+}
