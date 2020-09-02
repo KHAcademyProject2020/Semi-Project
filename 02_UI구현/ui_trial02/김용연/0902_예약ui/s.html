@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>navbar</title>
+<style>
+#navbar {
+	text-align: center;
+	width: 100%;
+	height: 60px;
+}
+
+#main_1 {
+	width: 500px;
+	height: 200px;
+}
+
+#main_2{
+	width: 150px;
+	height: 150px;
+	display: inline;
+}
+#main_3{
+	width: 150px;
+	height: 150px;
+	display: inline;
+}
+#main_4{
+	width: 150px;
+	height: 150px;
+	display: inline;
+}
+
+#div_root {
+	margin: 0 auto;
+	padding: 0 100px;
+	width: 500px;
+}
+
+#title {
+	width: 100%;
+	height: 50px;
+}
+
+.menu {
+	border: 2px solid #03D392;
+}
+
+.menu_1 {
+	color: #03D392;
+}
+
+#div_bottom {
+	width: 100%;
+	height: 100px;
+	clear: both;
+	background-color: #X8FE2E;
+	text-align: center;
+}
+
+.p1 {
+	font-size: 15px;
+}
+
+.p2 {
+	font-size: 10px;
+	color: #OB6121
+}
+
+.p3 {
+	font-size: 20px;
+}
+
+.p4 {
+	font-size: 15px;
+}
+.p5 {
+	 font-size: 15px;
+}
+#last{
+text-align: right;
+}
+#btn1{
+	margin:20px;
+	background-color: #4ce3da;
+	width: 150px;
+	height: 40px;
+	font: 
+	
+}
+</style>
+</head>
+<body>
+	<nav id="navbar">네브바</nav>
+	
+	<hr>
+	<div id="div_root">
+	<hr>
+	<h4 id=''>구장 상세 정보를 확인하세요.</h4>
+	<hr>
+		<div id="img_title">
+			<img src="../img/gb.PNG" class="img_group" id="main_1">
+		</div>
+		<div class="img_side">
+			<img src="../img/gb.PNG" id="main_2"> 
+			<img src="../img/gb.PNG" id="main_3">
+			<img src="../img/gb.PNG" id="main_4"> 
+		</div>
+		
+		<br>
+		
+		<div id="title">
+			<font class="p1">지점 이름: </font>
+		</div>
+		
+		<hr>
+		
+		<div id="title_address">
+			<font class="p1">지점 주소:</font>
+		</div>
+		
+		<br>
+		<hr>
+		
+		<div id="title_phone">
+			<font class="p4">전화 번호:</font>
+		</div>
+		<br>
+		
+		<fieldset class="menu">
+			<legend class="menu_1">지점 옵션 정보</legend>
+			<div id="menu_group">
+				<font class="p2"></font>
+			</div>
+			<label for="shower_room">샤워실 유무</label><br>
+			<label for="parking">주차장유무</label><br>
+			<label for="uniform">유니폼 대여 가능여부</label><br> 
+			<label for="Futsal shoes">풋살화 대여 가능 여부</label><br> 
+			<label for="ball">볼대여가능 여부</label><br> <label for="in_out">실내 실외</label><br>
+		</fieldset>
+		
+		<fieldset class="menu">
+			<legend class="menu_1">캘린더</legend>
+			<div id="calender">
+				<font class="p3">예약 날짜 선택</font> <input type='date'>
+			</div>
+		</fieldset>
+		
+		<fieldset class="menu">
+			<legend class="menu_1">예약 시간</legend>
+		<div id="available_time">
+			<font class="p3">시간</font>
+			<div>
+			<ul>
+				<li><a>00:00</a></li>
+				<li><a>02:00</a></li>
+				<li><a>04:00</a></li>
+				<li><a>06:00</a></li>
+				<li><a>08:00</a></li>
+				<li><a>10:00</a></li>
+				<li><a>12:00</a></li>
+				<li><a>14:00</a></li>
+				<li><a>16:00</a></li>
+				<li><a>18:00</a></li>
+				<li><a>20:00</a></li>
+				<li><a>22:00</a></li>
+				<li><a>24:00</a></li>
+			</ul>
+		</div>
+	</div>
+	</fieldset>
+	<div>
+		<fieldset class="menu">
+			<legend class="menu_1">결제</legend>
+			<font class="p1">총 결제 금액: </font>
+			<div id="last">
+			<font class="p5">원</font>
+			</div>
+		</fieldset>
+	</div>
+		<button id="btn1">예약하기</button>
+</div>
+</body>
+
+</html>
