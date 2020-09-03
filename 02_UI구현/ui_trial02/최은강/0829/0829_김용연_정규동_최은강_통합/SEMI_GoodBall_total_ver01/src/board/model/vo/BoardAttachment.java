@@ -19,7 +19,8 @@ public class BoardAttachment {
 		this.changeName= changeName;
 	}
 	
-	public BoardAttachment(int fileId, int boardId, String originName, String changeName, String filePath,
+	public BoardAttachment(int fileId, int boardId, String originName, 
+			String changeName, String filePath,
 			Date updateDate, String status) {
 		super();
 		this.fileId = fileId;

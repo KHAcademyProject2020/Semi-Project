@@ -150,17 +150,59 @@ public class BoardDAO {
 		
 		try {
 			pstmt=conn.prepareStatement(query);
+			pstmt.setInt(1, bId);
+			rset=pstmt.executeQuery();
+			if(rset.next()) {
+				//rset: 1개면 (게시물 고유번호인  bId해당하는 공지사항이있으면)
+				board= new Board(
+						rset.getInt("BOARD_NUM"),
+						rset.getString("BOARD_WRITER"),
+						rset.getString("WRITER_EMAIL"),
+						rset.getString("BOARD_TITLE"),
+						rset.getString("BOARD_CONTENT"),
+						rset.getString("BOARD_IMG"),
+						rset.getDate("BOARD_DATE"),
+						rset.getString("BOARD_DELETE_STATUS"));
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
 		}
-		
 		return board;
 	}
 
 
 	public BoardAttachment selectBoardAttachment(Connection conn, int bId) {
-		// TODO Auto-generated method stub
-		return null;
+		BoardAttachment bat = null;
+		PreparedStatement pstmt= null;
+		ResultSet rset=null;
+		
+		String query=prop.getProperty("selectBoardAttachmentBid");
+		try {
+			pstmt=conn.prepareStatement(query);
+			pstmt.setInt(1,bId);
+			rset=pstmt.executeQuery();
+			
+			if(rset.next()) {
+				bat=new BoardAttachment(
+						rset.getInt("FILE_ID"),
+						rset.getInt("BOARD_NUM"),
+						rset.getString("ORIGIN_NAME"),
+						rset.getString("CHANGE_NAME"),
+						rset.getString("FILE_PATH"),
+						rset.getDate("UPLOAD_DATE"),
+						rset.getString("FILE_DELETED_STATUS"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			close(rset);
+		}
+		
+		return bat;
 	}
 
 	public ArrayList<Board> selectList(Connection conn) {
@@ -196,6 +238,51 @@ public class BoardDAO {
 		}
 		
 		return list;
+	}
+
+	public int updateBoard(Connection conn, Board board, int bId) {
+		int result=0;
+		PreparedStatement pstmt=null;
+		String query=prop.getProperty("updateBoard");
+		
+		try {
+			pstmt=conn.prepareStatement(query);
+			pstmt.setString(1, board.getBoardTitle());
+			pstmt.setString(2, board.getBoardContent());
+			pstmt.setString(3, board.getBoardImgPath());
+			pstmt.setDate(4, board.getBoardDate());
+			pstmt.setInt(5, bId);
+			
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int updateBoardAttachment(Connection conn, BoardAttachment bat, int bId) {
+		int result=0;
+		PreparedStatement pstmt=null;
+		String query=prop.getProperty("updateBoardAttachment");
+		try {
+			pstmt=conn.prepareStatement(query);
+			pstmt.setString(1, bat.getOriginName());
+			pstmt.setString(2, bat.getChangeName());
+			pstmt.setString(3, bat.getFilePath());
+			pstmt.setDate(4, bat.getUpdateDate());
+			pstmt.setInt(5, bId);
+			
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 
 	

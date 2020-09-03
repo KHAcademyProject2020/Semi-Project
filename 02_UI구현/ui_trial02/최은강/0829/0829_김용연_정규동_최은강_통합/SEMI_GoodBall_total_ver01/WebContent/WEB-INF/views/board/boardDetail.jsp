@@ -1,12 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="board.model.vo.*, java.util.ArrayList"
+    import="board.model.vo.*, java.util.ArrayList, member.model.vo.*"
 %>
 
 <%
+	//세션으로부터 로그인한 멤버를 불러온다.
+	//Member loginUser= (Member) session.getAttribute("loginUser");
+	
 	Board board= (Board)request.getAttribute("board");
 	BoardAttachment img= (BoardAttachment)request.getAttribute("img");
 	
+	System.out.println("공지사항- 게시판 상세보기");
+/* 	
+	System.out.println(board);
+	System.out.println(img); 
+*/
 %>
 <!DOCTYPE html>
 <html>
@@ -45,9 +53,9 @@
 	<!-- navbar 추가 -->
     <div class="main-content-container" id="main-container">
         <div class="board-detail-main-container">
-            <form action="<%=request.getContextPath() %>/updateBoardForm.bo" method="post">
                 <!-- 타이틀-->
                 <div class="board-title-box">
+                	<input type="hidden" name="bId" id="bId" value="<%=board.getBoardNum() %>" >
                     <h1 id="title"><%=board.getBoardTitle() %></h1>
                 </div>
 
@@ -69,14 +77,35 @@
                     </div>
                 </div>
 
-                <!-- 버튼박스 -->
+                <!-- 버튼박스 
+                	목록: 모든회원 다가능한데
+                	수정/삭제: 관리자(R)만 가능하다.
+                -->
                 <div class="board-btn-box">
-                    <button id="goListBoard" type="button" class="btn btn-secondary btn-lg"
-                    	onclick="location.href='<%=request.getContextPath()%>/showBoardList.bo'">목록</button>
-                    <button id="editBoard" type="button" class="btn btn-primary btn-lg">수정</button>
-                    <button id="removeBoard" type="button" class="btn btn-danger btn-lg" 
-                    	onclick="deleteBoard();">삭제</button>
+                    	
+                    <%if(loginUser!=null && loginUser.getMember_type().equals("R")) {
+                    	//관리자 회원인경우에만 버튼을 클릭할 수 있다.
+                    %>
+                    	<button id="goListBoardAd" type="button" class="btn btn-secondary btn-lg"
+                    		onclick="location.href='<%=request.getContextPath()%>/showBoardList.bo'">목록</button>
+	                    
+	                    <button id="editBoard" type="button" class="btn btn-primary btn-lg"
+	                    	onclick="updateBoard();">수정</button>
+	                    
+	                    <button id="removeBoard" type="button" class="btn btn-danger btn-lg" 
+	                    	onclick="deleteBoard();">삭제</button>
+                    <%}else{ %>
+                    	<button id="goListBoard" type="button" class="btn btn-secondary btn-lg"
+                    		onclick="location.href='<%=request.getContextPath()%>/showBoardList.bo'">목록</button>
+                    <%} %>
                 	<script>
+                		function updateBoard(){
+                			let bId=<%=board.getBoardNum()%>;
+                			location.href='<%=request.getContextPath() %>/updateBoardForm.bo?bId='+bId;
+                			return true;
+                		}
+                	
+                	
                 		function deleteBoard(){
                 			let result=confirm('삭제 하시겠습니까?');
                 			if(result==true){
@@ -89,8 +118,9 @@
                 		}
                 	</script>
                 </div>
-            </form>
         </div>
+        
+        
     </div>
 	
 	<%--footer추가 --%>

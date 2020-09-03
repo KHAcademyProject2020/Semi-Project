@@ -5,7 +5,7 @@
 	//로그인 유저가 있는지 확인한다.
 	Member loginUser = (Member) session.getAttribute("loginUser");
 
-	System.out.println(request.getContextPath()); // /SEMI_GoodBall_CEK
+	//System.out.println(request.getContextPath()); // /SEMI_GoodBall_CEK
 
 	String userId = null;
    	if ((Member)session.getAttribute("loginUser") != null) {

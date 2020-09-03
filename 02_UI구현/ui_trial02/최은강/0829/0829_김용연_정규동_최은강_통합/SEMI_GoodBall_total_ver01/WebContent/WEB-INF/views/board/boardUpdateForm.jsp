@@ -1,14 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="member.model.vo.*, board.model.vo.Board,java.util.ArrayList"%>
+	import="member.model.vo.*, board.model.vo.*, java.util.ArrayList"%>
+<%
+
+	System.out.println("공지사항 수정페이지");
+	Board board = (Board)request.getAttribute("board");
 	
+%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>공지게시판 글작성하기</title>
+<title>공지게시판 글 수정하기</title>
 
 <link
 	href="https://fonts.googleapis.com/css2?family=Alata&family=Do+Hyeon&display=swap"
@@ -47,11 +52,14 @@
 			<div class="board-writer-form-container">
 
 				<div class="board_title_box">
-					<h1 class="board_title">공지사항 등록하기</h1>
+					
+					<h1 class="board_title">공지사항 수정하기</h1>
 					<hr>
 				</div>
 
-				<form action="<%=request.getContextPath()%>/insertBoard.bo" id="write_board_form" method="post" encType="multipart/form-data">
+				<form action="<%=request.getContextPath()%>/updateBoard.bo"  
+					id="updateBoardContent" method="post" encType="multipart/form-data">
+					<input type="hidden" name="bId" value="<%=board.getBoardNum()%>">
 					<!-- 타이틀 영역박스-->
 					<div class="title-container">
 						<input id="board-write-title" type="text" name="title"
@@ -62,10 +70,13 @@
 					<!-- 이미지 등록박스-->
 					<div class="img-container">
 						<div class="browse_img_box">
-							<label> <input type="file" class="file-input"
-								accept="image/*" name="img" id="board_img_file_import"
-								onchange="loadImg(this);" />
-							</label> <span class="filename">파일을 선택해주세요</span>
+							<label> 
+								<input type="file" class="file-input"
+										accept="image/*" name="img" id="board_img_file_import"
+										onchange="loadImg(this);" />
+							</label> 
+							
+							<span class="filename">파일을 선택해주세요</span>
 
 							<div class="photo-box">
 								<img id="photoArea" alt="photo" width="500px" height="500px">
@@ -114,6 +125,7 @@
 								</p>
 							</div>
 						</div>
+						
 						<script>
 							let limitByte = 1000; //byte최대 크기
 							function countContentLength(content) {
@@ -147,23 +159,32 @@
 					<div class="button-container">
 						<div class="cancel_write_board-box">
 							<button class="btn btn-secondary" 
-									onclick="location.href='<%=request.getContextPath()%>/showBoardList.bo'">취소</button>
+									onclick="cancelUpdate();">취소</button>
 						</div>
 						<div></div>
 						<div class="insert_write_board-box">
 							<!-- button은 input:submit 과 동일함-->
-							<button class="btn btn-primary ">작성</button>
+							<button type="submit" class="btn btn-primary"  form="updateBoardContent">수정</button>
 						</div>
 					</div>
-				
 			</div>
-			
 		</div>
-		
 	</div>
+	
 	<!--footer삽입 -->
 	<%@include file="/WEB-INF/views/common/footer.jsp"%>
 
 </body>
+<script>
+function cancelUpdate(){
+	let result=confirm('수정을 취소하시겠습니까?');
+	if(result==true){
+		alert('수정을 취소합니다.');
+		//수정 취소
+		location.href='<%=request.getContextPath()%>/showBoardList.bo';
+	}
+}
+	
+</script>
 
 </html>

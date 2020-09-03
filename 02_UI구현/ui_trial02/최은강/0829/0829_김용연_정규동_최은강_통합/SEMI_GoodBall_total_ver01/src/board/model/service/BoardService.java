@@ -28,37 +28,6 @@ public class BoardService {
 	
 	}
 
-	public int insertBoard(Board board, ArrayList<BoardAttachment> fileList) {
-		Connection conn =getConnection();
-		BoardDAO dao= new BoardDAO();
-		
-		// 글만등록하기.
-		int result1=dao.insertThread(conn, board);
-		int result2=0;
-		
-		if(board.getBoardImgPath()==null) {
-			System.out.println("BoardService(이미지없음) => "+ board);
-			//이미지 등록안한 상태
-			if(result1>0) {
-				commit(conn);
-			}else {
-				rollback(conn);
-			}
-			return result1;
-			
-		}else{
-			//이미지 등록상태- board.getBoardImgPath()!=null
-			System.out.println("BoardService(이미지있음) => "+ board);
-			System.out.println("fileList=> "+ fileList);
-			result2=dao.insertBoardAttachment(conn, fileList);
-			if(result1>0 && result2>0) {
-				commit(conn);
-			}else {
-				rollback(conn);
-			}
-		}
-		return result2;
-	}
 
 	public int getBoardListCount() {
 		Connection conn=getConnection();
@@ -96,7 +65,69 @@ public class BoardService {
 		close(conn);
 		return list;
 	}
-
+	
 	
 
+	public int insertBoard(Board board, ArrayList<BoardAttachment> fileList) {
+		Connection conn =getConnection();
+		BoardDAO dao= new BoardDAO();
+		
+		// 글만등록하기.
+		int result1=dao.insertThread(conn, board);
+		int result2=0;
+		
+		if(board.getBoardImgPath()==null) {
+			System.out.println("BoardService(이미지없음) => "+ board);
+			//이미지 등록안한 상태
+			if(result1>0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			
+			close(conn);
+			return result1;
+			
+		}else{
+			//이미지 등록상태- board.getBoardImgPath()!=null
+			System.out.println("BoardService(이미지있음) => "+ board);
+			System.out.println("fileList=> "+ fileList);
+			result2=dao.insertBoardAttachment(conn, fileList);
+			if(result1>0 && result2>0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			close(conn);
+		}
+		return result2;
+	}
+	
+
+	public int updateBoard(Board board, int bId, BoardAttachment bat) {
+		Connection conn=getConnection();
+		BoardDAO bDAO = new BoardDAO();
+		
+		int result1=0;
+		int result2=0;
+	
+		
+		//bId에 해당하는 게시글을 수정.
+		result1=bDAO.updateBoard(conn, board, bId); 
+		
+		if(result1>0) {
+			//게시글 수정성공
+			if(board.getBoardImgPath()!=null) {
+				//bId에 해당하는 이미지가 존재하면
+				result2=bDAO.updateBoardAttachment(conn, bat, bId); //bId에 해당하는 이미지를 수정.
+			}
+			
+			commit(conn);
+		}else {
+			//게시글 수정실패
+			rollback(conn);
+		}
+		close(conn);
+		return result1+result2;
+	}
 }

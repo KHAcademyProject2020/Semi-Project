@@ -458,7 +458,7 @@ svg {
 	   console.log(supporter);
 	   console.log(id);
 	   console.log(team_code);
-	   var userId = '<%= loginUser.getEmail()%>';
+	   var userId = '<%= userId%>';
 	   if(userId != null) {
 		   if(id == "exBtn") {
 			   type = '1';
@@ -580,7 +580,7 @@ svg {
 		$('#supporterBtn').click(function(){
 			 if (confirm("가입하시겠습니까?") == true){
 				 var position = $('#position').val();
-				 var userId = '<%= loginUser.getEmail()%>';
+				 var userId = '<%= userId%>';
 				 var team_code = '<%= teamInfo.getTeam_code()%>';
 				 if(userId != null) {
 					 if($('#team_leader').val() == userId) {
@@ -832,7 +832,7 @@ svg {
    
    
    function teamInfo(x) {
-	   var userId = '<%= loginUser.getEmail()%>';
+	   var userId = '<%= userId%>';
 	   if(userId != null) {
 		   if($('#team_leader').val() == userId) {
 			   var type = '1';
@@ -909,7 +909,7 @@ svg {
    };
    
    function support(x) {
-	   var userId = '<%= loginUser.getEmail()%>';
+	   var userId = '<%= userId%>';
 	   if(userId != null) {
 		   if($('#team_leader').val() == userId) {
 			   var type = '2';
@@ -990,7 +990,7 @@ svg {
    
    
    function match(x) {
-	   var userId = '<%= loginUser.getEmail()%>';
+	   var userId = '<%= userId%>';
 	   if(userId != null) {
 		   if($('#team_leader').val() == userId) {
 			   var type = '3';
