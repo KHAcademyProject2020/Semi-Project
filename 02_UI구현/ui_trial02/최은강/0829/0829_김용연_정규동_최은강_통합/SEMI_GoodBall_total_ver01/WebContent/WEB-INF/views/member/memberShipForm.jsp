@@ -298,7 +298,7 @@ px
 		<hr>
 		<!-- 버튼 그룹 -->
 		<div class="btns" id="signUpBtns">
-			<input id="signUpBtn" type="submit" value="가입하기" onclick="chekPassword();">
+			<input id="signUpBtn" type="submit" value="가입하기" onclick="return checkPassword();">
 			 <input type="button" value="메인으로" onclick="goMain();">
 
 		</div>
@@ -413,7 +413,7 @@ px
 		// 비밀번혼 정규 표현식 
 		// 10자~12자리의 영문(대소문자)+숫자+특수문자 중 2종류 이상을 조합하여 사용할 수 있습니다.
 
-		function chekPassword() {
+		function checkPassword() {
 			var mbrPwd = $("#password").val(); // pw 입력
 			var check1 = /^(?=.*[a-zA-Z])(?=.*[0-9]).{10,12}$/.test(mbrPwd); //영문,숫자
 			var check2 = /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).{10,12}$/
