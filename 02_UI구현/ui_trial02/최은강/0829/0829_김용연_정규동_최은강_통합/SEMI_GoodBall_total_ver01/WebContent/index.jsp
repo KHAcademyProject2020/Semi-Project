@@ -2,15 +2,11 @@
 	pageEncoding="UTF-8"
 	import="board.model.vo.*, java.util.ArrayList"%>
 	
-<%--
+
 <%
-	System.out.println("게시판 확인");
-	ArrayList<Board> latestBoards= (ArrayList<Board>) request.getAttribute("latestBoards");
-	for(Board board : latestBoards){
-		System.out.println(board);	
-	}
+
 %>	
---%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -264,14 +260,29 @@
 				for(let i=0; i<response.length; i++){
 					let now=response[i];
 					
-					let board=$('<tr>');
+					let board=$('<tr class="latest_notices">');
 					board.append( $('<th scope="row">').text(i+1) );
 					board.append($('<td>').text(now['boardDate']));
 					board.append($('<td colspan=3>').text(now['boardTitle']));
 					boardTbody.append(board);
+					
+					//마우스 호버하면 cursor을 pointer로 바꾼다.
+					//클릭하면 detail페이지로 이동한다.
+					board.hover(function(){
+						$(this).css({'cursor': 'pointer', 'background':'rgba(76,227,218, 0.2)', 'font-weight':'bolder'});
+					}).mouseout(function(){
+						$(this).css({'background':'transparent', 'font-weight': 'normal'});
+					}).click(function(){
+						let bId=now['boardNum'];
+						location.href='<%=request.getContextPath()%>/detailBoard.bo?bId='+bId;
+					});
+					
 				}
 			}
 		});
+		
+		
+		
 	});
 	</script>
 

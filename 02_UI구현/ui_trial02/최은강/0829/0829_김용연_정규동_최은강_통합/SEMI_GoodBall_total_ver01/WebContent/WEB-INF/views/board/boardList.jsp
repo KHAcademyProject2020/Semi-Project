@@ -157,21 +157,20 @@
 						<ul class="pagination">
 
 							<%-- 가장처음버튼: 현재페이지를 1로 한다. --%>
-							<li class="page-item"><a id="initial_previous"
+							<li class="page-item"><button id="initial_previous"
 								class="page-link" 
 								onclick="location.href='<%=request.getContextPath()%>/showBoardList.bo?currentPage=1'"> &lt;&lt;
-							</a></li>
+							</button></li>
 
 							<%-- 이전버튼 --%>
 							<li class="page-item">
-								<a id="previous" class="page-link"
-									onclick="location.href='<%=request.getContextPath()%>/showBoardList.bo?currentPage<%=currentPage-1%>'"> &lt;</a>
+								<button id="previous" class="page-link"
+									onclick="location.href='<%=request.getContextPath()%>/showBoardList.bo?currentPage<%=currentPage-1%>'"> &lt;</button>
 									</li>
 							<script>
 							// 현재페이지가 1일때, 이전페이지를 클릭하지 못하도록한다.
 							if(<%=currentPage%><=1){
-								let previous=$('#previous');
-								previous.attr('disabled', 'true');
+								$('#previous').attr('disabled', 'true');
 							}
 							</script>
 							
@@ -182,11 +181,11 @@
 									//현재페이지에 해당하는 페이지는 선택하지 못하게 한다.
 							%>
 									<li class="page-item active">
-										<a class="page-link" disabled><%=p %></a>
+										<button class="page-link" disabled="disabled"><%=p %></button>
 									</li>
 							<%	}else{ %>
 									<li class="page-item">
-										<a class="page-link" onclick="location.href='<%=request.getContextPath()%>/showBoardList.bo?currentPage=<%=p%>'"><%=p %></a>
+										<button class="page-link" onclick="location.href='<%=request.getContextPath()%>/showBoardList.bo?currentPage=<%=p%>'"><%=p %></button>
 									</li>
 							<%	} %>
 							<%} %>
@@ -194,23 +193,26 @@
 
 							<%-- 다음버튼 --%>
 							<li class="page-item">
-								<a id="next" class="page-link"	onclick="location.href='<%=request.getContextPath()%>/showBoardList.bo?currentPage=<%=currentPage+1%>'">&gt; </a>
+								<button id="next" class="page-link"	onclick="location.href='<%=request.getContextPath()%>/showBoardList.bo?currentPage=<%=currentPage+1%>'">&gt; </button>
 							</li>
-							<script>
+							
+
+							<%-- 가장마지막 버튼 --%>
+							<li class="page-item">
+								<button id="last_next" class="page-link"	onclick="location.href='<%=request.getContextPath()%>/showBoardList.bo?currentPage=<%=maxPage%>'">&gt;&gt; </button>
+							</li>
+							
+						</ul>
+						<script>
 							
 							
 							//첫페이지와 끝페이지가 같다면...
-							if(<%=startPage%>==<%=endPage%>){
-								let next=$('#next');
-								let previous=$('#previous');
-								let iprevious=$('#initial_previous');
-								let lnext=$('#last_next');
-								
-								
-								next.attr('disabled', 'true');
-								previous.attr('disabled', 'true');
-								iprevious.attr('disabled', 'true');
-								lnext.attr('disabled', 'true');
+							if(<%=startPage%>==1 && <%=startPage%>==<%=endPage%>){
+								$('#next').attr('disabled', 'true');
+								$('#previous').attr('disabled', 'true');
+								$('#initial_previous').attr('disabled', 'true');
+								$('#last_next').attr('disabled', 'true');;
+			
 							}
 							
 							if(<%=currentPage%> >= <%=maxPage%>){
@@ -222,12 +224,6 @@
 								lnext.attr('disabled', 'true');
 							}
 							</script>
-
-							<%-- 가장마지막 버튼 --%>
-							<li class="page-item">
-								<a id="last_next" class="page-link"	onclick="location.href='<%=request.getContextPath()%>/showBoardList.bo?currentPage=<%=maxPage%>'">&gt;&gt; </a>
-							</li>
-						</ul>
 					</nav>
 				</div>
 

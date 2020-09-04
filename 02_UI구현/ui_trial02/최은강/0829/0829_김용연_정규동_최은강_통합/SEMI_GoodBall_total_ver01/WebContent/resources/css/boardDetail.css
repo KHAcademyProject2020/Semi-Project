@@ -16,6 +16,7 @@
   padding-right: 100px;
   overflow-x: hidden;
   text-align: center;
+  height: fit-content;
 
 }
 
@@ -34,12 +35,14 @@
   display: flex;
   flex-direction: column;
   padding: 23px 13px;
-  height: 100%;
+  height: 100vh;
   justify-content: space-between;
+
 }
 
 /*타이틀*/
 .board-title-box,
+.board-img-box,
 .board-main-content-box,
 .board-btn-box {
   width: 100%;
@@ -51,6 +54,14 @@
 
 /*이미지와 내용 */
 /*이미지*/
+#image{
+	margin:10px;
+}
+
+.board-img-box{
+	flex-direction:row;
+	align-items: center;
+}
 
 /*내용*/
 .board-content-box {
@@ -63,7 +74,7 @@
 
 #content {
   width: 100%;
-  height: 40vh;
+  height: 20vh;
   border-style: none;
   border-radius: 10px;
   padding-top: 20px;

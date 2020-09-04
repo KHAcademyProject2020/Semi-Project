@@ -13,8 +13,6 @@
 	int maxPage = pi.getMaxPage();
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();
-	
-	System.out.println("매치페이지 입장");
 %>
 <!DOCTYPE html>
 <html>
@@ -134,7 +132,8 @@ td{
 <title>Insert title here</title>
 </head>
 <body>
-	<%@include file="/WEB-INF/views/common/navbar.jsp"%>
+	<%-- <%@ include file="../common/navbar.jsp"%> --%>
+	 <%@include file="/WEB-INF/views/common/navbar.jsp"%>
 
 	<!-- BODY 시작 -->
 	<section id="content">
@@ -165,7 +164,9 @@ td{
 					<input type="hidden" id="search_startTime" value="0">
 					<input type="hidden" id="search_endTime" value="0">
 					<button type="button" class="simple" style="float: left; margin-left:10px;" onclick="matchSearch();">상세검색</button>
+					<% if(userId != null) { %>
 					<button type="button" id="matchRegist" style="float: right;" class="simple" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">매치등록</button>
+					<% }%>
 				</form>
 				<br><br>
 				<div class="wrap4" id="wrap4">
@@ -205,7 +206,7 @@ td{
 								<td><%= matchArr.get(i).getStadium_name()%></td>
 								<td><%= matchArr.get(i).getReservation_usage_start_time()%>:00 ~ <%= matchArr.get(i).getReservation_usage_end_time()%>:00</td>
 								<td><%= matchArr.get(i).getReservation_usage_start_date()%></td>
-								<td><img src="<%=request.getContextPath()%>/resources/storage/manager/<%= matchArr.get(i).getBranch_manager_email()%>/<%= matchArr.get(i).getBranch_img()%>"  width="80px" height="60px"></td>
+								<td><img src="<%=request.getContextPath()%>/resources/storage/<%= matchArr.get(i).getBranch_manager_email()%>/branch_img/<%= matchArr.get(i).getBranch_img()%>"  width="80px" height="60px"></td>
 								<td><%= matchArr.get(i).getBranch_address()%><br><%= matchArr.get(i).getBranch_num()%>지점</td>
 								<td><% if(matchArr.get(i).getRegist_status().equals("Y")){%><input type="button" id="acBtn" class="acBtn" registnum="<%= matchArr.get(i).getRegist_num()%>" branchnum="<%= matchArr.get(i).getBranch_num() %>" stadiumnum="<%= matchArr.get(i).getStadium_num() %>" reservationcode="<%= matchArr.get(i).getReservation_code() %>" value="가능"><%}else{%><input type="button" id="caBtn" class="caBtn" value="불가능"><%}%></td>
 							</tr>
@@ -266,9 +267,9 @@ td{
 		</div>
 		<!--container-for-content 끝-->
 	</section>
+	<%-- <%@include file="../common/footer.jsp"%> --%>
+	 <%@include file="/WEB-INF/views/common/footer.jsp"%>
 	
-	<!--footer  -->
-	<%@include file="/WEB-INF/views/common/footer.jsp"%>
 	
 	<!-- modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
@@ -315,8 +316,6 @@ td{
 	   console.log(stadiumnum);
 	   console.log(reservationcode);
 	   var userId = '<%= userId%>';
-	  
-	   
 	   if(userId != null) {
 		   if (confirm("신청하시겠습니까?") == true){
 			   $.ajax({
@@ -349,9 +348,7 @@ td{
 	$('#matchRegist').on('show.bs.modal', function(event){});
 	
 	$('#matchRegistBtn').click(function() {
-		
 		var userId = '<%= userId%>';
-		
 		if(userId != null) {
 			var reservation_code = $('#reservation_code').val();
 
@@ -435,7 +432,7 @@ td{
 							 testEval += '<div class="wrap4" id="wrap4"><hr><br><h1>매치 정보 보기</h1><hr><div class="table-responsive"><table class="table table-hover"><thead class="thead-dark">';
 							 testEval += '<tr><th scope="row">no</th><th scope="col">팀</th><th scope="col">-</th><th scope="col">-</th><th scope="col">매치</th><th scope="col">구장</th><th scope="col">시간</th><th scope="col">날짜</th><th scope="col">이미지</th><th scope="col">장소</th><th scope="col">신청</th></tr></thead><tbody>';
 							 for (var i = 0; i < value.length; i++) {
-								 testEval += '<tr><th scope="row">'+ value[i].regist_num +'</th><td>'+ value[i].team_name +'</td><td>'+ value[i].team_gender +'</td><td>'+ value[i].team_age +'</td><td>'+ value[i].stadium_match_member +'</td><td>'+ value[i].stadium_name +'</td><td>'+ value[i].reservation_usage_start_time +':00 ~ '+ value[i].reservation_usage_end_time +':00</td><td>'+ value[i].reservation_usage_start_date +'</td><td><img src="'+ path +'/resources/storage/manager/'+ value[i].branch_manager_email +'/'+ value[i].branch_img +'" width="80px" height="60px"></td><td>'+ value[i].branch_address+'<br>'+ value[i].branch_num +'지점</td>';
+								 testEval += '<tr><th scope="row">'+ value[i].regist_num +'</th><td>'+ value[i].team_name +'</td><td>'+ value[i].team_gender +'</td><td>'+ value[i].team_age +'</td><td>'+ value[i].stadium_match_member +'</td><td>'+ value[i].stadium_name +'</td><td>'+ value[i].reservation_usage_start_time +':00 ~ '+ value[i].reservation_usage_end_time +':00</td><td>'+ value[i].reservation_usage_start_date +'</td><td><img src="'+ path +'/resources/storage/'+ value[i].branch_manager_email +'/branch_img/'+ value[i].branch_img +'" width="80px" height="60px"></td><td>'+ value[i].branch_address+'<br>'+ value[i].branch_num +'지점</td>';
 							 	 if(value[i].regist_status == 'Y'){
 							 		testEval += '<td><input type="button" id="acBtn" class="acBtn" registnum="'+ value[i].regist_num +'" branchnum="'+ value[i].branch_num +'" stadiumnum="'+ value[i].stadium_num +'" reservationcode="'+ value[i].reservation_code +'" value="가능"></td></tr>';
 							 	 }else {

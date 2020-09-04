@@ -152,7 +152,7 @@
 						<div></div>
 						<div class="insert_write_board-box">
 							<!-- button은 input:submit 과 동일함-->
-							<button class="btn btn-primary ">작성</button>
+							<button type="submit"  form="write_board_form" class="btn btn-primary">작성</button>
 						</div>
 					</div>
 				

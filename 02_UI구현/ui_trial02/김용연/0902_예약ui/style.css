@@ -1,21 +1,107 @@
-#menu_option .icon-boxes{
-    display: flex;
-    flex-direction: row;
-   
-
+#menu_option .icon-boxes {
+  display: flex;
+  flex-direction: row;
 }
 
-
-.info-box{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin: 10px ;
-    text-align: center;
-    align-items: center;
+.info-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 10px;
+  text-align: center;
+  align-items: center;
 }
 
+.info-box label {
+  margin: 10px;
 
-.info-box label{
-    margin: 10px;
+  text-align: center;
+  align-items: center;
+}
+
+<style > #navbar {
+  text-align: center;
+  width: 100%;
+  height: 60px;
+}
+
+#main_1 {
+  width: 600px;
+  height: 200px;
+}
+
+#div_root {
+  margin: 0 auto;
+  padding: 0 100px;
+  width: 600px;
+}
+
+#title {
+  width: 100%;
+  height: 50px;
+}
+
+.menu {
+  border: 2px solid #03d392;
+}
+
+.menu_text {
+  text-align: center;
+  color: black;
+}
+
+#div_bottom {
+  width: 100%;
+  height: 100px;
+  clear: both;
+  background-color: #88fe2e;
+}
+
+.p1 {
+  font-size: 15px;
+}
+
+.p2 {
+  font-size: 10px;
+  color: #0b6121;
+}
+
+.p3 {
+  font-size: 20px;
+}
+
+.p4 {
+  font-size: 15px;
+}
+
+.p5 {
+  font-size: 15px;
+}
+
+#last {
+  text-align: right;
+}
+
+#btn1 {
+  margin: 20px;
+  background-color: #4ce3da;
+  width: 150px;
+  height: 40px;
+  /* font: */
+}
+
+/*  이용 안내 */
+
+.info_ul {
+  list-style: none;
+  font-size: 25px;
+  color: red;
+  padding-left: 0px;
+  font-weight: bold;
+}
+
+.info_li {
+  font-size: 15px;
+  color: black;
+  font-weight: normal;
 }

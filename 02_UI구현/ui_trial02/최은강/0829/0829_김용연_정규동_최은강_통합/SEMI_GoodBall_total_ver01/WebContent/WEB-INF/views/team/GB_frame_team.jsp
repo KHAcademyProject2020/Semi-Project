@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page
-	import="java.util.ArrayList, member.model.vo.Member ,team.model.vo.*"%>
+	import="java.util.ArrayList, member.model.vo.Member ,team.model.vo.*, javax.servlet.http.HttpSession"%>
 
 <%
-	System.out.println("팀페이지 입장.");
+	
 	ArrayList<Team> teamArr = (ArrayList<Team>) request.getAttribute("teamArr");
 
 	PageInfo pi = (PageInfo) request.getAttribute("pi");
@@ -14,7 +14,18 @@
 	int maxPage = pi.getMaxPage();
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();
+	
+	String teamMessage = null;
+
+	if ((String)session.getAttribute("teamMessage") != null) {
+		teamMessage = (String)session.getAttribute("teamMessage");
+		
+	}
+	System.out.println(teamMessage);
+	
+
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +46,6 @@
 	crossorigin="anonymous"></script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
 <style>
 #content{
 	width:100%;
@@ -86,94 +96,7 @@ td{
     border-radius: 3px;
 }
 .simple:hover {background-color: #61a8d5;}
-.where {
-  display: block;
-  margin: 25px 15px;
-  font-size: 11px;
-  color: #000;
-  text-decoration: none;
-  font-family: verdana;
-  font-style: italic;
-}
-.filebox input[type="file"] {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip:rect(0,0,0,0);
-	border: 0;
-}
-.filebox label {
-	display: inline-block;
-	padding: .5em .75em;
-	color: #999;
-	font-size: inherit;
-	line-height: normal;
-	vertical-align: middle;
-	background-color: #fdfdfd;
-	cursor: pointer;
-	border: 1px solid #ebebeb;
-	border-bottom-color: #e2e2e2;
-	border-radius: .25em;
-}
-/* named upload */
-.filebox .upload-name {
-	display: inline-block;
-	padding: .5em .75em;
-	font-size: inherit;
-	font-family: inherit;
-	line-height: normal;
-	vertical-align: middle;
-	background-color: #f5f5f5;
-	border: 1px solid #ebebeb;
-	border-bottom-color: #e2e2e2;
-	border-radius: .25em;
-	-webkit-appearance: none; /* 네이티브 외형 감추기 */
-	-moz-appearance: none;
-	appearance: none;
-}
-/* imaged preview */
-.filebox .upload-display {
-	margin-bottom: 5px;
-}
-@media(min-width: 768px) {
-	.filebox .upload-display {
-		display: inline-block;
-		margin-right: 5px;
-		margin-bottom: 0;
-	}
-}
-.filebox .upload-thumb-wrap {
-	display: inline-block;
-	width: 54px;
-	padding: 2px;
-	vertical-align: middle;
-	border: 1px solid #ddd;
-	border-radius: 5px;
-	background-color: #fff;
-}
-.filebox .upload-display img {
-	display: block;
-	max-width: 100%;
-	width: 100% \9;
-	height: auto;
-}
-.filebox.bs3-primary label {
-	font: inherit;
-    font-weight: bold;
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #5ca1cd;
-    color: #fff;
-    text-decoration: none;
-    padding: 7px 15px;
-    border: none;
-    border-bottom: 3px solid #3f84b0;
-    border-radius: 3px;
-}
-.filebox.bs3-primary label:hover {background-color: #61a8d5;}
+
 #paging {
 	display: inline-block;
 }
@@ -185,7 +108,9 @@ td{
 </head>
 <body>
 	<%-- <%@ include file="../common/navbar.jsp"%> --%>
-	<%@include file="/WEB-INF/views/common/navbar.jsp"%>
+	 <%@include file="/WEB-INF/views/common/navbar.jsp"%>
+	
+  
 	<!-- BODY 시작 -->
 	<section id="content">
 		<!-- container-for-carousel 시작-->
@@ -204,12 +129,13 @@ td{
 				<br><br>
 				<input type="text" id="search_team_name" class="teamSearch" style="float: left;" value="" placeholder="팀이름입력">
 				<button type="button" class="simple" style="float: left; margin-left:10px;" onclick="teamNameSearch();" value="">검색</button>
+				<% if(userId != null) { %>
 				<button type="button" id="teamRegist" style="float: right;"
 					class="simple" data-toggle="modal"
 					data-target="#exampleModal" data-whatever="@mdo">팀등록</button>
+				<% } %>
 					<br>
 				<br>
-				
 				<div class="wrap4" id="wrap4">
 					<hr>
 					<h1>팀정보 보기</h1>
@@ -296,7 +222,7 @@ td{
 		</div>
 	</section>
 	<%-- <%@include file="../common/footer.jsp"%> --%>	
-	<%@include file="/WEB-INF/views/common/footer.jsp"%>
+	 <%@include file="/WEB-INF/views/common/footer.jsp"%>
 	
 	<!-- modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
@@ -306,84 +232,83 @@ td{
 				<div class="modal-header">
 					<h4 class="modal-title" id="exampleModalLabel">&lt;팀등록&gt;</h4>
 				</div>
-				<div class="modal-body">
-					<form>
-						<div class="form-group">
-							<label for="recipient-name" class="control-label"
-									style="font-size: 25px;">팀이름</label>
-							<div class="input-group input-group-lg">
-								<input type="text" class="form-control input-sm" id="team_name"
-									placeholder="팀이름입력">
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="input-group mb-3">
+				<form action="<%= request.getContextPath() %>/teamRegist.me" method="post" encType="multipart/form-data" onsubmit="return validate();">
+					<div class="modal-body">
+							<%-- <input type="hidden" size="50" name="userId" id="userId" value="<%= userId%>"> --%>
+							<div class="form-group">
 								<label for="recipient-name" class="control-label"
-									style="font-size: 25px;">평균성별 : </label>
-								&nbsp;&nbsp;&nbsp;&nbsp; <span class="input-group-addon">
-									<i class="fa fa-user fa" aria-hidden="true"></i>
-								</span> <select id="team_gender">
-									<option value="">팀 평균성별 선택</option>
-									<option value="남자그룹">남자그룹</option>
-									<option value="여자그룹">여자그룹</option>
-									<option value="남녀그룹">남녀그룹</option>
-								</select>
+										style="font-size: 25px;">팀이름</label>
+								<div class="input-group input-group-lg">
+									<input type="text" class="form-control input-sm" id="team_name" name="team_name"
+										placeholder="팀이름입력">
+								</div>
 							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="input-group mb-3">
+							
+							<div class="form-group">
+								<div class="input-group mb-3">
+									<label for="recipient-name" class="control-label"
+										style="font-size: 25px;">평균성별 : </label>
+									&nbsp;&nbsp;&nbsp;&nbsp; <span class="input-group-addon">
+										<i class="fa fa-user fa" aria-hidden="true"></i>
+									</span> <select id="team_gender" name="team_gender">
+										<option value="">팀 평균성별 선택</option>
+										<option value="남자그룹">남자그룹</option>
+										<option value="여자그룹">여자그룹</option>
+										<option value="남녀그룹">남녀그룹</option>
+									</select>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<div class="input-group mb-3">
+									<label for="recipient-name" class="control-label"
+										style="font-size: 25px;">평균나이 : </label>
+									&nbsp;&nbsp;&nbsp;&nbsp; <span class="input-group-addon">
+										<i class="fa fa-user fa" aria-hidden="true"></i>
+									</span> <select id="team_age" name="team_age">
+										<option value="">팀 평균나이 선택</option>
+										<option value="10대">10대</option>
+										<option value="20대">20대</option>
+										<option value="30대">30대</option>
+										<option value="40대">40대</option>
+										<option value="50대">50대</option>
+									</select>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<div class="input-group mb-3">
+									<label for="recipient-name" class="control-label"
+										style="font-size: 25px;">지역 : </label>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="input-group-addon">
+										<i class="fa fa-user fa" aria-hidden="true"></i>
+									</span> <select id="sido1" name="sido1">
+									</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select name="gugun1"
+										id="gugun1" name="gugun1">
+									</select>
+								</div>
+							</div>
+							
+							<div class="form-group" style="margin: 8px 0 8px;">
 								<label for="recipient-name" class="control-label"
-									style="font-size: 25px;">평균나이 : </label>
-								&nbsp;&nbsp;&nbsp;&nbsp; <span class="input-group-addon">
-									<i class="fa fa-user fa" aria-hidden="true"></i>
-								</span> <select id="team_age">
-									<option value="">팀 평균나이 선택</option>
-									<option value="10대">10대</option>
-									<option value="20대">20대</option>
-									<option value="30대">30대</option>
-									<option value="40대">40대</option>
-									<option value="50대">50대</option>
-								</select>
+									style="font-size: 30px;">팀마크</label>
 							</div>
-						</div>
-						<div class="form-group">
-							<div class="input-group mb-3">
-								<label for="recipient-name" class="control-label"
-									style="font-size: 25px;">지역 : </label>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="input-group-addon">
-									<i class="fa fa-user fa" aria-hidden="true"></i>
-								</span> <select name="sido1" id="sido1">
-								</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select name="gugun1"
-									id="gugun1">
-								</select>
+							
+							<div class="selectCover" style="padding-left: 0;">
+								<img id="cover" src="<%= request.getContextPath() %>/resources/common/images/마크등록.png"
+									style="width: 282px; height: 268px;" />
 							</div>
-						</div>
+							<br>
 						
-						<div class="form-group" style="margin: 8px 0 8px;">
-							<label for="recipient-name" class="control-label"
-								style="font-size: 30px;">팀마크</label>
-						</div>
-						
-						<div class="selectCover" style="padding-left: 0;">
-							<img id="cover" src="<%= request.getContextPath() %>/resources/common/images/마크등록.png"
-								style="width: 282px; height: 268px;" />
-						</div>
-						<br>
-					</form>
-					<div class="filebox bs3-primary preview-image">
-						<input id="fileName" class="upload-name" value="파일선택" disabled="disabled" style="width: 200px;">
-						<label for="input_file">업로드</label>
-						<form id="fileForm" method="post" enctype="multipart/form-data" action="">
-							<input type="file" id="input_file" class="upload-hidden">
-						</form>
+							<input id="fileName" name="fileName" class="upload-name" value="파일선택" style="width: 200px;" readonly>
+							<!-- <input type="file" id="" multiple="multiple"> -->
+							<input type="file" id="thumbnailImg1" multiple="multiple" name="thumbnailImg1">
 					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" id="teamRegistBtn" class="simple">팀
-						등록하기</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-				</div>
+					<div class="modal-footer">
+						<button type="submit" id="teamRegistBtn" class="simple">팀 등록하기</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -394,140 +319,59 @@ td{
 
 
 <script type="text/javascript">
-$(document).ready(function(){
-	   var fileTarget = $('.filebox .upload-hidden');
+	
+	function validate() {
+		var userId = '<%= userId%>';
+		var team_name = $('#team_name').val();
+		var team_gender = $('#team_gender').val();
+		var team_age = $('#team_age').val();
+		var sido1 = $('#sido1').val();
+		
+		var team_region = $('#sido1').val() + ' ' + $('#gugun1').val();
+		var team_mark = $('#fileName').val();
+			
+		if(team_name == "") {
+			alert('팀이름 입력해주세요');
+			$('#team_name').focus();
+			return false;
+		}else if(team_gender == ""){
+			alert('평균성별 선택해주세요');
+			$('#team_gender').focus();
+			return false;
+		}else if(team_age == ""){
+			alert('평균나이 선택해주세요');
+			$('#team_age').focus();
+			return false;
+		}else if(sido1 == "시/도 선택"){
+			alert('시/도 선택해주세요');
+			$('#sido1').focus();
+			return false;
+		}else if(team_mark == "파일선택"){
+			alert('팀마크 등록해주세요');
+			$('#fileName').focus();
+			return false;
+		}else {
+			return true;
+			
+		}
+	}
 
-	    fileTarget.on('change', function(){
-	        if(window.FileReader){
-	            var filename = $(this)[0].files[0].name;
-	        }else {
-	            var filename = $(this).val().split('/').pop().split('\\').pop();
-	        };
-	        $(this).siblings('.upload-name').val(filename);
-	    });
-
-	    var imgTarget = $('.preview-image .upload-hidden');
-
-	    imgTarget.on('change', function(){
-	        var parent = $(this).parent();
-	        parent.children('.upload-display').remove();
-
-	        if(window.FileReader){
-	            if (!$(this)[0].files[0].type.match(/image\//)) return;
-	            
-	            var reader = new FileReader();
-	            reader.onload = function(e){
-	                var src = e.target.result;
-	                parent.prepend('<div class="upload-display"><div class="upload-thumb-wrap"><img src="'+src+'" class="upload-thumb"></div></div>');
-	            }
-	            reader.readAsDataURL($(this)[0].files[0]);
-	        }
-
-	        else {
-	            $(this)[0].select();
-	            $(this)[0].blur();
-	            var imgSrc = document.selection.createRange().text;
-	            parent.prepend('<div class="upload-display"><div class="upload-thumb-wrap"><img class="upload-thumb"></div></div>');
-
-	            var img = $(this).siblings('.upload-display').find('img');
-	            img[0].style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enable='true',sizingMethod='scale',src=\""+imgSrc+"\")";        
-	        }
-	    });
-	});
 	
 	function readURL(input) {
         if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function (e) {
-                $('#cover').attr('src', e.target.result); 
-                $('#fileName').val(input.files[0].name); 
+                $('#cover').attr('src', e.target.result);
+                $('#fileName').val(input.files[0].name);
+                console.log($('#fileName').val());
             }
           reader.readAsDataURL(input.files[0]);
         }
     }
-
-	$("#input_file").change(function(){
-	        readURL(this);
-	        var formData = new FormData($("#fileForm")[0]);
-	        
-	        
-		    $.ajax({
-		        type: 'POST',
-		    	enctype: 'multipart/form-data',
-		        url: 'fileUpload.me',
-		        data: formData,
-		        processData: false,
-		        contentType: false,
-		        async: false,
-		        success: function(data) {
-		            alert("파일 업로드 성공.");
-		        },
-		        error : function(error) {
-		            alert("파일 업로드에 실패하였습니다.");
-		        }
-		    });      
-	});
 	
-	
-	$('#teamRegist').on('show.bs.modal', function(event){});
 
-	$('#teamRegistBtn').click(function() {
-		var userId = '<%= loginUser%>';
-		if(userId != null) {
-			var team_name = $('#team_name').val();
-			var team_gender = $('#team_gender').val();
-			var team_age = $('#team_age').val();
-			var sido1 = $('#sido1').val();		
-			var team_region = $('#sido1').val() + ' ' + $('#gugun1').val();
-			var team_mark = $('#fileName').val();
-			var form = $('#FILE_FORM')[0];
-            var formData = new FormData(form);
-            formData.append("fileObj", $("#input_file")[0].files[0]);
-			
-			if(team_name == "") {
-				alert('팀이름 입력해주세요');
-				 $("#team_name").focus();
-			}else if(team_gender == ""){
-				alert('평균성별 선택해주세요');
-				 $("#team_gender").focus();
-			}else if(team_age == ""){
-				alert('평균나이 선택해주세요');
-				 $("#team_age").focus();
-			}else if(sido1 == "시/도 선택"){
-				alert('시/도 선택해주세요');
-				 $("#sido1").focus();
-			}else if(team_mark == "파일선택"){
-				alert('팀마크 등록해주세요');
-				 $("#fileName").focus();
-			}else {
-				if (confirm("가입하시겠습니까?") == true){
-					  
-					$.ajax({
-						 url: 'teamRegist.me',
-						 data: {userId:userId, team_name:team_name, team_gender:team_gender, 
-							 	team_age:team_age, team_region:team_region, team_mark:team_mark, formData:fromData},
-						 success: function(data) {
-							 console.log(data);
-							 
-							 if(data == 1) {
-								 alert('1개이상팀생성불가');
-							 }else if(data == 2){
-								 alert('팀이름중복');
-							 }else {
-								 alert('팀등록되었습니다');
-								 location.href = location.href;
-							 }
-						 }
-					 });
-				}else{
-				     return false;
-				     
-				}
-			}
-		}else {
-			alert('로그인후이용가능');
-		}
-		
+	$('#thumbnailImg1').change(function() {
+		readURL(this);
 	});
 	
 	$('document').ready(function() {
@@ -614,6 +458,13 @@ $(document).ready(function(){
 							
 							}
 							testEval += '</tbody></table></div><br><br>';
+							testEval += '<div id="paging"><nav aria-label="Page navigation example"><ul class="pagination">';
+							testEval += '<li class="page-item"><a class="page-link">&lt;&lt;</a></li>';
+							testEval += '<li class="page-item"><a class="page-link">&lt;</a></li>';
+							testEval += '<li class="page-item"><a class="page-link">1</a></li>';
+							testEval += '<li class="page-item"><a class="page-link">&gt;</a></li>';
+							testEval += '<li class="page-item"><a class="page-link">&gt;&gt;</a></li>';
+							testEval += '</ul></nav></div></div>';
 						} else if (key == "pi") {
 							
 						} else {
@@ -649,7 +500,19 @@ $(document).ready(function(){
 			teamSearch(1);
 		}
 	};
-	
+	 $(function(){
+	        var teamMessage = '<%= teamMessage%>';
+	        console.log(teamMessage);
+	        if(teamMessage != 'null'){
+	            alert(teamMessage);
+	        }else {
+	        	
+	        }
+	    })
+	    <% 
+	    	session.setAttribute("teamMessage", null);
+	    	
+	    %>
 	
 </script>
 

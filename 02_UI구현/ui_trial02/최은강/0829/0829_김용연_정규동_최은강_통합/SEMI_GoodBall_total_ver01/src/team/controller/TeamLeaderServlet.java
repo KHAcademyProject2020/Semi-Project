@@ -41,15 +41,15 @@ public class TeamLeaderServlet extends HttpServlet {
 		int result = 0;
 		if(type.equals("1")) { //추방
 			result = 1;
-			new TeamService().teamExpulsion(supporter, team_code);
+			new TeamService().teamExpulsion(supporter, teamcode);
 			
 		}else if(type.equals("2")) { //수락
 			result = 2;
-			new TeamService().teamAccept(supporter, team_code);
+			new TeamService().teamAccept(supporter, teamcode);
 			
 		}else if(type.equals("3")) { //취소
 			result = 3;
-			new TeamService().teamCancel(supporter, team_code);
+			new TeamService().teamCancel(supporter, teamcode);
 			
 		}else if(type.equals("4")) { //매치수락
 			int statusCheck = new TeamService().teamMatchStatusCheck(match_regist_num);

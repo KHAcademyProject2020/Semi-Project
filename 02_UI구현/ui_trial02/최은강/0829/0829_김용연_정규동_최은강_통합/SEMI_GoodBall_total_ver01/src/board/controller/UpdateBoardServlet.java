@@ -59,18 +59,21 @@ public class UpdateBoardServlet extends HttpServlet {
 			
 			//폼에서 입력받은 값들을 모두 갖고온다.
 			//게시글번호: bId
+			//파일번호: fId
 			int bId= Integer.parseInt(multiRequest.getParameter("bId"));
+			int fId= Integer.parseInt(multiRequest.getParameter("fId"));
+			
+			
+			//작성자 이메일, 이름.
+			String email=((Member) request.getSession().getAttribute("loginUser")).getEmail();
+			String name=((Member) request.getSession().getAttribute("loginUser")).getName();
+					
 			
 			//제목:title
 			String title=multiRequest.getParameter("title");
 			
 			//내용: content
 			String content=multiRequest.getParameter("content");
-			
-			//작성자 이메일, 이름.
-			String email=((Member) request.getSession().getAttribute("loginUser")).getEmail();
-			String name=((Member) request.getSession().getAttribute("loginUser")).getName();
-			
 			
 			Board board=new Board();
 			board.setBoardNum(bId);
@@ -93,11 +96,12 @@ public class UpdateBoardServlet extends HttpServlet {
 			//이미지 이름
 			board.setBoardImgPath(originFile);
 			
-			result=new BoardService().updateBoard(board, bId, bat);
+			result=new BoardService().updateBoard( board, bId, fId, bat);
 			
 			System.out.println("bId=> "+bId);
 			System.out.println("UpdateBoard/updateBoard.bo\n게시판=>"+board);
 			System.out.println("게시판이미지 =>"+bat);
+			System.out.println("fId=> "+fId);
 			
 			if(result>0) {
 				response.sendRedirect("detailBoard.bo?bId="+bId);

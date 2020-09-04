@@ -7,7 +7,8 @@
 <title>Good Ball 회원가입</title>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script
-	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js">
+</script>
 <style>
 body {
 	text-align: center;
@@ -128,86 +129,15 @@ hr {
 	justify-content: space-between;
 }
 
-.kakao-group
->
-input
-
-
-:not
-
- 
-
-(
-.addressBtn
-
- 
-
-)
-{
-width
-
-
-:
-
-
-45%;
-height
-
-
-:
-
-
-100%;
-border
-
-
-:
-
-
-none
-;
-
-
-border
-
-
-:
-
-
-2
-px
-
-
-solid
-
-
-#03D392
-;
-
-
-font-size
-
-
-:
-
-
-18
-px
-;
-
-
-margin-bottom
-
-
-:
-
-
-5
-px
-;
-
-
+.kakao-group >input:not(.addressBtn){
+	width:45%;
+	height:100%;
+	border:none;
+	border:2px solid #03D392 ;
+	font-size:18px;
+	margin-bottom:5px;
 }
+
 .kakao-group>.addressBtn {
 	width: 45%;
 	height: 100%;

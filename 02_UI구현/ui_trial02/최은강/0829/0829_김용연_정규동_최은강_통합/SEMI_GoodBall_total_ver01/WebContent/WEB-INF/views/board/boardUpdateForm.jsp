@@ -5,6 +5,8 @@
 
 	System.out.println("공지사항 수정페이지");
 	Board board = (Board)request.getAttribute("board");
+	BoardAttachment img=(BoardAttachment)request.getAttribute("img");
+	
 	
 %>
 <!DOCTYPE html>
@@ -62,14 +64,25 @@
 					<input type="hidden" name="bId" value="<%=board.getBoardNum()%>">
 					<!-- 타이틀 영역박스-->
 					<div class="title-container">
+						
+						
 						<input id="board-write-title" type="text" name="title"
-							placeholder="제목을 입력해주세요">
+							placeholder="<%=board.getBoardTitle() %>">
 						<hr class="my-4">
 					</div>
 
 					<!-- 이미지 등록박스-->
 					<div class="img-container">
 						<div class="browse_img_box">
+							<%if(img!=null){ 
+								//이미지가 존재하면.. => fId를 받아라.
+							%>
+								<input type="hidden" name="fId" value="<%=img.getFileId()%>">
+							<%}else{
+								//이미지가 존재하지 않는다면 => fId는 0이다.
+							%>
+								<input type="hidden" name="fId" value=<%=0%>>
+							<%} %>
 							<label> 
 								<input type="file" class="file-input"
 										accept="image/*" name="img" id="board_img_file_import"
@@ -116,6 +129,8 @@
 					<!--내용 영역-->
 					<div class="content-container">
 						<div class="content_text">
+							
+							
 							<textarea name="content" id="board-content" style="resize: none;"
 								cols=30 placeholder="내용을 입력해주세요..."
 								onkeyup="countContentLength(this);"></textarea>

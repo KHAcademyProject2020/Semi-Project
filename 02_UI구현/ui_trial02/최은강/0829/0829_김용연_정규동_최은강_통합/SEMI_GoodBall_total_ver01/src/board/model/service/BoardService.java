@@ -104,30 +104,63 @@ public class BoardService {
 	}
 	
 
-	public int updateBoard(Board board, int bId, BoardAttachment bat) {
+	public int updateBoard( Board board, int bId, int fId, BoardAttachment bat) {
+		//board, bat: 변경한 게시물, 게시판이미지
+		
 		Connection conn=getConnection();
 		BoardDAO bDAO = new BoardDAO();
 		
-		int result1=0;
-		int result2=0;
+		//게시판 수정	
+		int result=bDAO.updateBoard(conn, board, bId);
 	
-		
-		//bId에 해당하는 게시글을 수정.
-		result1=bDAO.updateBoard(conn, board, bId); 
-		
-		if(result1>0) {
-			//게시글 수정성공
-			if(board.getBoardImgPath()!=null) {
-				//bId에 해당하는 이미지가 존재하면
-				result2=bDAO.updateBoardAttachment(conn, bat, bId); //bId에 해당하는 이미지를 수정.
-			}
+		//변경전에 이미지를 가지고있는가?
+		if(fId>0) {
+			//변경전에 이미지를 가졌다.
 			
+			//변경후에는 이미지를 가졌는가?
+			if(board.getBoardImgPath()!=null) {
+				//변경후에 이미지를 가졌다. => 그냥 변경
+				//이미지 변경
+				result+=bDAO.updateBoardAttachment(conn, bat, bId);
+			}else {
+				//변경후에는 이미지를 갖지 않았다 
+				//=> bId에 해당하는 이미지는 y으로 바꾼다.
+				//=> 이미지를 삭제.
+				result+=bDAO.deleteBoardAttachmentFid(conn, bId);
+			}
+
+		}else if(fId<=0 && board.getBoardImgPath()!=null){
+			//fId=0 : 변경전에는 이미지를 갖지 않았다.
+			//변경후에는 이미지가 존재
+			result+=bDAO.insertBoardAttachmentBid(conn, bat, bId);
+		}
+		
+		if(result>0) {
 			commit(conn);
 		}else {
-			//게시글 수정실패
 			rollback(conn);
 		}
-		close(conn);
-		return result1+result2;
+		
+		return result;
+	}
+
+
+	public int deleteBoard(int fId, int bId) {
+		int result=0;
+		Connection conn=getConnection();
+		BoardDAO bDAO= new BoardDAO();
+		//게시판만 지우는것.
+		result=bDAO.deleteBoard(conn, bId);
+		
+		if(fId>0) {
+			result+=bDAO.deleteBoardAttachmentFid(conn, bId);
+		}
+		
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		return result;
 	}
 }

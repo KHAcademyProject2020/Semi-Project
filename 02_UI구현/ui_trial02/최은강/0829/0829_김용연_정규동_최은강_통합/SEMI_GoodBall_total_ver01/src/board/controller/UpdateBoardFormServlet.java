@@ -26,15 +26,20 @@ public class UpdateBoardFormServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int bId=Integer.parseInt(request.getParameter("bId"));
 		//bId에 해당하는 Board와 Attachment를 구한다.
-		
-		Board board= new BoardService().selectBoard(bId);
+		BoardService bDAO= new BoardService();
+		Board board= bDAO.selectBoard(bId);
 		BoardAttachment img= null;
 		
 		String page=null;
+		
+		
 		if(board!=null) {
+			// bId에 해당하는 게시판이 존재한다.
 			page="WEB-INF/views/board/boardUpdateForm.jsp";
 			
-			//게시판과 이미지를 세팅
+			// bId에 해당하는 게시판 이미지가 존재하는지 확인한다.
+			img= bDAO.selectBoardAttachment(bId);
+			
 			request.setAttribute("board", board);
 			request.setAttribute("img", img);
 	

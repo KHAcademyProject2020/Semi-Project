@@ -228,7 +228,7 @@ svg {
 
 <body>
 	<%-- <%@ include file="../common/navbar.jsp"%> --%>
-	<%@include file="/WEB-INF/views/common/navbar.jsp"%>
+	 <%@include file="/WEB-INF/views/common/navbar.jsp"%>
 	<!-- BODY 시작 -->
 	<section id="content">
 
@@ -256,7 +256,7 @@ svg {
 								id="team_leader" value="<%= teamInfo.getTeam_leader()%>">
 							<h2><%= teamInfo.getTeam_name()%></h2>
 							<a href="#"> 
-							<img src="./resources/storage/general/<%= teamInfo.getTeam_leader()%>/<%= teamInfo.getTeam_mark_img()%>"
+							<img src="./resources/storage/<%= teamInfo.getTeam_leader()%>/team_img/<%= teamInfo.getTeam_mark_img()%>"
 								width="250px" height="200px">
 							</a>
 						</div>
@@ -306,9 +306,11 @@ svg {
 					<hr>
 					<h1>팀원 정보</h1>
 					<hr>
+					<% if(userId != null) { %>
 					<button type="button" id="supporter" style="float: right;"
 						class="simple" data-toggle="modal"
 						data-target="#exampleModal" data-whatever="@mdo">용병지원</button>
+					<% }%>
 
 					<div class="table-responsive">
 						<table class="table table-hover">
@@ -393,8 +395,6 @@ svg {
 			</div>
 		</div>
 
-
-		
 		<!--container-for-content 끝-->
 		<!-- modal -->
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
@@ -441,7 +441,7 @@ svg {
 	<!--BODY 끝.-->
 
 	<%-- <%@include file="../common/footer.jsp"%> --%>
-	<%@include file="/WEB-INF/views/common/footer.jsp"%>
+	 <%@include file="/WEB-INF/views/common/footer.jsp"%>
 
 
 </body>
@@ -482,7 +482,7 @@ svg {
 			   }
 		   }else if(id == "acBtn") {
 			   type = '2';
-			   if (confirm("가입취소하시겠습니까?") == true){
+			   if (confirm("가입하시겠습니까?") == true){
 				   $.ajax({
 						 url: 'leader.me',
 						 data: {supporter:supporter, team_code:team_code, type:type},
@@ -580,260 +580,235 @@ svg {
 		$('#supporterBtn').click(function(){
 			 if (confirm("가입하시겠습니까?") == true){
 				 var position = $('#position').val();
+				 var team_code = '<%=teamInfo.getTeam_code()%>';
 				 var userId = '<%= userId%>';
-				 var team_code = '<%= teamInfo.getTeam_code()%>';
 				 if(userId != null) {
-					 if($('#team_leader').val() == userId) {
-						 alert('팀장은가입할수없습니다');
-					 }else {
-						 if(position == "") {
-							 alert('포지션선택해주세요');
-							 $("#position").focus();
-						 }else {
-							 $.ajax({
-								 url: 'teamMemberRegist.me',
-								 data: {userId:userId, position:position, team_code:team_code},
-								 success: function(data) {
-									 console.log(data);
-									 
-									 if(data == 1) {
-										 alert('3개이상팀가입불가');
-									 }else if(data == 2){
-										 alert('회원입니다');
-									 }else if(data == 3){
-										 alert('중복가입신청 불가');
-									 }else if(data == 4){
-										 alert('재신청되었습니다');
-									 }else {
-										 alert('가입신청되었습니다');
-									 }
-								 }
-							 });
-						 }
-					 }
-				 }else {
-					 alert('로그인후이용가능');
-				 }
+					   if ($('#team_leader').val() == userId) {
+						   alert('팀장은가입할수없습니다');
+						   
+					   } else {
+						   if (position == "") {
+							   alert('포지션선택해주세요');
+							   $("#position").focus();
+							   
+						   } else {
+							   $.ajax({
+								   url : 'teamMemberRegist.me',
+								   data : {
+									   userId : userId,
+									   position : position,
+									   team_code : team_code
+									   },
+									   success : function(data) {
+										   console.log(data);
+										   if (data == 1) {
+											   alert('3개이상팀가입불가');
+											   
+										   } else if (data == 2) {
+											   alert('회원입니다');
+											   
+										   } else if (data == 3) {
+											   alert('중복가입신청 불가');
+											   
+										   } else if (data == 4) {
+											   alert('재신청되었습니다');
+											   
+										   } else {
+											   alert('가입신청되었습니다');
+											   
+										   }
+									   }
+							   });
+							   
+						   }
+						   
+					   }
+					   
+				   } else {
+					   alert('로그인후이용가능');
+					   
+				   }
+				   
+			 } else {
+				 return false;
 				 
-			 }else{
-			     return false;
 			 }
+			 
 		});
 	});
 
-   let w = 600;
-   let h = 400;
-   let padding = 25;
-   let avg1 = 60/100;
-   let avg2 = 40/100;
-   let avg3 = 10/100;
-   let avg4 = 30/100;
-   let avg5 = 20/100;
-   
-   let dataset = [
-   
-      [0, 20],
-      [1, 80],
-      [2, 20],
-      [3, 40],
-      [4, 40]
-   ];
-   
-   /*create svg element*/
-   let svg = d3
-      .select("#wrap2")
-      .append("svg")
-      .attr("width", w)
-      .attr("height", h)
-      .attr("id", "chart");
-   
-   let drag = d3.behavior
-      .drag()
-      .on("dragstart", dragstarted)
-      .on("drag", dragged)
-      .on("dragend", dragended);
-   
-   /*x scale*/
-   let xScale = d3.scale
-      .linear()
-      .domain([0, d3.max(dataset, function(d) {return d[0]})])
-      .range([padding, w - padding]);
-   
-   
-   /*y scale*/
-   let yScale = d3.scale
-      .linear()
-      .domain([0, 100])
-      .range([h - padding, padding]);
-      
-   /*x axis*/
-   let xAxis = d3.svg
-      .axis()
-      .scale(xScale)
-      .orient("bottom");
-   
-   /*y axis*/
-   let yAxis = d3.svg
-      .axis()
-      .scale(yScale)
-      .orient("left");
-      
-   let today = new Date();   
-   
-   let year = today.getFullYear(); // 년도
-   let month = today.getMonth() + 1;  // 월
-   let date = today.getDate();  // 날짜
-   let day = today.getDay();  // 요일
-   
-   var data=[
-      {"date":new Date(year,month-1,date-4), "value": 0},
-       {"date":new Date(year,month-1,date), "value": 100}
-   ];
-   
-   var x_domain = d3.extent(data, function(d) { return d.date; }),
-   y_domain = d3.extent(data, function(d) { return d.value; });
-   
-   
-   var xScale2 = d3.time.scale()
-   .domain(x_domain)    // values between for month of january
-   .range([padding, w - padding]);   // map these sides of the chart, in this case 100 and 600
-   
-   // define the y scale  (vertical)
-   var yScale2 = d3.scale.linear()
-   .domain(y_domain).nice()   // make axis end in round number
-   .range([h - padding, padding]);   // map these to the chart height, less padding.  In this case 300 and 100
-        //REMEMBER: y axis range has the bigger number first because the y value of zero is at the top of chart and increases as you go down.
-   
-   var  date_format = d3.time.format('%m/%d');
-   //var  date_format = d3.time.format("%d %b");
-   
-   var yAxis2 = d3.svg.axis()
-   .orient("left")
-   .scale(yScale2);
-   
-   // define the x axis
-   var xAxis2 = d3.svg.axis()
-   .orient("bottom")
-   .scale(xScale2)
-   .tickFormat(date_format);
-   
-   svg.append("g")
-   .attr("class", "yaxis axis")
-   .attr("transform", "translate("+padding+",0)")
-   .call(yAxis2);
-   
-   // draw x axis with labels and move to the bottom of the chart area
-   svg.append("g")
-   .attr("class", "xaxis axis")  // two classes, one for css formatting, one for selection below
-   .attr("transform", "translate(0," + (h - padding) + ")")
-   .call(xAxis2);
-   
-   /* svg.append("text")
-   .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
-   .attr("transform", "translate("+ (padding/2) +","+(h/2)+")rotate(0)")  // text is drawn off the screen top left, move down and out and rotate
-   .text("승률");
-   
-   svg.append("text")
-   .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
-   .attr("transform", "translate("+ (w/2) +","+(420-(padding/2))+")")  // centre below axis
-   .text("최근날짜");    */
-   
+	let w = 600;
+	let h = 400;
+	let padding = 25;
+	let avg1 = 60 / 100;
+	let avg2 = 40 / 100;
+	let avg3 = 10 / 100;
+	let avg4 = 30 / 100;
+	let avg5 = 20 / 100;
 
-   
-   /*define line*/
-   let lines = d3.svg
-      .line()
-      .x(function(d) {return xScale(d[0])})
-      .y(function(d) {return yScale(d[1])})
-      .interpolate("monotone");
-   
-   
-   /*append line*/
-   let path = svg.append("path").attr({
-      d: lines(dataset),
-      'class': "lineChart"
-   });
-   
-   console.log(path);
-   
-   svg
-      .select(".lineChart")
-      .style("opacity", 0)
-      .transition()
-      .duration(2500)
-      .delay(1000)
-      .style("opacity", 1);
-   
-   /*add points*/
-   let points = svg
-      .selectAll("circle")
-      .data(dataset)
-      .enter()
-      .append("circle")
-      .call(drag);
-      
-   console.log(points);
-   
-   /*point attributes*/
-   points
-      .attr("cy", 0)
-      .transition()
-      .duration(1500)
-      .delay(function(d, i) {return i * 100 + 500})
-      .ease("elastic")
-      .attr({
-    	 cx: function(d) {return xScale(d[0])},
-         cy: function(d) {return yScale(d[1])},
-         r: 7,
-         'class': "datapoint",
-         id: function(d, i) {return i}
-   
-      })
-      .style("opacity", 1);
-   
-   
-   let xMax = d3.max(dataset, function(d) {return d[0]}),
-       yMax = d3.max(dataset, function(d) {return d[1]});
+	let dataset = [
 
-   function dragstarted() {
-      d3.event.sourceEvent.stopPropagation();
-      d3.select(this).classed("dragging datapoint", true);
-   }
-   
-   function dragged() {
-      d3.select(this).attr({
-         cx: Math.max(padding, Math.min(d3.event.x, w - padding)),
-         cy: Math.max(padding, Math.min(d3.event.y, h - padding))
-      });
-   }
-   
-   function dragended() {
-      d3.select(this).classed("datapoint", true);
-      // get id of dragged point
-      let id = d3.select(this).attr("id"),
-         // get new absolute position coordinates of the point
-         xPos = d3.select(this).attr("cx"),
-         yPos = h - d3.select(this).attr("cy");
-   
-      // convert absolute position coordinates relative to scales
-      xPos = (xPos - padding) * (xMax / (w - padding * 2));
-      yPos = (yPos - padding) * (yMax / (h - padding * 2));
-      dataset[id][0] = xPos;
-      dataset[id][1] = yPos;
-   
-      // update line
-      svg
-         .select(".lineChart")
-         .transition()
-         .duration(500)
-         .attr("d", lines(dataset));
-   }
-   
-   
-   
-   function teamInfo(x) {
-	   var userId = '<%= userId%>';
-	   if(userId != null) {
+	[ 0, 20 ], [ 1, 80 ], [ 2, 20 ], [ 3, 40 ], [ 4, 40 ] ];
+
+	/*create svg element*/
+	let svg = d3.select("#wrap2").append("svg").attr("width", w).attr("height",
+			h).attr("id", "chart");
+
+	let drag = d3.behavior.drag().on("dragstart", dragstarted).on("drag",
+			dragged).on("dragend", dragended);
+
+	/*x scale*/
+	let xScale = d3.scale.linear().domain([ 0, d3.max(dataset, function(d) {
+		return d[0]
+	}) ]).range([ padding, w - padding ]);
+
+	/*y scale*/
+	let yScale = d3.scale.linear().domain([ 0, 100 ]).range(
+			[ h - padding, padding ]);
+
+	/*x axis*/
+	let xAxis = d3.svg.axis().scale(xScale).orient("bottom");
+
+	/*y axis*/
+	let yAxis = d3.svg.axis().scale(yScale).orient("left");
+
+	let today = new Date();
+
+	let year = today.getFullYear(); // 년도
+	let month = today.getMonth() + 1; // 월
+	let date = today.getDate(); // 날짜
+	let day = today.getDay(); // 요일
+
+	var data = [ {
+		"date" : new Date(year, month - 1, date - 4),
+		"value" : 0
+	}, {
+		"date" : new Date(year, month - 1, date),
+		"value" : 100
+	} ];
+
+	var x_domain = d3.extent(data, function(d) {
+		return d.date;
+	}), y_domain = d3.extent(data, function(d) {
+		return d.value;
+	});
+
+	var xScale2 = d3.time.scale().domain(x_domain) // values between for month of january
+	.range([ padding, w - padding ]); // map these sides of the chart, in this case 100 and 600
+
+	// define the y scale  (vertical)
+	var yScale2 = d3.scale.linear().domain(y_domain).nice() // make axis end in round number
+	.range([ h - padding, padding ]); // map these to the chart height, less padding.  In this case 300 and 100
+	//REMEMBER: y axis range has the bigger number first because the y value of zero is at the top of chart and increases as you go down.
+
+	var date_format = d3.time.format('%m/%d');
+	//var  date_format = d3.time.format("%d %b");
+
+	var yAxis2 = d3.svg.axis().orient("left").scale(yScale2);
+
+	// define the x axis
+	var xAxis2 = d3.svg.axis().orient("bottom").scale(xScale2).tickFormat(
+			date_format);
+
+	svg.append("g").attr("class", "yaxis axis").attr("transform",
+			"translate(" + padding + ",0)").call(yAxis2);
+
+	// draw x axis with labels and move to the bottom of the chart area
+	svg.append("g").attr("class", "xaxis axis") // two classes, one for css formatting, one for selection below
+	.attr("transform", "translate(0," + (h - padding) + ")").call(xAxis2);
+
+	/* svg.append("text")
+	.attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+	.attr("transform", "translate("+ (padding/2) +","+(h/2)+")rotate(0)")  // text is drawn off the screen top left, move down and out and rotate
+	.text("승률");
+	
+	svg.append("text")
+	.attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+	.attr("transform", "translate("+ (w/2) +","+(420-(padding/2))+")")  // centre below axis
+	.text("최근날짜");    */
+
+	/*define line*/
+	let lines = d3.svg.line().x(function(d) {
+		return xScale(d[0])
+	}).y(function(d) {
+		return yScale(d[1])
+	}).interpolate("monotone");
+
+	/*append line*/
+	let path = svg.append("path").attr({
+		d : lines(dataset),
+		'class' : "lineChart"
+	});
+
+	console.log(path);
+
+	svg.select(".lineChart").style("opacity", 0).transition().duration(2500)
+			.delay(1000).style("opacity", 1);
+
+	/*add points*/
+	let points = svg.selectAll("circle").data(dataset).enter().append("circle")
+			.call(drag);
+
+	console.log(points);
+
+	/*point attributes*/
+	points.attr("cy", 0).transition().duration(1500).delay(function(d, i) {
+		return i * 100 + 500
+	}).ease("elastic").attr({
+		cx : function(d) {
+			return xScale(d[0])
+		},
+		cy : function(d) {
+			return yScale(d[1])
+		},
+		r : 7,
+		'class' : "datapoint",
+		id : function(d, i) {
+			return i
+		}
+
+	}).style("opacity", 1);
+
+	let xMax = d3.max(dataset, function(d) {
+		return d[0]
+	}), yMax = d3.max(dataset, function(d) {
+		return d[1]
+	});
+
+	function dragstarted() {
+		d3.event.sourceEvent.stopPropagation();
+		d3.select(this).classed("dragging datapoint", true);
+	}
+
+	function dragged() {
+		d3.select(this).attr({
+			cx : Math.max(padding, Math.min(d3.event.x, w - padding)),
+			cy : Math.max(padding, Math.min(d3.event.y, h - padding))
+		});
+	}
+
+	function dragended() {
+		d3.select(this).classed("datapoint", true);
+		// get id of dragged point
+		let id = d3.select(this).attr("id"),
+		// get new absolute position coordinates of the point
+		xPos = d3.select(this).attr("cx"), yPos = h
+				- d3.select(this).attr("cy");
+
+		// convert absolute position coordinates relative to scales
+		xPos = (xPos - padding) * (xMax / (w - padding * 2));
+		yPos = (yPos - padding) * (yMax / (h - padding * 2));
+		dataset[id][0] = xPos;
+		dataset[id][1] = yPos;
+
+		// update line
+		svg.select(".lineChart").transition().duration(500).attr("d",
+				lines(dataset));
+	}
+
+	function teamInfo(x) {
+		var userId = '<%= userId%>';
+		if(userId != null) {
 		   if($('#team_leader').val() == userId) {
 			   var type = '1';
 			   var page = x;

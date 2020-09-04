@@ -11,10 +11,15 @@
 	BoardAttachment img= (BoardAttachment)request.getAttribute("img");
 	
 	System.out.println("공지사항- 게시판 상세보기");
-/* 	
+ 	
 	System.out.println(board);
 	System.out.println(img); 
-*/
+	
+	int fId=0;
+	if(img!=null){
+		fId=img.getFileId();
+	}
+
 %>
 <!DOCTYPE html>
 <html>
@@ -64,7 +69,7 @@
 
                     <!-- 이미지 -->
                     <div class="board-img-box">
-                    	<%if(board.getBoardImgPath()!=null){ 
+                    	<%if(img!=null){ 
                     		//등록한 이미지가 존재한다면..
                     	%>
                         	<img id="image" src="<%=request.getContextPath() %>/resources/storage/board_img/<%=img.getChangeName() %>" alt="게시판 이미지">
@@ -107,23 +112,41 @@
                 	
                 	
                 		function deleteBoard(){
+                			let bId=<%=board.getBoardNum()%>;
+                			let fId=<%=fId%>;
+                			
                 			let result=confirm('삭제 하시겠습니까?');
                 			if(result==true){
                 				alert('공지사항 삭제가 완료되었습니다.');
-                				location.href='<%=request.getContextPath()%>/deleteBoard.bo';
                 				
+                				$.ajax({
+                					url:'deleteBoard.bo',
+                					type:'post',
+                					data: {bId: <%=board.getBoardNum()%> , fId:<%=fId%> },
+                					success:function(response){
+                						let result= response['result'];
+                						console.log(result);
+                		
+                						if(result>0){
+                							//삭제 성공
+                							alert('성공적으로 삭제하였습니다.');
+                						}
+                						return location.href='<%=request.getContextPath()%>/showBoardList.bo';
+                					}
+                					
+                				});
                 			}else{
                 				alert('공지사항 삭제를 취소합니다.');
                 			}
                 		}
                 	</script>
-                </div>
+                </div>  
         </div>
         
-        
+  
     </div>
 	
-	<%--footer추가 --%>
+	  <%--footer추가 --%>
 	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 
 </body>
