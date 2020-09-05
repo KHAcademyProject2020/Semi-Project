@@ -94,7 +94,7 @@ td{
 	Color: black;
 }
 </style>
-<title>Insert title here</title>
+<title>구장 예약 메인페이지</title>
 </head>
 <body>
 	<%-- <%@ include file="../common/navbar.jsp"%> --%>

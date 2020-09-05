@@ -1,0 +1,168 @@
+:root {
+  --main-container-background-color: #e5f8f7;
+  --branch-info-section-background-color: transparent;
+
+  /* scroll-spy-menu */
+  --scroll-spy-background-color: #272929;
+  --scroll-spy-menu-default-text-color: rgb(76, 227, 219);
+  --scroll-spy-menu-font-size: 1.5vw;
+
+  --scroll-spy-menu-hover-background-color: rgb(76, 227, 219);
+  --scroll-spy-menu-hover-text-color: #272929;
+}
+
+/*=========================전체 ==================*/
+#main-container-content {
+  background: var(--main-container-background-color);
+
+  text-align: center;
+  height: fit-content;
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* =====================공통 =======================*/
+.section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-box-1,
+.info-box-2 {
+  padding: 12px 13px;
+}
+
+.section-title {
+  font-size: 2.1em;
+}
+
+.section-sub-title {
+  font-size: 1.65em;
+  text-align: left;
+  border-left: red solid 5px;
+
+  padding-left: 45px;
+  margin-left: 15px;
+}
+/*==================scroll-spy=====================*/
+#scroll_menu_ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: var(--scroll-spy-background-color);
+
+  height: 40px;
+  align-items: center;
+}
+
+#scroll_menu_ul > a.scroll_menu_li {
+  text-align: center;
+  text-decoration: none;
+  color: var(--scroll-spy-menu-default-text-color);
+
+  font-size: var(--scroll-spy-menu-font-size);
+  padding: 1.2vw;
+  font-weight: bold;
+}
+
+a.scroll_menu_li:hover {
+  background: var(--scroll-spy-menu-hover-background-color);
+  color: var(--scroll-spy-menu-hover-text-color);
+}
+a.scroll_menu_li li:hover,
+a.scroll_menu_li:hover {
+  color: var(--scroll-spy-menu-hover-text-color);
+}
+
+a:active,
+a:hover,
+a:visited {
+  text-decoration: none;
+}
+
+/*============구장 상세정보- branch-info-section========*/
+#branch-info-section {
+  background: var(--branch-info-section-background-color);
+}
+
+/* 지점 이미지 박스 */
+#BRANCH_IMG {
+  position: relative;
+  width: 100%;
+  height: 46vh;
+  border-radius: 10px;
+}
+
+/* 지점 옵션 */
+.branch-options-group3 {
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.branch_option {
+  padding: 12px;
+  margin: 10px 11px;
+}
+
+.branch_option > img {
+  width: 80px;
+  height: 80px;
+}
+
+/*지점 상세정보 */
+#branch-detail-info-box,
+#stadium-detail-info-box {
+  background: #fff;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+#stadium-detail-info-box {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#stadium-detail-info {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  text-align: left;
+  justify-content: space-between;
+}
+
+.stadium-detail-box {
+  margin: 13px;
+  display: flex;
+  flex-direction: row;
+}
+
+.stadium-detail-info-label-box {
+  flex-basis: 25%;
+  padding-left: 15px;
+}
+
+label.stadium-detail-info-label {
+  font-size: 1.1em;
+  font-weight: bold;
+  padding-right: 32px;
+}
+
+.open-close-times > span:nth-child(2) {
+  padding-left: 13px;
+  padding-right: 13px;
+}
+
+/*=======이용안내 사항 - stadium-notice-info-section ========*/
+
+/*=======변경 및 환불사항- stadium-changerf-info-section ===========*/
+
+/*=======예약 - stadium-reservation-section======== */
+
+/* ===============맨위로========================== */

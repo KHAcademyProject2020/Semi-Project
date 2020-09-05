@@ -1,297 +1,292 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
-	<title>예약 상세페이지</title>
-	</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
+	<title>용연씨 예약페이지 layout</title>
 </head>
 
 <body>
-	<!-- <nav id="navbar">네브바</nav> -->
-	<div id="div_root">
-		<hr>
-		<h4>구장 상세 정보를 확인하세요.</h4>
-		<hr>
-		<div class='img_group'>
-			<div id="img_title">
-				<img src="./img/fb.PNG" class="img_group" id="main_1">
-			</div>
+	<div class='img_group'>
+		<div id="img_title">
+			<img src="./img/fb.PNG" class="img_group" id="main_1">
 		</div>
+	</div>
 
-		<br>
-		<div class="title_group">
-			<div id="title_name">
-				<font class="p1">지점 이름: </font>
-			</div>
-			<hr>
-			<div id="title_address">
-				<font class="p1">지점 주소:</font>
-			</div>
-			<br>
-			<hr>
-			<div id="title_phone">
-				<font class="p4">전화 번호:</font>
-			</div>
+	<br>
+	<div class="title_group">
+		<div id="title_name">
+			<font class="p1">지점 이름: </font>
+		</div>
+		<hr>
+		<div id="title_address">
+			<font class="p1">지점 주소:</font>
 		</div>
 		<br>
-		<div class="menu_group">
+		<hr>
+		<div id="title_phone">
+			<font class="p4">전화 번호:</font>
+		</div>
+	</div>
+	<br>
+	<div class="menu_group">
 
-			<div id="menu_option">
-				<div class="menu" id="menu_option1">
-					<div class="menu_text">
-						<legend class="menu_1 ">지점 옵션 정보</legend>
-					</div>
-					<div class="icon-boxes">
-
-						<div class="info-box" id="ball">
-							<img id="img_icon1" src="./img_option/ball.PNG" width="80px;" height="80px;">
-							<label for="Futsal shoes">풋살화 대여 가능 여부</label><br>
-						</div>
-
-						<div class="info-box">
-							<img id="img_icon1" src="./img_option/shower.PNG" width="80px;" height="80px;">
-							<label for="shower_room">샤워실 유무</label><br>
-						</div>
-
-						<div class="info-box">
-							<img id="img_icon1" src="./img_option/parking.PNG" width="80px;" height="80px;">
-							<label for="parking">주차장유무</label><br>
-						</div>
-					</div>
-					<div class="icon-boxes">
-
-						<div class="info-box">
-							<img id="img_icon1" src="./img_option/uniform.PNG" width="80px;" height="80px;">
-							<label for="uniform">유니폼 대여 가능여부</label><br>
-						</div>
-						<div class="info-box">
-							<img id="img_icon1" src="./img_option/ball.PNG" width="80px;" height="80px;">
-							<label for="ball">볼대여가능 여부</label><br>
-						</div>
-						<div class="info-box">
-							<img id="img_icon1" src="./img_option/stadium.PNG" width="80px;" height="80px;">
-							<label for="in_out">실내 실외</label><br>
-						</div>
-					</div>
-				</div>
-			</div>
-			<br>
-
-			<div class="menu" id="menu_calender">
+		<div id="menu_option">
+			<div class="menu" id="menu_option1">
 				<div class="menu_text">
-					<legend class="menu_1">캘린더</legend>
+					<legend class="menu_1 ">지점 옵션 정보</legend>
 				</div>
-				<div id="calender">
-					<font class="p3">예약 날짜 선택</font> <input type='date'>
-				</div>
-			</div>
-			<br>
+				<div class="icon-boxes">
 
-			<div class="menu" id="menu_time">
-				<div class="menu_text">
-					<legend class="menu_1">예약 시간</legend>
-				</div>
-				<div id="available_time">
-					<font class="p3">시간</font>
-					<div>
-						<ul>
-							<li><a>00:00</a></li>
-							<li><a>02:00</a></li>
-							<li><a>04:00</a></li>
-							<li><a>06:00</a></li>
-							<li><a>08:00</a></li>
-							<li><a>10:00</a></li>
-							<li><a>12:00</a></li>
-							<li><a>14:00</a></li>
-							<li><a>16:00</a></li>
-							<li><a>18:00</a></li>
-							<li><a>20:00</a></li>
-							<li><a>22:00</a></li>
-							<li><a>24:00</a></li>
-						</ul>
+					<div class="info-box" id="ball">
+						<img id="img_icon1" src="./img_option/ball.PNG" width="80px;" height="80px;">
+						<label for="Futsal shoes">풋살화 대여 가능 여부</label><br>
+					</div>
+
+					<div class="info-box">
+						<img id="img_icon1" src="./img_option/shower.PNG" width="80px;" height="80px;">
+						<label for="shower_room">샤워실 유무</label><br>
+					</div>
+
+					<div class="info-box">
+						<img id="img_icon1" src="./img_option/parking.PNG" width="80px;" height="80px;">
+						<label for="parking">주차장유무</label><br>
 					</div>
 				</div>
-			</div>
-			<br>
-			<div>
-				<div class="menu" id="menu_price">
-					<div class="menu_text">
-						<legend class="menu_1">결제</legend>
+				<div class="icon-boxes">
+
+					<div class="info-box">
+						<img id="img_icon1" src="./img_option/uniform.PNG" width="80px;" height="80px;">
+						<label for="uniform">유니폼 대여 가능여부</label><br>
 					</div>
-					<font class="p1">총 결제 금액: </font>
-					<div id="last">
-						<font class="p5">원</font>
+					<div class="info-box">
+						<img id="img_icon1" src="./img_option/ball.PNG" width="80px;" height="80px;">
+						<label for="ball">볼대여가능 여부</label><br>
+					</div>
+					<div class="info-box">
+						<img id="img_icon1" src="./img_option/stadium.PNG" width="80px;" height="80px;">
+						<label for="in_out">실내 실외</label><br>
 					</div>
 				</div>
 			</div>
 		</div>
+		<br>
+
+		<div class="menu" id="menu_calender">
+			<div class="menu_text">
+				<legend class="menu_1">캘린더</legend>
+			</div>
+			<div id="calender">
+				<font class="p3">예약 날짜 선택</font> <input type='date'>
+			</div>
+		</div>
+		<br>
+
+		<div class="menu" id="menu_time">
+			<div class="menu_text">
+				<legend class="menu_1">예약 시간</legend>
+			</div>
+			<div id="available_time">
+				<font class="p3">시간</font>
+				<div>
+					<ul>
+						<li><a>00:00</a></li>
+						<li><a>02:00</a></li>
+						<li><a>04:00</a></li>
+						<li><a>06:00</a></li>
+						<li><a>08:00</a></li>
+						<li><a>10:00</a></li>
+						<li><a>12:00</a></li>
+						<li><a>14:00</a></li>
+						<li><a>16:00</a></li>
+						<li><a>18:00</a></li>
+						<li><a>20:00</a></li>
+						<li><a>22:00</a></li>
+						<li><a>24:00</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<br>
 		<div>
-			<button id="btn1">예약하기</button>
+			<div class="menu" id="menu_price">
+				<div class="menu_text">
+					<legend class="menu_1">결제</legend>
+				</div>
+				<font class="p1">총 결제 금액: </font>
+				<div id="last">
+					<font class="p5">원</font>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<button id="btn1">예약하기</button>
+	</div>
+	<hr>
+
+	<div class="Notice_group">
+		<div class="information">
+			<ul class="info_ul"> 이용안내<br><br>
+				<li class="info_li">
+					<ul>
+						<li>무인풋살장</li>
+						<li></li>
+						<li></li>
+
+					</ul>
+					o <br>
+					-대관 및 기타문의 시간 엄수:오전9시-20시<br>
+					*이외 시간에는 문자주시면 순차적으로 답변드리겠습니다.
+				</li>
+				<br>
+				<li class="info_li">
+					o 주차가능.무료.구장당 7대
+				</li>
+				<br>
+				<li class="info_li">
+					o 물품대여 신청:대관일 전일 오전까지 문자로 신청<br>
+					*공 2천원,조끼 3천원, 보증금 1만원 별도<br>
+					*풋살화:켤레당 3천원
+				</li>
+				<li class="info_li">
+					ㅇ 흡연은 지정된 장소에서만 가능.
+				</li>
+				<br>
+				<li class="info_li">
+					ㅇ 축구화 착용 불가.
+				</li>
+				<br>
+				<li class="info_li">
+					ㅇ 라이트 on/off:자동 타이머
+				</li>
+				<br>
+				<li class="info_li">
+					ㅇ 20시 이후 이용자는 민원의 소지가 되는 소음금지.민원발생시 이용불가.
+				</li>
+				<br>
+				<li class="info_li">
+					-각종 행사는 따로 문의바람.<br>
+					*사전 상의 없이 행사 진행할 경우, 환불없이 현장에서 취소될수있습니다. 사전에 꼭 연락주세요!
+				</li>
 		</div>
 		<hr>
-		<div class="Notice_group">
-			<div class="information">
-				<ul class="info_ul"> 이용안내<br><br>
-					<li class="info_li">
-						<ul>
-							<li>무인풋살장</li>
-							<li></li>
-							<li></li>
-
-						</ul>
-						o <br>
-						-대관 및 기타문의 시간 엄수:오전9시-20시<br>
-						*이외 시간에는 문자주시면 순차적으로 답변드리겠습니다.
-					</li>
-					<br>
-					<li class="info_li">
-						o 주차가능.무료.구장당 7대
-					</li>
-					<br>
-					<li class="info_li">
-						o 물품대여 신청:대관일 전일 오전까지 문자로 신청<br>
-						*공 2천원,조끼 3천원, 보증금 1만원 별도<br>
-						*풋살화:켤레당 3천원
-					</li>
-					<li class="info_li">
-						ㅇ 흡연은 지정된 장소에서만 가능.
-					</li>
-					<br>
-					<li class="info_li">
-						ㅇ 축구화 착용 불가.
-					</li>
-					<br>
-					<li class="info_li">
-						ㅇ 라이트 on/off:자동 타이머
-					</li>
-					<br>
-					<li class="info_li">
-						ㅇ 20시 이후 이용자는 민원의 소지가 되는 소음금지.민원발생시 이용불가.
-					</li>
-					<br>
-					<li class="info_li">
-						-각종 행사는 따로 문의바람.<br>
-						*사전 상의 없이 행사 진행할 경우, 환불없이 현장에서 취소될수있습니다. 사전에 꼭 연락주세요!
-					</li>
-			</div>
-			<hr>
-			<div>
-				</ul>
-				<ul class="info_ul">이용규칙<br>
-					<li class="info_li">
-						■ 풋살장 예약시간 준수<br>
-					</li>
-					<br>
-					<li class="info_li">
-						■ 풋살장 내 취사, 흡연 및 음주행위, 지나친 소음행위 금지(적발 시 이용불가)<br>
-					</li>
-					<br>
-					<li class="info_li">
-						■ 시설 사용 후 정리정돈 ( 쓰레기 반드시 처리 )<br>
-					</li>
-					<br>
-					<li class="info_li">
-						■ 고의 및 과실로 인한 시설물 훼손 및 파손시 사용자가 배상하며 경기중 부상은 본인이 책임집니다.<br>
-					</li>
-					<br>
-					<li class="info_li">
-						■ 잔디보호와 부상방지를 위하여 스터드가 있는 축구화(SG, FG, HG, AG)는 착용이 금지되며 풋살화(TF)만 착용 가능 합니다.<br>
-					</li>
-					<br>
-					<li class="info_li">
-						■ 사회적 거리두기 2단계 동안에는 다음내용이 적용됩니다.<br>
-						ㅇ 운동시에는 마스크를 꼭 착용해주셔야합니다. 호흡이 어려운 경우 운동템포와 휴식시간을 조정해주세요.<br>
-						ㅇ 실내구장의 경우에는 휴식시에도 마스크를 착용해주셔야합니다.<br>
-						ㅇ 야외구장의 경우에는 휴식시 2M 이상 거리를 유지해주세요.<br>
-					</li>
-					<br>
-					<li class="info_li">
-						■ 위 내용이 지켜지지 않을 경우 퇴장조치 될 수 있으니 예약시 꼭 참고부탁드립니다.<br>
-					</li>
-					<br>
-				</ul>
-				※ 규정 외 요청은 적용이 불가합니다. 예약 전 반드시 확인해 주시기 바랍니다.
-
-			</div>
-			<hr>
-			<div>
-				<ul class="info_ul">환불 규정<br>
-					<li class="info_li">
-						■ 환불은 예약날짜를 기준으로만 적용합니다. (예약 시간으로는 적용되지 않습니다)
-					</li>
-					<br>
-					<li class="info_li">
-						예를들어, 5월 7일 예약일 경우 다음과 같습니다
-						이용 당일 이용 1일 전 이용 2일 전 이용 5일 전 이용 10일 전
-						5월 7일 5월 6일 5월 5일 5월 2일 4월 27일
-						- 이용 5일 전까지 : 100% 환불
-						- 4일 전 ~ 3일 전: 50% 환불
-						- 2일 전 ~ 대관 당일 : 환불 불가
-					</li>
-					<br>
-					<li class="info_li">
-						■ 다음과 같은 경우에는 상단 규정대로 처리됩니다.
-						ㅇ 고객의 사정으로 예약된 날짜에 구장 이용을 못하는 경우
-						ㅇ 구장, 날짜, 시간 등을 실수로 잘못 선택했을 경우
-						ㅇ 단순 변심으로 인해 환불이나 변경을 요청하는 경우
-					</li>
-				</ul>
-			</div>
-			<hr>
-			<div>
-				<ul class="info_ul">변경 규정<br>
-					<li class="info_li">
-						■ 변경은 상단 환불 규정 기준 100% 환불인 경우에만 가능하며, 변경 가능한 횟수는 1회 입니다.
-					</li>
-					<li class="info_li">
-						■ 1회 변경된 예약은 환불 및 재변경이 불가능합니다.
-					</li>
-				</ul>
-			</div>
-			<hr>
-			<div>
-				<ul class="info_ul">날씨에 의한 환불 및 변경<br>
-					<li class="info_li">
-						■ 시작시간이 지난 후 요청 했을 경우에는 환불 및 변경 모두 불가능합니다.
-					</li>
-					<br>
-					<li class="info_li">
-						■ 구장 이용 중 비가 오기 시작 할 경우 환불 및 변경가능 여부는 구장 관리자가 결정합니다.
-					</li>
-					<br>
-					<li class="info_li">
-						■ 아래의 조건에 해당될 경우 내용을 아이엠그라운드 카카오톡 채널로 예약 시작 시간 전까지 남겨주시면 고객센터 운영 시간에 확인 후 처리해 드리겠습니다.
-					</li>
-				</ul>
-			</div>
-			<hr>
-			<div>
-				<ul class="info_ul">환 불
-					<li class="info_li">
-						■ 날씨에 의한 환불은 야외구장에만 적용됩니다.
-					</li>
-					<br>
-					<li class="info_li">
-						■ 다음과 같을 때는 환불이 가능합니다.
-						ㅇ 예약 당일, 기상청에서 천재지변에 해당하는 특보를 예약한 지역에 발표한 경우에 적용
-						(특보가 해제된 후에는 적용이 불가능합니다.)
-						ㅇ 천재지변 : 호우경보, 대설경보, 태풍주의보, 태풍경보만 적용
-						ㅇ 구장 환불규정에 천재지변의 기준이 없을 경우 호우경보, 대설경보, 태풍주의보, 태풍경보만 천재지변으로 적용
-					</li>
-				</ul>
-			</div>
-			<hr>
-			<div>
-				<ul class="info_ul">변 경
-					<li class="info_li">
-						■ 날씨에 의한 변경은 야외구장에만 적용됩니다.
-					</li>
-				</ul>
-			</div>
+		<div>
+			</ul>
+			<ul class="info_ul">이용규칙<br>
+				<li class="info_li">
+					■ 풋살장 예약시간 준수<br>
+				</li>
+				<br>
+				<li class="info_li">
+					■ 풋살장 내 취사, 흡연 및 음주행위, 지나친 소음행위 금지(적발 시 이용불가)<br>
+				</li>
+				<br>
+				<li class="info_li">
+					■ 시설 사용 후 정리정돈 ( 쓰레기 반드시 처리 )<br>
+				</li>
+				<br>
+				<li class="info_li">
+					■ 고의 및 과실로 인한 시설물 훼손 및 파손시 사용자가 배상하며 경기중 부상은 본인이 책임집니다.<br>
+				</li>
+				<br>
+				<li class="info_li">
+					■ 잔디보호와 부상방지를 위하여 스터드가 있는 축구화(SG, FG, HG, AG)는 착용이 금지되며 풋살화(TF)만 착용 가능 합니다.<br>
+				</li>
+				<br>
+				<li class="info_li">
+					■ 사회적 거리두기 2단계 동안에는 다음내용이 적용됩니다.<br>
+					ㅇ 운동시에는 마스크를 꼭 착용해주셔야합니다. 호흡이 어려운 경우 운동템포와 휴식시간을 조정해주세요.<br>
+					ㅇ 실내구장의 경우에는 휴식시에도 마스크를 착용해주셔야합니다.<br>
+					ㅇ 야외구장의 경우에는 휴식시 2M 이상 거리를 유지해주세요.<br>
+				</li>
+				<br>
+				<li class="info_li">
+					■ 위 내용이 지켜지지 않을 경우 퇴장조치 될 수 있으니 예약시 꼭 참고부탁드립니다.<br>
+				</li>
+				<br>
+			</ul>
+			※ 규정 외 요청은 적용이 불가합니다. 예약 전 반드시 확인해 주시기 바랍니다.
 
 		</div>
+		<hr>
+		<div>
+			<ul class="info_ul">환불 규정<br>
+				<li class="info_li">
+					■ 환불은 예약날짜를 기준으로만 적용합니다. (예약 시간으로는 적용되지 않습니다)
+				</li>
+				<br>
+				<li class="info_li">
+					예를들어, 5월 7일 예약일 경우 다음과 같습니다
+					이용 당일 이용 1일 전 이용 2일 전 이용 5일 전 이용 10일 전
+					5월 7일 5월 6일 5월 5일 5월 2일 4월 27일
+					- 이용 5일 전까지 : 100% 환불
+					- 4일 전 ~ 3일 전: 50% 환불
+					- 2일 전 ~ 대관 당일 : 환불 불가
+				</li>
+				<br>
+				<li class="info_li">
+					■ 다음과 같은 경우에는 상단 규정대로 처리됩니다.
+					ㅇ 고객의 사정으로 예약된 날짜에 구장 이용을 못하는 경우
+					ㅇ 구장, 날짜, 시간 등을 실수로 잘못 선택했을 경우
+					ㅇ 단순 변심으로 인해 환불이나 변경을 요청하는 경우
+				</li>
+			</ul>
+		</div>
+		<hr>
+		<div>
+			<ul class="info_ul">변경 규정<br>
+				<li class="info_li">
+					■ 변경은 상단 환불 규정 기준 100% 환불인 경우에만 가능하며, 변경 가능한 횟수는 1회 입니다.
+				</li>
+				<li class="info_li">
+					■ 1회 변경된 예약은 환불 및 재변경이 불가능합니다.
+				</li>
+			</ul>
+		</div>
+		<hr>
+		<div>
+			<ul class="info_ul">날씨에 의한 환불 및 변경<br>
+				<li class="info_li">
+					■ 시작시간이 지난 후 요청 했을 경우에는 환불 및 변경 모두 불가능합니다.
+				</li>
+				<br>
+				<li class="info_li">
+					■ 구장 이용 중 비가 오기 시작 할 경우 환불 및 변경가능 여부는 구장 관리자가 결정합니다.
+				</li>
+				<br>
+				<li class="info_li">
+					■ 아래의 조건에 해당될 경우 내용을 아이엠그라운드 카카오톡 채널로 예약 시작 시간 전까지 남겨주시면 고객센터 운영 시간에 확인 후 처리해 드리겠습니다.
+				</li>
+			</ul>
+		</div>
+		<hr>
+		<div>
+			<ul class="info_ul">환 불
+				<li class="info_li">
+					■ 날씨에 의한 환불은 야외구장에만 적용됩니다.
+				</li>
+				<br>
+				<li class="info_li">
+					■ 다음과 같을 때는 환불이 가능합니다.
+					ㅇ 예약 당일, 기상청에서 천재지변에 해당하는 특보를 예약한 지역에 발표한 경우에 적용
+					(특보가 해제된 후에는 적용이 불가능합니다.)
+					ㅇ 천재지변 : 호우경보, 대설경보, 태풍주의보, 태풍경보만 적용
+					ㅇ 구장 환불규정에 천재지변의 기준이 없을 경우 호우경보, 대설경보, 태풍주의보, 태풍경보만 천재지변으로 적용
+				</li>
+			</ul>
+		</div>
+		<hr>
+		<div>
+			<ul class="info_ul">변 경
+				<li class="info_li">
+					■ 날씨에 의한 변경은 야외구장에만 적용됩니다.
+				</li>
+			</ul>
+		</div>
+
 	</div>
 </body>
 

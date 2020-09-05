@@ -30,7 +30,7 @@
   height: 200px;
 }
 
-#div_root {
+#main-container-content {
   margin: 0 auto;
   padding: 0 100px;
   width: 600px;
@@ -87,10 +87,7 @@
   background-color: #4ce3da;
   width: 150px;
   height: 40px;
-  /* font: */
 }
-
-/*  이용 안내 */
 
 .info_ul {
   list-style: none;

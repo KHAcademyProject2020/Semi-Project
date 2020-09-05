@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>예약 상세페이지</title>
+
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <link rel="stylesheet" href="./stadium_reservation.css" type="text/css">
+    <script src="https://kit.fontawesome.com/09697e2134.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="main-container-content">
+        <!-- navbar -->
+
+
+        <header>
+            <!-- scroll-spy -->
+            <div class="scroll-spy-menu" id="scroll-spy-menu">
+                <ul id="scroll_menu_ul">
+                    <a class="scroll_menu_li" href="#branch-info-section">
+                        <li>구장 상세정보</li>
+                    </a>
+
+                    <a class="scroll_menu_li" href="#stadium-notice-info-section">
+                        <li>이용 안내 사항</li>
+                    </a>
+
+                    <a class="scroll_menu_li" href="#stadim-changerf-info-section">
+                        <li>변경 및 환불 안내</li>
+                    </a>
+
+                    <a class="scroll_menu_li" href="#stadium-reservation-section">
+                        <li>예약</li>
+                    </a>
+                </ul>
+            </div>
+        </header>
+
+
+
+        <!-- BRANCH와 STADIUM테이블을 참고하면됩니다. -->
+        <section class="section" id="branch-info-section">
+
+            <!-- 구장정보박스 -->
+            <div class="info-box-1" id="branch-info-box">
+
+                <!-- 지점/구장 이름 박스-->
+                <div class="info-box-2" id="branch-name-info-box">
+                    <!-- 구장의 지점 번호 : STADIUM_BRANCH_NUM-->
+                    <input type="hidden" id="STADIUM_BRANCH_NUM" name="STADIUM_BRANCH_NUM" value="STADIUM_BRANCH_NUM">
+
+                    <!-- 구장 번호: STADIUM_NUM -->
+                    <input type="hidden" id="STADIUM_NUM" name="STADIUM_NUM" value="STADIUM_NUM">
+
+                    <!-- 구장 이름박스 -->
+                    <div id="stadium-name-box">
+                        <!-- 구장 이름 : STADIUM_NAME-->
+                        <h1 class="section-title" id="STADIUM_NAME">구장이름(STADIUM_NAME)</h1>
+                    </div>
+                </div>
+
+
+                <!-- 지점이미지 박스-->
+                <div class="info-box-2" id="branch-img-box">
+                    <!-- 지점 이미지: BRANCH_IMG 
+                        ./img/fb.png는 샘플 이미지입니다.
+                    -->
+                    <img src="./img/fb.PNG" alt="BRANCH_IMG" id="BRANCH_IMG">
+                </div>
+
+
+
+                <!--지점 상세 정보 박스-->
+                <div class="info-box-2" id="branch-detail-info-box">
+
+                    <!-- 지점옵션 -->
+                    <div id="branch-options">
+                        <h2 class="section-sub-title">지점 옵션</h2>
+
+                        <div class="branch-options-group3">
+                            <div class="branch_option" id="BRANCH_OPTION_SHOWER">
+                                <img src="./img_option/shower.png" alt="shower">
+                                <p>샤워</p>
+                            </div>
+
+                            <div class="branch_option" id="BRANCH_OPTION_PARK">
+                                <img src="./img_option/parking.png" alt="parking">
+                                <p>주차장 유무</p>
+                            </div>
+
+                            <div class="branch_option" id="BRANCH_OPTION_UNIFORM">
+                                <img src="./img_option/uniform.png" alt="uniform">
+                                <p>유니폼 대여 가능 여부</p>
+                            </div>
+                        </div>
+
+
+                        <div class="branch-options-group3">
+                            <div class="branch_option" id="BRANCH_OPTION_SHOES">
+                                <img src="./img_option/shoes.png" alt="shoes">
+                                <p>풋살화 대여 가능 여부</p>
+                            </div>
+
+                            <div class="branch_option" id="BRANCH_OPTION_BALL">
+                                <img src="./img_option/ball.png" alt="ball">
+                                <p>볼 대여 가능 여부</p>
+                            </div>
+
+                            <div class="branch_option" id="BRANCH_OPTION_INOUT">
+                                <img src="./img_option/stadium.png" alt="실내실외">
+                                <p>실내/실외 <br>(여기는 데이터 불러와야될듯)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 구장 상세정보 박스 -->
+                <div class="info-box-2" id="stadium-detail-info-box">
+                    <h2 class="section-sub-title">지점 상세 정보</h2>
+
+
+                    <div id="stadium-detail-info">
+                        <div class="stadium-detail-box">
+                            <div class="stadium-detail-info-label-box">
+                                <label class="stadium-detail-info-label">지점이름</label>
+                            </div>
+                            <span>지점이름 실제 데이터</span>
+                        </div>
+
+
+                        <div class="stadium-detail-box">
+                            <div class="stadium-detail-info-label-box">
+                                <label class="stadium-detail-info-label">지점 주소</label>
+                            </div>
+                            <span>지점 주소 실제 데이터</span>
+                        </div>
+
+                        <div class="stadium-detail-box">
+                            <div class="stadium-detail-info-label-box">
+                                <label class="stadium-detail-info-label">지점 전화번호</label>
+                            </div>
+                            <span>지점 전화번호 실제 데이터</span>
+                        </div>
+
+
+                        <!-- 영업시간 박스 -->
+                        <div class="stadium-detail-box">
+                            <div class=" stadium-detail-info-label-box ">
+                                <label class=" stadium-detail-info-label">영업시간</label>
+                            </div>
+
+                            <!--영업시작/ 종료 시간 박스  -->
+                            <div class="open-close-times">
+                                <span id="STADIUM_RESERVATION_START_TIME">예약 시작 시각 (숫자: 0~24)</span>
+                                <span>~</span>
+                                <span id="STADIUM_RESERVATION_END_TIME">예약 종료 시각 (숫자: 0~24)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+
+
+        <!--이용 안내사항-->
+        <section class="section" id="stadium-notice-info-section">
+            <div class="info-box-1">
+                <h1 class="section-title">이용 안내사항</h1>
+                <div class="info-box-2"></div>
+                <div class="info-box-2"></div>
+                <div class="info-box-2"></div>
+                <div class="info-box-2"></div>
+                <div class="info-box-2"></div>
+            </div>
+
+        </section>
+
+        <!-- 변경 및 환불안내 사항 -->
+        <section class="section" id="stadim-changerf-info-section">
+            <div class="info-box-1">
+                <h1 class="section-title">변경 및 환불 안내 사항(테스트)</h1>
+                <div class="info-box-2"></div>
+                <div class="info-box-2"></div>
+                <div class="info-box-2"></div>
+                <div class="info-box-2"></div>
+                <div class="info-box-2"></div>
+            </div>
+
+        </section>
+
+
+        <!-- 예약 -->
+        <section class="section" id="stadium-reservation-section">
+            <div class="info-box-1">
+                <h1 class="section-title">예약</h1>
+                <div class="info-box2"></div>
+                <div class="info-box2"></div>
+                <div class="info-box2"></div>
+            </div>
+
+        </section>
+
+
+
+        <!-- top버튼 -->
+        <div id="go-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+    </div>
+
+    <!-- footer -->
+
+</body>
+
+</html>
