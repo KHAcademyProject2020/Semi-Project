@@ -1,0 +1,223 @@
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:visited {
+	color: black;
+}
+
+
+
+header {
+	-moz-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.1);
+	box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.1);
+	height: 110px;
+	vertical-align: middle;
+}
+
+h1 {
+	float: left;
+	padding: 10px 30px
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Raleway', sans-serif;
+}
+
+.icons {
+	display: inline;
+	float: right
+}
+
+
+
+.fas {
+	font-size: 25pt;
+	padding-bottom: 10px;
+	color: black;
+	margin-right: 40px;
+	margin-left: 40px;
+}
+
+
+
+.fas:hover {
+	color: #d63031;
+}
+
+
+
+.content {
+	padding: 20px;
+	color: black;
+	vertical-align: middle;
+	text-align: left;
+}
+
+
+
+/*알람 실제 코드 ------------------------------------*/
+.notification {
+	padding-top: 30px;
+	position: relative;
+	display: inline-block;
+}
+
+
+.number {
+	height: 22px;
+	width: 22px;
+	background-color: #d63031;
+	border-radius: 20px;
+	color: white;
+	text-align: center;
+	position: absolute;
+	top: 23px;
+	left: 60px;
+	padding: 3px;
+	border-style: solid;
+	border-width: 2px;
+}
+
+/*  알림이 없을 때 참고. */
+.number:empty {
+	display: none;
+}
+
+.notBtn {
+	transition: 0.5s;
+	cursor: pointer
+}
+
+.notBtn:hover>.box {
+	height: 60vh;
+}
+
+/*알람박스 전체*/
+.box {
+	width: 400px;
+	height: 0px;
+	border-radius: 10px;
+	transition: 0.5s;
+	position: absolute;
+	overflow-y: scroll;
+	padding: 0px;
+	left: -300px;
+	margin-top: 5px;
+	background-color: #F4F4F4;
+	-webkit-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.1);
+	box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.1);
+	cursor: context-menu;
+	-moz-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.1);
+	box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+.box::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	background-color: #F5F5F5;
+	border-radius: 5px
+}
+
+.box::-webkit-scrollbar {
+	width: 10px;
+	background-color: #F5F5F5;
+	border-radius: 5px
+}
+
+.box::-webkit-scrollbar-thumb {
+	background-color: gray;
+	border: 2px solid gray;
+	border-radius: 5px
+}
+
+.cont, .alarm-total-box {
+	width: 100%;
+	background-color: #F4F4F4;
+	text-align: center;
+}
+
+.cont:empty {
+	display: none;
+}
+
+
+
+
+/*알람 제목*/
+#alarm-title{
+	position: sticky;
+	text-align: center;
+	background: #F4F4F4;
+}
+
+
+/*알람 리스트 - ul*/
+#alarm-list-ul{
+	padding: 0;
+	list-style: none;
+}
+
+/* 개별 알람 */
+.purple, .alarm-individual-box {
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	width: 100%;
+	padding: 12px 13px;
+	
+}
+
+/*알람 내용 박스*/
+.green {
+	/* padding: 25px 10px; */
+	background-color: transparent;
+	transition: 0.5s;
+	display: flex;
+	flex-direction: column;
+	flex-basis: 90%;
+}
+
+
+#alarm-list-ul .purple:hover {
+	background: rgba(76,227,218, 0.2);
+}
+
+
+/*알람 삭제버튼*/
+.blue, .alarm-delete-box {
+	display:flex;
+	flex-direction: row;
+ 	flex-basis: 10%;
+	transition: 0.5s;
+	cursor: pointer;
+	text-align: center;
+	justify-content: center;
+}
+
+#delete-alarm:hover{
+	color: red;
+/* 	font-weight: border; */
+}
+
+/* 알람 내용 */
+.orange, .alarm-content-box {
+	/* vertical-align: top; */
+	font-size: 1.25rem;
+	text-align: left;
+	padding: 12px 13px;
+}
+
+/* 알람 날짜 */
+.light-purple, .alarm-date-box {
+	font-size: 1rem;
+	color: grey;
+	text-align: left;
+	padding: 12px 13px;
+}
+
+

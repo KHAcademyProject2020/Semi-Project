@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link type="text/css" rel="stylesheet" href="./bell_notification.css">
+</head>
+<body>
+	<header>
+		<h1>GB- NAVBAR</h1><!-- 홈페이지 로고: 필요없음  -->
+		<div class="icons"> <!--  NAVBAR에 포함. : 필요없음.-->
+			
+			<div class="notification">
+				
+					<div class="notBtn" href="#">
+						<!-- 알람개수 (숫자) -->
+						<div class="number">777</div>
+						
+						
+						<!-- 알람벨  -->
+						<i class="fas fa-bell"></i>
+						
+						<!-- 알람박스 -->
+						<div class="box"> <!-- 알람박스 시작 -->
+							<div class="cont alarm-total-box">
+								<div id="alarm-title">
+									<h4>전체 알림</h4>
+								</div>
+
+								<ul id="alarm-list-ul">
+									<!--<%for(i=0; i<alarm_list.length; i++){ %>  -->
+									<li>
+									
+										<!-- 개별 알람 -->
+										<div class="purple alarm-individual-box">	
+											<div class="green">
+													<!-- 알람 내용 -->
+													<div class="orange alarm-content-box">
+														<label>알림내용 1</label>
+													</div>
+													
+													
+													<!-- 날짜 -->
+													<div class="light-purple alarm-date-box">
+														<small class="date-info">날짜 1</small>
+													</div>
+											</div>
+
+											<!-- x(취소) 버튼  -->
+											<div class="blue alarm-delete-box">
+												<a id="delete-alarm" href="http://daum.net/"> X </a>
+											</div>
+										</div>
+									</li>
+									<!--<%}%> -->
+
+								</ul>
+							</div><!--  class="cont" -->
+
+						</div> <!-- class="box" 끝 -->
+					</div><!--  class="noBtn" 끝 -->
+			</div>
+			<a href="#"><i class="fas fa-edit"></i></a>
+		</div>
+	</header>
+
+</body>
+</html>
