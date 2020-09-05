@@ -10,6 +10,32 @@
 
 <body>
 	<!-- <nav id="navbar">네브바</nav> -->
+	
+	<div class="branch-info-sticky-box">
+		<ul style="list-style: none;">
+			<a href="">
+				<li>구장 상세정보</li>
+			</a>
+
+			<a href="">
+				<li></li>
+			</a>
+
+			<a href="">
+				<li></li>
+			</a>
+
+			<a href="">
+				<li></li>
+			</a>
+
+			<a href="">
+				<li></li>
+			</a>
+		</ul>
+	</div>
+	
+
 	<div id="div_root">
 		<hr>
 		<h4>구장 상세 정보를 확인하세요.</h4>
@@ -21,28 +47,43 @@
 		</div>
 
 		<br>
+
+
 		<div class="title_group">
 			<div id="title_name">
-				<font class="p1">지점 이름: </font>
+				<div class="p1">지점 이름: 
+					<em class="branch-info" id="branch-name">지점이름 데이터 불러오기</em> 
+				</div>
 			</div>
+			
 			<hr>
 			<div id="title_address">
-				<font class="p1">지점 주소:</font>
+				<div class="p1">지점 주소: 
+					<em class="branch-info" id="branch-address">지점주소 데이터 불러오기</em>
+				</div>
 			</div>
+			
 			<br>
 			<hr>
+			
 			<div id="title_phone">
-				<font class="p4">전화 번호:</font>
+				<div class="p4">전화 번호:
+					<em class="branch-info" id="branch-tel">지점 전화번호 불러오기</em>				
+				</div>
 			</div>
 		</div>
 		<br>
-		<div class="menu_group">
 
+
+		<div class="menu_group">
 			<div id="menu_option">
 				<div class="menu" id="menu_option1">
 					<div class="menu_text">
 						<legend class="menu_1 ">지점 옵션 정보</legend>
 					</div>
+
+
+					<!-- 지점 옵션정보-->
 					<div class="icon-boxes">
 
 						<div class="info-box" id="ball">
@@ -60,8 +101,10 @@
 							<label for="parking">주차장유무</label><br>
 						</div>
 					</div>
-					<div class="icon-boxes">
 
+					
+					
+					<div class="icon-boxes">
 						<div class="info-box">
 							<img id="img_icon1" src="./img_option/uniform.PNG" width="80px;" height="80px;">
 							<label for="uniform">유니폼 대여 가능여부</label><br>
@@ -75,6 +118,7 @@
 							<label for="in_out">실내 실외</label><br>
 						</div>
 					</div>
+
 				</div>
 			</div>
 			<br>
@@ -84,7 +128,7 @@
 					<legend class="menu_1">캘린더</legend>
 				</div>
 				<div id="calender">
-					<font class="p3">예약 날짜 선택</font> <input type='date'>
+					<div class="p3">예약 날짜 선택</div> <input type='date'>
 				</div>
 			</div>
 			<br>
@@ -94,7 +138,7 @@
 					<legend class="menu_1">예약 시간</legend>
 				</div>
 				<div id="available_time">
-					<font class="p3">시간</font>
+					<div class="p3">시간</div>
 					<div>
 						<ul>
 							<li><a>00:00</a></li>
@@ -114,19 +158,24 @@
 					</div>
 				</div>
 			</div>
+			
 			<br>
+
 			<div>
 				<div class="menu" id="menu_price">
 					<div class="menu_text">
 						<legend class="menu_1">결제</legend>
 					</div>
-					<font class="p1">총 결제 금액: </font>
+					<div class="p1">총 결제 금액: </div>
 					<div id="last">
-						<font class="p5">원</font>
+						<div class="p5">원</div>
 					</div>
 				</div>
 			</div>
+
 		</div>
+
+
 		<div>
 			<button id="btn1">예약하기</button>
 		</div>
