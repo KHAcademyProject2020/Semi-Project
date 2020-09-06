@@ -9,9 +9,16 @@
 
   --scroll-spy-menu-hover-background-color: rgb(76, 227, 219);
   --scroll-spy-menu-hover-text-color: #272929;
+
+  /*  링크 hover */
+  --sns-website-link-hover-color: rgb(76,227, 219);
 }
 
 /*=========================전체 ==================*/
+body{
+  margin:0;
+}
+
 #main-container-content {
   background: var(--main-container-background-color);
 
@@ -22,6 +29,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+a,
+a:active,
+a:hover,
+a:visited {
+  text-decoration: none;
+  color: black;
 }
 
 /* =====================공통 =======================*/
@@ -36,19 +51,32 @@
   padding: 12px 13px;
 }
 
+.info-box-2{
+  margin: 20px;
+  border-radius: 20px;
+}
+
+
 .section-title {
-  font-size: 2.1em;
+  font-size: 4.2vw;
 }
 
 .section-sub-title {
-  font-size: 1.65em;
+  font-size: 3.3vw;
   text-align: left;
   border-left: red solid 5px;
 
   padding-left: 45px;
   margin-left: 15px;
 }
+
 /*==================scroll-spy=====================*/
+
+#scroll-spy-menu{
+  position: fixed;
+  width: 100vw;
+}
+
 #scroll_menu_ul {
   list-style: none;
   display: flex;
@@ -60,34 +88,38 @@
   align-items: center;
 }
 
-#scroll_menu_ul > a.scroll_menu_li {
+.scroll_menu_li a{
+  color: var(--scroll-spy-menu-default-text-color);
+}
+
+li.scroll_menu_li,
+.scroll_menu_li > a{
   text-align: center;
+  font-weight: bold;
+  font-size: var(--scroll-spy-menu-font-size);
   text-decoration: none;
   color: var(--scroll-spy-menu-default-text-color);
-
-  font-size: var(--scroll-spy-menu-font-size);
-  padding: 1.2vw;
-  font-weight: bold;
+  cursor: pointer;
+  padding: 12.5px 13px;
 }
 
-a.scroll_menu_li:hover {
+.scroll_menu_li:hover,
+.scroll_menu_li> a:hover{
   background: var(--scroll-spy-menu-hover-background-color);
-  color: var(--scroll-spy-menu-hover-text-color);
-}
-a.scroll_menu_li li:hover,
-a.scroll_menu_li:hover {
-  color: var(--scroll-spy-menu-hover-text-color);
+  color:var(--scroll-spy-menu-hover-text-color);
 }
 
-a:active,
-a:hover,
-a:visited {
-  text-decoration: none;
-}
 
 /*============구장 상세정보- branch-info-section========*/
+
 #branch-info-section {
   background: var(--branch-info-section-background-color);
+}
+
+/*주제 타이틀*/
+#branch-name-info-box{
+  padding-top: 0;
+  padding-bottom:0;
 }
 
 /* 지점 이미지 박스 */
@@ -96,6 +128,10 @@ a:visited {
   width: 100%;
   height: 46vh;
   border-radius: 10px;
+}
+
+#branch-img-box{
+  padding:0;
 }
 
 /* 지점 옵션 */
@@ -120,13 +156,11 @@ a:visited {
 #branch-detail-info-box,
 #stadium-detail-info-box {
   background: #fff;
-  margin: 20px;
-  border-radius: 20px;
 }
 
 #stadium-detail-info-box {
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 #stadium-detail-info {
@@ -148,11 +182,30 @@ a:visited {
   padding-left: 15px;
 }
 
+.stadium-detail-box > span,
+.open-close-times,
+.stadium-describe-box{
+  flex-basis: 75%;
+}
+
 label.stadium-detail-info-label {
-  font-size: 1.1em;
+  font-size: 0.95em;
   font-weight: bold;
   padding-right: 32px;
 }
+
+
+
+#sns-website{
+  text-decoration-style: none;
+  color: black;
+  text-decoration: none;
+}
+
+#sns-website:hover{
+  color:var(--sns-website-link-hover-color);
+}
+
 
 .open-close-times > span:nth-child(2) {
   padding-left: 13px;
@@ -160,6 +213,24 @@ label.stadium-detail-info-label {
 }
 
 /*=======이용안내 사항 - stadium-notice-info-section ========*/
+
+/* 이용규칙 */
+.stadium-notices{
+  background: #fff;
+  padding: 20px;
+  border-radius:20px;
+  text-align: left;
+}
+.stadium-notices-ul{
+  margin-left: 23px;
+}
+.stadium-notices-ul li{
+  padding: 13px 20px;
+}
+
+.stadium-notices-ul2 li{
+  font-size:small
+}
 
 /*=======변경 및 환불사항- stadium-changerf-info-section ===========*/
 

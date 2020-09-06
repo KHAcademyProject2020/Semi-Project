@@ -20,21 +20,21 @@
             <!-- scroll-spy -->
             <div class="scroll-spy-menu" id="scroll-spy-menu">
                 <ul id="scroll_menu_ul">
-                    <a class="scroll_menu_li" href="#branch-info-section">
-                        <li>구장 상세정보</li>
-                    </a>
+                    <li class="scroll_menu_li active">
+                        <a href="#branch-info-section">구장 상세정보</a>
+                    </li>
 
-                    <a class="scroll_menu_li" href="#stadium-notice-info-section">
-                        <li>이용 안내 사항</li>
-                    </a>
+                    <li class="scroll_menu_li" >
+                        <a href="#stadium-notice-info-section" >이용 안내 사항</a>
+                    </li>
 
-                    <a class="scroll_menu_li" href="#stadim-changerf-info-section">
-                        <li>변경 및 환불 안내</li>
-                    </a>
-
-                    <a class="scroll_menu_li" href="#stadium-reservation-section">
-                        <li>예약</li>
-                    </a>
+                    <li class="scroll_menu_li">
+                        <a  href="#stadium-changerf-info-section">변경 및 환불 안내</a>
+                    </li>
+                    
+                    <li class="scroll_menu_li">
+                        <a  href="#stadium-reservation-section">예약</a>
+                    </li>
                 </ul>
             </div>
         </header>
@@ -121,8 +121,8 @@
                 <div class="info-box-2" id="stadium-detail-info-box">
                     <h2 class="section-sub-title">지점 상세 정보</h2>
 
-
                     <div id="stadium-detail-info">
+                        <!-- 지점이름 -->
                         <div class="stadium-detail-box">
                             <div class="stadium-detail-info-label-box">
                                 <label class="stadium-detail-info-label">지점이름</label>
@@ -130,7 +130,16 @@
                             <span>지점이름 실제 데이터</span>
                         </div>
 
+                        <div class="stadium-detail-box">
+                            <div class="stadium-detail-info-label-box">
+                                <label class="stadium-detail-info-label">별점</label>
+                            </div>
+                            <span>별점 실제 데이터</span>
+                        </div>
+                        
 
+
+                        <!-- 지점주소 -->
                         <div class="stadium-detail-box">
                             <div class="stadium-detail-info-label-box">
                                 <label class="stadium-detail-info-label">지점 주소</label>
@@ -138,11 +147,20 @@
                             <span>지점 주소 실제 데이터</span>
                         </div>
 
+                        <!-- 지점 전화번호 -->
                         <div class="stadium-detail-box">
                             <div class="stadium-detail-info-label-box">
                                 <label class="stadium-detail-info-label">지점 전화번호</label>
                             </div>
                             <span>지점 전화번호 실제 데이터</span>
+                        </div>
+
+                        <!-- sns -->
+                        <div class="stadium-detail-box">
+                            <div class="stadium-detail-info-label-box">
+                                <label class="stadium-detail-info-label">SNS</label>
+                            </div>
+                            <span><a id="sns-website" href="">지점 웹사이트 url 실제데이터</a></span>
                         </div>
 
 
@@ -159,10 +177,23 @@
                                 <span id="STADIUM_RESERVATION_END_TIME">예약 종료 시각 (숫자: 0~24)</span>
                             </div>
                         </div>
+
+
+                        <div class="stadium-detail-box">
+                            <div class="stadium-detail-info-label-box">
+                                <label class="stadium-detail-info-label">공간 소개</label>
+                            </div>
+              
+                            <div class="stadium-describe-box">
+                                공간 소개글 실제데이터를 넣습니다. <br>
+                                가나다라마바사 아자차카타파하
+                                그느드르므브스 으즈츠크트프흐
+                                공간공공간 간장공장간장장장공장장
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
-
-
             </div>
         </section>
 
@@ -172,24 +203,68 @@
         <section class="section" id="stadium-notice-info-section">
             <div class="info-box-1">
                 <h1 class="section-title">이용 안내사항</h1>
-                <div class="info-box-2"></div>
-                <div class="info-box-2"></div>
-                <div class="info-box-2"></div>
-                <div class="info-box-2"></div>
-                <div class="info-box-2"></div>
-            </div>
+                <div class="info-box-2 stadium-notices">
 
+
+                </div>
+
+                <div class="info-box-2  stadium-notices">
+                    <h2 class="section-sub-title">이용 규칙</h2>
+                    <ul class="stadium-notices-ul" style="list-style:square">
+                        <li>풋살장 예약 시간 준수</li>
+                        <li>풋살장 내 취사, 흡연 및 음주행위, 지나친 소음행위 금지(적발 시 이용불가)</li>
+                        <li>시설 사용 후 정리정돈 ( 쓰레기 반드시 처리 )</li>
+                        <li>고의 및 과실로 인한 시설물 훼손 및 파손시 사용자가 배상하며 경기중 부상은 본인이 책임집니다.</li>
+                        <li>잔디보호와 부상방지를 위하여 스터드가 있는 축구화(SG, FG, HG, AG)는 착용이 금지되며 풋살화(TF)만 착용 가능 합니다.</li>
+                        
+                        <li>
+                            사회적 거리두기 2단계 동안에는 다음내용이 적용됩니다.
+                            <ul style="list-style:circle;" class="stadium-notices-ul2">
+                                <li>운동시에는 마스크를 꼭 착용해주셔야합니다. 호흡이 어려운 경우 운동템포와 휴식시간을 조정해주세요.</li>
+                                <li>실내구장의 경우에는 휴식시에도 마스크를 착용해주셔야합니다.</li>
+                                <li>야외구장의 경우에는 휴식시 2M 이상 거리를 유지해주세요.</li>
+                            </ul>
+                        </li>
+
+                        <li style="font-weight: bold;">위 내용이 지켜지지 않을 경우 퇴장조치 될 수 있으니 예약시 꼭 참고부탁드립니다.</li>
+                        
+                        <li style="font-weight: bold;">
+                            <span style="color: red;">
+                                규정 외 요청은 적용이 불가합니다. 예약 전 반드시 확인해 주시기 바랍니다.
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <!-- 변경 및 환불안내 사항 -->
-        <section class="section" id="stadim-changerf-info-section">
+        <section class="section" id="stadium-changerf-info-section">
             <div class="info-box-1">
                 <h1 class="section-title">변경 및 환불 안내 사항(테스트)</h1>
-                <div class="info-box-2"></div>
-                <div class="info-box-2"></div>
-                <div class="info-box-2"></div>
-                <div class="info-box-2"></div>
-                <div class="info-box-2"></div>
+                
+                <!-- 변경 -->
+                <div class="info-box-2">
+                    <h2 class="section-sub-title">변경 규정</h2>
+                        
+                    <ul class="stadium-notices-ul">
+                        <li></li>
+                    </ul>
+
+                </div>
+
+                <!-- 환불 -->
+                <div class="info-box-2">
+                    <h2 class="section-sub-title">환불 규정</h2>
+
+                    <ul class="stadium-notices-ul" style="list-style:square;">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+
+                </div>
+                
             </div>
 
         </section>
