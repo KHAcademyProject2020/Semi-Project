@@ -90,6 +90,7 @@ a:visited {
 
 .scroll_menu_li a{
   color: var(--scroll-spy-menu-default-text-color);
+  padding: 11.5px;
 }
 
 li.scroll_menu_li,
@@ -100,7 +101,7 @@ li.scroll_menu_li,
   text-decoration: none;
   color: var(--scroll-spy-menu-default-text-color);
   cursor: pointer;
-  padding: 12.5px 13px;
+  padding: 11.5px;
 }
 
 .scroll_menu_li:hover,
