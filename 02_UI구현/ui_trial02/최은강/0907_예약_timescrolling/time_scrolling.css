@@ -1,0 +1,17 @@
+.reserve-time-container{
+    overflow-x: hidden;   
+}
+
+.swiper-container{
+    padding: 20px;
+}
+
+.swiper-container{
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index:1;
+}
+

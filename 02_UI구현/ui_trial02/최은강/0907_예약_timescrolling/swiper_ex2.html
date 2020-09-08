@@ -2,20 +2,18 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>time-scrolling</title>
+    <meta charset="utf-8">
 
-    <!-- swipper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <title>Swiper demo</title>
+    <!-- Link Swiper's CSS -->
 
-    <link rel="stylesheet" href="./time_scrolling.css">
-
+    <!-- Demo styles -->
     <style>
-        /* swiper */
         html,
         body {
             position: relative;
@@ -56,19 +54,13 @@
             align-items: center;
         }
     </style>
-   
-
 </head>
 
 <body>
-    <div class="reserve-time-container">
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
 
-    </div>
-    <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-free-mode">
-        <ul class="swiper-wrapper time_list" 
-            style="transition-duration:0ms; 
-                    transform:translate3d(-418px, 0px, 0px);">
-            
             <li class="swiper-slide disable">
                 <!-- 0시와 12시에만 존재합니다.-->
                 <span>오전</span>
@@ -77,6 +69,7 @@
                     <span>1000</span>
                 </a>
             </li>
+
 
             <li class="swiper-slide disable">
                 <a href="" class="time_box">
@@ -93,7 +86,6 @@
             </li>
 
             <li class="swiper-slide disable">
-
                 <a href="" class="time_box">
                     <span>3</span>
                     <span>1000</span>
@@ -101,7 +93,6 @@
             </li>
 
             <li class="swiper-slide disable">
-
                 <a href="" class="time_box">
                     <span>4</span>
                     <span>1000</span>
@@ -109,7 +100,6 @@
             </li>
 
             <li class="swiper-slide disable">
-
                 <a href="" class="time_box">
                     <span>5</span>
                     <span>1000</span>
@@ -117,7 +107,6 @@
             </li>
 
             <li class="swiper-slide disable">
-
                 <a href="" class="time_box">
                     <span>6</span>
                     <span>1000</span>
@@ -125,31 +114,30 @@
             </li>
 
             <li class="swiper-slide disable">
-
                 <a href="" class="time_box">
                     <span>7</span>
                     <span>1000</span>
                 </a>
             </li>
 
-            <li class="swiper-slide disable">
 
+            <li class="swiper-slide disable">
                 <a href="" class="time_box">
                     <span>8</span>
                     <span>1000</span>
                 </a>
             </li>
 
-            <li class="swiper-slide disable">
 
+            <li class="swiper-slide disable">
                 <a href="" class="time_box">
                     <span>9</span>
                     <span>1000</span>
                 </a>
             </li>
 
-            <li class="swiper-slide disable">
 
+            <li class="swiper-slide disable">
                 <a href="" class="time_box">
                     <span>10</span>
                     <span>1000</span>
@@ -173,7 +161,6 @@
             </li>
 
             <li class="swiper-slide able">
-
                 <a href="" class="time_box">
                     <span>13</span>
                     <span>1000</span>
@@ -190,7 +177,6 @@
 
 
             <li class="swiper-slide able">
-
                 <a href="" class="time_box">
                     <span>15</span>
                     <span>8900</span>
@@ -199,7 +185,6 @@
 
 
             <li class="swiper-slide disable">
-
                 <a href="" class="time_box">
                     <span>16</span>
                     <span>1000</span>
@@ -262,11 +247,16 @@
                     <span>8700</span>
                 </a>
             </li>
-        </ul>
+        </div>
     </div>
+
+    <!-- Swiper JS -->
+    <script src="../package/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container');
+    </script>
 </body>
-<script>
-    var swiper = new Swiper('.swiper-container');
-</script>
 
 </html>
