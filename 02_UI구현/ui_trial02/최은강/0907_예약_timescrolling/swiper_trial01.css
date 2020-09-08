@@ -1,0 +1,110 @@
+/* swipper */
+/* html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+} */
+
+/* .swiper-container {
+    width: 100%;
+    height: 100%;
+} */
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-shrink: 0;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+/* 타임 스크롤링 */
+.reserve_time_wrap{
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.swiper-container{
+    padding-bottom: 20px;
+    margin: 0 auto;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index:1;
+}
+
+.time_list{
+    padding: 10px 0;
+}
+
+
+.reserve_time_wrap .time_list li{
+    position: relative;
+    float: left;
+    height: 103px;
+    width: 45px;
+    padding: 47px 0 14px;
+}
+
+.reserve_time_wrap .time_list .able{
+    z-index: 5;
+}
+
+
+.reserve_time_wrap .time_list .time_box{
+    display:table;
+    position: relative;
+    text-align:center;
+}
+
+/* 시간 */
+.reserve_time_wrap .time_list .time{
+    position: absolute;
+    left: -8px;
+    top: -23px;
+    width: 15px;
+    text-align:center;
+}
+
+
+.time_half{
+    top: 4px;
+    left: -8px;
+    width: auto;
+    color: #b2b2b2;
+    font-size: 9px;
+}
+
+
+
+.reserve_time_wrap .time_list .disable .time{
+    color: #b2b2b2;
+}
+
+.reserve_time_wrap .time_list li.able .time_box>span.price{
+    color: #cc8c28;
+    border: 2px solid #ffc000;
+    background: #ffd014;
+}

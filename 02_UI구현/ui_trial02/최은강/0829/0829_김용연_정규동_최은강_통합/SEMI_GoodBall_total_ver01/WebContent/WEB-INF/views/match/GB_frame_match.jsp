@@ -129,7 +129,7 @@ td{
 	Color: black;
 }
 </style>
-<title>Insert title here</title>
+<title>매치 등록페이지</title>
 </head>
 <body>
 	<%-- <%@ include file="../common/navbar.jsp"%> --%>
