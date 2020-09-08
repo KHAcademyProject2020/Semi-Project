@@ -185,6 +185,7 @@ a, a:active, a:visited, a:hover{
     color: var(--able-price-text);
     border: 2px solid var(--able-time-border-color);
     background-color: var(--able-time-background);
+    z-index:5;
 }
 
 
@@ -193,3 +194,5 @@ a, a:active, a:visited, a:hover{
         margin-left: 2px;
     }
 }
+
+

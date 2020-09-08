@@ -4,13 +4,21 @@
     <meta charset="utf-8">
     <title>time-slider</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-    <link rel="stylesheet" href="swiper_ex2.css">
+
+    <!-- jquery-ui -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- Link Swiper's CSS -->
+    <!-- <link type="text/css" rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+
+    <link rel="stylesheet" href="time_slider.css">
 </head>
 
 <body>
@@ -21,27 +29,26 @@
                 swiper-container-horizontal
                 swiper-container-free-mode" id="swiper-container2">
 
-        <ul class="swiper-wrapper time_list" 
-            style="transition-duration:0ms; transform:translate3d(0px, 0px, 0px);
+        <ul class="swiper-wrapper time_list" style="transition-duration:0ms; transform:translate3d(0px, 0px, 0px);
                     list-style:none;">
             <li class="swiper-slide disable">
                 <!-- 0시와 12시에만 존재합니다.-->
                 <!-- <span class="time_half">오전</span> -->
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">0</span>
                     <span class="price">1000</span>
                 </a>
             </li>
 
             <li class="swiper-slide disable">
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">1</span>
                     <span class="price">1000</span>
                 </a>
             </li>
 
             <li class="swiper-slide disable">
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">2</span>
                     <span class="price">1000</span>
                 </a>
@@ -49,7 +56,7 @@
 
             <li class="swiper-slide disable">
 
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">3</span>
                     <span class="price">1000</span>
                 </a>
@@ -57,14 +64,14 @@
 
             <li class="swiper-slide disable">
 
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">4</span>
                     <span class="price">1000</span>
                 </a>
             </li>
 
             <li class="swiper-slide disable">
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">5</span>
                     <span class="price">1000</span>
                 </a>
@@ -72,7 +79,7 @@
 
             <li class="swiper-slide disable">
 
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">6</span>
                     <span class="price">1000</span>
                 </a>
@@ -80,7 +87,7 @@
 
             <li class="swiper-slide disable">
 
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">7</span>
                     <span class="price">1000</span>
                 </a>
@@ -88,7 +95,7 @@
 
             <li class="swiper-slide disable">
 
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">8</span>
                     <span class="price">1000</span>
                 </a>
@@ -96,7 +103,7 @@
 
             <li class="swiper-slide disable">
 
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">9</span>
                     <span class="price">1000</span>
                 </a>
@@ -104,7 +111,7 @@
 
             <li class="swiper-slide disable">
 
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">10</span>
                     <span class="price">1000</span>
                 </a>
@@ -112,7 +119,7 @@
 
             <li class="swiper-slide disable">
 
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">11</span>
                     <span class="price">1000</span>
                 </a>
@@ -120,7 +127,7 @@
 
             <li class="swiper-slide able">
                 <!-- <span class="time time_half">오후</span> -->
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">12</span>
                     <span class="price">1000</span>
                 </a>
@@ -128,7 +135,7 @@
 
             <li class="swiper-slide able">
 
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">13</span>
                     <span class="price">1000</span>
                 </a>
@@ -136,7 +143,7 @@
 
             <li class="swiper-slide able">
 
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">14</span>
                     <span class="price">1900</span>
                 </a>
@@ -145,7 +152,7 @@
 
             <li class="swiper-slide able">
 
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">15</span>
                     <span class="price">8900</span>
                 </a>
@@ -154,7 +161,7 @@
 
             <li class="swiper-slide disable">
 
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">16</span>
                     <span class="price">1000</span>
                 </a>
@@ -162,7 +169,7 @@
 
             <li class="swiper-slide disable">
 
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">17</span>
                     <span class="price">1000</span>
                 </a>
@@ -170,7 +177,7 @@
 
             <li class="swiper-slide disable">
 
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">18</span>
                     <span class="price">900</span>
                 </a>
@@ -178,7 +185,7 @@
 
             <li class="swiper-slide disable">
 
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">19</span>
                     <span class="price">1900</span>
                 </a>
@@ -186,7 +193,7 @@
 
             <li class="swiper-slide disable">
 
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">20</span>
                     <span class="price">8000</span>
                 </a>
@@ -194,7 +201,7 @@
 
             <li class="swiper-slide disable">
 
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">21</span>
                     <span class="price">900</span>
                 </a>
@@ -203,7 +210,7 @@
 
             <li class="swiper-slide disable">
 
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">22</span>
                     <span class="price">7100</span>
                 </a>
@@ -211,7 +218,7 @@
 
             <li class="swiper-slide disable">
 
-                <a href="" class="time_box">
+                <a class="time_box">
                     <span class="time">23</span>
                     <span class="price">8700</span>
                 </a>
@@ -236,20 +243,84 @@
                 slider8</div> -->
         </ul>
     </div>
-    <!-- Swiper JS -->
-    
-    <!-- Initialize Swiper -->
+</body>
+<!-- Swiper JS -->
+<!-- Initialize Swiper -->
+<script>
+    // import Swipper from 'https://unpkg.com/swiper/swiper-bundle.esm.browser.min.js'
+    // const mySwiper2 = new Swiper('#swiper-container2', {
+    //     watchSlidesProgress: true,
+    //     watchSlidesVisibility: true,
+    //     slidesPerView: 22
+    // });
 
-    <script type="module">
-        import Swipper from 'https://unpkg.com/swiper/swiper-bundle.esm.browser.min.js'
-        const mySwiper2 = new Swiper('#swiper-container2', {
-            watchSlidesProgress: true,
-            watchSlidesVisibility: true,
-            slidesPerView: 22
+
+    //시간대별 해당하는 박스를 클릭하면
+
+    // 랜더링 시작하자마자 실행하는 함수
+
+    $(function () {
+        //드래그를 해보자
+        $('.time_list').draggable({
+            axis: 'x'
+        });
+
+        const $ables = $('ul.time_list li.able .price');
+        let isClicked = false;
+            
+        $ables.each(function () {
+            console.log($(this));
+        }).click(function () {
+            $(this).css('cursor', 'pointer');
+
+            if (!isClicked) {
+                //선택 안된 상태 => 선택됨
+                isClicked = true;
+                $(this).css({
+                    'background': '#272929',
+                    'color': 'rgb(76, 227, 218)'
+                });
+            } else {
+                isClicked = false;
+                $(this).css({
+                    'background': 'rgb(116,227, 218)',
+                    'color': '#272929'
+                });
+            }
 
         });
-    </script>
-    <!-- <script src="script.js"></script> -->
-</body>
+
+    });
+
+
+
+
+    //trial01:
+    // 이렇게 했는데도, 2개이상 선택하면 바로 선택이 취소됩니다 ㅠㅠ
+    /*
+    let $ables_ver01= $('.able');
+    $ables_ver01.click(function(){
+        $(this).css({'background': '#272929',
+                'color': 'rgb(76, 227, 218)'});
+    });
+    */
+
+
+    //trial02: 선택 한개는 되지만, 2개이상하면 새로 랜더링됩니다.
+    /*
+    let $ables = $('ul.time_list li.able');
+    $ables.each(function () {
+        $(this).find('.price').click(function () {
+            console.log($(this));
+            $(this).css({
+                'background': '#272929',
+                'color': 'rgb(76, 227, 218)'
+            });
+        });
+    });
+    */
+
+
+</script>
 
 </html>
