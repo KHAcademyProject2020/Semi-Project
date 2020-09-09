@@ -18,8 +18,12 @@ INSERT INTO TEAM VALUES('046768', 'wer4@daum.net', SEQ_TEAM_NUM.NEXTVAL, '지리
 INSERT INTO TEAM VALUES('745644', 'werty23@daum.net', SEQ_TEAM_NUM.NEXTVAL, '태백산', '남자그룹', '20대', '서초구', 5, '팀마크5.png', '20/08/15', 'N');
 
 --BRANCH--------------------------------------------------------------------------------------------
-INSERT INTO BRANCH VALUES('BN1', 'werty1212@daum.net', '서울특별시 마포구 성산동 515', '02-2132-2242', '지점.png', 'http://www.seoulworldcupst.or.kr', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT);
-INSERT INTO BRANCH VALUES('BN2', 'werty1212@daum.net', '서울특별시 마포구 성산동 424', '02-2545-2142', '지점2.png', 'http://www.seoulworldcupst.or.kr', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT);
+-- 샘플데이터(지점= BRANCH)
+INSERT INTO BRANCH VALUES('BN1', 'werty1212@daum.net', '서울특별시 마포구 성산동 515', '02-2132-2242', '지점.png', 'http://www.seoulworldcupst.or.kr', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT);
+INSERT INTO BRANCH VALUES('BN2', 'werty1212@daum.net', '서울특별시 마포구 성산동 424', '02-2545-2142', '지점2.png', 'http://www.seoulworldcupst.or.kr', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT);
+
+
+
 
 --STADIUM--------------------------------------------------------------------------------------------
 INSERT INTO STADIUM VALUES(1, 'BN1', 'A구장', '5vs5', 09, 22, DEFAULT);
