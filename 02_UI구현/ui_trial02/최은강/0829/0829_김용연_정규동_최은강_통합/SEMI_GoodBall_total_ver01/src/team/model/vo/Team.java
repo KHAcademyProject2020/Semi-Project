@@ -18,7 +18,18 @@ public class Team {
 		super();
 	}
 	
-	
+	public Team(String team_code, int team_num, String team_name, String team_gender, String team_age, String team_region,
+			String team_mark_img) {
+		super();
+		this.team_code = team_code;
+		this.team_num = team_num;
+		this.team_name = team_name;
+		this.team_gender = team_gender;
+		this.team_age = team_age;
+		this.team_region = team_region;
+		this.team_mark_img = team_mark_img;
+	}
+
 	public Team(String team_code, String team_leader, String team_name, String team_gender, String team_age,
 			String team_region, String team_mark_img) {
 		super();
@@ -47,6 +58,19 @@ public class Team {
 		this.team_mark_img = team_mark_img;
 		this.team_active_lastday = team_active_lastday;
 		this.team_delete_status = team_delete_status;
+	}
+	
+	public Team(String team_code, String team_leader, int team_num, String team_name, String team_gender, String team_age,
+			String team_region, String team_mark_img) {
+		super();
+		this.team_code = team_code;
+		this.team_leader = team_leader;
+		this.team_num = team_num;
+		this.team_name = team_name;
+		this.team_gender = team_gender;
+		this.team_age = team_age;
+		this.team_region = team_region;
+		this.team_mark_img = team_mark_img;
 	}
 
 

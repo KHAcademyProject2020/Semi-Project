@@ -1,0 +1,36 @@
+/* Webcontent/resources/css에 저장해주세요 ^^~  */
+:root {
+  --font: 'Do Hyeon', sans-serif;
+  --main-container-background-color: #e5f8f7;
+
+  --button-background-color: rgb(76, 227, 218);
+  --button-text-color: #272929;
+
+  --button-hover-background-color: #272929;
+  --button-hover-text-color: rgb(76, 227, 219);
+}
+/*=============================================================*/
+
+.main-content-container {
+  background: var(--main-container-background-color);
+  padding-left: 100px;
+  padding-right: 100px;
+  overflow-x: hidden;
+  text-align: center;
+  height: 100vh;
+
+}
+
+#main-container {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  /*align-items: center*/
+  justify-content: space-between;
+}
+
+/*=============================================================*/
+
+

@@ -18,8 +18,13 @@ import wrapper.EncryptWrapper;
 @WebFilter(
       filterName = "encrypt", 
       servletNames = { 
-            "Login2FormServlet", 
-            "InsertServlet"
+//            "Login2FormServlet",
+            "LoginServlet",
+            "InsertServlet",
+            "UpdatePassword",
+            "InsertServlet",
+            "ManagerUpdateServlet",
+            "ManagerPwdEncryptServlet"
       })
 public class EncryptFilter implements Filter {
 
@@ -27,6 +32,7 @@ public class EncryptFilter implements Filter {
      * Default constructor. 
      */
     public EncryptFilter() {
+    	System.out.println("EncryptFilter()실행");
     }
 
    /**
