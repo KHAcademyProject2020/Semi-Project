@@ -12,6 +12,13 @@
 
   /*  링크 hover */
   --sns-website-link-hover-color: rgb(76, 227, 219);
+
+  /* top버튼 */
+  --top-btn-background: rgb(76, 227, 219);
+  --top-hover-btn-background: #272929;
+
+  --top-btn-text: #272929;
+  --top-hover-btn-text: rgb(116, 227, 219);
 }
 
 /*=========================전체 ==================*/
@@ -86,16 +93,16 @@ a:visited {
   justify-content: space-around;
   background: var(--scroll-spy-background-color);
 
-  height: 40px;
+  height: 7vh;
   align-items: center;
 }
 
-.scroll_menu_li a {
+li.scroll_menu_li a {
   color: var(--scroll-spy-menu-default-text-color);
-  padding: 11.5px;
+  width: 100%;
+  position: relative;
 }
 
-li.scroll_menu_li,
 .scroll_menu_li > a {
   text-align: center;
   font-weight: bold;
@@ -106,8 +113,8 @@ li.scroll_menu_li,
   padding: 11.5px;
 }
 
-.scroll_menu_li:hover,
-.scroll_menu_li > a:hover {
+li.scroll_menu_li:hover,
+a.scroll_menu_li_link:hover {
   background: var(--scroll-spy-menu-hover-background-color);
   color: var(--scroll-spy-menu-hover-text-color);
 }
@@ -235,4 +242,26 @@ label.stadium-detail-info-label {
 
 /*=======예약 - stadium-reservation-section======== */
 
+/* 예약날짜를 선택하는 컨테이너 박스 */
+#reservation_date_select_box {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* 예약시간을 선택하는 컨테이너박스 */
+#reservation_time_select_box {
+  display: none;
+  /* 나중에 예약날짜를 클릭을 하게되면 
+  display를 block으로 변경하여
+  예약시간 선택박스가 나오도록한다. */
+}
+
 /* ===============맨위로========================== */
+#go-to-top {
+  background: var(--top-btn-background);
+  color: var(--top-btn-text);
+  display: inline-block;
+  position: fixed;
+}

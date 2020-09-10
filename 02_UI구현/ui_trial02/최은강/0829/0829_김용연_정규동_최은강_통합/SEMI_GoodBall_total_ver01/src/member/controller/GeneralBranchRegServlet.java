@@ -8,17 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 일반회원 마이페이지 서블릿: 여기는 규동씨가 ... ^^
- * Servlet implementation class GoMyPageStartServlet
+ * Servlet implementation class GeneralBranchRegServlet
  */
-@WebServlet("/myPage_General_Form.me")
-public class GoMyPageStartServlet extends HttpServlet {
+@WebServlet("/generalBranchReserve.mp")
+public class GeneralBranchRegServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GoMyPageStartServlet() {
+    public GeneralBranchRegServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,8 +26,8 @@ public class GoMyPageStartServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String page="WEB-INF/views/member/general/일반회원마이페이지시작jsp파일.jsp"; //일반회원 마이페이지 jsp파일 경로
-		request.getRequestDispatcher(page).forward(request, response);
+		
+		request.getRequestDispatcher("WEB-INF/views/member/manager/General_Reserve.jsp").forward(request, response);
 	}
 
 	/**

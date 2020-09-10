@@ -66,4 +66,62 @@ public class MemberService {
 		return result;
 	}
 
+	public int updateMember(Member userInfo) {
+		Connection conn = getConnection();
+		
+		int result = new MemberDAO().updateMember(conn, userInfo);
+		
+		if(result != 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
+	
+	
+	   // 아이디 찾기
+
+	   public static Member seaechEamil(Member find) {
+	      
+	      Connection conn = getConnection();
+	      Member findEmail = new MemberDAO().seaechEamil(conn,find);
+
+	   
+	   
+	      close(conn);
+
+	      return findEmail;
+	   }
+
+	   public  Member searchPassword(Member findP) {
+	      
+	      System.out.println("서비스시작");
+	      
+	      Connection conn = getConnection();
+	      Member findPwd = new MemberDAO().searchPassword(conn,findP);
+	      System.out.println(findP.getName());
+
+	      System.out.println("서비스끝");
+	   
+	      close(conn);
+	      return findPwd;
+	   }
+
+
+	   public int updatePassword(String email, String newPwd1) {
+	      Connection conn = getConnection();
+	      int result = new MemberDAO().updatePwd(conn, email,newPwd1);
+	      
+	      if(result > 0) {
+	         commit(conn);
+	      } else {
+	         rollback(conn);  
+	      }
+	      close(conn);
+	      return result;
+	   }
 }

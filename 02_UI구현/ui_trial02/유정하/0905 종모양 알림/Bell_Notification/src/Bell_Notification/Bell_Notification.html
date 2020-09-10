@@ -1,68 +1,90 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link type="text/css" rel="stylesheet" href="./bell_notification.css">
+	<meta charset="UTF-8">
+	<title>알람버튼 user interface</title>
+	<!-- jquery api -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+	<!-- bootstrap api -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	<!-- font awesome api -->
+	<script src="https://kit.fontawesome.com/09697e2134.js" crossorigin="anonymous"></script>
+
+	<!-- included static css/ js -->
+	<link type="text/css" rel="stylesheet" href="./bell_notification.css">
 </head>
+
 <body>
 	<header>
 		<h1>GB- NAVBAR</h1><!-- 홈페이지 로고: 필요없음  -->
-		<div class="icons"> <!--  NAVBAR에 포함. : 필요없음.-->
-			
-			<div class="notification">
-				
-					<div class="notBtn" href="#">
-						<!-- 알람개수 (숫자) -->
-						<div class="number">777</div>
-						
-						
-						<!-- 알람벨  -->
-						<i class="fas fa-bell"></i>
-						
-						<!-- 알람박스 -->
-						<div class="box"> <!-- 알람박스 시작 -->
-							<div class="cont alarm-total-box">
-								<div id="alarm-title">
-									<h4>전체 알림</h4>
-								</div>
+		<div class="icons">
+			<!--  NAVBAR에 포함. : 필요없음.-->
 
-								<ul id="alarm-list-ul">
-									<!--<%for(i=0; i<alarm_list.length; i++){ %>  -->
-									<li>
-									
-										<!-- 개별 알람 -->
-										<div class="purple alarm-individual-box">	
-											<div class="green">
-													<!-- 알람 내용 -->
-													<div class="orange alarm-content-box">
-														<label>알림내용 1</label>
-													</div>
-													
-													
-													<!-- 날짜 -->
-													<div class="light-purple alarm-date-box">
-														<small class="date-info">날짜 1</small>
-													</div>
+			<div class="notification">
+
+				<div class="notBtn" href="#">
+					<!-- 알람개수 (숫자) -->
+					<div class="number">777</div>
+
+
+					<!-- 알람벨  -->
+					<i class="fas fa-bell"></i>
+
+					<!-- 알람박스 -->
+					<div class="box">
+						<!-- 알람박스 시작 -->
+						<div class="cont alarm-total-box">
+							<div id="alarm-title">
+								<h4>전체 알림</h4>
+							</div>
+
+							<div class="alarm-remove-all-box">
+								<button type="button" class="btn btn-light">알람 전체 삭제</button>
+							</div>
+
+							<ul id="alarm-list-ul">
+								<!--<%for(i=0; i<alarm_list.length; i++){ %>  -->
+
+								<li>
+									<!-- 개별 알람 -->
+									<div class="purple alarm-individual-box">
+										<div class="green alarm-date-contnet-box">
+											<!-- 알람 내용 -->
+											<div class="orange alarm-content-box">
+												<label>알림내용 1</label>
 											</div>
 
-											<!-- x(취소) 버튼  -->
-											<div class="blue alarm-delete-box">
-												<a id="delete-alarm" href="http://daum.net/"> X </a>
+
+											<!-- 날짜 -->
+											<div class="light-purple alarm-date-box">
+												<small class="date-info">날짜 1</small>
 											</div>
 										</div>
-									</li>
-									<!--<%}%> -->
 
-								</ul>
-							</div><!--  class="cont" -->
+										<!-- x(취소) 버튼  -->
+										<div class="blue alarm-delete-box">
+											<a id="delete-alarm" href="http://daum.net/"> X </a>
+										</div>
+									</div>
+								</li>
+								<!--<%}%> -->
 
-						</div> <!-- class="box" 끝 -->
-					</div><!--  class="noBtn" 끝 -->
+							</ul>
+						</div><!--  class="cont" -->
+
+					</div> <!-- class="box" 끝 -->
+				</div><!--  class="noBtn" 끝 -->
 			</div>
+
+			<!-- 수정버튼 (필요없음.) -->
 			<a href="#"><i class="fas fa-edit"></i></a>
 		</div>
 	</header>
 
 </body>
+
 </html>

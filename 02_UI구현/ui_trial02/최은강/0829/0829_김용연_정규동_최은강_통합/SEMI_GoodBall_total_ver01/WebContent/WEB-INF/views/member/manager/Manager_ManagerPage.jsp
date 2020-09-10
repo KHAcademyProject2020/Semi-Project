@@ -1,11 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="member.model.vo.Member"%>
+<%
+	Member loginUser = (Member)session.getAttribute("loginUser");
+	String gender = loginUser.getGender();
+	
+	String[] check = new String[2];
+	if(gender.equals("남")){
+		check[0] = "checked";
+	} else{
+		check[1] = "checked";
+	}
+%>
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta charset="UTF-8">
 <title>my_page</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style>
 	body{
 		text-align:center;
@@ -13,9 +24,9 @@
 	}
 
 	.form-horizontal{
-		width:500px;
+		width:100%;
 		margin:0 auto;
-		padding:0 100px;
+		padding:0 50px;
 		box-sizing:border-box;
 		position:relative;
 		top:50%;
@@ -27,6 +38,7 @@
 		height:35px;
 		margin: 10px 0 30px 0;
 		position:relative;
+		display:inline-block;
 	} 
 	
 	.form-group > input{
@@ -105,59 +117,88 @@
 		background-color:#03D392;
 		color:#fff;
 		border:0;
-		width:100%;
+		width:70%;
 		height:40px;
 	}
 	
-	.btn-groups > button:first-of-type {
-		margin-right:10px;
-	}
+	p{color:red; font-size:8px;}
 </style>
 </head>
 <body>
-	<form class="form-horizontal" method="post" action="#">
+	<form class="form-horizontal" action="<%= request.getContextPath() %>/updateMember.me" method="post" onsubmit="return validate();">
+	
 		<div class="form-group">
 			<label for="name">이 름</label>
-			<input type="text" name="name" id="name" placeholder="변경 불가"/>
+			<input type="text" name="name" id="name" readonly="readonly" value="<%= loginUser.getName() %>"/>
 		</div>
 		<div class="form-group">
-			<label for="id">아이디</label>
-			<input type="text" name="id" id="id" placeholder="변경 불가"/>
+			<label for="id">이메일</label>
+			<input type="email" name="id" id="id" readonly="readonly" value="<%= loginUser.getEmail() %>"/>
 		</div>
+		<p>*10자~12자리의 영문(대소문자)+숫자+특수문자 중 2종류 이상을 조합하여 사용할 수 있습니다.</p>
 		<div class="form-group">
-			<label for="password">비밀번호</label>
-			<input type="password" name="password" id="password"/>
+			<label for="password1">비밀번호</label>
+			<input type="password" name="password1" id="password1"/>
 		</div>
 		<div class="form-group">
 			<label for="password2">비밀번호 확인</label>
 			<input type="password" name="password2" id="password2"/>
 		</div>
 		<div class="form-group">
-			<label for="email">메일 주소</label>
-			<input type="text" name="email" id="email" placeholder="이메일을 입력하세요"/>
-		</div>
-		<div class="form-group">
 			<label for="phone">연락처</label>
-			<input type="tel" name="phone" id="phone"/>
+			<input type="tel" name="phone" id="phone" value="<%= loginUser.getPhone() %>"/>
 		</div>
 		<div class="form-group">
 			<label for="birth">생년월일</label>
-			<input type="date" name="birth" id="birth"/>
+			<input type="date" name="birth" id="birth" value="<%= loginUser.getBirthday() %>"/>
 		</div>
 		<div class="radio-group">
 			성별
-			<input type="radio" name="gender" id="gender1" value="male"/>
+			<input type="radio" name="gender" id="gender1" value="남" <%= check[0] %>/>
 			<label for="gender1">남자</label>
-			<input type="radio" name="gender" id="gender2" value="female"/>
+			<input type="radio" name="gender" id="gender2" value="여" <%= check[1] %>/>
 			<label for="gender2">여자</label>
 		</div>
 		<hr>
 		<!--버튼그룹  -->
 		<div class="btn-groups">
-			<button type="button" class=""
-				onclick="location.href = '#'">회원정보 수정</button>
+			<button type="submit">회원정보 수정</button>
 		</div>
 		<!-- 버튼 그룹 끝 -->
 	</form>
+	<script>
+		function checkPassword() {
+			var pwd = $("#password1").val();
+			var check1 = /^(?=.*[a-zA-Z])(?=.*[0-9]).{10,12}$/.test(pwd); //영문,숫자
+			var check2 = /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).{10,12}$/
+					.test(pwd); //영문,특수문자
+			var check3 = /^(?=.*[^a-zA-Z0-9])(?=.*[0-9]).{10,12}$/.test(pwd); //특수문자, 숫자
+			if (!(check1 || check2 || check3)) {
+				return false;
+			}
+			if (/(\w)\1\1/.test(pwd)) {
+				return false;
+			}
+			return true;
+		}
+	
+		function validate(){
+			var result = checkPassword();
+			var pwd1 = $("#password1").val();
+			var pwd2 = $("#password2").val();
+			
+			if(pwd1 === pwd2 && result == true){
+				alert("수정되었습니다");
+				return true;
+			} else if(pwd1 == "" && pwd2 == ""){
+				alert("수정되었습니다");
+				return true;
+			} else{
+				alert("비밀번호를 확인해주세요");
+				$("#password1").focus();
+				return false;
+			}
+		}
+	</script>
 </body>
 </html>

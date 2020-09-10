@@ -139,8 +139,8 @@ img {
 		<%} %>
 
 			<div class="ship1">
-			<input type="button" class="ship" value=" 아이디 찾기" onclick=""> 
-			<input type="button" class="ship" value=" 비밀번호  찾기" onclick=""> <br>
+			<input type="button" class="ship" value=" 아이디 찾기" onclick="find_email()"> 
+			<input type="button" class="ship" value=" 비밀번호  찾기" onclick="find_password()"> <br>
 			<input type="button" class="ship" value="회원가입" onclick=" Membership()">
 		
 
@@ -151,6 +151,14 @@ img {
 	<script>
 		function Membership(){
 				location.href="<%= request.getContextPath() %>/memberShip";
+		}
+	
+		function find_email(){
+				location.href="<%= request.getContextPath() %>/find_email.em";
+		}
+		
+		function find_password(){
+				location.href="<%= request.getContextPath() %>/find_pwd";
 		}
 		
 		function validate(){

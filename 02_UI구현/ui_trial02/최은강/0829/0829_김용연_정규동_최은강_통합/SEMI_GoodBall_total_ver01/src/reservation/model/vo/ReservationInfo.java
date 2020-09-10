@@ -25,6 +25,21 @@ public class ReservationInfo {
 		super();
 	}
 	
+	public ReservationInfo(String reservation_code, String reservation_email, String reservation_branch_num,
+			int reservation_stadium_num, int reservation_price, int reservation_usage_start_time,
+			int reservation_usage_time, int reservation_usage_end_time, Date reservation_usage_start_date) {
+		super();
+		this.reservation_code = reservation_code;
+		this.reservation_email = reservation_email;
+		this.reservation_branch_num = reservation_branch_num;
+		this.reservation_stadium_num = reservation_stadium_num;
+		this.reservation_price = reservation_price;
+		this.reservation_usage_start_time = reservation_usage_start_time;
+		this.reservation_usage_time = reservation_usage_time;
+		this.reservation_usage_end_time = reservation_usage_end_time;
+		this.reservation_usage_start_date = reservation_usage_start_date;
+	}
+
 	public ReservationInfo(String reservation_branch_num, int reservation_stadium_num) {
 		super();
 		this.reservation_branch_num = reservation_branch_num;

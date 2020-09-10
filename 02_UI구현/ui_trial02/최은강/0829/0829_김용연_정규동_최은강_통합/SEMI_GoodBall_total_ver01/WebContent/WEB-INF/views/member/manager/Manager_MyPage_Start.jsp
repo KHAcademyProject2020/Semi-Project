@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="member.model.vo.*" %>
-	
-<%
-	
-%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,10 +91,9 @@ object {
 }
 </style>
 </head>
-
-
 <body>
-	<h1>MY PAGE</h1>
+	<%@include file="/WEB-INF/views/common/navbar.jsp" %>
+	
 	<div class="wrapper">
 		<div class="buttonWrapper">
 			<div class="tabWrapper">
@@ -207,9 +202,7 @@ object {
          setInsideHidden1();
          setInsideHidden2();
          select(reserveStatusBtn);
-         //예약 버튼 누르면 -> 서블릿호출해서 예약페이지를 나옵니다.
          setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/managerReserve.mp"></object>');
-         
       };
       
       modifyBtn.onclick = e => {

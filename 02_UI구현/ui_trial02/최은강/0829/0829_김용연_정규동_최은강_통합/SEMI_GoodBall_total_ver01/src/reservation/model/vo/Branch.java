@@ -17,6 +17,14 @@ public class Branch {
 	public Branch() {
 		super();
 	}
+	
+	
+	public Branch(int branch_point) {
+		super();
+		this.branch_point = branch_point;
+	}
+
+
 	public Branch(String branch_num, String branch_manager_email, String branch_address, String branch_phone,
 			String branch_img, String branch_website, int branch_point, String branch_option_shower,
 			String branch_option_park, String branch_option_uniform, String branch_option_shoes,

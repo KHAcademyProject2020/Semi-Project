@@ -5,10 +5,29 @@
     <meta charset="UTF-8">
     <title>예약 상세페이지</title>
 
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
+    <!-- jquery-ui -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- swiper api -->
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="./stadium_reservation.css" type="text/css">
     <script src="https://kit.fontawesome.com/09697e2134.js" crossorigin="anonymous"></script>
+
+    <!-- time-slider.css -->
+    <link rel="stylesheet" href="./time_slider.css">
+
+    <!-- calendar css/js -->
+    <link rel="stylesheet" href="./calendar.css">
+
 </head>
 
 <body>
@@ -21,23 +40,23 @@
             <div class="scroll-spy-menu" id="scroll-spy-menu">
                 <ul id="scroll_menu_ul">
                     <li class="scroll_menu_li active">
-                        <a href="#branch-info-section">구장 상세정보</a>
+                        <a class="scroll_menu_li_link" href="#branch-info-section">구장 상세정보</a>
                     </li>
 
                     <li class="scroll_menu_li">
-                        <a href="#stadium-notice-info-section">이용 안내 사항</a>
+                        <a class="scroll_menu_li_link" href="#stadium-notice-info-section">이용 안내 사항</a>
                     </li>
 
                     <li class="scroll_menu_li">
-                        <a href="#stadium-changerf-info-section">변경 및 환불 안내</a>
+                        <a class="scroll_menu_li_link" href="#stadium-changerf-info-section">변경 및 환불 안내</a>
                     </li>
 
                     <li class="scroll_menu_li">
-                        <a href="#stadium-reservation-section">예약</a>
+                        <a class="scroll_menu_li_link" href="#stadium-reservation-section">예약</a>
                     </li>
 
                     <li class="scroll_menu_li">
-                        <a href="#stadium-review-section">이용 후기(Review)</a>
+                        <a class="scroll_menu_li_link" href="#stadium-review-section">이용 후기(Review)</a>
                     </li>
                 </ul>
             </div>
@@ -69,6 +88,7 @@
 
                 <!-- 지점이미지 박스-->
                 <div class="info-box-2" id="branch-img-box">
+
                     <!-- 지점 이미지: BRANCH_IMG 
                         ./img/fb.png는 샘플 이미지입니다.
                     -->
@@ -129,18 +149,17 @@
                         <!-- 지점이름 -->
                         <div class="stadium-detail-box">
                             <div class="stadium-detail-info-label-box">
-                                <label class="stadium-detail-info-label">지점이름</label>
+                                <label class="stadium-detail-info-label">구장 이름</label>
                             </div>
-                            <span>지점이름 실제 데이터</span>
+                            <span>구장이름(STADIUM_NAME) 실제 데이터</span>
                         </div>
 
                         <div class="stadium-detail-box">
                             <div class="stadium-detail-info-label-box">
                                 <label class="stadium-detail-info-label">별점</label>
                             </div>
-                            <span>별점 실제 데이터</span>
+                            <span>별점 실제 데이터(BRANCH_POINT)</span>
                         </div>
-
 
 
                         <!-- 지점주소 -->
@@ -148,7 +167,7 @@
                             <div class="stadium-detail-info-label-box">
                                 <label class="stadium-detail-info-label">지점 주소</label>
                             </div>
-                            <span>지점 주소 실제 데이터</span>
+                            <span>지점 주소 실제 데이터(BRANCH_ADDRESS)</span>
                         </div>
 
                         <!-- 지점 전화번호 -->
@@ -156,7 +175,7 @@
                             <div class="stadium-detail-info-label-box">
                                 <label class="stadium-detail-info-label">지점 전화번호</label>
                             </div>
-                            <span>지점 전화번호 실제 데이터</span>
+                            <span>지점 전화번호 실제 데이터(BRANCH_PHONE)</span>
                         </div>
 
                         <!-- sns -->
@@ -189,6 +208,7 @@
                             </div>
 
                             <div class="stadium-describe-box">
+                                BRANCH_DETAILINFO<br>
                                 공간 소개글 실제데이터를 넣습니다. <br>
                                 가나다라마바사 아자차카타파하
                                 그느드르므브스 으즈츠크트프흐
@@ -208,8 +228,8 @@
             <div class="info-box-1">
                 <h1 class="section-title">이용 안내사항</h1>
                 <div class="info-box-2 stadium-notices">
-
-
+                    BRANCH_NOTES<br>
+                    이용시 안내사항 및 주의사항을 넣습니다.
                 </div>
 
                 <div class="info-box-2  stadium-notices">
@@ -295,9 +315,271 @@
 
             <div class="info-box-2 stadium-notices">
                 <!-- 예약날짜, 예약 시간, 예약 인원, 예약금액 -->
-                <div class="info-box2"></div>
-                <div class="info-box2"></div>
-                <div class="info-box2"></div>
+
+                <!-- 예약날짜 -->
+                <div class="info-box2">
+                    <h2 class="section-sub-title">예약 날짜 선택</h2>
+                    <div class="container" id="reservation_date_select_box">
+                        <div class="my-calendar clearfix">
+                            <div class="clicked-date">
+                                <div class="cal-day"></div>
+                                <div class="cal-date"></div>
+                            </div>
+                            <div class="calendar-box">
+                                <div class="ctr-box clearfix">
+                                    <button type="button" title="prev" class="btn-cal prev">
+                                    </button>
+                                    <span class="cal-month"></span>
+                                    <span class="cal-year"></span>
+                                    <button type="button" title="next" class="btn-cal next">
+                                    </button>
+                                </div>
+                                <table class="cal-table">
+                                    <thead>
+                                        <tr>
+                                            <th>S</th>
+                                            <th>M</th>
+                                            <th>T</th>
+                                            <th>W</th>
+                                            <th>T</th>
+                                            <th>F</th>
+                                            <th>S</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="cal-body"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- script 파일이 꼭 여기에 있어야함. -->
+                    <script src="./calendar.js"></script>
+
+                    <!-- 예약 날짜를 클릭하면 => 예약시간선택 박스가 나온다. -->
+                    <script>
+                        $(function () {
+                            $('.day').click(function () {
+                                console.log($(this));
+                                $('#reservation_time_select_box').css('display', 'block');
+                            });
+
+
+                        });
+                    </script>
+                </div>
+
+                <!-- 예약시간 -->
+                <div class="info-box2" id="reservation_time_select_box">
+                    <h2 class="section-sub-title">예약 시간 선택</h2>
+                    <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-free-mode"
+                        id="swiper-container2">
+
+                        <ul class="swiper-wrapper time_list"
+                            style="transition-duration:0ms; transform:translate3d(0px, 0px, 0px); list-style:none;">
+
+
+
+                            <li class="swiper-slide disable">
+                                <!-- 0시와 12시에만 존재합니다.-->
+                                <!-- <span class="time_half">오전</span> -->
+                                <a class="time_box">
+                                    <span class="time">0</span>
+                                    <span class="price">1000</span>
+                                </a>
+                            </li>
+
+                            <li class="swiper-slide disable">
+                                <a class="time_box">
+                                    <span class="time">1</span>
+                                    <span class="price">1000</span>
+                                </a>
+                            </li>
+
+                            <li class="swiper-slide disable">
+                                <a class="time_box">
+                                    <span class="time">2</span>
+                                    <span class="price">1000</span>
+                                </a>
+                            </li>
+
+                            <li class="swiper-slide disable">
+
+                                <a class="time_box">
+                                    <span class="time">3</span>
+                                    <span class="price">1000</span>
+                                </a>
+                            </li>
+
+                            <li class="swiper-slide disable">
+
+                                <a class="time_box">
+                                    <span class="time">4</span>
+                                    <span class="price">1000</span>
+                                </a>
+                            </li>
+
+                            <li class="swiper-slide disable">
+                                <a class="time_box">
+                                    <span class="time">5</span>
+                                    <span class="price">1000</span>
+                                </a>
+                            </li>
+
+                            <li class="swiper-slide disable">
+
+                                <a class="time_box">
+                                    <span class="time">6</span>
+                                    <span class="price">1000</span>
+                                </a>
+                            </li>
+
+                            <li class="swiper-slide able">
+
+                                <a class="time_box">
+                                    <span class="time">7</span>
+                                    <span class="price">1000</span>
+                                </a>
+                            </li>
+
+                            <li class="swiper-slide disable">
+
+                                <a class="time_box">
+                                    <span class="time">8</span>
+                                    <span class="price">1000</span>
+                                </a>
+                            </li>
+
+                            <li class="swiper-slide disable">
+
+                                <a class="time_box">
+                                    <span class="time">9</span>
+                                    <span class="price">1000</span>
+                                </a>
+                            </li>
+
+                            <li class="swiper-slide disable">
+
+                                <a class="time_box">
+                                    <span class="time">10</span>
+                                    <span class="price">1000</span>
+                                </a>
+                            </li>
+
+                            <li class="swiper-slide disable">
+
+                                <a class="time_box">
+                                    <span class="time">11</span>
+                                    <span class="price">1000</span>
+                                </a>
+                            </li>
+
+                            <li class="swiper-slide able">
+                                <!-- <span class="time time_half">오후</span> -->
+                                <a class="time_box">
+                                    <span class="time">12</span>
+                                    <span class="price">1000</span>
+                                </a>
+                            </li>
+
+                            <li class="swiper-slide able">
+
+                                <a class="time_box">
+                                    <span class="time">13</span>
+                                    <span class="price">1000</span>
+                                </a>
+                            </li>
+
+                            <li class="swiper-slide able">
+
+                                <a class="time_box">
+                                    <span class="time">14</span>
+                                    <span class="price">1900</span>
+                                </a>
+                            </li>
+
+
+                            <li class="swiper-slide able">
+
+                                <a class="time_box">
+                                    <span class="time">15</span>
+                                    <span class="price">8900</span>
+                                </a>
+                            </li>
+
+
+                            <li class="swiper-slide disable">
+
+                                <a class="time_box">
+                                    <span class="time">16</span>
+                                    <span class="price">1000</span>
+                                </a>
+                            </li>
+
+                            <li class="swiper-slide disable">
+
+                                <a class="time_box">
+                                    <span class="time">17</span>
+                                    <span class="price">1000</span>
+                                </a>
+                            </li>
+
+                            <li class="swiper-slide disable">
+
+                                <a class="time_box">
+                                    <span class="time">18</span>
+                                    <span class="price">900</span>
+                                </a>
+                            </li>
+
+                            <li class="swiper-slide disable">
+
+                                <a class="time_box">
+                                    <span class="time">19</span>
+                                    <span class="price">1900</span>
+                                </a>
+                            </li>
+
+                            <li class="swiper-slide disable">
+
+                                <a class="time_box">
+                                    <span class="time">20</span>
+                                    <span class="price">8000</span>
+                                </a>
+                            </li>
+
+                            <li class="swiper-slide disable">
+
+                                <a class="time_box">
+                                    <span class="time">21</span>
+                                    <span class="price">900</span>
+                                </a>
+                            </li>
+
+
+                            <li class="swiper-slide disable">
+
+                                <a class="time_box">
+                                    <span class="time">22</span>
+                                    <span class="price">7100</span>
+                                </a>
+                            </li>
+
+                            <li class="swiper-slide disable">
+
+                                <a class="time_box">
+                                    <span class="time">23</span>
+                                    <span class="price">8700</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 예약 인원 -->
+                <div class="info-box2">
+
+
+                </div>
             </div>
 
         </section>
@@ -321,5 +603,54 @@
     <!-- footer -->
 
 </body>
+<script type="module">
+    import Swipper from 'https://unpkg.com/swiper/swiper-bundle.esm.browser.min.js'
+
+
+
+    //시간대별 해당하는 박스를 클릭하면
+
+    // 랜더링 시작하자마자 실행하는 함수
+    $(function () {
+
+        const mySwiper2 = new Swiper('#swiper-container2', {
+            watchSlidesProgress: true,
+            watchSlidesVisibility: true,
+            slidesPerView: 14
+        });
+
+        //드래그를 해보자
+        $('.time_list').draggable({
+            axis: 'x'
+        });
+
+        const $ables = $('ul.time_list li.able .price');
+        let isClicked = false;
+
+        $ables.each(function () {
+            // console.log($(this));
+        }).click(function () {
+            $(this).css('cursor', 'pointer');
+
+            if (!isClicked) {
+                //선택 안된 상태 => 선택됨
+                isClicked = true;
+                $(this).css({
+                    'background': '#272929',
+                    'color': 'rgb(76, 227, 218)'
+                });
+            } else {
+                isClicked = false;
+                $(this).css({
+                    'background': 'rgb(116,227, 218)',
+                    'color': '#272929'
+                });
+            }
+
+        });
+    });
+</script>
+
+
 
 </html>

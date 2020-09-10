@@ -3,7 +3,7 @@ const date = new Date();
 const renderCalendar = () => {
   date.setDate(1);
 
-  const monthDays = document.querySelector(".days");
+  const monthDays = document.querySelector('.days');
 
   const lastDay = new Date(
     date.getFullYear(),
@@ -28,25 +28,25 @@ const renderCalendar = () => {
   const nextDays = 7 - lastDayIndex - 1;
 
   const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
   ];
 
-  document.querySelector(".date h1").innerHTML = months[date.getMonth()];
+  document.querySelector('.date h1').innerHTML = months[date.getMonth()];
 
-  document.querySelector(".date p").innerHTML = new Date().toDateString();
+  document.querySelector('.date p').innerHTML = new Date().toDateString();
 
-  let days = "";
+  let days = '';
 
   for (let x = firstDayIndex; x > 0; x--) {
     days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
@@ -69,12 +69,12 @@ const renderCalendar = () => {
   }
 };
 
-document.querySelector(".prev").addEventListener("click", () => {
+document.querySelector('.prev').addEventListener('click', () => {
   date.setMonth(date.getMonth() - 1);
   renderCalendar();
 });
 
-document.querySelector(".next").addEventListener("click", () => {
+document.querySelector('.next').addEventListener('click', () => {
   date.setMonth(date.getMonth() + 1);
   renderCalendar();
 });

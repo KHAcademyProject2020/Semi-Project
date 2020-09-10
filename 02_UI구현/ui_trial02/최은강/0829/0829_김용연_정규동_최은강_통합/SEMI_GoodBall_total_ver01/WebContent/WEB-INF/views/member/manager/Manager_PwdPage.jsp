@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="member.model.vo.Member"%>
+<%
+	Member loginUser = (Member) session.getAttribute("loginUser");
+%>
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta charset="UTF-8">
-<title>Good ball 마이페이지 (매니저)</title>
+<title>my_page</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style>
 	body{
 		text-align:center;
@@ -13,9 +16,9 @@
 	}
 
 	.form-horizontal{
-		width:500px;
+		width:100%;
 		margin:0 auto;
-		padding:0 100px;
+		padding:0 50px;
 		box-sizing:border-box;
 		position:relative;
 		top:50%;
@@ -27,6 +30,7 @@
 		height:35px;
 		margin: 10px 0 30px 0;
 		position:relative;
+		display:inline-block;
 	} 
 	
 	.form-group > input{
@@ -60,40 +64,51 @@
 		background-color:#03D392;
 		color:#fff;
 		border:0;
-		width:100%;
+		width:70%;
 		height:40px;
 	}
 	
 </style>
 </head>
 <body>
-	<form class="form-horizontal" method="post" action="#">
+	<form class="form-horizontal" action="<%= request.getContextPath() %>/deleteMember.me" method="post" onsubmit="return deleteMember();">
 		<div class="form-group">
 			<label for="id">아이디</label>
-			<input type="text" name="id" id="id" placeholder="변경 불가"/>
+			<input type="text" name="id" id="id" value="<%= loginUser.getEmail() %>"/>
 		</div>
 		<div class="form-group">
 			<label for="password">비밀번호</label>
-			<input type="password" name="password" id="password" placeholder="비밀번호 확인" >
+			<input type="password" name="encryptPwd" id="encryptPwd" placeholder="비밀번호 확인" required>
+			<input type="hidden" name="originPwd" id="originPwd" value="<%= loginUser.getPwd() %>">
+			
 		</div>
 		<hr>
 		<!--버튼그룹  -->
 		<div class="btn-groups">
-			<button type="button" class=""
-				onclick="deleteMember();">회원 탈퇴</button>
+			<button type="submit">회원 탈퇴</button>
 		</div>
 		<!--버튼그룹끝  -->
 	</form>
 	<script>
 		function deleteMember(){
-			var result = confirm("정말 삭제 하시겠습니까?");
 			
-			if(result === true){
-				location.href="<%= request.getContextPath() %>/deleteMember.me";
-				alert("정상적으로 삭제되었습니다^^");
-			}
-		}
+			var originPwd = $("#originPwd").val();
+			
+				var result = confirm("정말 탈퇴 하시겠습니까?");
+				
+				if(result){
+					alert("탈퇴에 성공했습니다");
+					return true;
+				} else{
+					alert("탈퇴에 실패했습니다");
+					return false;
+				}
+			
+			alert("탈퇴에 실패했습니다");
+			return false;
+			
+		}	
+		
 	</script>
-	
 </body>
 </html>

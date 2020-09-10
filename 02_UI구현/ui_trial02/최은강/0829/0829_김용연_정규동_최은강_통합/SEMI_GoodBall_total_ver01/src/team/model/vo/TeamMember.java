@@ -6,6 +6,11 @@ public class TeamMember {
 	String position;
 	String application_status;
 	String delete_status;
+	
+	
+	
+	
+	
 	public TeamMember() {
 		super();
 	}

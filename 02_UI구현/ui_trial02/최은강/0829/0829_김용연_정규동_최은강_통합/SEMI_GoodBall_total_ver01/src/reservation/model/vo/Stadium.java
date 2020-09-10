@@ -19,6 +19,12 @@ public class Stadium {
 	private String branch_option_shoes;
 	private String branch_option_ball;
 	private String branch_option_inout;
+	
+	/*추가컬럼: branch_branchInfo, branch_detailInfo, branch_notes */
+	private String branch_branchInfo;
+	private String branch_detailInfo;
+	private String branch_notes;
+	
 	public Stadium() {
 		super();
 	}
@@ -47,6 +53,41 @@ public class Stadium {
 		this.branch_option_ball = branch_option_ball;
 		this.branch_option_inout = branch_option_inout;
 	}
+	
+	
+	
+	
+	public Stadium(int stadium_num, String branch_num, String stadium_name, String stadium_match_member,
+			int stadium_reservation_start_time, int stadium_reservation_end_time, String branch_manager_email,
+			String branch_address, String branch_phone, String branch_img, String branch_website, int branch_point,
+			String branch_option_shower, String branch_option_park, String branch_option_uniform,
+			String branch_option_shoes, String branch_option_ball, String branch_option_inout, String branch_branchInfo,
+			String branch_detailInfo, String branch_notes) {
+		super();
+		this.stadium_num = stadium_num;
+		this.branch_num = branch_num;
+		this.stadium_name = stadium_name;
+		this.stadium_match_member = stadium_match_member;
+		this.stadium_reservation_start_time = stadium_reservation_start_time;
+		this.stadium_reservation_end_time = stadium_reservation_end_time;
+		this.branch_manager_email = branch_manager_email;
+		this.branch_address = branch_address;
+		this.branch_phone = branch_phone;
+		this.branch_img = branch_img;
+		this.branch_website = branch_website;
+		this.branch_point = branch_point;
+		this.branch_option_shower = branch_option_shower;
+		this.branch_option_park = branch_option_park;
+		this.branch_option_uniform = branch_option_uniform;
+		this.branch_option_shoes = branch_option_shoes;
+		this.branch_option_ball = branch_option_ball;
+		this.branch_option_inout = branch_option_inout;
+		this.branch_branchInfo = branch_branchInfo;
+		this.branch_detailInfo = branch_detailInfo;
+		this.branch_notes = branch_notes;
+	}
+	
+	
 	public int getStadium_num() {
 		return stadium_num;
 	}
@@ -155,6 +196,26 @@ public class Stadium {
 	public void setBranch_option_inout(String branch_option_inout) {
 		this.branch_option_inout = branch_option_inout;
 	}
+	
+	
+	public String getBranch_branchInfo() {
+		return branch_branchInfo;
+	}
+	public void setBranch_branchInfo(String branch_branchInfo) {
+		this.branch_branchInfo = branch_branchInfo;
+	}
+	public String getBranch_detailInfo() {
+		return branch_detailInfo;
+	}
+	public void setBranch_detailInfo(String branch_detailInfo) {
+		this.branch_detailInfo = branch_detailInfo;
+	}
+	public String getBranch_notes() {
+		return branch_notes;
+	}
+	public void setBranch_notes(String branch_notes) {
+		this.branch_notes = branch_notes;
+	}
 	@Override
 	public String toString() {
 		return "Stadium [stadium_num=" + stadium_num + ", branch_num=" + branch_num + ", stadium_name=" + stadium_name
@@ -165,11 +226,8 @@ public class Stadium {
 				+ ", branch_point=" + branch_point + ", branch_option_shower=" + branch_option_shower
 				+ ", branch_option_park=" + branch_option_park + ", branch_option_uniform=" + branch_option_uniform
 				+ ", branch_option_shoes=" + branch_option_shoes + ", branch_option_ball=" + branch_option_ball
-				+ ", branch_option_inout=" + branch_option_inout + "]";
+				+ ", branch_option_inout=" + branch_option_inout + ", branch_branchInfo=" + branch_branchInfo
+				+ ", branch_detailInfo=" + branch_detailInfo + ", branch_notes=" + branch_notes + "]";
 	}
-	
-
-	
-	
 
 }

@@ -19,6 +19,9 @@
 <head>
 <title>Good Ball (팀 페이지)</title>
 
+	<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/common/favicon/favicon.ico" type="image/x-icon">
+	
+
    <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 	
@@ -156,16 +159,24 @@ td{
 							<% } else { %>
 							
 							<%		for (int i = 0; i < stadiumArr.size(); i++) {%>
-							<tr
+							<tr class="stadium-list-units"
 								onclick="location.href='<%=request.getContextPath()%>/reservation.me?stadium_num=<%= stadiumArr.get(i).getStadium_num()%>&stadium_branch_num=<%= stadiumArr.get(i).getBranch_num()%>';">
-								<th scope="row"><%= stadiumArr.get(i).getStadium_num()%></th>
-								<td><img src="<%=request.getContextPath()%>/resources/storage/<%= stadiumArr.get(i).getBranch_manager_email()%>/branch_img/<%= stadiumArr.get(i).getBranch_img()%>" width="150px" height="100px"></td>
-								<td><%= stadiumArr.get(i).getBranch_address()%><br><%= stadiumArr.get(i).getBranch_num()%>지점</td>
-								<td><%= stadiumArr.get(i).getStadium_name()%></td>
-								<td><%= stadiumArr.get(i).getStadium_match_member()%></td>
-								<td><%= stadiumArr.get(i).getStadium_reservation_start_time()%>:00 ~ <%= stadiumArr.get(i).getStadium_reservation_end_time() %>:00</td>
-								<td><%= stadiumArr.get(i).getBranch_phone()%></td>
+								<th class="stadium-list-units" scope="row"><%= stadiumArr.get(i).getStadium_num()%></th>
+								<td class="stadium-list-units"><img src="<%=request.getContextPath()%>/resources/storage/<%= stadiumArr.get(i).getBranch_manager_email()%>/branch_img/<%= stadiumArr.get(i).getBranch_img()%>" width="150px" height="100px"></td>
+								<td class="stadium-list-units"><%= stadiumArr.get(i).getBranch_address()%><br><%= stadiumArr.get(i).getBranch_num()%>지점</td>
+								<td class="stadium-list-units"><%= stadiumArr.get(i).getStadium_name()%></td>
+								<td class="stadium-list-units"><%= stadiumArr.get(i).getStadium_match_member()%></td>
+								<td class="stadium-list-units"><%= stadiumArr.get(i).getStadium_reservation_start_time()%>:00 ~ <%= stadiumArr.get(i).getStadium_reservation_end_time() %>:00</td>
+								<td class="stadium-list-units"><%= stadiumArr.get(i).getBranch_phone()%></td>
 							</tr>
+							
+							<script>
+							$('tr.stadium-list-units').hover(function(){
+								$(this).css({cursor: 'pointer', background:'rgba(76,227,219,0.25)'});
+							}).mouseout(function(){
+								$(this).css({background: 'transparent'});
+							});
+							</script>
 							<%		}%>
 							<%}%>
 						</tbody>
