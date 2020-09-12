@@ -41,10 +41,10 @@ public class BranchService {
 		return result;
 	}
 
-	public ArrayList<Branch> selectBranchList(String userId, PageInfo pi) {
+	public ArrayList<Branch> selectBranchList(PageInfo pi) {
 		Connection conn = getConnection();
 		
-		ArrayList<Branch> list = new BranchDAO().selectBranchList(conn, userId, pi);
+		ArrayList<Branch> list = new BranchDAO().selectBranchList(conn, pi);
 		
 		close(conn);
 		
@@ -148,6 +148,15 @@ public class BranchService {
 
 	     return result;
 	   }
+
+	public void createBranchView(String query10) {
+		Connection conn = getConnection();
+	     
+	     new BranchDAO().createBranchView(conn, query10);
+
+	     close(conn);
+
+	}
 	
 	
 }

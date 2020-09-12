@@ -18,7 +18,7 @@ import wrapper.EncryptWrapper;
 @WebFilter(
       filterName = "encrypt", 
       servletNames = { 
-//            "Login2FormServlet",
+            "Login2FormServlet",
             "LoginServlet",
             "InsertServlet",
             "UpdatePassword",

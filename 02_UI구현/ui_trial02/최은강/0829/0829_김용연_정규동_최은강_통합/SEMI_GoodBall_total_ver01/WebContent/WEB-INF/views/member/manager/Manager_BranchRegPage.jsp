@@ -173,7 +173,7 @@
       </div><br><br>
       <div class="form-group">
          <label for="placeInfo">지점 한줄 소개 <span id="count1">(0 / 최대 20자)</span></label>
-         <input type="text" name="placeInfo" id="placeInfo" maxlength="20" style="font-size:12px;"/>
+         <input type="text" name="branchInfo" id="branchInfo" maxlength="20" style="font-size:12px;"/>
       </div>
       <div class="form-group form-detail">
          <label for="detailInfo">공간 소개 <span id="count2">(0 / 최대 1000자 (최소 30자))</span></label>
@@ -231,7 +231,7 @@
 		   	
       <div class="selectCover" style="padding-left: 0;">
          <img id="cover"
-            src="<%=request.getContextPath()%>/resources/common/images/지점이미지.png"
+            src="<%=request.getContextPath()%>/resources/common/images/지점.png"
             style="width: 282px; height: 268px;" />
       </div>
       <div class="file_input" style="margin-bottom: 20px;">
@@ -253,13 +253,14 @@
          <input type="text" id="sample4_detailAddress" name="address4" placeholder="상세주소">
          <input type="text" id="sample4_extraAddress" name="address5" placeholder="참고항목">
       </div>
-      <br> <br> <br> <br><br> <br>
+      <br><br><br><br><br><br>
       <hr>
       
       <!-- 버튼 그룹 -->
       <div class="btn-groups">
          <button type="submit">지점 등록</button>
       </div>
+      <br><br><br>
       <!-- 버튼 그룹 끝  -->
    </form>
    <script>
@@ -342,7 +343,7 @@
          window.open("checkBranchForm.br", "checkBranchForm", "width=300, height=200");
        }
    
-      $('#placeInfo').keyup(function (e){
+      $('#branchInfo').keyup(function (e){
           var content = $(this).val();
           $('#count1').html("("+content.length+" / 최대 20자)");
    
@@ -434,6 +435,73 @@
                   }
                }).open();
       }
+      
+      $(function(){
+
+		    $("#phone").on('keydown', function(e){
+		       // 숫자만 입력받기
+		        var trans_num = $(this).val().replace(/-/gi,'');
+			var k = e.keyCode;
+						
+			if(trans_num.length >= 11 && ((k >= 48 && k <=126) || (k >= 12592 && k <= 12687 || k==32 || k==229 || (k>=45032 && k<=55203)) ))
+			{
+		  	    e.preventDefault();
+			}
+		    }).on('blur', function(){ // 포커스를 잃었을때 실행합니다.
+		        if($(this).val() == '') return;
+
+		        // 기존 번호에서 - 를 삭제합니다.
+		        var trans_num = $(this).val().replace(/-/gi,'');
+		      
+		        // 입력값이 있을때만 실행합니다.
+		        if(trans_num != null && trans_num != '')
+		        {
+		            // 총 핸드폰 자리수는 11글자이거나, 10자여야 합니다.
+		            if(trans_num.length==11 || trans_num.length==10) 
+		            {   
+		                // 유효성 체크
+		                var regExp_ctn = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})([0-9]{3,4})([0-9]{4})$/;
+		                if(regExp_ctn.test(trans_num))
+		                {
+		                    // 유효성 체크에 성공하면 하이픈을 넣고 값을 바꿔줍니다.
+		                    trans_num = trans_num.replace(/^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?([0-9]{3,4})-?([0-9]{4})$/, "$1-$2-$3");                  
+		                    $(this).val(trans_num);
+		                }
+		                else
+		                {
+		                    alert("유효하지 않은 전화번호 입니다.");
+		                    $(this).val("");
+		                    $(this).focus();
+		                }
+		            }
+		            else 
+		            {
+		                alert("유효하지 않은 전화번호 입니다.");
+		                $(this).val("");
+		                $(this).focus();
+		            }
+		      }
+		  });  
+		    
+		    //0912
+		    var num = 1;
+		      $('#detailInfo').on('blur', function(){
+		    	  var count = 30;
+		    	  var length = $(this).val().length;
+		    	  count = length;
+		          
+		    	  console.log(num);
+		   			  if(num % 2 == 1){
+		   				if(count < 30){
+		   				  alert("최소 30자 입력 해주세요.");
+		               	  num += 1;
+		               	  $(this).focus();
+		   			  	}
+		           	  
+		           	} else{num += 1;}
+		    
+		      });
+		});
    </script>
 </body>
 </html>

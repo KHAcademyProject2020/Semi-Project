@@ -13,12 +13,11 @@
 <style>
 	body{
 		text-align:center;
-		height:700px;
 	}
 
 	.table_div{
 		position:relative;
-		top:20px;
+		top:10px;
 	}
 
 	.table{
@@ -52,6 +51,7 @@
 	ul{
 		list-style:none;
 		text-align:left;
+		padding:0;
 	}
 	
 	select{
@@ -75,6 +75,8 @@
 	
 	#branchInfo{
 		font-size:12px;
+		padding:5px;
+		width:150px;
 	}
 	
 	p{
@@ -114,6 +116,11 @@
 	.pagination li.prev button{margin-right:23px;}
 	.pagination li.next button{margin-left:23px;}
 	
+	#branchImg{width:50px; height:50px;}
+	
+	.branch_tr{height:90px;}
+	
+	#modifyBranchBtn{margin-right:5px;}
 </style>
 </head>
 <body>
@@ -144,17 +151,11 @@
     	
     		var checked_stadium_name;
     		var checked_branch_num;
-    	 $(document).on('change', '#stadiumSelect', function(){ // 구장수정
+    	 $(document).on('change', '#stadiumSelect', function(){ // 구장삭제
      		/* var stadium_num = $(this).parent().prev().find("#stadiumSelect").val(); */
      		checked_stadium_name = $(this).children("option:selected").text();
      		checked_branch_num = $(this).attr("branch_num");
      	 });
-    	 
-    	 $(document).on('click', '#modifyStadiumBtn', function(){ // 구장수정
-    		 if(checked_stadium_name != null){
-    		 	location.href="<%= request.getContextPath() %>/branchStadiumModify.br?branch_num=" + checked_branch_num + "&stadium_name=" + checked_stadium_name;    			 
-    		 }
-    	 });
     	 
     	 $(document).on('click', '#stadiumDeleteBtn', function(){ // 구장삭제
     		 var result = confirm(checked_stadium_name + "구장을 삭제하시겠습니까?");
@@ -190,12 +191,13 @@
 	    	      url: 'branchStadium.br',
 	    	      data: {branch_num:branch_num},
 	    	      success: function(data) {
+	    	    	  console.log(data);
 	    	    	  if(data == null){
 	    	    		 /*  stadiumArr[0] += '<option>----------- 구장 없음 -----------</option>'; */
 	    	    		 stPaging += '<option>----------- 구장 없음 -----------</option>';
 	    	    	  } else {
 	    	    		$.each(data, function(key, value){
-	    	    				stPaging += '<option>----------- 구장 확인 -----------</option>';
+	    	    				stPaging += '<option>--------------------------- 구장 확인 ---------------------------</option>';
 		    	    		  for (var i = 0; i < value.length; i++) {
 		    	    		 	/* stadiumArr[i]  += '<option id="stadiumOption" name="'+value[i].stadium_num+'" value="'+value[i].stadium_num+'" stadium_num="'+value[i].stadium_num+'">'+ value[i].stadium_name +'</option>'; */
 		    	    			  stPaging += '<option id="stadiumOption" name="'+value[i].stadium_num+'" value="'+value[i].stadium_num+'" stadium_num="'+value[i].stadium_num+'">'+ value[i].stadium_name +'</option>';
@@ -219,7 +221,9 @@
 	    	      url: 'branchPaging.br',
 	    	      data: {userId:userId, page:page},
 	    	      success: function(data) {
+	    	    	  console.log(data);
 	    	    	  if(data.pi.listCount == 0){
+	    	    		  
 	    	    		  brPaging += '<div class="table_div"><table class="table"><thead>';
 	    	    		  brPaging += '<tr><th scope="col" colspan="2">대표사진</th><th scope="col" colspan="2">지점이름</th><th scope="col" colspan="3">정보</th><th scope="col">수정</th><th scope="col">삭제</th></tr></thead>';
 	    	    		  brPaging += '<tbody><tr class="branch_tr"><td colspan="9"><p id="noresult">등록된 지점이 없습니다</p></td></tr></tbody>';
@@ -238,8 +242,7 @@
 		    	    		  brPaging += '<tr><th scope="col" colspan="2">대표사진</th><th scope="col" colspan="2">지점이름</th><th scope="col" colspan="3">정보</th><th scope="col">수정</th><th scope="col">삭제</th></tr></thead><tbody>';
 		    	    		 
 		    	    		  for (var i = 0; i < value.length; i++) {
-		    	    		  	brPaging += '<tr class="branch_tr"><td colspan="2"><img src=""></td>';
-		    	    		  	/* resources/storage/"'+value[i].branch_manager_email+'"/branch_img/"'+value[i].branch_img+' */
+		    	    		  	brPaging += '<tr class="branch_tr"><td colspan="2"><img id="branchImg" src="'+path+'/resources/storage/'+ value[i].branch_manager_email +'/branch_img/'+ value[i].branch_img +'"></td>';
 		    	    		  	brPaging += '<td class="branchName" colspan="2">' + value[i].branch_num + '</a></td>';
 		    	    		  	brPaging += '<td colspan="3" id="branchInfo"><ul><li>위치 : ' + value[i].branch_address + '</li><li>전화번호 : ' + value[i].branch_phone + '</li></ul></td>';
 		    	    		  	brPaging += '<td><button type="button" class="btn" id="modifyBranchBtn" branch_num="'+value[i].branch_num+'">수정</button></td><td><button type="button" class="btn" id="branchDeleteBtn" branch_num="'+ value[i].branch_num +'">삭제</button></td></tr>';
@@ -248,7 +251,7 @@
 		    	    		 	// 밑에게 셀렉트 있는 tr
 		    	    		  	brPaging += '<tr class="hidden_tr"><td colspan="7">';
 		    	    		 	brPaging += '<select id="stadiumSelect" name="'+value[i].branch_num+'" branch_num="'+value[i].branch_num+'">/select></td>';
-		    	    		  	brPaging += '<td><button type="button" class="btn" id="modifyStadiumBtn">수정</button></td><td><button type="button" class="btn" id="stadiumDeleteBtn">삭제</button></td></tr>'; 		
+		    	    		  	brPaging += '<td colspan="2"><button type="button" class="btn" id="stadiumDeleteBtn">삭제</button></td></tr>'; 		
 		    	    		  }
 		    	    		  brPaging += '</tbody></table>';
 
@@ -286,6 +289,9 @@
 	   		$(function(){
 	   			branchInfo(1);	
 	   		});
+	   		
+	   		
+	   		
      </script>
 </body>
 </html>

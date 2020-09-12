@@ -204,7 +204,7 @@ color:black;
    border-radius: 12px;
    width: 180px;
    margin: 8px;
-   background: #EFEFEF;
+   background: #fff;
 }
 
 
@@ -295,37 +295,15 @@ width: 75px;
             <div class="tel-gender-address-role-con">
             
                <!-- 연락처  -->
-               <fieldset class="menu tel-fieldset">
-                  <legend for="phone_12" id="phone_12">연락처</legend> 
-               
-                  <div class="tel-form">
-                     <div class="phone_1">
-                     <input type="tel" name="phone1" class="phone" id="phone1" placeholder="010">
-                     </div>
-                     
-                     <div class="phone_1">
-                     <label for="phone_-">-</label>
-                     </div>
-                     
-                     <div class="phone_1">
-                     <input type="tel" name="phone2" class="phone" id="phone2" placeholder="1234">
-                     </div>
-                     
-                     <div class="phone_1">
-                     <label for="phone_-">-</label>
-                     </div> 
-                  
-                     <div class="phone_1">
-                        <input type="tel" name="phone3" class="phone"  id="phone3" placeholder="5678">
-                     </div> 
-                  
-                  </div>
-               </fieldset>
-               
+               <<div class="form-group">
+			<label for="phone">연락처</label>
+			<input type="tel" name="phone1" id="phone1" />
+				</div>
+ 
                
                <!--  성별 -->
                <div class="check-group">
-                  성별 
+                	  성별 
                   <input type="checkbox" name="gender" id="gender1" value="남" onclick="genderClick(this)"> 
                   <label for="gender1">남자</label>
                   <input type="checkbox" name="gender" id="gender2" value="여" onclick="genderClick(this)"> 
@@ -365,7 +343,7 @@ width: 75px;
             <!-- 버튼 그룹 -->
             <div class="btns" id="signUpBtns">
                <input id="signUpBtn" type="submit" value="가입하기" onclick="return chekPassword();"> 
-               <input type="button" id="goMain" onclick="goMain();" value="메인으로">
+               <input type="button" id="goMain"  value="메인으로" onclick="return goHome();">
             </div>
             <!-- 버튼 그룹 끝  -->
          </form>
@@ -374,10 +352,14 @@ width: 75px;
    
    
    <script>
+
+   		
+  		// 이메일 중복확인
       function checkEmail() {
          window.open("checkEmailForm.me", "checkEmailForm",
                "width=300, height=200");
       }
+      
       // 비밀번호 일치여부 확인
       $(function() {
          $("#success").css("display", "none");
@@ -397,8 +379,56 @@ width: 75px;
          });
       });
       
-      
+      //카카오 주소 값 받아와서 입력
+      $(function(){
 
+		    $("#phone1").on('keydown', function(e){
+		       // 숫자만 입력받기
+		        var trans_num = $(this).val().replace(/-/gi,'');
+			var k = e.keyCode;
+						
+			if(trans_num.length >= 11 && ((k >= 48 && k <=126) || (k >= 12592 && k <= 12687 || k==32 || k==229 || (k>=45032 && k<=55203)) ))
+			{
+		  	    e.preventDefault();
+			}
+		    }).on('blur', function(){ // 포커스를 잃었을때 실행합니다.
+		        if($(this).val() == '') return;
+
+		        // 기존 번호에서 - 를 삭제합니다.
+		        var trans_num = $(this).val().replace(/-/gi,'');
+		      
+		        // 입력값이 있을때만 실행합니다.
+		        if(trans_num != null && trans_num != '')
+		        {
+		            // 총 핸드폰 자리수는 11글자이거나, 10자여야 합니다.
+		            if(trans_num.length==11 || trans_num.length==10) 
+		            {   
+		                // 유효성 체크
+		                var regExp_ctn = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})([0-9]{3,4})([0-9]{4})$/;
+		                if(regExp_ctn.test(trans_num))
+		                {
+		                    // 유효성 체크에 성공하면 하이픈을 넣고 값을 바꿔줍니다.
+		                    trans_num = trans_num.replace(/^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?([0-9]{3,4})-?([0-9]{4})$/, "$1-$2-$3");                  
+		                    $(this).val(trans_num);
+		                }
+		                else
+		                {
+		                alert("유효하지 않은 전화번호 입니다.");
+		                    $(this).val("");
+		                    $(this).focus();
+		                }
+		            }
+		            else 
+		            {
+		                alert("유효하지 않은 전화번호 입니다.");
+		                $(this).val("");
+		                $(this).focus();
+		            }
+		      }
+		  });  
+		});
+      
+			// 카카오 주소
       function sample4_execDaumPostcode() {
          new daum.Postcode(
                {
@@ -454,7 +484,6 @@ width: 75px;
                }).open();
       }
 
-      // 주소 네임 설정
       
       //gender 중복 체크 방지  
       function genderClick(chk) {
@@ -476,6 +505,7 @@ width: 75px;
    
       }
    
+      	// 비밀번호 정규식 표현
     function chekPassword(){
       // 10자~12자리의 영문(대소문자)+숫자+특수문자 중 2종류 이상을 조합하여 사용할 수 있습니다.
 
@@ -504,7 +534,10 @@ width: 75px;
          }
 
          return true; 
+
       } 
+      
+
    </script>
 </body>
 </html>

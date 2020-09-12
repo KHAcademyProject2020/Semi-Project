@@ -4,7 +4,7 @@
 <html>
 <head>
    <meta charset="UTF-8">
-   <title>마이 페이지</title>
+   <title>Insert title here</title>
    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
    <style>
       body {
@@ -108,7 +108,18 @@
          <div class="content active"></div>
       </div>
    </div>
+   
+   <%@include file="/WEB-INF/views/common/footer.jsp"%>
    <script>
+	   $(function(){
+		   setInsideVisible();
+		   selectButtons.push(personalBtn);
+	  	   selectButtons.push(modifyBtn);
+	       multiSelect(selectButtons);
+	       setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/generalPage.mp"></object>');
+			});
+   
+   
       const personalBtn = document.querySelector('#personalBtn');
       const teamBtn = document.querySelector('#teamBtn');
       const reserveStatusBtn = document.querySelector('#reserveStatusBtn');
@@ -123,6 +134,8 @@
          withdrawBtn,
       ];
 
+      const selectButtons = [];
+      
       const insideWrapper = document.querySelector('.insideWrapper');
       const contentBox = document.querySelector('.content');
 
@@ -141,6 +154,17 @@
             }
          });
       };
+      
+      const multiSelect = (target) => {
+    	  selectButtons.forEach(btn => {
+                activate(btn);
+          });
+       };
+      
+       const emptySelect = () => {
+    	   selectButtons.splice(0, selectButtons.length);
+       };
+      
       const setInsideVisible = () => {
          insideWrapper.style.visibility = 'visible';
       };
@@ -149,27 +173,49 @@
       };
       const setContent = (content) => {
          contentBox.innerHTML = content;
-      }
-      personalBtn.onclick = e => {
-         setInsideVisible();
-         select(personalBtn);
       };
+      
+      personalBtn.onclick = e => {
+    	 emptySelect();
+    	 deactivate(teamBtn);
+    	 deactivate(reserveStatusBtn);
+    	 selectButtons.push(personalBtn);
+    	 selectButtons.push(modifyBtn);
+    	 setInsideVisible();
+    	 multiSelect(selectButtons);
+         clickModi();
+      };
+      
       teamBtn.onclick = e => {
          setInsideHidden();
          select(teamBtn);
          setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/generalTeam.mp"></object>');
       };
+      
       reserveStatusBtn.onclick = e => {
          setInsideHidden();
          select(reserveStatusBtn);
          setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/managerReserve.mp"></object>');
       };
+      
       modifyBtn.onclick = e => {
-    	 select(modifyBtn);
+    	 emptySelect();
+    	 deactivate(withdrawBtn);
+    	 selectButtons.push(personalBtn);
+		 selectButtons.push(modifyBtn);
+		 multiSelect(selectButtons);
     	 setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/generalPage.mp"></object>');
       };
-      withdrawBtn.onclick = e => {
-         select(withdrawBtn);
+      var clickModi = function(){
+    	  setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/generalPage.mp"></object>');
+      };
+      
+      withdrawBtn.onclick = e => { 
+    	 emptySelect();
+     	 deactivate(modifyBtn);
+     	 selectButtons.push(personalBtn);
+ 		 selectButtons.push(withdrawBtn);
+ 		 multiSelect(selectButtons);
          setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/managerPwd.mp"></object>');
       }
    </script>

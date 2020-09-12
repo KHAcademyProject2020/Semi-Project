@@ -116,13 +116,20 @@
             
             <div class="btn-find" id="submitBtn">
             	<input type="submit" id="findBtn" value="비밀번호 찾기" onclick="searchPassword();">
-            	<input type="button" id="goMain1" onclick="goMain();" value="메인으로">
-            </div>
+            	<input type="button" id="goMain1" onclick="goBack();" value="메인으로">
+			 </div>
 			</form>
 	
 		</div>
 	</div>
 	</section>	
+	<script>
+	// 메인으로 버튼
+	function goBack(){
+		window.history.go(-2);
+	}
+	</script>
+
 
 
 </body>

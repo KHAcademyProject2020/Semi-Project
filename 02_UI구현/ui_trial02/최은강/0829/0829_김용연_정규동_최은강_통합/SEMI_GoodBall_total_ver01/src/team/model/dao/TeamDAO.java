@@ -1257,5 +1257,21 @@ public class TeamDAO {
 		return result;
 
 	}
+	
+	public void createMatchView(Connection conn, String query) {
+		PreparedStatement pstmt = null;
+		String query2 = query;
+		
+		try {
+			pstmt = conn.prepareStatement(query2);
+			pstmt.executeQuery();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+	}
 
 }

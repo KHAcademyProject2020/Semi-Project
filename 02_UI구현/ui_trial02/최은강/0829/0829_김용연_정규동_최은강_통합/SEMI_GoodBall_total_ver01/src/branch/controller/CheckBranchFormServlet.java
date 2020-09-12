@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class CheckBranchFromServlet
  */
 @WebServlet("/checkBranchForm.br")
-public class CheckBranchFromServlet extends HttpServlet {
+public class CheckBranchFormServlet extends HttpServlet {
    private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CheckBranchFromServlet() {
+    public CheckBranchFormServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

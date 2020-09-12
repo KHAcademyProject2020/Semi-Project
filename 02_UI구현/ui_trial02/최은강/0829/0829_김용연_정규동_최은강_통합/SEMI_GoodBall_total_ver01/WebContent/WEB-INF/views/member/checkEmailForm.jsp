@@ -5,13 +5,39 @@
 <head>
 <meta charset="UTF-8">
 <title>이메일 중복 검사</title>
+<style>
+#body{
+background: #e5f8f7;
+text-align: center;
+}
+#inputSub{
+border-radius: 12px;
+border: 1px solid #fff;
+background: #fff;
+}
+#inputEmail{
+ border: 1px solid #03D392;
+}
+.btn{
+   border: 1px solid #fff;
+   color: black;
+   line-height: 30px;
+   border-radius: 12px;
+   width: 60px;
+   margin: 8px;
+   background: #fff;
+}
+#p2{
+color: red;
+}
+</style>
 </head>
-<body onload="inputValue();">
+<body id="body"onload="inputValue();">
 	<b>이메일 중복 검사</b>
 	<br>
 	<form action="<%= request.getContextPath() %>/checkEmail.me" id="checkEmailForm">
 		<input type="email" id="inputEmail" name="inputEmail">
-		<input type="submit" value="중복확인"/>
+		<input type="submit" id="inputSub" value="중복확인"/>
 	</form>
 	
 	<br>
@@ -29,18 +55,17 @@
 	<br>
 	<br>
 	
-	<input type="button" id="usedEmail" value="확인" onclick="usedEmail();">
-	<input type="button" id="cancel" value="취소" onclick="window.close();">
+	<input class="btn" type="button" id="usedEmail" value="확인" onclick="usedEmail();">
+	<input class="btn" type="button" id="cancel" value="취소" onclick="window.close();">
 	
 	<script>
 		function inputValue(){
-			// openr 나를 열게 해준놈 (부모창)
-//			document.getElementById('inputId').value = opener.document.joinForm.joinUserId.value;
+
 			
-			if('<%= request.getAttribute("checkedNick") %>'=='null'){
+			if('<%= request.getAttribute("checkedEmail") %>'=='null'){
 				document.getElementById('inputEmail').value = opener.document.joinForm.email.value;				
 			} else {
-				document.getElementById('inputEmail').value = '<%= request.getAttribute("checkedNick") %>';
+				document.getElementById('inputEmail').value = '<%= request.getAttribute("checkedEmail") %>';
 			}
 			
 		}

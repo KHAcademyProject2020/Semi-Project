@@ -509,5 +509,15 @@ public class TeamService {
 		return result;
 
 	}
+	
+	public void createMatchView(String query) {
+		Connection conn = getConnection();
+		new TeamDAO().createMatchView(conn, query);
+		
+		close(conn);
+	}
+	
+	
+	
 
 }

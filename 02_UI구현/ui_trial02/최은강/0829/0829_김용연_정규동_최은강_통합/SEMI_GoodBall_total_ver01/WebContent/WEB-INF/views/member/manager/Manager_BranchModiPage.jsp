@@ -2,6 +2,7 @@
     pageEncoding="UTF-8" import="member.model.vo.*, branch.model.vo.*"%>
 <%
 	Member loginUser = (Member)session.getAttribute("loginUser");
+	String userId = loginUser.getEmail();
 	Branch branch = (Branch)request.getAttribute("branch");
 	String detail = branch.getDetail_Info();
 	String ball = branch.getBranch_option_ball();
@@ -280,14 +281,18 @@
 		</div>
 		<input type="hidden" name="email" id="email" value="<%= branch.getBranch_manager_email() %>"/>
 		<input type="hidden" name="num" id="num" value="<%= branch.getBranch_num() %>"/>
-	
-		<div class="selectCover" style="padding-left: 0;">
-         <img id="cover"
-            src="<%=request.getContextPath()%>/resources/common/images/지점이미지.png"
-            style="width: 282px; height: 268px;" />
+		
+		<div class="selectCover" style="padding-left: 0;" >
+		
+		<%--
+		<img id="cover" src="resources/storage/<%= branch.getBranch_manager_email() %>/branch_img/<%= branch.getBranch_img() %>" width="282px" height="268px"><!-- 맥 전용 코드 -->
+		 --%>
+		
+			<img id="cover" src="<%=request.getContextPath()%>/resources/storage/<%= branch.getBranch_manager_email() %>/branch_img/<%= branch.getBranch_img() %>"><!-- 윈도우 전용 코드 --> 
+		
 	      </div>
 	      <div class="file_input" style="margin-bottom: 20px;">
-	      <input id="fileName" name="fileName" class="upload-name" value="파일선택" style="width: 200px; height:25px;" readonly>
+	      <input id="fileName" name="fileName" class="upload-name" value="<%= branch.getBranch_img()%>" style="width: 200px; height:25px;" readonly>
 	      <!-- <input type="file" id="" multiple="multiple"> -->
 	      <label style="position: relative; top: 0; background-color: rgb(239, 239, 239); color: black; font-size: 18px;">
 	      	파일선택
@@ -406,6 +411,25 @@
 	      
 	      $('#thumbnailImg1').change(function() {
 	         readURL(this);
+	      });
+	      
+	      
+	      var num = 1;
+	      $('#detailInfo').on('blur', function(){
+	    	  var count = 30;
+	    	  var length = $(this).val().length;
+	    	  count = length;
+	          
+	    	  console.log(num);
+	   			  if(num % 2 == 1){
+	   				if(count < 30){
+	   				  alert("최소 30자 입력 해주세요.");
+	               	  num += 1;
+	               	  $(this).focus();
+	   			  	}
+	           	  
+	           	} else{num += 1;}
+	    
 	      });
 	</script>
 </body>

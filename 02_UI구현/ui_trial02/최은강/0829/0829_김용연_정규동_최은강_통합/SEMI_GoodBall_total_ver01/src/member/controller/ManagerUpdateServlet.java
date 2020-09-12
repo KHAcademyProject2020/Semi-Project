@@ -14,14 +14,25 @@ import javax.servlet.http.HttpServletResponse;
 import member.model.service.MemberService;
 import member.model.vo.Member;
 
+/**
+ * Servlet implementation class ManagerMyPageUpdateServlet
+ */
+
 @WebServlet(urlPatterns="/updateMember.me",name="ManagerUpdateServlet")
 public class ManagerUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
     public ManagerUpdateServlet() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
@@ -31,6 +42,7 @@ public class ManagerUpdateServlet extends HttpServlet {
 		String memberType = loginUser.getMember_type();
 		
 		String originPwd = loginUser.getPwd();
+		String originAddress = loginUser.getAddress();
 		
 		String name = request.getParameter("name");
 		String id = request.getParameter("id");
@@ -60,7 +72,7 @@ public class ManagerUpdateServlet extends HttpServlet {
 			birth = new Date(new GregorianCalendar().getTimeInMillis());
 		}
 		
-		String address2 = request.getParameter("address2");
+		  String address2 = request.getParameter("address2");
 	      String address3 = request.getParameter("address3");
 	      String address4 = request.getParameter("address4");
 	      String address5 = request.getParameter("address5");
@@ -71,8 +83,9 @@ public class ManagerUpdateServlet extends HttpServlet {
 	      addressArr.add(address3);
 	      addressArr.add(address4);
 	      addressArr.add(address5);
-
+	      
 	      String branch_address  = "";
+
 	      for (int i = 0; i < addressArr.size(); i++) {
 
 	         if (i == addressArr.size() - 1) {
@@ -82,12 +95,18 @@ public class ManagerUpdateServlet extends HttpServlet {
 	            branch_address  += addressArr.get(i) + " ";
 
 	         }
-	      }      
+	      }
+	     
+	     if(branch_address.equals("null null null null")) {
+	    	 branch_address = originAddress;
+	     }
+	      
+	    System.out.println(branch_address);
 
 		Member userInfo = null;
 		
-		if(memberType == "M") {
-			userInfo = new Member(id, password, name, birth, gender, phone, null, "M");			
+		if(memberType.equals("M")) {
+			userInfo = new Member(id, password, name, birth, gender, phone, branch_address, "M");		
 		} else {
 			userInfo = new Member(id, password, name, birth, gender, phone, branch_address, "G");
 		}
@@ -96,7 +115,12 @@ public class ManagerUpdateServlet extends HttpServlet {
 		int result = new MemberService().updateMember(userInfo);
 		
 		request.getSession().setAttribute("loginUser", userInfo);
-		request.getRequestDispatcher("WEB-INF/views/member/manager/Manager_ManagerPage.jsp").forward(request, response);
+		
+		if(memberType.equals("M")) {
+			request.getRequestDispatcher("WEB-INF/views/member/manager/Manager_ManagerPage.jsp").forward(request, response);
+		} else {
+			request.getRequestDispatcher("WEB-INF/views/member/general/General_GeneralPage.jsp").forward(request, response);
+		}
 	}
 
 	/**

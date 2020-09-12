@@ -306,8 +306,66 @@ public class ReservationService {
 		
 		return list;
 	}
-
 	
+	public void createStadiumView(String query) {
+		Connection conn = getConnection();
+		
+		new ReservationDAO().createStadiumView(conn, query);
+		
+		close(conn);
+		
+	}
+	
+	
+	public void createReservationView(String query4) {
+		Connection conn = getConnection();
+		
+		new ReservationDAO().createReservationView(conn, query4);
+		
+		
+		close(conn);
+		
+	}
+
+	public void createReservationView2(String query4) {
+		Connection conn = getConnection();
+		
+		new ReservationDAO().createReservationView2(conn, query4);
+		
+		
+		close(conn);
+		
+	}
+
+	public ArrayList<ReservationInfo> selectReservationList2(PageInfo pi) {
+		Connection conn = getConnection();
+		
+		ArrayList<ReservationInfo> list = new ReservationDAO().selectReservationList2(conn, pi);
+		
+		close(conn);
+		
+		return list;
+	}
+
+	public int getReservationCount2(String userId) {
+		Connection conn = getConnection();
+		
+		int result = new ReservationDAO().getReservationCount2(conn, userId);
+		
+		close(conn);
+		
+		return result;
+	}
+	
+	public ArrayList<ReservationInfo> selectReservationList(PageInfo pi) {
+		Connection conn = getConnection();
+		
+		ArrayList<ReservationInfo> list = new ReservationDAO().selectReservationList(conn, pi);
+		
+		close(conn);
+		
+		return list;
+	}
 	
 
 }

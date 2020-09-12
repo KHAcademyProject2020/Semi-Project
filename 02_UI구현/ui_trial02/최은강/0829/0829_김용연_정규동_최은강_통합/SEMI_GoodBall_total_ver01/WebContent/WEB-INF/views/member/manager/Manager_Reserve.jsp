@@ -59,31 +59,12 @@
 	.pagination li.first button, .paging li.prev button, .paging li.next button, .paging li.last button{overflow:hidden; margin:0 2px; width:30px; height:30px; border:1px solid #ebeae9;}
 	.pagination li.prev button{margin-right:23px;}
 	.pagination li.next button{margin-left:23px;}
+	
+	#reservationTr{height:100px}
 </style>
 </head>
 <body>
 	<div class="reserve_div" id="reserve_div">
-       <!--  <table class="table">
-           <thead>
-              <tr>
-              	<th scope="col">No</th>
-                 <th scope="col">구장이름</th>
-                 <th scope="col">예약자명</th>
-                 <th scope="col">예약날짜</th>
-                 <th scope="col">이용시간</th>
-                 <th scope="col">입금/환불상태</th>
-              </tr>
-         	</thead>
-          	<tbody>
-              <tr>
-                 <td scope="row"></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-              </tr>
-           </tbody>
-        </table> -->
      </div>
      <script>
      function reservationInfo(x) {
@@ -93,7 +74,7 @@
     	   var path = '<%= request.getContextPath()%>';
     	   var testEval = "";
     	   $.ajax({
-    	      url: 'reservationInfo.me',
+    	      url: 'reservationInfoManager.me',
     	      data: {userId:userId, page:page},
     	      success: function(data) {
     	    	 console.log(data);
@@ -101,8 +82,8 @@
     	            testEval += '<div class="reserve_div" id="reserve_div">';
     	            testEval +=	'<table class="table">';
     	            testEval +=	'<thead>';
-    	            testEval += '<tr><th scope="col">No</th><th scope="col">구장이름</th><th scope="col">예약자명</th><th scope="col">예약날짜</th><th scope="col">이용시간</th><th scope="col">입금/환불상태</th></tr></thead><tbody>';
-    	            testEval += '<tr><th colspan="6"><p id="noresult">예약현황이없습니다</p></th></tr></tbody></table></div><br><br>';
+    	            testEval += '<tr><th scope="col">구장이름</th><th scope="col">예약자명</th><th scope="col">예약날짜</th><th scope="col">이용시간</th><th scope="col">입금/환불상태</th></tr></thead><tbody>';
+    	            testEval += '<tr><th colspan="5"><p id="noresult">예약현황이없습니다</p></th></tr></tbody></table></div><br><br>';
     	            testEval += '<div id="paging">';
    	            	testEval += '<ol class="pagination"><li class="first"><button><i class="fas fa-angle-double-left"></i></button></li>';
    	            	testEval += '<li class="prev"><button><i class="fas fa-angle-left"></i></button></li>';
@@ -117,9 +98,14 @@
     	                  testEval += '<div class="reserve_div" id="reserve_div">';
     	                  testEval += '<table class="table">';
     	    	          testEval += '<thead>';
-    	                  testEval += '<tr><th scope="col">No</th><th scope="col">구장이름</th><th scope="col">예약자명</th><th scope="col">예약날짜</th><th scope="col">이용시간</th><th scope="col">입금/환불상태</th></tr></thead><tbody>';
+    	                  testEval += '<tr><th scope="col">구장이름</th><th scope="col">예약자명</th><th scope="col">예약날짜</th><th scope="col">이용시간</th><th scope="col">입금/환불상태</th></tr></thead><tbody>';
     	                  for (var i = 0; i < value.length; i++) {
-    	                     testEval += '<tr><td>'+ '' + '</td><td>' + value[i].stadium_name + '</td><td>'+ value[i].reservation_email +'</td><td>'+ value[i].reservation_usage_start_date +'</td><td>'+ value[i].reservation_usage_start_time + '~' + value[i].reservation_usage_end_time +'</td><td>'+ value[i].reservation_status + '</td></tr>';
+    	                     testEval += '<tr id="reservationTr"><td>' + value[i].stadium_name + '</td><td>'+ value[i].reservation_email +'</td><td>'+ value[i].reservation_usage_start_date +'</td><td>'+ value[i].reservation_usage_start_time + '~' + value[i].reservation_usage_end_time +'</td>';
+    	                     if(value[i].reservation_status == 'Y'){
+    	                    	 testEval += '<td>입금완료</td></tr>';
+    	                     } else{
+    	                    	 testEval += '<td>입금취소</td></tr>';
+    	                     }	                     
     	                     /* '</td><td><input type="button" reservation_code='+ value[i].reservation_code +' value="취소" id="acBtn"></td></tr>'; */
     	                  }
     	                  testEval += '</tbody></table></div><br><br>';
@@ -136,9 +122,9 @@
     	                     }
     	                            
     	                  }
-    	                  brPaging += '<li class="next"><button onclick="goPage1('+ (value.currentPage+1) +');"><i class="fas fa-angle-right"></i></button></li>';
-    	                  brPaging += '<li class="last"><button onclick="goPage1('+ value.maxPage +');"><i class="fas fa-angle-double-right"></i></button></li>';
-    	                  brPaging += '</ol></div></div>';      
+    	                  testEval += '<li class="next"><button onclick="goPage1('+ (value.currentPage+1) +');"><i class="fas fa-angle-right"></i></button></li>';
+    	                  testEval += '<li class="last"><button onclick="goPage1('+ value.maxPage +');"><i class="fas fa-angle-double-right"></i></button></li>';
+    	                  testEval += '</ol></div></div>';      
     	               } 
     	                      
     	            });

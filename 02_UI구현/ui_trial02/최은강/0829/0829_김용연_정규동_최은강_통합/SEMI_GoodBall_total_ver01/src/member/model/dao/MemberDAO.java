@@ -266,4 +266,34 @@ public class MemberDAO {
 		      
 		      return result;
 		   }
+		   
+		   public int searchPassword2(Connection conn, Member findP) {
+			      PreparedStatement pstmt = null;
+			      ResultSet rset = null;
+			      int result = 0;
+
+			      String query = prop.getProperty("searchPassword2");
+
+			      try {
+			         pstmt = conn.prepareStatement(query);
+			         pstmt.setString(1, findP.getName());
+			         pstmt.setString(2, findP.getEmail());
+
+			         rset = pstmt.executeQuery();
+			         // rset 은 count해서 무조껀 1개들어감
+			         if (rset.next()) {
+			            result = rset.getInt(1);
+			         }
+
+			      } catch (SQLException e) {
+			         e.printStackTrace();
+			      } finally {
+			         close(pstmt);
+			         close(rset);
+			      }
+
+			      return result;
+			   }
+		   
+		   
 }

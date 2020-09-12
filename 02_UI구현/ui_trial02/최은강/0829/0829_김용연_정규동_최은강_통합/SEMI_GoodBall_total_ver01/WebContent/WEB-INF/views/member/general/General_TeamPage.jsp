@@ -58,7 +58,7 @@
 		text-align:left;
 	}
 	
-	
+	.teamImg{width:50px; height:50px;}
 </style>
 </head>
 <body>
@@ -86,8 +86,8 @@
             	<% for(Team t : teamArr){ %>
               <tr>
                  <td scope="row"><%= t.getTeam_num() %></td>
-                 <td><img src="#"></td>
-                 <td class="teamName"><%= t.getTeam_name() %></td>
+                 <td><img class="teamImg" src="<%=request.getContextPath() %>/resources/storage/<%= t.getTeam_leader() %>/team_img/<%= t.getTeam_mark_img() %>"></td>
+                 <td class="teamName"><a href="#" class="goPage" team_code="<%= team.getTeam_code() %>"><%= t.getTeam_name() %></a></td>
                  <td>
                  	<ul>
                  		<li>지역 : <%= t.getTeam_region() %></li>
@@ -103,8 +103,8 @@
               <% if(team != null){ %>
             	<tr>
                  <td scope="row"><%= team.getTeam_num() %></td>
-                 <td><img src="#"></td>
-                 <td class="teamName"><%= team.getTeam_name() %></td>
+                 <td><img class="teamImg" src="<%=request.getContextPath() %>/resources/storage/<%= loginUser.getEmail() %>/team_img/<%= team.getTeam_mark_img() %>"></td>
+                 <td class="teamName"><a href="#" class="goPage" team_code="<%= team.getTeam_code() %>"><%= team.getTeam_name() %></a></td>
                  <td>
                  	<ul>
                  		<li>지역 : <%= team.getTeam_region() %></li>
@@ -141,6 +141,12 @@
    			} else{
    				alert(teamName + "팀 탈퇴를 취소합니다");
    			}
+   		});
+   		
+   		$(".goPage").click(function(){
+   			var team_code = $(this).attr("team_code");
+   			
+   			top.location.href="<%= request.getContextPath() %>/teamMemberInfo.me?team_code=" + team_code;
    		});
      </script>
 </body>

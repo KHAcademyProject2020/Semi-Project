@@ -39,14 +39,14 @@ public class BranchModify2Servlet extends HttpServlet {
 		
 		String userId = ((Member)request.getSession().getAttribute("loginUser")).getEmail();
 		String root = request.getSession().getServletContext().getRealPath("/");
-	     //String savePath = root + "resources/storage/"+userId;
-	    String savePath = "/Users/dennis/Desktop/GB_total2/SEMI_GoodBall_CEK/WebContent/resources/storage/"+userId+"/branch_img";
+	     String savePath = root + "/resources/storage/"+userId+"/branch_img";
+	    //String savePath = "/Users/dennis/Desktop/GB_total2/SEMI_GoodBall_CEK/WebContent/resources/storage/"+userId+"/branch_img";
 	      File f = new File(savePath);
 	      if(!f.exists()) {
 	         f.mkdirs();
 	      }
-	     //String savePath2 = root + "resources/storage/"+userId+"/";
-	     String savePath2 = "/Users/dennis/Desktop/GB_total2/SEMI_GoodBall_CEK/WebContent/resources/storage/"+userId+"/branch_img";
+	     String savePath2 = root + "/resources/storage/"+userId+"/branch_img";
+	     //String savePath2 = "/Users/dennis/Desktop/GB_total2/SEMI_GoodBall_CEK/WebContent/resources/storage/"+userId+"/branch_img";
 	       
 	      int maxSize = 1024 * 1024 * 10;
 	      MultipartRequest multiRequest = new MultipartRequest(request, savePath2, maxSize, "UTF-8", new MyFileRenamePolicy());

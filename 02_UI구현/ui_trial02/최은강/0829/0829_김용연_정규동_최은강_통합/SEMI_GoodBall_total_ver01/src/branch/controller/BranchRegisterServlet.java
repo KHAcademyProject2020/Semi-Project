@@ -40,13 +40,13 @@ public class BranchRegisterServlet extends HttpServlet {
       String userId = ((Member)request.getSession().getAttribute("loginUser")).getEmail();
       String root = request.getSession().getServletContext().getRealPath("/");
       //String savePath = root + "resources/storage/"+userId;
-      String savePath = "/Users/dennis/Desktop/GB_total2/SEMI_GoodBall_CEK/WebContent/resources/storage/"+userId+"/branch_img";
+      String savePath = root+"/resources/storage/"+userId+"/branch_img";
       File f = new File(savePath);
       if(!f.exists()) {
          f.mkdirs();
       }
-      //String savePath2 = root + "resources/storage/"+userId+"/";
-      String savePath2 = "/Users/dennis/Desktop/GB_total2/SEMI_GoodBall_CEK/WebContent/resources/storage/"+userId+"/branch_img";
+      String savePath2 = root + "resources/storage/"+userId+"/";
+      //String savePath2 = "/Users/dennis/Desktop/GB-total4/SEMI_GoodBall_CEK/WebContent/resources/storage/"+userId+"/branch_img";
       System.out.println(savePath2);
       
       
@@ -95,15 +95,11 @@ public class BranchRegisterServlet extends HttpServlet {
       }      
          
          Branch branch = new Branch(branch_num, userId, branch_address, branch_phone, branch_img, branch_website, branch_branchInfo, branch_detailInfo, branch_notes, point, branch_option_shower, branch_option_park, branch_option_uniform, branch_option_shoes, branch_option_ball, branch_option_inout, status);
-         
-         System.out.println(branch);
-         
+
          int result = new BranchService().insertBranch(branch);
       
-      
          if(result > 0) {
-            response.sendRedirect(request.getContextPath());
-            // 여기도 해결해야됨
+            request.getRequestDispatcher("WEB-INF/views/member/manager/moveView.jsp").forward(request, response);
          } else {
             request.setAttribute("msg", "지점등록에 실패하였습니다.");
             request.getRequestDispatcher("WEB-INF/views/common/errorPage.jsp").forward(request, response);

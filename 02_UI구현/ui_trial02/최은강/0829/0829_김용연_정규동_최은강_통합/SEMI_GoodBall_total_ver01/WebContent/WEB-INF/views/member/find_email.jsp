@@ -8,6 +8,7 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
+
 <style>
 
 .main-find{
@@ -79,6 +80,7 @@
 
 </style>
 </head>
+
 <link rel="shortcut icon" href="<%=request.getContextPath() %>/resources/common/favicon/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/resources/css/findEmailForm.css">
 
@@ -117,30 +119,13 @@
             
             <div class="btn-find" id="submitBtn">
             	<input type="submit" id="findBtn" value="아이디 찾기" onclick="searchEmail();">
-            	<input type="button" id="goMain1" onclick="goMain();" value="메인으로">
+            	<input type="button" id="goMain1" value="메인으로" onclick="location.href='<%= request.getContextPath() %>'">
             </div>
 			</form>
 	
 		</div>
 	</div>
 	</section>	
-	<script>
-		/* function searchEmail(){
-			var name = document.getElementById("find_name").value;
-			var phone = document.getElementById("find_phone").value;
-			
-			 window.open("searchEmail.se?name="+name+"", "searchEmail",
-             "width=300, height=200");
-			
-			if(find_name == "" && find_phone == ""){
-				alert("모든 정보를 입력해주세요");
-				return;
-			}
-		} */
-		
-		
-	</script>
-
 
 
 </body>

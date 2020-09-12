@@ -98,7 +98,7 @@ public class BranchDAO {
 		return result;
 	}
 
-	public ArrayList<Branch> selectBranchList(Connection conn, String userId, PageInfo pi) {
+	public ArrayList<Branch> selectBranchList(Connection conn, PageInfo pi) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Branch> list = null;
@@ -111,9 +111,8 @@ public class BranchDAO {
 	     
 	     try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, userId);
-			pstmt.setInt(2, startRow);
-			pstmt.setInt(3, endRow);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
 			
 			rset = pstmt.executeQuery();
 			
@@ -401,4 +400,21 @@ public class BranchDAO {
 
 	      return result;
 	   }
+
+	public void createBranchView(Connection conn, String query10) {
+		  PreparedStatement pstmt = null;
+	    
+	      String query = query10;
+
+	      try {
+	         pstmt = conn.prepareStatement(query);
+	         pstmt.executeQuery();
+	         
+
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         close(pstmt);
+	      }
+	}
 }

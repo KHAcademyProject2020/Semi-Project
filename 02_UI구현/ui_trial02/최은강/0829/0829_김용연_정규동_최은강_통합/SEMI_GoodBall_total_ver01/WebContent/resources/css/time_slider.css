@@ -3,6 +3,9 @@
   --able-time-background: rgb(116, 227, 218);
   --able-time-border-color: rgb(76, 227, 218);
   --able-price-text: #272929;
+  
+  --clicked-price-text: rgb(116, 227, 218);
+  --clicked-price-background: #272929;
 }
 
 /* using swiper api - time-scrolling */
@@ -29,6 +32,7 @@
   display: -ms-flexbox;
   display: -webkit-flex; */
   align-items: baseline;
+  
 
   justify-content: center;
   flex-wrap: wrap;
@@ -42,10 +46,16 @@
 
 /* 사용자 설정 */
 .swiper-container {
-  width: 780px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: baseline;
+  box-sizing: border;
+  -webkit-box-sizing: border-box;
+  
+  position:relative;
+  
+  
 }
 .swiper-slide {
   flex-direction: column;
@@ -54,7 +64,9 @@
 
 .swiper-container {
   overflow: hidden;
-  background-color: transparent;
+  /*  background-color: transparent;*/
+  padding: 0;
+  margin: 0 auto;
 }
 
 .swiper-container > .time_list {
@@ -193,17 +205,32 @@ a:hover {
 }
 
 /*클래스 적용  */
-.price.able{
+/*예약가능*/
+.price{
 	padding: 2px;
+	font-size: 2vw;
+	display: flex;
+}
+
+.price.able{
+	
   	color: var(--able-price-text);
 
   	border: 2px solid var(--able-time-border-color);
   	background-color: var(--able-time-background);
+  	cursor:pointer;
 }
 
 .price.disable{
 	background-color: var(--disable-time-background);
   	border: 2px solid #b2b2b2;
+}
+
+.price.clicked{
+	color: var(--clicked-price-text);
+	background: var(--clicked-price-background);
+	border: 2px solid rgb(116,227,219);
+	cursor:pointer;
 }
 
 /* 

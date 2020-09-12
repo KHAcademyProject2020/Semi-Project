@@ -97,14 +97,11 @@
 				var result = confirm("정말 탈퇴 하시겠습니까?");
 				
 				if(result){
-					alert("탈퇴에 성공했습니다");
 					return true;
 				} else{
-					alert("탈퇴에 실패했습니다");
 					return false;
 				}
 			
-			alert("탈퇴에 실패했습니다");
 			return false;
 			
 		}	

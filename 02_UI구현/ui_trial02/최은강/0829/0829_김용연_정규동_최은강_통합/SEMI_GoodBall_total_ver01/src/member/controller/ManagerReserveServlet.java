@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import member.model.vo.Member;
+
 /**
  * Servlet implementation class ManagerReserveServlet
  */
@@ -28,7 +30,17 @@ public class ManagerReserveServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
-		request.getRequestDispatcher("WEB-INF/views/member/manager/Manager_Reserve.jsp").forward(request, response);
+		Member loginUser = (Member)request.getSession().getAttribute("loginUser");
+		String memberType = loginUser.getMember_type();
+		
+		if(memberType.equals("M")) {
+			request.getRequestDispatcher("WEB-INF/views/member/manager/Manager_Reserve.jsp").forward(request, response);
+		} else {
+			request.getRequestDispatcher("WEB-INF/views/member/general/General_Reserve.jsp").forward(request, response);
+		}
+		
+		
+		
 	}
 
 	/**

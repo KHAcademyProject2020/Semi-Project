@@ -17,6 +17,7 @@
 <meta charset="UTF-8">
 <title>my_page</title>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <style>
 	body{
 		text-align:center;
@@ -156,7 +157,7 @@
 		background-color:#03D392;
 		color:#fff;
 		border:0;
-		width:100%;
+		width:70%;
 		height:40px;
 	}
 	
@@ -175,7 +176,7 @@
 		</div>
 		<div class="form-group">
 			<label for="email">이메일</label>
-			<input type="text" name="email" id="email" readonly="readonly" value="<%= loginUser.getEmail() %>"/>
+			<input type="text" name="id" id="id" readonly="readonly" value="<%= loginUser.getEmail() %>"/>
 		</div>
 		<p>*10자~12자리의 영문(대소문자)+숫자+특수문자 중 2종류 이상을 조합하여 사용할 수 있습니다.</p>
 		<div class="form-group">
@@ -201,15 +202,6 @@
 			<input type="radio" name="gender" id="gender2" value="여" <%= check[1] %>/>
 			<label for="gender2">여자</label>
 		</div>
-		<!-- <div class="select-group">
-			<label for="position">선호 포지션</label>
-			<select name="position">
-				<option>--- 선택 ---</option>
-				<option>공격수</option>
-				<option>미드필더</option>
-				<option>수비수</option>
-			</select>
-		</div> -->
 		<!-- 카카오 우편번호 서비스 -->
 	      <div class="kakao-group">
 	         <input type="button" onclick="sample4_execDaumPostcode()" name="address" class="addressBtn" value="우편번호 찾기"><br>
@@ -261,6 +253,100 @@
 				return false;
 			}
 		}
+		
+		$(function(){
+
+		    $("#phone").on('keydown', function(e){
+		       // 숫자만 입력받기
+		        var trans_num = $(this).val().replace(/-/gi,'');
+			var k = e.keyCode;
+						
+			if(trans_num.length >= 11 && ((k >= 48 && k <=126) || (k >= 12592 && k <= 12687 || k==32 || k==229 || (k>=45032 && k<=55203)) ))
+			{
+		  	    e.preventDefault();
+			}
+		    }).on('blur', function(){ // 포커스를 잃었을때 실행합니다.
+		        if($(this).val() == '') return;
+
+		        // 기존 번호에서 - 를 삭제합니다.
+		        var trans_num = $(this).val().replace(/-/gi,'');
+		      
+		        // 입력값이 있을때만 실행합니다.
+		        if(trans_num != null && trans_num != '')
+		        {
+		            // 총 핸드폰 자리수는 11글자이거나, 10자여야 합니다.
+		            if(trans_num.length==11 || trans_num.length==10) 
+		            {   
+		                // 유효성 체크
+		                var regExp_ctn = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})([0-9]{3,4})([0-9]{4})$/;
+		                if(regExp_ctn.test(trans_num))
+		                {
+		                    // 유효성 체크에 성공하면 하이픈을 넣고 값을 바꿔줍니다.
+		                    trans_num = trans_num.replace(/^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?([0-9]{3,4})-?([0-9]{4})$/, "$1-$2-$3");                  
+		                    $(this).val(trans_num);
+		                }
+		                else
+		                {
+		                    alert("유효하지 않은 전화번호 입니다.");
+		                    $(this).val("");
+		                    $(this).focus();
+		                }
+		            }
+		            else 
+		            {
+		                alert("유효하지 않은 전화번호 입니다.");
+		                $(this).val("");
+		                $(this).focus();
+		            }
+		      }
+		  });  
+		});
+		
+		 function sample4_execDaumPostcode() {
+	         new daum.Postcode(
+	               {
+	                  oncomplete : function(data) {
+	                     var roadAddr = data.roadAddress;
+	                     var extraRoadAddr = '';
+	                     if (data.bname !== ''
+	                           && /[동|로|가]$/g.test(data.bname)) {
+	                        extraRoadAddr += data.bname;
+	                     }
+	                     if (data.buildingName !== ''
+	                           && data.apartment === 'Y') {
+	                        extraRoadAddr += (extraRoadAddr !== '' ? ', '
+	                              + data.buildingName : data.buildingName);
+	                     }
+	                     if (extraRoadAddr !== '') {
+	                        extraRoadAddr = ' (' + extraRoadAddr + ')';
+	                     }
+	                     document.getElementById('sample4_postcode').value = data.zonecode;
+	                     document.getElementById("sample4_roadAddress").value = roadAddr;
+	                     document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
+	                     if (roadAddr !== '') {
+	                        document.getElementById("sample4_extraAddress").value = extraRoadAddr;
+	                     } else {
+	                        document.getElementById("sample4_extraAddress").value = '';
+	                     }
+	                     var guideTextBox = document.getElementById("guide");
+	                     if (data.autoRoadAddress) {
+	                        var expRoadAddr = data.autoRoadAddress
+	                              + extraRoadAddr;
+	                        guideTextBox.innerHTML = '(예상 도로명 주소 : '
+	                              + expRoadAddr + ')';
+	                        guideTextBox.style.display = 'block';
+	                     } else if (data.autoJibunAddress) {
+	                        var expJibunAddr = data.autoJibunAddress;
+	                        guideTextBox.innerHTML = '(예상 지번 주소 : '
+	                              + expJibunAddr + ')';
+	                        guideTextBox.style.display = 'block';
+	                     } else {
+	                        guideTextBox.innerHTML = '';
+	                        guideTextBox.style.display = 'none';
+	                     }
+	                  }
+	               }).open();
+	      }
 	</script>
 </body>
 </html>

@@ -39,7 +39,7 @@ h1 {
 
 .insideWrapper2 {
 	position: relative;
-	top: -41px;
+	top: -44px;
 }
 
 button {
@@ -120,10 +120,14 @@ object {
 			<div class="content active"></div>
 		</div>
 	</div>
+	
+	<%@include file="/WEB-INF/views/common/footer.jsp"%>
 	<script>
    		$(function(){
    			setInsideVisible1();
-   			select(modifyBtn);
+   			selectButtons.push(managerBtn);
+       	 	selectButtons.push(modifyBtn);
+            multiSelect(selectButtons);
    			setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/managerPage.mp"></object>');
    		});
    
@@ -144,6 +148,8 @@ object {
          branchListBtn,
          registBtn
       ];
+      
+      const selectButtons = [];
 
       const insideWrapper1 = document.querySelector('.insideWrapper1');
       const insideWrapper2 = document.querySelector('.insideWrapper2');
@@ -167,6 +173,16 @@ object {
          });
       };
       
+      const multiSelect = (target) => {
+    	  selectButtons.forEach(btn => {
+                activate(btn);
+          });
+       };
+      
+       const emptySelect = () => {
+    	   selectButtons.splice(0, selectButtons.length);
+       };
+       
       const setInsideVisible1 = () => {
          insideWrapper1.style.visibility = 'visible';
       };
@@ -188,14 +204,28 @@ object {
       };
       
       managerBtn.onclick = e => {
+    	 emptySelect();
+    	 deactivate(reserveStatusBtn);
+    	 deactivate(branchBtn);
+    	 selectButtons.push(managerBtn);
+    	 selectButtons.push(modifyBtn);
          setInsideVisible1();
          setInsideHidden2();
-         select(managerBtn);
+         multiSelect(selectButtons);
+         clickModi();
       };
+      
       branchBtn.onclick = e => {
+    	 emptySelect();
+    	 deactivate(managerBtn);
+    	 deactivate(reserveStatusBtn);
+    	 deactivate(registBtn);
+    	 selectButtons.push(branchBtn);
+    	 selectButtons.push(branchListBtn);
     	 setInsideVisible2();
          setInsideHidden1();
-         select(branchBtn);
+         multiSelect(selectButtons);
+         clickBranch();
       };
       
       reserveStatusBtn.onclick = e => {
@@ -205,23 +235,48 @@ object {
          setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/managerReserve.mp"></object>');
       };
       
-      modifyBtn.onclick = e => {
-    	 select(modifyBtn);
-         setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/managerPage.mp"></object>');
-      };
+     
+	  modifyBtn.onclick = e => {
+		 emptySelect();
+		 deactivate(withdrawBtn);
+		 selectButtons.push(managerBtn);
+		 selectButtons.push(modifyBtn);
+		 multiSelect(selectButtons);
+	     setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/managerPage.mp"></object>');
+	  };
+	  
+	  var clickModi = function(){
+		  setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/managerPage.mp"></object>');
+	  };
       
       withdrawBtn.onclick = e => {
-         select(withdrawBtn);
+    	 emptySelect();
+    	 deactivate(modifyBtn);
+    	 selectButtons.push(managerBtn);
+		 selectButtons.push(withdrawBtn);
+		 multiSelect(selectButtons);
          setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/managerPwd.mp"></object>');
       };
       
       branchListBtn.onclick = e => {
-          select(branchListBtn);
+    	  emptySelect();
+    	  deactivate(registBtn);
+    	  selectButtons.push(branchBtn);
+ 		  selectButtons.push(branchListBtn);
+ 		  multiSelect(selectButtons);
           setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/managerConPage.mp"></object>');
        };
+       
+       var clickBranch = function(){
+    	  setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/managerConPage.mp"></object>');
+       }
       
       registBtn.onclick = e => {
-          select(registBtn);
+    	  emptySelect();
+    	  deactivate(branchListBtn);
+    	  selectButtons.push(branchBtn);
+ 		  selectButtons.push(registBtn);
+ 		  multiSelect(selectButtons);
           setContent('<object type="text/jsp" data="<%=request.getContextPath()%>/managerRegPage.mp"></object>');
        };
    </script>

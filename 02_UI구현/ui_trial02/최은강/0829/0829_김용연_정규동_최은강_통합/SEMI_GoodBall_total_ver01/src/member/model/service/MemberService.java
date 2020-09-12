@@ -124,4 +124,15 @@ public class MemberService {
 	      close(conn);
 	      return result;
 	   }
+	   
+	   public int searchPassword2(Member findP) {
+		      Connection conn = getConnection();
+		      int result = new MemberDAO().searchPassword2(conn, findP);
+		      
+		   
+		      close(conn);
+		      return result;
+		   }
+	   
+	   
 }

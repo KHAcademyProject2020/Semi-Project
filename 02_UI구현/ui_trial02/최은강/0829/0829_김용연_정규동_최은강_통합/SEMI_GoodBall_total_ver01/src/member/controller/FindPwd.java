@@ -32,31 +32,32 @@ public class FindPwd extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String email = request.getParameter("find_email");
-		String name = request.getParameter("find_name");
-		
-		System.out.println(email);
-		System.out.println(name);
+	      String email = request.getParameter("find_email");
+	      String name = request.getParameter("find_name");
+	      
+	      System.out.println(email);
+	      System.out.println(name);
+	   
+	      Member findP = new Member();
+	      findP.setEmail(email);
+	      findP.setName(name);
+	      
+	      
+	      System.out.println(findP +"서블릿1");
 
-		Member findP = new Member();
-		findP.setEmail(email);
-		findP.setName(name);
-		
-		System.out.println(findP +"서블릿1");
+	      int result  = new MemberService().searchPassword2(findP);
+	      System.out.println(result);
+	      if(result > 0) {
+	         Member member = new MemberService().searchPassword(findP);
+	         request.setAttribute("member", member);
+	         RequestDispatcher em = request.getRequestDispatcher("/WEB-INF/views/member/searchPassword.jsp");
+	         em.forward(request, response);
+	      }else {
+	         request.setAttribute("msg", "정확한 정보를 입력해 주세요!");
+	         RequestDispatcher em = request.getRequestDispatcher("/WEB-INF/views/common/errorPage.jsp");
+	         em.forward(request, response);
+	      }
 
-		Member member = new MemberService().searchPassword(findP);
-
-		System.out.println(member+"서블릿2");
-		
-		if (member != null) {
-			request.setAttribute("Member", member);
-			RequestDispatcher em = request.getRequestDispatcher("/WEB-INF/views/member/searchPassword.jsp");
-			em.forward(request, response);
-		} else {
-			request.setAttribute("msg", "정확한 정보를 입력해 주세요!");
-			RequestDispatcher em = request.getRequestDispatcher("/WEB-INF/views/common/errorPage.jsp");
-			em.forward(request, response);
-		}
 	}
 
 	/**

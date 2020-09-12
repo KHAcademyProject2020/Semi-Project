@@ -16,6 +16,7 @@ import com.google.gson.Gson;
 
 import branch.model.service.BranchService;
 import branch.model.vo.Branch;
+import reservation.model.service.ReservationService;
 import reservation.model.vo.PageInfo;
 
 /**
@@ -49,6 +50,14 @@ public class BranchPagingServlet extends HttpServlet {
 		int startPage;		// 페이징 된 페이지 중 시작 페이지
 		int endPage;		// 페이징 된 페이지 중 마지막 페이지
 		
+		// 1페이지에 목록에 나타내기
+		//뷰에는 로우 넘버 조건절
+		//생성한 뷰를 갖고와서 페이징처리.. -마이페이지에서 지점.	
+		String query= "CREATE OR REPLACE VIEW BRANCHLIST AS SELECT ROWNUM RNUM, DESCBRANCH.* FROM (SELECT * FROM BRANCH WHERE BRANCH_DELETE_STATUS = 'N' AND BRANCH_MANAGER_EMAIL="+ "'"+ userId+"'" +"ORDER BY BRANCH_NUM DESC) DESCBRANCH";
+		
+		System.out.println(query);
+		
+		
 		listCount = new BranchService().getBranchCount(userId);
 		
 		currentPage = 1;
@@ -69,15 +78,17 @@ public class BranchPagingServlet extends HttpServlet {
 	    JSONArray branchArray = null;
 	    JSONObject branchMap = null;
 	    
+	    new BranchService().createBranchView(query);
+	    
 	    pi = new PageInfo(currentPage, listCount, pageLimit, boardLimit, maxPage, startPage, endPage);
-	    ArrayList<Branch> branchArr = new BranchService().selectBranchList(userId, pi);
+	    ArrayList<Branch> branchArr = new BranchService().selectBranchList(pi);
 	    
 	    branchArray = new JSONArray();
 	    branchMap = new JSONObject();
 	    for(int i = 0; i < branchArr.size(); i++) {
 	    	branchObj = new JSONObject();
 	    	branchObj.put("branch_num", branchArr.get(i).getBranch_num());
-	    	branchObj.put("brach_manager_email", branchArr.get(i).getBranch_manager_email());
+	    	branchObj.put("branch_manager_email", branchArr.get(i).getBranch_manager_email());
 	    	branchObj.put("branch_address", branchArr.get(i).getBranch_address());
 	    	branchObj.put("branch_phone", branchArr.get(i).getBranch_phone());
 	    	branchObj.put("branch_img", branchArr.get(i).getBranch_img());

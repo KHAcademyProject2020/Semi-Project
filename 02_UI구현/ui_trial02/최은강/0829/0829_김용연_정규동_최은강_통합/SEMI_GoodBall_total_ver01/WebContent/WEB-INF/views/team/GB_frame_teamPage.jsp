@@ -34,11 +34,14 @@
 	integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
 	crossorigin="anonymous"></script>
 	
-	
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  	
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src='https://d3js.org/d3.v3.min.js'></script>
 
 <style>
+.checked {
+  color: orange;
+}
 
 @media(max-width:1000px) {
 	#wrap2{
@@ -278,7 +281,10 @@ svg {
 								</tr>
 								<tr>
 									<th>팀별점</th>
-									<td><%= teamInfo.getTeam_point()%></td>
+									<td>
+										<%for (int i = 0; i < teamInfo.getTeam_point(); i++) { %><span class="fa fa-star checked"></span> <%}%>
+                            			<%for (int i = 0; i < 5-teamInfo.getTeam_point(); i++) { %><span class="fa fa-star"></span> <% }%></h1>
+									</td>
 								</tr>
 
 							</table>

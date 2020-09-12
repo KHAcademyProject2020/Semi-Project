@@ -44,8 +44,10 @@ public class InsertServlet extends HttpServlet {
       String date = request.getParameter("birthday");
       String gender = request.getParameter("gender");
       String phone1 = request.getParameter("phone1");
-      String phone2= request.getParameter("phone2");
-      String phone3 = request.getParameter("phone3");
+      /*
+       * String phone2= request.getParameter("phone2"); String phone3 =
+       * request.getParameter("phone3");
+       */
       //String address1 = request.getParameter("address1");
       String address2 = request.getParameter("address2");
       String address3 = request.getParameter("address3");
@@ -76,27 +78,7 @@ public class InsertServlet extends HttpServlet {
    
        System.out.println(address);
        
-       //핸드폰 번호 
-       
-       ArrayList<String> phoneArr = new  ArrayList<String>();
-       
-       phoneArr.add(phone1);
-       phoneArr.add(phone2);
-       phoneArr.add(phone3);
-
-       
-       String phone = ""; 
-       for(int i = 0; i < phoneArr.size(); i++) {
-       
-          if(i == phoneArr.size()-1) { 
-             phone += phoneArr.get(i); 
-             
-          } else { 
-             phone += phoneArr.get(i); 
-             
-          }
-          
-       }
+     
     
 
       Date dat = null;
@@ -112,7 +94,7 @@ public class InsertServlet extends HttpServlet {
          dat = new Date(new GregorianCalendar().getTimeInMillis());
       }
 
-      Member member = new Member(email, pwd, name, dat, gender, phone, address, member_type);
+      Member member = new Member(email, pwd, name, dat, gender, phone1, address, member_type);
 
       int result = new MemberService().insertMember(member);
       System.out.println(result);
@@ -120,8 +102,8 @@ public class InsertServlet extends HttpServlet {
 
       String root= request.getSession().getServletContext().getRealPath("/");
       if (result > 0) {
-    	  path= root+"/resources/storage/"+email+"/";
-    	  File Folder = new File(path);
+         path= root+"/resources/storage/"+email+"/";
+         File Folder = new File(path);
 
          // 해당 디렉토리가 없을경우 디렉토리를 생성합니다.
          if (!Folder.exists()) {
