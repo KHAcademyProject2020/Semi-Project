@@ -859,6 +859,15 @@
 
 <!-- 예약 날짜를 클릭하면 => 예약시간선택 박스가 나온다. -->
 <script>
+const reservationMap= new Map();
+
+//초기화- 오늘날짜
+reservationMap.set('date', '');
+reservationMap.set('startTime', '');
+reservationMap.set('endTime', '');
+reservationMap.set('useTime', '');
+reservationMap.set('price',0);
+
    $(function () {
 	 	//드래그를 해보자
 	 	/*
@@ -872,14 +881,7 @@
 		// 		endTime		(예약 종료시각)
 		//		useTime		(이용 시각)
 		//		initStatus	(버튼한번도 클릭하지 않은 상태)
-		let reservationMap= new Map();
-			
-		//초기화- 오늘날짜
-		reservationMap.set('date', '');
-		reservationMap.set('startTime', '');
-		reservationMap.set('endTime', '');
-		reservationMap.set('useTime', '');
-		reservationMap.set('price',0);
+		
 		
   		
 	   
@@ -1227,8 +1229,9 @@
 				//예약 날짜 : reservationMap['date']
 				//var reservation_usage_start_date = $('#date').val();
 				var reservation_usage_start_date = reservationMap.get('date');
-				
-				console.log(reservation_)
+				console.log(reservation_usage_end_time);
+				console.log(reservation_usage_start_date);
+				console.log(reservationMap);
 		
 				if(reservation_usage_start_date ==""){
 					alert('예약날짜를 선택해주세요!');
@@ -1239,8 +1242,13 @@
 					if (confirm("예약하시겠습니까?") == true){
 						$.ajax({
 							 url: 'reservationRegist.me',
-							 data: {reservation_branch_num:reservation_branch_num, reservation_stadium_num:reservation_stadium_num, reservation_price:reservation_price,
-								 reservation_usage_start_time:reservation_usage_start_time, reservation_usage_time:reservation_usage_time, reservation_usage_end_time:reservation_usage_end_time},
+							 data: {reservation_branch_num:reservation_branch_num, 
+								 reservation_stadium_num:reservation_stadium_num, 
+								 reservation_price:reservation_price,
+								 reservation_usage_start_date: reservation_usage_start_date,
+								 reservation_usage_start_time:reservation_usage_start_time,
+								 reservation_usage_time:reservation_usage_time, 
+								 reservation_usage_end_time:reservation_usage_end_time},
 							 success: function(data) {
 								 console.log(data);
 								 
