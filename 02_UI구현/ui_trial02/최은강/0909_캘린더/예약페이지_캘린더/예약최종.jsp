@@ -1210,23 +1210,23 @@
 				
 				// 예약 가격 reservationMap['price']
 				//var reservation_price = $('#reservation_price').val();
-				var reservation_price = $('#reservation_price').val();
+				var reservation_price = reservationMap.get('price');
 				
 				// 예약 시작 시간: reservationMap['startTime']
 				//var reservation_usage_start_time = $('#reservation_usage_start_time').val();
-				var reservation_usage_start_time =reservationMap['startTime'];
+				var reservation_usage_start_time =reservationMap.get('startTime');
 				
 				// 예약 사용 시간: reservationMap['useTime']
 				//var reservation_usage_time = $('#reservation_usage_time').val();
-				var reservation_usage_time = reservationMap['useTime'];
+				var reservation_usage_time = reservationMap.get('useTime');
 				
 				// 예약 끝 시간: reservationMap['endTime']
 				//var reservation_usage_end_time = $('#reservation_usage_end_time').val();
-				var reservation_usage_end_time = reservationMap['endTime'];
+				var reservation_usage_end_time = reservationMap.get('endTime');
 				
 				//예약 날짜 : reservationMap['date']
 				//var reservation_usage_start_date = $('#date').val();
-				var reservation_usage_start_date = reservationMap['date'];
+				var reservation_usage_start_date = reservationMap.get('date');
 				
 				console.log(reservation_)
 		
