@@ -63,6 +63,15 @@ public class ReservationRegistServlet extends HttpServlet {
 		int reservation_usage_end_time = (Integer.parseInt(request.getParameter("reservation_usage_end_time")));
 		String reservation_usage_start_date = request.getParameter("reservation_usage_start_date");
 		
+		
+		System.out.println("지점번호: "+reservation_branch_num);
+		System.out.println("구장번호: : "+reservation_stadium_num);
+		System.out.println("가격: "+reservation_price);
+		System.out.println("예약시작 시각: "+reservation_usage_start_time);
+		System.out.println("예약종료 시각: "+reservation_usage_end_time);
+		System.out.println("예약 이용 시간:"+ reservation_usage_time);
+		System.out.println("예약날짜: "+reservation_usage_start_date);
+		
 		Date dat = null;
 		if(reservation_usage_start_date != "") {
 			String[] dateArr = reservation_usage_start_date.split("-");

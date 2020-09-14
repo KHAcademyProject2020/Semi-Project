@@ -36,9 +36,19 @@ public class ReviewDeleteServlet extends HttpServlet {
 		String review_num = request.getParameter("review_num");
 		int result = 1;
 		new ReservationService().reviewDelete(review_num);
-		Branch branch = new ReservationService().selectBranchPoint(branch_num);
+		//Branch branch = new ReservationService().selectBranchPoint(branch_num);
 		Review review = new ReservationService().selectReviewPoint(review_num);
-		int avg = (branch.getBranch_point()*2) - review.getReview_point();
+		
+		//(최은강) 전체 지점리뷰 별점합
+		int sum_branch_point=new ReservationService().getTotalBranchPoint(branch_num);
+		
+		//(최은강) 지점리뷰 작성자 수
+		int reviewer_count=new ReservationService().countReviewer(branch_num);
+		
+		
+		//(정창섭)
+		int avg = (sum_branch_point- review.getReview_point()) /(reviewer_count-1);
+		
 		new ReservationService().updateBranchPoint(branch_num, avg);
 		response.setContentType("application/json; charset=UTF-8");
 		new Gson().toJson(result, response.getWriter());

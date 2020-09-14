@@ -19,6 +19,12 @@
 
   --top-btn-text: #272929;
   --top-hover-btn-text: rgb(116, 227, 219);
+  
+  --buttonBackground: rgb(116, 227, 219);
+  --buttonText: #272929;
+  --buttonFontSize: 2.5em;
+  --buttonEffectBackground: #272929;
+  --buttonEffectBackground: rgb(76,227,219);
 }
 
 /*=========================전체 ==================*/
@@ -52,7 +58,7 @@ a:visited {
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin-top: 1px;
+  margin: 20px auto;
 }
 
 .info-box-1,
@@ -227,8 +233,9 @@ label.stadium-detail-info-label {
 
 /* 이용규칙 */
 .stadium-notices {
-  background: #fff;
+   background: #fff; 
   /* padding: 20px; */
+  
   border-radius: 20px;
   text-align: left;
 }
@@ -244,7 +251,11 @@ label.stadium-detail-info-label {
 }
 
 
-/*=======변경 및 환불사항- stadium-changerf-info-section ===========*/
+/*=======review section ===========*/
+
+#stadium-review-section{
+	margin-top: 50px;
+}
 
 /*=======예약 - stadium-reservation-section======== */
 
@@ -262,6 +273,42 @@ label.stadium-detail-info-label {
   /* 나중에 예약날짜를 클릭을 하게되면 
   display를 block으로 변경하여
   예약시간 선택박스가 나오도록한다. */
+}
+
+
+ /*
+  --buttonBackground: rgb(116, 227, 219);
+  --buttonText: #272929;
+  --buttonFontSize: 2.5em;
+  --buttonEffectBackground: #272929;
+  --buttonEffectText: rgb(76,227,219);
+ */
+/*예약버튼*/
+#reservation-btn-box{
+	text-align: center;
+}
+
+#reservationRegistBtn{
+	background: var(--buttonBackground);
+	width: 70%;
+	border: none;
+	color: var(--buttonText);
+	font-size: 1.5em;
+	margin: 25px auto;
+}
+
+
+@media screen and (max-width: 768px){
+	#reservationRegistBtn{
+		width: 100%;
+	}
+	
+}
+
+#reservationRegistBtn:hover, #reservationRegistBtn:active {
+	background: var(--buttonEffectBackground);
+	border: none;
+	color: var(--buttonEffectText);
 }
 
 /* ===============맨위로========================== */

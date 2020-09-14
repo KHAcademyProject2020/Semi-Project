@@ -207,6 +207,8 @@ public class ReservationService {
 		return branch;
 	}
 
+	
+	//지점 리뷰 별점 부여 (정창섭)
 	public void updateBranchPoint(String branch_num, int avg) {
 		Connection conn = getConnection();
 		
@@ -365,6 +367,24 @@ public class ReservationService {
 		close(conn);
 		
 		return list;
+	}
+
+	
+	//(최은강) 해당 branch(지점)의 리뷰어 수를 구한다.
+	public int countReviewer(String branch_num) {
+		Connection conn=getConnection();
+		int result=new ReservationDAO().countReviewer(conn, branch_num);
+		close(conn);
+		return result;
+	}
+
+	
+	//(최은강) 해당 branch(지점)의 리뷰점수의 합을 구한다.
+	public int getTotalBranchPoint(String branch_num) {
+		Connection conn=getConnection();
+		int result= new ReservationDAO().getTotalBranchPoint(conn, branch_num);
+		close(conn);
+		return result;
 	}
 	
 

@@ -957,4 +957,49 @@ public class ReservationDAO {
 		return list;
 	}
 
+	public int countReviewer(Connection conn, String branch_num) {
+		PreparedStatement pstmt= null;
+		int result=0;
+		String query= prop.getProperty("countReviewer");
+		ResultSet rset=null;
+		try {
+			pstmt=conn.prepareStatement(query);
+			pstmt.setString(1, branch_num);
+			rset= pstmt.executeQuery();
+			if(rset.next()) {
+				//값한개만 가져온다.
+				result= rset.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		return result;
+	}
+
+	public int getTotalBranchPoint(Connection conn, String branch_num) {
+		PreparedStatement pstmt= null;
+		ResultSet rset=null;
+		int result=0;
+		
+		String query= prop.getProperty("getTotalBranchPoint");
+		try {
+			pstmt=conn.prepareStatement(query);
+			pstmt.setString(1, branch_num); // 안그러면 java.sql.SQLException 인덱스에서 누락된 IN 또는 OUT매개변수 ~ 예외 생김..
+			rset=pstmt.executeQuery();
+			if(rset.next()) {
+				result= rset.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			close(rset);
+		}
+		return result;
+	}
+
 }
