@@ -1,0 +1,132 @@
+/*=================================색상==========================*/
+:root {
+  --font: 'Do Hyeon', sans-serif;
+  --main-container-background-color: #e5f8f7;
+  
+  --button-background-color: #272929;
+  --button-text-color: rgb(76, 227, 218);
+  --button-hover-background-color:rgb(76, 227, 218);
+  --button-hover-text-color:  #272929;
+}
+
+/*===============메인컨테이너(가장 바깥 컨테이너)==========================*/
+
+.main-content-container {
+  background: var(--main-container-background-color);
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+/*본론 내용 프레임*/
+#main-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  /* align-items: center; */
+  justify-content: space-between;
+}
+
+
+/*=================================notice==========================*/
+.main-container{
+	height: 100vh;
+	background: var(--main-container-background-color);
+	
+}
+.notice-main-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+}
+
+
+.notice_total_container{
+    
+    padding: 20px 32px;
+}
+
+/*공지사항 안내문구*/
+.notice_title_box{
+	padding-top: 20px;
+}
+
+.notice_title_box > h1.notice-title, #insertBtn{
+	font-family: var(--font);
+}
+
+
+/*button_box*/
+.notice_button_box{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 12px;
+}
+
+.notice_button_box > div{
+    flex-basis: 80%;
+}
+
+#insertBtn{
+    flex-basis: 20%;
+
+    background: var(--button-background-color);
+    color:var(--button-text-color);
+    border-style: none;
+    
+    font-size: 2em; 
+}
+
+#insertBtn:hover{
+    background: var(--button-hover-background-color);
+    color: var(--button-hover-text-color);
+}
+
+
+/*page-nation*/
+.notice_pagenation{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:  space-around;
+    text-align: center;
+}
+
+/*=================================미디어쿼리==========================*/
+@media screen and (min-width: 900px){
+	/*화면 폭이 900px 이상이라면*/
+	h1.notice-title{
+		font-size: 5vw;
+	}
+	
+/* 	#insertBtn{
+		font-size: 1.8vw;
+	} */
+}
+
+@media screen and (max-width: 768px){
+	/*화면 폭이 600px 이하라면*/
+	.notice_button_box{
+		padding:10px 1px;
+		flex-direction: column;
+		width: 100%;
+	}
+	
+	.notice_button_box > div{
+		flex-basis: 0%;
+	}
+	
+	#insertBtn{
+		flex-basis: 100%;
+		width: 100%;
+	}
+	
+}
+
+
+
+

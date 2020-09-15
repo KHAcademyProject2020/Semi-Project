@@ -1,0 +1,242 @@
+:root {
+  --disable-time-background: #ccc;
+  --able-time-background: rgb(116, 227, 218);
+  --able-time-border-color: rgb(76, 227, 218);
+  --able-price-text: #272929;
+  
+  --clicked-price-text: rgb(116, 227, 218);
+  --clicked-price-background: #272929;
+}
+
+/* using swiper api - time-scrolling */
+.swiper-slide {
+  line-height: 45px;
+  text-align: center;
+  
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+
+  position: relative;
+  transition-property: transform, -webkit-transform;
+  display: flex;
+
+  /*Center slide text vertically */
+  /* display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex; */
+  align-items: baseline;
+  
+
+  justify-content: center;
+  flex-wrap: wrap;
+  /* -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center; */
+}
+
+/* 사용자 설정 */
+.swiper-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  box-sizing: border;
+  -webkit-box-sizing: border-box;
+  
+  position:relative;
+  
+  
+}
+.swiper-slide {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.swiper-container {
+  overflow: hidden;
+  /*  background-color: transparent;*/
+  padding: 0;
+  margin: 0 auto;
+}
+
+.swiper-container > .time_list {
+  padding: 10px 0;
+}
+
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* z-index: 1; */
+  display: flex;
+  box-sizing: content-box;
+}
+
+/*링크*/
+a,
+a:active,
+a:visited,
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+/*시간박스*/
+.time_list li:first-child {
+  margin-left: 20px;
+}
+
+.time_list li {
+  position: relative;
+  float: left;
+  height: 103px;
+  width: 45px;
+  /* padding: 47px 0 14px; */
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  transition-property: transform, -webkit-transform;
+}
+
+/* 오전/ 오후 시간 안내문구*/
+.time_half,
+.time {
+  top: 5px;
+  left: -10px;
+  width: auto;
+  color: #b2b2b2;
+  font-size: 9px;
+}
+
+.time_half {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  flex-basis: 10%;
+}
+
+.time_box {
+  flex-basis: 90%;
+}
+
+/*예약시간 선택박스*/
+.time_box {
+  display: table;
+  position: relative;
+  text-align: center;
+}
+
+/* 시간대별 표시 */
+.time_box .time {
+  position: absolute;
+  left: -8px;
+  top: -33px;
+  width: 15px;
+
+  text-align: center;
+  font-size: 13px;
+}
+
+/*예약시간 가격 표시*/
+
+.time_list .price {
+  display: table-cell;
+  min-width: 45px;
+  height: 41px;
+  margin-top: 8px;
+  padding-top: 3px;
+  vertical-align: middle;
+  font-size: 9px;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.time_list li .time_box > span.price {
+  width: 45px;
+  min-width: 45px;
+  height: 41px;
+  font-size: 10px;
+}
+
+/*예약 불가능*/
+.time_list li.disable .time_box > span.price {
+  /* 
+  background-image: url('./unable_reservation.png');
+  background-position: center;
+  background-repeat: no-repeat;
+ */
+  background-color: var(--disable-time-background);
+  border: 2px solid #b2b2b2;
+}
+
+.time_list .disable .price {
+  padding: 2px;
+  border: 2px solid #ccc;
+  height: 70px;
+}
+
+/*예약 가능*/
+/* 
+.time_list li .able {
+  z-index: 5;
+} 
+*/
+
+.time_list li.able .time_box > span.price {
+  padding: 2px;
+  color: var(--able-price-text);
+
+  border: 2px solid var(--able-time-border-color);
+  background-color: var(--able-time-background);
+  /* z-index: 5; */
+}
+
+/*클래스 적용  */
+/*예약가능*/
+.price{
+	padding: 2px;
+	font-size: 2vw;
+	display: flex;
+}
+
+.price.able{
+	
+  	color: var(--able-price-text);
+
+  	border: 2px solid var(--able-time-border-color);
+  	background-color: var(--able-time-background);
+  	cursor:pointer;
+}
+
+.price.disable{
+	background-color: var(--disable-time-background);
+  	border: 2px solid #b2b2b2;
+}
+
+.price.clicked{
+	color: var(--clicked-price-text);
+	background: var(--clicked-price-background);
+	border: 2px solid rgb(116,227,219);
+	cursor:pointer;
+}
+
+/* 
+@media screen and (min-width: 1200px) {
+  .time_list li {
+    margin-left: 2px;
+  }
+}
+*/

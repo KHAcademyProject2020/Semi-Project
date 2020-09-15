@@ -1,0 +1,360 @@
+:root {
+  --main-container-background-color: #e5f8f7;
+  --branch-info-section-background-color: transparent;
+
+  /* scroll-spy-menu */
+  --scroll-spy-background-color: #272929;
+  --scroll-spy-menu-default-text-color: rgb(76, 227, 219);
+  --scroll-spy-menu-font-size: 1.5vw;
+
+  --scroll-spy-menu-hover-background-color: rgb(76, 227, 219);
+  --scroll-spy-menu-hover-text-color: #272929;
+
+  /*  링크 hover */
+  --sns-website-link-hover-color: rgb(76, 227, 219);
+
+  /* top버튼 */
+  --top-btn-background: rgb(76, 227, 219);
+  --top-hover-btn-background: #272929;
+
+  --top-btn-text: #272929;
+  --top-hover-btn-text: rgb(116, 227, 219);
+  
+  --buttonBackground: rgb(116, 227, 219);
+  --buttonText: #272929;
+  --buttonFontSize: 2.5em;
+  --buttonEffectBackground: #272929;
+  --buttonEffectBackground: rgb(76,227,219);
+}
+
+/*=========================전체 ==================*/
+body {
+  margin: 0;
+}
+
+#main-container-content {
+  background: var(--main-container-background-color);
+
+  text-align: center;
+  height: fit-content;
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+a,
+a:active,
+a:hover,
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+/* =====================공통 =======================*/
+.section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.info-box-1,
+.info-box-2 {
+  padding: 12px 13px;
+  margin-top: 30px;
+}
+
+.info-box-2 {
+  margin: 20px;
+  border-radius: 20px;
+  padding: 20px 23px;
+}
+
+.section-title {
+  font-size: 4.2vw;
+}
+
+.section-sub-title {
+  font-size: 3.3vw;
+  text-align: left;
+  border-left: red solid 5px;
+
+  padding-left: 45px;
+  margin-left: 15px;
+}
+
+/*==================scroll-spy=====================*/
+
+#scroll-spy-menu {
+  position: fixed;
+  width: 100vw;
+  
+  top:0;
+}
+
+#scroll_menu_ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: var(--scroll-spy-background-color);
+
+  height: 7vh;
+  
+  align-items: center;
+
+}
+
+li.scroll_menu_li a {
+  color: var(--scroll-spy-menu-default-text-color);
+  width: 100%;
+  position: relative;
+}
+
+.scroll_menu_li > a {
+  text-align: center;
+  font-weight: bold;
+  font-size: var(--scroll-spy-menu-font-size);
+  text-decoration: none;
+  color: var(--scroll-spy-menu-default-text-color);
+  cursor: pointer;
+  padding: 11.5px;
+}
+
+li.scroll_menu_li:hover,
+a.scroll_menu_li_link:hover {
+  background: var(--scroll-spy-menu-hover-background-color);
+  color: var(--scroll-spy-menu-hover-text-color);
+}
+
+/*============구장 상세정보- branch-info-section========*/
+
+#branch-info-section {
+  background: var(--branch-info-section-background-color);
+}
+
+/*주제 타이틀*/
+#branch-name-info-box {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* 지점 이미지 박스 */
+#BRANCH_IMG {
+  position: relative;
+  width: 100%;
+  height: 46vh;
+  border-radius: 10px;
+}
+
+#branch-img-box {
+  padding: 0;
+}
+
+/* 지점 옵션 */
+.branch-options-group3 {
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.branch_option {
+  padding: 12px;
+  margin: 10px 11px;
+}
+
+.branch_option > img {
+  width: 80px;
+  height: 80px;
+}
+
+/*지점 상세정보 */
+#branch-detail-info-box,
+#stadium-detail-info-box {
+  background: #fff;
+}
+
+#stadium-detail-info-box {
+  padding: 20px;
+  border-radius: 20px;
+}
+
+#stadium-detail-info {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  text-align: left;
+  justify-content: space-between;
+}
+
+.stadium-detail-box {
+  margin: 13px;
+  display: flex;
+  flex-direction: row;
+}
+
+.stadium-detail-info-label-box {
+  flex-basis: 25%;
+  padding-left: 15px;
+}
+
+.stadium-detail-box > span,
+.open-close-times,
+.stadium-describe-box {
+  flex-basis: 75%;
+}
+
+label.stadium-detail-info-label {
+  font-size: 0.95em;
+  font-weight: bold;
+  padding-right: 32px;
+}
+
+#sns-website {
+  text-decoration-style: none;
+  color: black;
+  text-decoration: none;
+}
+
+#sns-website:hover {
+  color: var(--sns-website-link-hover-color);
+}
+
+.open-close-times > span:nth-child(2) {
+  padding-left: 13px;
+  padding-right: 13px;
+}
+
+/*=======이용안내 사항 - stadium-notice-info-section ========*/
+
+/* 이용규칙 */
+.stadium-notices {
+   background: #fff; 
+  /* padding: 20px; */
+  
+  border-radius: 20px;
+  text-align: left;
+}
+.stadium-notices-ul {
+  margin-left: 23px;
+}
+.stadium-notices-ul li {
+  padding: 13px 20px;
+}
+
+.stadium-notices-ul2 li {
+  font-size: small;
+}
+
+
+/*=======review section ===========*/
+
+#stadium-review-section{
+	margin-top: 50px;
+}
+
+/*=======예약 - stadium-reservation-section======== */
+
+/* 예약날짜를 선택하는 컨테이너 박스 */
+#reservation_date_select_box {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* 예약시간을 선택하는 컨테이너박스 */
+#reservation_time_select_box {
+  display: none;
+  /* 나중에 예약날짜를 클릭을 하게되면 
+  display를 block으로 변경하여
+  예약시간 선택박스가 나오도록한다. */
+}
+
+
+ /*
+  --buttonBackground: rgb(116, 227, 219);
+  --buttonText: #272929;
+  --buttonFontSize: 2.5em;
+  --buttonEffectBackground: #272929;
+  --buttonEffectText: rgb(76,227,219);
+ */
+/*예약버튼*/
+#reservation-btn-box{
+	text-align: center;
+}
+
+#reservationRegistBtn{
+	background: var(--buttonBackground);
+	width: 70%;
+	border: none;
+	color: var(--buttonText);
+	font-size: 1.5em;
+	margin: 25px auto;
+}
+
+
+@media screen and (max-width: 768px){
+	#reservationRegistBtn{
+		width: 100%;
+	}
+	
+}
+
+#reservationRegistBtn:hover, #reservationRegistBtn:active {
+	background: var(--buttonEffectBackground);
+	border: none;
+	color: var(--buttonEffectText);
+}
+
+/* ===============맨위로========================== */
+#go-to-top {
+	display: inline-block;
+  	position: fixed;
+  	bottom: 10px;
+  	right: 10px;
+  	z-index: 10;
+  	
+  	width: 50px;
+  	height: 50px;
+  	
+  	
+  	font-size: 2em;
+  	
+  	background: var(--top-btn-background);
+  	color: var(--top-btn-text);
+  	text-align:center;
+  	
+  	transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+  	visibility: hidden;
+  	opacity:0;
+  	
+  	cursor:pointer;
+  	border-radius:100%;
+  	
+}
+
+
+#go-to-top.go-top-show{
+	opacity:1;
+	visibility: visible;
+}
+
+/*= scroll spy ============================================*/
+#scroll-spy-menu{
+	transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+	visibility: hidden;
+	opacity:0;
+}
+
+#scroll-spy-menu.scroll-show{
+	opacity: 1;
+	visibility: visible;
+	overflow: hidden;
+	  z-index:1001;
+	
+}
