@@ -36,6 +36,7 @@
 >      - Java: Eclipse
 >      - Oracle: SQL-Developer
 >
+>  - 사용 디자인 패턴: **MVC 패턴**
 >
 >
 >>  ### 사용한 오픈 API
@@ -106,8 +107,6 @@
       
       - 예약 현황
         
-        
-  
   
 - ### **김용연**
   - 로그인 페이지
@@ -119,11 +118,44 @@
   
 - ### **하민재**
   - 예약페이지 UI : 달력
+  - [참고 블로그](https://medium.com/@wooder2050/%EB%B0%94%EB%8B%90%EB%9D%BC%EC%BD%94%EB%94%A9-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%A1%9C-%EB%8B%AC%EB%A0%A5-calendar-todo-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-f635ef8cce76)
 
 - ### **유정하**
-  - 메인페이지에 가장 최근 공지사항 게시글 5개 보여주기(BE: Servlet, Service, DAO)
+  - 메인페이지에 가장 최근 공지사항 게시글 5개 보여주기(BE: Service, DAO에서 일부 함수 구현)
 
-<br>
+
+<br><br>
+
+> ## 팀원별 구현코드
+
+- 최은강
+  - 공지사항 게시판
+    - [Board.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/model/vo/Board.java)
+    - [BoardAttachment.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/model/vo/BoardAttachment.java )
+    - [PageInfo.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/model/vo/PageInfo.java)
+    - [BoardService.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/model/service/BoardService.java )
+    - [BoardDAO.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/model/dao/BoardDAO.java)
+    - []()
+    - []()
+    - []()
+  
+
+
+- 정창섭
+
+- 정규동
+
+- 김용연
+
+- 하민재
+
+- 유정하
+  - 공지사항 게시판 - (BE: 일부기능 구현) 최근 5개 공지사항게시판 불러오기
+    - [BoardService.java 의 selectList()함수 구현](https://github.com/KHAcademyProject2020/Semi-Project/blob/d8c5d30cf869e4a2d080b0190b6e9a983192389d/02_UI%EA%B5%AC%ED%98%84/0910_%ED%86%B5%ED%95%A9%EC%BD%94%EB%93%9C/SEMI_GoodBall_CEK_ver02/src/board/model/service/BoardService.java#L62)
+    - [BoardDAO.java 의 selectList()함수 구현](https://github.com/KHAcademyProject2020/Semi-Project/blob/d8c5d30cf869e4a2d080b0190b6e9a983192389d/02_UI%EA%B5%AC%ED%98%84/0910_%ED%86%B5%ED%95%A9%EC%BD%94%EB%93%9C/SEMI_GoodBall_CEK_ver02/src/board/model/dao/BoardDAO.java#L231)
+
+
+<BR><BR>
 
 > ## 프로젝트 진행 계획
 
