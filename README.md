@@ -151,8 +151,13 @@
 
 - 유정하
   - 공지사항 게시판 - (BE: 일부기능 구현) 최근 5개 공지사항게시판 불러오기
-    - [BoardService.java 의 selectList()함수 구현](https://github.com/KHAcademyProject2020/Semi-Project/blob/d8c5d30cf869e4a2d080b0190b6e9a983192389d/02_UI%EA%B5%AC%ED%98%84/0910_%ED%86%B5%ED%95%A9%EC%BD%94%EB%93%9C/SEMI_GoodBall_CEK_ver02/src/board/model/service/BoardService.java#L62)
-    - [BoardDAO.java 의 selectList()함수 구현](https://github.com/KHAcademyProject2020/Semi-Project/blob/d8c5d30cf869e4a2d080b0190b6e9a983192389d/02_UI%EA%B5%AC%ED%98%84/0910_%ED%86%B5%ED%95%A9%EC%BD%94%EB%93%9C/SEMI_GoodBall_CEK_ver02/src/board/model/dao/BoardDAO.java#L231)
+    - BE
+      - java코드
+        - [BoardService.java 의 selectList()함수 구현](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/model/service/BoardService.java#L62)
+        - [BoardDAO.java 의 selectList()함수 구현](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/model/dao/BoardDAO.java#L231)
+      - SQL
+        - [showMainTop5 쿼리문 작성](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/sql/board/board-query.properties#L10)
+
 
 
 <BR><BR>
