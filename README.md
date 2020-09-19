@@ -44,6 +44,8 @@
 >  - BootStrap
 >  - 카카오 주소 찾기 API
 
+<br><br>
+
 > ## 프로젝트 기능 구현
 
 - ### **최은강**
@@ -128,16 +130,46 @@
 
 > ## 팀원별 구현코드
 
-- 최은강
-  - 공지사항 게시판
-    - [Board.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/model/vo/Board.java)
-    - [BoardAttachment.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/model/vo/BoardAttachment.java )
-    - [PageInfo.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/model/vo/PageInfo.java)
-    - [BoardService.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/model/service/BoardService.java )
-    - [BoardDAO.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/model/dao/BoardDAO.java)
-    - []()
-    - []()
-    - []()
+- ### 최은강
+  - #### Responsive Navigation UI
+    - Frontends (JSP, CSS)
+      - []()
+      - []()
+      
+  - #### Footer UI
+     
+      
+  - #### 메인페이지
+    - Frontends (JSP, CSS)
+      - [메인페이지 JSP](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/index.jsp)
+      - [메인페이지 CSS](./master/04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/css/index_main.css)
+      - [메인페이지 jQuery Code](https://github.com/KHAcademyProject2020/Semi-Project/blob/master/04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/js/index_main.js)
+    
+  - #### 공지사항 게시판
+    - Backends (Java)
+      - model
+        - [Board.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/model/vo/Board.java)
+        - [BoardAttachment.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/model/vo/BoardAttachment.java )
+        - [PageInfo.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/model/vo/PageInfo.java)
+        - [BoardService.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/model/service/BoardService.java )
+        - [BoardDAO.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/model/dao/BoardDAO.java)
+    
+      - controller(servlet)
+        - [BoardListServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/controller/BoardListServlet.java)
+        - [DeleteBoardServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/controller/DeleteBoardServlet.java)
+        - [DetailBoardServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/controller/DetailBoardServlet.java)
+        - [InsertBoardFormSerlvet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/controller/InsertBoardFormServlet.java)
+        - [InsertBoardServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/controller/InsertBoardServlet.java )
+        - [ShowBoardList.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/controller/ShowBoardList.java)
+        - [UpdateBoardFormServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/controller/UpdateBoardFormServlet.java)
+        - [UpdateBoardServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/controller/UpdateBoardServlet.java)
+        
+    - Frontends (View : JSP/ CSS/ Vanilla JS)
+      - []()
+      - []()
+        
+    
+    
   
 
 
