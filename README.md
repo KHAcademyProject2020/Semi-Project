@@ -213,43 +213,79 @@
     
   - #### 매치찾기
     - [Front-ends](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/match/)
-    - [Back-ends]()
+    - Back-ends
+      - 
 
 <br>
 
 - ### 정규동
+  - #### 공통
+    - [비밀번호 변경 BE](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/UpdatePassword.java)
+    - [MovedIndexServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/MovedIndexServlet.java)
+    
   - #### 마이페이지(일반회원)
     - [front-end](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/member/general/)
-    - [back-end]()
+    - back-end
+      - [GeneralBranchRegServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/GeneralBranchRegServlet.java)
+      - [GeneralPageServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/GeneralPageServlet.java)
+      - [GeneralTeamServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/GeneralTeamServlet.java)
+      - [General_GoMyPageStartServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/General_GoMyPageStartServlet.java)
+      - [GoMyPageServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/GoMyPageServlet.java)
       
   - #### 마이페이지(매니저회원)
     - [front-end](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/member/manager/)
-    - [back-end]()
+    - back-end
+      - [지점(Branch)](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/branch/)
+      - [ManagerBranchConServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/ManagerBranchConServlet.java)
+      - [ManagerBranchRegServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/ManagerBranchRegServlet.java)
+      - [ManagerDeleteServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/ManagerDeleteServlet.java)
+      - [ManagerPageServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/ManagerPageServlet.java)
+      - [ManagerPwdServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/ManagerPwdServlet.java)
+      - [ManagerReserveServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/ManagerReserveServlet.java)
+      - [ManagerUpdateServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/ManagerUpdateServlet.java)
+      - [Manager_GoMyPageStartServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/Manager_GoMyPageStartServlet.java)
+      
    
 <br>
 
 - ### 김용연
   - #### 로그인
-    - [로그인 FE]()
+    - [로그인 FE](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/member/loginForm.jsp)
+    - 로그인 BE
+      - [Login.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/Login.java)
+      - [Login2FormServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/Login2FormServlet.java)
+      - [LoginServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/LoginServlet.java)
+      - [LogoutServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/LogoutServlet.java)
+      
+      
   - #### 회원가입
     - [회원가입 FE](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/member/memberShipForm.jsp)
+    - 회원가입 BE
+      - [CheckEmailFormServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/CheckEmailFormServlet.java)
+      - [CheckEmailServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/CheckEmailServlet.java)
+      - [InsertServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/InsertServlet.java)
+    
     
   - #### 암호화
     - [암호화 필터 BE](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/filter/)
     - [암호화 wrapper BE](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/wrapper/)
     
   - #### 에러 메시지
-    - [에러메시지]()
+    - [에러메시지 FE](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/common/errorPage.jsp)
     
   - #### 아이디 찾기
     - [아이디찾기 FE](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/member/find_email.jsp)
     - [아이디 찾기 성공 결과화면](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/member/searchEmail.jsp)
-    - [아이디찾기 BE]()
+    - 아이디찾기 BE
+      - [FindEmail.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/FindEmail.java)
+      - [Find_email.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/Find_email.java)
     
   - #### 비밀번호 찾기
     - [비밀번호 찾기 FE](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/member/find_password.jsp)
     - [비밀번호 찾기 성공 결과화면](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/member/searchPassword.jsp)
-    - [비밀번호 찾기 BE]()
+    - 비밀번호 찾기 BE
+      - [FindPwd.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/FindPwd.java)
+      - [Find_pwd.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/member/controller/Find_pwd.java)
 
 <br>
 
