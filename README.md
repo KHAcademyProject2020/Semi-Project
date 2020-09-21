@@ -183,6 +183,10 @@
 
 
 - 정창섭
+  - 팀찾기
+    - 
+  - 구장예약
+  - 매치찾기
 
 - 정규동
 
@@ -225,60 +229,103 @@
 > ## 공지사항 게시판
 
 
-![](./imgs/공지사항_페이지.jpg)
+![](./imgs/noti.jpg)
 
 
 > ## 공지사항 상세 페이지(이미지 포함)
 
-![](./imgs/공지사항_상세글_이미지포함.jpg)
+![](./imgs/noti_detail_img.jpg)
 
-<br>
+<br><br>
 
 > ## 구장 예약 게시판
 
 
-![](./imgs/구장예약_페이지.png)
+![](./imgs/stadium.png)
 
+<br>
 
 >> ## 예약 상세 페이지
 
+<br>
 
-![](./imgs/구장예약_상세페이지.png)
+![](./imgs/stadium_detail.png)
 
+<br>
+
+>> ## 예약 상세페이지 - smoothe scrolling navigation bar(top fixed navigation bar)
+
+- 맨위로 올라가면 top fixed navigation bar가 사라짐
+- 마우스의 스크롤링의 위치에따라 따라서 부드럽게 나타나고 부드럽게 사라진다.
+
+![](./imgs/stadium_detail_scrolling.JPG)
+
+<br>
 
 >> ## 예약 시간 선택
 
 ![](./imgs/goodball_reservation.gif)
 
 
-<br>
+<br><br>
 
 > ## 매치 찾기 게시판
 
 
-![](./imgs/매치찾기_페이지.png)
-
-
-> ## 매치 상세 검색(modal)
-
-![](./imgs/매치상세검색_modal.JPG)
-
+![](./imgs/match.png)
 
 <br>
 
+> ## 매치 상세 검색(modal)
+
+![](./imgs/match_modal.JPG)
+
+
+<br><br>
+
 > ## 팀찾기 게시판
 
+![](./imgs/team.png)
 
-![](./imgs/team.jpg)
-
+<br>
 
 >> ## 팀 상세 게시판
 
+- 팀은 회원 한명당 총 세개의 팀만 가입이 가능하다.
+- 팀은 중복해서 지원할 수 없다.
 
-![](./imgs/team_detail.jpg)
+![](./imgs/team_detail.png)
 
+<br>
+
+- 팀장이 아니거나 비회원일 때 
+  - 팀장이 아닌 회원은 팀 정보, 용병 지원, 매치 신청 내역을 볼 수 없다.
+  
+<BR>   
+  
+![](./imgs/team_detail_not_manager.png)
+
+<br>
+
+![](./imgs/team_detail_not_manager_show_match.PNG)
+
+<BR>
+
+- 용병지원
+
+![](./imgs/team_enroll_member.PNG)
+
+
+- 팀장회원일 때
+
+
+
+
+<br><br>
 
 > ## RDBMS SQL
+
+- Contributors: **정창섭(@werty12123)**, **최은강(@loveAlakazam)**, **정규동(@JungKyuDong)**, **김용연(@kimyongyoen)**
 
 - [SQL 전체쿼리문](./04_FinalCodes/DB_SQL_FILE/GoodBall_Total_sql.sql)
 
