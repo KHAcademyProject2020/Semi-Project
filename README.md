@@ -519,14 +519,29 @@
 
 <br>
 
-- 동알한 계정으로 두번이상 중복해서 용병지원을 할 수 없다.
+- 동일한 계정으로 두번이상 중복해서 용병지원을 할 수 없다.
 
-![](./imgs/enroll_team_blocked_twice.png)
+![](./imgs/enroll_team_blocked_twice.PNG)
 
+<br><br>
 
+- ### 팀장회원일 때
 
-- 팀장회원일 때
+- 팀장은 상대팀으로부터 매치 신청을 볼수있고, 수락버튼을 누르면 매치가 성사된다.
 
+![](./imgs/team_manager_show_match.png)
+
+<br>
+
+- 팀에 가입한 사람들을 조회할 수있고, 수락/거절을 할 수 있다.
+
+![](./imgs/team_manager_join_member.png)
+
+<br>
+
+- 팀장은 팀의 멤버를 볼 수있다.
+
+![](./imgs/team_manager_show_team_member.png)
 
 
 
