@@ -184,34 +184,85 @@
       - [boardWriter.css](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/css/boardWriter.css)
       
       
-  - #### 예약 UI (Frontend - review UI 를 제외한 나머지)
+  - 예약 UI (Frontend - review UI 를 제외한 나머지)
     - Frontends (View: JSP/ CSS/ Vanilla JS)
-      - []()
+      - [예약페이지 (리뷰제외) -UI](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/reservation/GB_frame_reservation.jsp)
+      - [리뷰별점 수정]()
+      
       - [stadium_reservation.css](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/css/stadium_reservation.css)
       - [time_slider.css](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/css/time_slider.css)
   
+  
+<br>
 
-
-- 정창섭
-  - 팀찾기
-    - 
-  - 구장예약
-    - Front-ends
-      - []()
-    - Back-ends
+- ### 정창섭
+  - #### 팀 찾기 게시판
+    - [team-Front-ends](./Semi-Project/tree/master/04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/team/)
+    - [team-Back-ends](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/team/)
     
-  - 매치찾기
+  - #### 구장 예약 게시판
+    - [Front-ends](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/stadium/)
+    - [Back-ends](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/reservation/)
+    
+    - #### 구장 상세페이지
+      - [review- FE](https://github.com/KHAcademyProject2020/Semi-Project/blob/master/04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/reservation/GB_frame_reservation.jsp#L714-L764)
+      
+      - [review- AJAX](https://github.com/KHAcademyProject2020/Semi-Project/blob/master/04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/reservation/GB_frame_reservation.jsp#L1273-L1452)
+      - []()
+      - []()
+    
+  - #### 매치찾기
+    - [Front-ends](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/match/)
+    - [Back-ends]()
 
-- 정규동
+<br>
 
-- 김용연
+- ### 정규동
+  - #### 마이페이지(일반회원)
+    - [front-end](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/member/general/)
+    - [back-end]()
+      
+  - #### 마이페이지(매니저회원)
+    - [front-end](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/member/manager/)
+    - [back-end]()
+   
+<br>
 
-- 하민재
-  - [calendar.css](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/css/calendar.css)
-  - [calendar.js](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/js/calendar.js)
+- ### 김용연
+  - #### 로그인
+    - [로그인 FE]()
+  - #### 회원가입
+    - [회원가입 FE](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/member/memberShipForm.jsp)
+    
+  - #### 암호화
+    - [암호화 필터 BE](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/filter/)
+    - [암호화 wrapper BE](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/wrapper/)
+    
+  - #### 에러 메시지
+    - [에러메시지]()
+    
+  - #### 아이디 찾기
+    - [아이디찾기 FE](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/member/find_email.jsp)
+    - [아이디 찾기 성공 결과화면](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/member/searchEmail.jsp)
+    - [아이디찾기 BE]()
+    
+  - #### 비밀번호 찾기
+    - [비밀번호 찾기 FE](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/member/find_password.jsp)
+    - [비밀번호 찾기 성공 결과화면](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/member/searchPassword.jsp)
+    - [비밀번호 찾기 BE]()
 
-- 유정하
-  - 공지사항 게시판 - (BE: 일부기능 구현) 최근 5개 공지사항게시판 불러오기
+<br>
+
+- ### 하민재
+  - #### Calendar UI
+    - [calendar.css](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/css/calendar.css)
+    - [calendar.js](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/js/calendar.js)
+
+
+<br>
+
+- ### 유정하
+  - #### 공지사항 게시판 - (BE: 일부기능 구현) 최근 5개 공지사항게시판 불러오기
     - BE
       - java코드
         - [BoardService.java 의 selectList()함수 구현](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/model/service/BoardService.java#L62)
@@ -226,7 +277,7 @@
 
 > ## 메인화면
 
-![](./imgs/mainpage_login.jpg)
+![](./imgs/mainpage_login.png)
 
 <br>
 
@@ -327,6 +378,12 @@
 
 
 ![](./imgs/stadium.png)
+
+<br>
+
+>> ## 구장 상세 검색
+
+![](./imgs/stadium_search.PNG)
 
 <br>
 
