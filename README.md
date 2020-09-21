@@ -174,11 +174,21 @@
         - [UpdateBoardServlet.java](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/src/board/controller/UpdateBoardServlet.java)
         
     - Frontends (View : JSP/ CSS/ Vanilla JS)
-      - []()
-      - []()
+      - [boardDetail.jsp](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/board/boardDetail.jsp)
+      - [boardList.jsp](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/board/boardList.jsp)
+      - [boardUpdateForm](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/board/boardUpdateForm.jsp)
+      - [boardWriter](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/board/boardWriter.jsp)
+      
+      - [boardDetail.css](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/css/boardDetail.css)
+      - [boardList.css](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/css/boardList.css)
+      - [boardWriter.css](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/css/boardWriter.css)
       
       
   - #### 예약 UI (Frontend - review UI 를 제외한 나머지)
+    - Frontends (View: JSP/ CSS/ Vanilla JS)
+      - []()
+      - [stadium_reservation.css](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/css/stadium_reservation.css)
+      - [time_slider.css](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/css/time_slider.css)
   
 
 
@@ -186,6 +196,10 @@
   - 팀찾기
     - 
   - 구장예약
+    - Front-ends
+      - []()
+    - Back-ends
+    
   - 매치찾기
 
 - 정규동
@@ -193,6 +207,8 @@
 - 김용연
 
 - 하민재
+  - [calendar.css](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/css/calendar.css)
+  - [calendar.js](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/js/calendar.js)
 
 - 유정하
   - 공지사항 게시판 - (BE: 일부기능 구현) 최근 5개 공지사항게시판 불러오기
@@ -210,31 +226,100 @@
 
 > ## 메인화면
 
-![](./imgs/main.jpg)
+![](./imgs/mainpage_login.jpg)
 
 <br>
 
 > ## 마이페이지
->> ## 일반회원 
+>> ## 공통
 
-![](./imgs/mypage_general.jpg)
+- 회원정보 수정
+
+![](./imgs/mypage_member_edit_info.png)
 
 <br>
 
+- 회원탈퇴
+
+![](./imgs/mypage_member_withdraw.png)
+
+<br>
+
+
+
+>> ## 일반회원 
+
+- 소속팀 (최대 3개)
+
+![](./imgs/mypage_general_myteam.png)
+
+<br>
+
+- 구장 예약(입금) 현황
+
+![](./imgs/mypage_general_reservation.png)
+
+<br><br>
+
 >> ## 매니저 회원
 
-![](./imgs/mypage_manager.jpg)
+- 이해를 위한 팁
+  - 지점이 구장보다 더 큰 단위입니다.
+  - 지점 하나 당 여러개 구장을 가질 수 있습니다..
+
+<BR>
+
+- 등록된 지점/구장 조회
+
+![](./imgs/mypage_manager_enrolled_branches.png)
+
+<BR>
+
+- 지점 등록하기
+
+![](./imgs/mypage_manager_enroll_branch.png)
 
 
 > ## 공지사항 게시판
 
 
-![](./imgs/noti.jpg)
+![](./imgs/noti.png)
 
 
 > ## 공지사항 상세 페이지(이미지 포함)
 
-![](./imgs/noti_detail_img.jpg)
+
+![](./imgs/noti_detail_img.png)
+
+<br>
+
+- 이해를 위한 팁
+  - 회원유형은 총 3 종류입니다.
+    - 일반회원(G)
+    - 매니저회원(M)
+    - 관리자회원(R)
+  - 공지사항 게시글의 작성/수정/삭제은 관리자회원만 가능합니다.
+
+- ### 공지사항 게시판(관리자회원)
+
+![](./imgs/noti_admin.png)
+
+<BR>  
+  
+- 공지사항 등록
+
+![](./imgs/noti_insert.png)
+
+<BR>
+
+![](./imgs/noti_insert_fullscreen.png)
+
+<br>
+
+- 공지사항 상세페이지
+
+![](./imgs/noti_detail_admin.png)
+
 
 <br><br>
 
@@ -314,6 +399,13 @@
 - 용병지원
 
 ![](./imgs/team_enroll_member.PNG)
+
+<br>
+
+- 동알한 계정으로 두번이상 중복해서 용병지원을 할 수 없다.
+
+![](./imgs/enroll_team_blocked_twice.png)
+
 
 
 - 팀장회원일 때
