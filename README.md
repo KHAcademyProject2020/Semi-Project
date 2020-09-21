@@ -249,7 +249,11 @@
 
 <br>
 
->> ## 예약 상세페이지 - smoothe scrolling navigation bar
+>> ## 예약 상세페이지 - smoothe scrolling navigation bar(top fixed navigation bar)
+
+- 맨위로 올라가면 top fixed navigation bar가 사라짐
+- 마우스의 스크롤링의 위치에따라 따라서 부드럽게 나타나고 부드럽게 사라진다.
+
 ![](./imgs/stadium_detail_scrolling.JPG)
 
 <br>
