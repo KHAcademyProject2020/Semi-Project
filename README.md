@@ -132,17 +132,27 @@
 - ### 최은강
   - #### Responsive Navigation UI
     - Frontends (JSP, CSS)
-      - []()
-      - []()
+      - [공통 네비게이션 - navbar.jsp](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/common/navbar.jsp)
+      
+      - [공통 네비게이션 - navbar_css.css ](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/css/navbar_css.css)
+      
+      - [공통 네이게이션 - navbar.js](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/js/navbar_js.js)
+      
+      
       
   - #### Footer UI
-     
+    - Frontends (JSP, CSS)
+      - [공통 footer - footer.jsp](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/WEB-INF/views/common/footer.jsp)
+      - [공통 footer- footer.css](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/css/navbar_css.css)
+      
+      
       
   - #### 메인페이지
     - Frontends (JSP, CSS)
       - [메인페이지 JSP](./04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/index.jsp)
       - [메인페이지 CSS](./master/04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/css/index_main.css)
       - [메인페이지 jQuery Code](https://github.com/KHAcademyProject2020/Semi-Project/blob/master/04_FinalCodes/PROJECT_Codes/SEMI_GoodBall_CEK_ver02/WebContent/resources/js/index_main.js)
+      
     
   - #### 공지사항 게시판
     - Backends (Java)
@@ -166,9 +176,9 @@
     - Frontends (View : JSP/ CSS/ Vanilla JS)
       - []()
       - []()
-        
-    
-    
+      
+      
+  - #### 예약 UI (Frontend - review UI 를 제외한 나머지)
   
 
 
@@ -215,16 +225,25 @@
 > ## 공지사항 게시판
 
 
-![](./imgs/notices.jpg)
+![](./imgs/공지사항_페이지.jpg)
+
+
+> ## 공지사항 상세 페이지(이미지 포함)
+
+![](./imgs/공지사항_상세글_이미지포함.jpg)
 
 <br>
 
 > ## 구장 예약 게시판
 
 
-![](./imgs/stadium.jpg)
+![](./imgs/구장예약페이지.png)
 
->> ## 예약 상세 게시판
+
+>> ## 예약 상세 페이지
+
+
+![](./imgs/구장예약_상세페이지.png)
 
 
 >> ## 예약 시간 선택
@@ -237,7 +256,12 @@
 > ## 매치 찾기 게시판
 
 
-![](./imgs/match.jpg)
+![](./imgs/매치찾기_페이지.png)
+
+
+> ## 매치 상세 검색(modal)
+
+![](./imgs/매치상세검색_modal.JPG)
 
 
 <br>
@@ -253,6 +277,10 @@
 
 ![](./imgs/team_detail.jpg)
 
+
+> ## RDBMS SQL
+
+- [SQL 전체쿼리문](./04_FinalCodes/DB_SQL_FILE/GoodBall_Total_sql.sql)
 
 
 <br>
