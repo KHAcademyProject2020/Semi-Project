@@ -225,58 +225,67 @@
 > ## 공지사항 게시판
 
 
-![](./imgs/공지사항_페이지.jpg)
+![](./imgs/noti.jpg)
 
 
 > ## 공지사항 상세 페이지(이미지 포함)
 
-![](./imgs/공지사항_상세글_이미지포함.jpg)
+![](./imgs/noti_detail_img.jpg)
 
-<br>
+<br><br>
 
 > ## 구장 예약 게시판
 
 
-![](./imgs/구장예약_페이지.png)
+![](./imgs/stadium.png)
 
+<br>
 
 >> ## 예약 상세 페이지
 
+<br>
 
-![](./imgs/구장예약_상세페이지.png)
+![](./imgs/stadium_detail.png)
 
+<br>
+
+>> ## 예약 상세페이지 - smoothe scrolling navigation bar
+![](./imgs/stadium_detail_scrolling.JPG)
+
+<br>
 
 >> ## 예약 시간 선택
 
 ![](./imgs/goodball_reservation.gif)
 
 
-<br>
+<br><br>
 
 > ## 매치 찾기 게시판
 
 
-![](./imgs/매치찾기_페이지.png)
-
-
-> ## 매치 상세 검색(modal)
-
-![](./imgs/매치상세검색_modal.JPG)
-
+![](./imgs/match.png)
 
 <br>
 
-> ## 팀찾기 게시판
+> ## 매치 상세 검색(modal)
 
+![](./imgs/match_modal.JPG)
+
+
+<br><br>
+
+> ## 팀찾기 게시판
 
 ![](./imgs/team.jpg)
 
+<br>
 
 >> ## 팀 상세 게시판
 
-
 ![](./imgs/team_detail.jpg)
 
+<br><br>
 
 > ## RDBMS SQL
 
