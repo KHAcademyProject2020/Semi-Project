@@ -183,6 +183,10 @@
 
 
 - 정창섭
+  - 팀찾기
+    - 
+  - 구장예약
+  - 매치찾기
 
 - 정규동
 
@@ -281,17 +285,47 @@
 
 > ## 팀찾기 게시판
 
-![](./imgs/team.jpg)
+![](./imgs/team.png)
 
 <br>
 
 >> ## 팀 상세 게시판
 
-![](./imgs/team_detail.jpg)
+- 팀은 회원 한명당 총 세개의 팀만 가입이 가능하다.
+- 팀은 중복해서 지원할 수 없다.
+
+![](./imgs/team_detail.png)
+
+<br>
+
+- 팀장이 아니거나 비회원일 때 
+  - 팀장이 아닌 회원은 팀 정보, 용병 지원, 매치 신청 내역을 볼 수 없다.
+  
+<BR>   
+  
+![](./imgs/team_detail_not_manager.png)
+
+<br>
+
+![](./imgs/team_detail_not_manager_show_match.PNG)
+
+<BR>
+
+- 용병지원
+
+![](./imgs/team_enroll_member.PNG)
+
+
+- 팀장회원일 때
+
+
+
 
 <br><br>
 
 > ## RDBMS SQL
+
+- Contributors: **정창섭(@werty12123)**, **최은강(@loveAlakazam)**, **정규동(@JungKyuDong)**, **김용연(@kimyongyoen)**
 
 - [SQL 전체쿼리문](./04_FinalCodes/DB_SQL_FILE/GoodBall_Total_sql.sql)
 
